@@ -1,14 +1,19 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
   
-  header {
-    /*background-color: #f0f0f0;  Set your desired background color */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  h1 {
-    margin: 0;
-  }
+header {
+  /*background-color: #f0f0f0;  Set your desired background color */
+  padding: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+li {
+  display: inline-block; /* Optional: Display list items horizontally */
+  margin-right: 15px;    /* Optional: Add space between list items */
+}

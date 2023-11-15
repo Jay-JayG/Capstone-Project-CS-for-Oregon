@@ -1,5 +1,6 @@
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
+import BannerImage from './BannerImage.jsx';
 import './styles.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   return(
     <>
       <Header/>
+      <BannerImage />
       <Footer/>
     </>
   );
