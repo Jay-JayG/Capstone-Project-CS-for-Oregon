@@ -4,7 +4,7 @@ function BannerImage(){
     
     return (
         <div>
-            <img src={banner} alt="banner" />
+            <img className="banner-image" src={banner} alt="banner" />
         </div>
     );
 };
