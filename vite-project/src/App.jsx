@@ -3,6 +3,7 @@ import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import Home from './Home.jsx';
 import About from './About.jsx';
+import Admin from './Admin.jsx';
 import './styles.css';
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/About" element={<About />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/About' element={<About />} />
+          <Route path='/Admin' element={<Admin />} />
         </Routes>
       </BrowserRouter>
       <Footer />
