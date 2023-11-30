@@ -27,6 +27,37 @@ app.get('/getGrade/:id', async (req, res) => {
     }
 });
 
+app.put('/updateGrades/:id', async (req, res) => {
+    try {
+
+        console.log('Received Request Body:', req.body);
+
+        const { id } = req.params;
+
+        if (
+            !req.body.student_id ||
+            !req.body.scores ||
+            !req.body.class_id
+        ) {
+            return res.status(400).send({ message: "Send all required fields" });
+        }
+
+        // { new: true } This option ensures that the updated document is returned after the updating document.
+        const result = await gradesModel.findByIdAndUpdate(id, req.body, { new: true });
+
+        if (!result) {
+            return res.status(404).json({ message: 'Grade not found' });
+        }
+
+        return res.status(200).send({ message: 'Grade Updated Successfully' });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ message: error.message });
+    }
+});
+
+
 app.get('/getGrades', async (req, res) => {
     try {
         console.log("Hello World!");

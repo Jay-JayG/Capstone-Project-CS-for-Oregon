@@ -6,7 +6,7 @@ const gradesSchema = new mongoose.Schema(
     scores: [
         {
             type: { type: String },
-            scores: { type: Number }
+            score: { type: Number }
         }
     ],
     class_id: { type: Number }
