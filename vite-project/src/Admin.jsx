@@ -1,11 +1,13 @@
-import Login_fourm from './Login_fourm.jsx';
+import Login_form from './Login_form.jsx';
+import GetGrades from './GetGrades.jsx';
 
 function Admin(){
 
     return (
         <>
             <p>Admin Login</p>
-            <Login_fourm />
+            <Login_form />
+            <GetGrades />
         </>
     );
 
