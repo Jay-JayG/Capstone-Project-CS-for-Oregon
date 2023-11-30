@@ -9,6 +9,24 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/getGrade/:id', async (req, res) => {
+    try {
+        
+        const { id } = req.params;
+
+        const grade = await gradesModel.findById(id)
+
+        if (!grade) {
+            return res.statusCode(404).json({ message : 'Grade not found' });
+        }
+
+        return res.status(200).json({grade});
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message})
+    }
+});
+
 app.get('/getGrades', async (req, res) => {
     try {
         console.log("Hello World!");
@@ -26,7 +44,7 @@ app.get('/getGrades', async (req, res) => {
     }
 });
 
-app.post("/postGrades", async (req, res) => {
+app.post('/postGrades', async (req, res) => {
     try {
         if (
             !req.body.student_id ||
