@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const gradesSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+const gradesSchema = new mongoose.Schema(
+    {
     student_id: { type: Number },
     scores: [
         {
@@ -10,10 +10,11 @@ const gradesSchema = new mongoose.Schema({
         }
     ],
     class_id: { type: Number }
-},
-{
-    timestamps: true,
-});
+    },
+    {
+        timestamps: true,
+    }
+);
 
 const gradesModel = mongoose.model("grades", gradesSchema);
 export default gradesModel;
