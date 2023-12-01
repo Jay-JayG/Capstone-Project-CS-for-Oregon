@@ -100,6 +100,24 @@ app.post('/postGrades', async (req, res) => {
     }
 });
 
+app.delete('/deleteGrade/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const result = await gradesModel.findByIdAndDelete(id);
+
+        if (!result) {
+            return res.status(404).json({ message: 'Item not found'});
+        }
+
+        return res.status(200).send({ message: 'Item deleted successfully'});
+
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ message: error.message });
+    }
+});
+
 app.use('*', (req, res) => res.status(404).json({ error: 'not found'}));
 
 mongoose
