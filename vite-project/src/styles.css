@@ -77,8 +77,14 @@ li {
 
 .container {
   display: flex;
-  align-items: center;
-  margin-top: 80px;
+  justify-content: space-between;  /* Distributes the items evenly along the container */
 }
 
+.context {
+  width: 48%;  /* Adjust the width as needed */
+}
+
+.stats {
+  width: 48%;  /* Adjust the width as needed */
+}
 
