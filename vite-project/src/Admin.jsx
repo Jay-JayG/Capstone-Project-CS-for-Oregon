@@ -5,7 +5,6 @@ function Admin(){
 
     return (
         <>
-            <p>Admin Login</p>
             <Login_form />
             <GetGrades />
         </>

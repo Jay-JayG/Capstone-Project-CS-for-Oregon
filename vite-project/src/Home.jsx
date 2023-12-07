@@ -1,6 +1,7 @@
 import React from 'react';
 import BannerImage from './BannerImage.jsx';
 import ThumbnailImage from './ThumbnailImage.jsx';
+import SubHeading from './SubHeading.jsx';
 
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
         <>
             <BannerImage />
             <ThumbnailImage />
+            <SubHeading />
         </>
     );
 }
