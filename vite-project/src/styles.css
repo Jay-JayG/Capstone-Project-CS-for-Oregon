@@ -48,13 +48,15 @@ li {
   fontSize: 20px;         /* Sets the font size */
 }
 
+.thumbnail-container {
+  width: 30%; /* Adjust the width as needed */
+  margin-left: 20px; /* Add margin between the two containers */
+}
+
 .thumbnail-image {
-  float: right;
-  margin-right: 30px;
-  width: 45%; 
+  width: 100%;
   height: auto;
-  border: 4px solid #C4DACD; /* Adds a blue border */
-  
+  border: 4px solid #C4DACD;
 }
 
 .textbox-home {
@@ -74,12 +76,9 @@ li {
 }
 
 .container {
+  display: flex;
+  align-items: center;
   margin-top: 80px;
-  
-  
-   /* Enables Flexbox layout */
-  align-items: center; /* Vertically centers the items */
-  /* Add more styling as needed */
 }
 
 

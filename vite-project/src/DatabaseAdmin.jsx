@@ -1,53 +1,50 @@
-import React, { useEffect, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import CreateItem from './pages/CreateItem.jsx';
-import GetAll from './pages/GetAll.jsx';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-function DatabaseAdmin() {
-    const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        setLoading(true);
-        axios
-        .get('http://localhost:3001/grades')
-        .then((res) => {
-            console.log("Data from server:", res.data);
-            setItems(res.data);
-            setLoading(false);
-        })
-        .catch((error) => {
-            console.log(error);
-            setLoading(false);
-        });
-    }, []);
-    return (
-        <>
-          <h2>DatabaseAdmin</h2>
-          <h2>Items list</h2>
-    
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <div className="App">
-                <div className="gradesDisplay">
-                    {items.map((item, index) => (
-                    <div key={index}>
-                        <h1>Student Id: {item.student_id}</h1>
-                        <h1>Class Id: {item.class_id}</h1>
-                        <h1>Exam Score: {item.scores[0].score}</h1>
-                    </div>
-                    ))}
-                </div>
-            </div>
-          )}
-    
-          <Routes>
-            <Route path='/' element={<CreateItem />} />
-            <Route path='/' element={<GetAll />} />
-          </Routes>
-        </>
-    );
-}
-    
-export default DatabaseAdmin;
+const GradeForm = () => {
+  const [studentId, setStudentId] = useState('');
+  const [scores, setScores] = useState('');
+  const [classId, setClassId] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3001/grades', {
+        student_id: studentId,
+        scores: scores,
+        class_id: classId,
+      });
+
+      console.log(response.data); // Log the response from the server
+
+      // Add any additional logic you want after successfully posting the data
+
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Add a New Grade</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Student ID:</label>
+          <input type="text" value={studentId} onChange={(e) => setStudentId(e.target.value)} />
+        </div>
+        <div>
+          <label>Scores:</label>
+          <input type="text" value={scores} onChange={(e) => setScores(e.target.value)} />
+        </div>
+        <div>
+          <label>Class ID:</label>
+          <input type="text" value={classId} onChange={(e) => setClassId(e.target.value)} />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default GradeForm;
