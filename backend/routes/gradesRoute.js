@@ -71,13 +71,6 @@ router.get('/', async (req, res) => {
 //Create and post item to database
 router.post('/', async (req, res) => {
     try {
-        if (
-            !req.body.student_id ||
-            !req.body.scores ||
-            !req.body.class_id
-        )   {
-                return res.status(400).send({ message: "Send all required files"});
-            }
 
         const newGrade = {
             student_id: req.body.student_id,
@@ -90,7 +83,7 @@ router.post('/', async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        response.status(500).send({ message: error.message });
+        res.status(500).send({ message: error.message });
     }
 });
 //Delete item fro database
