@@ -3,7 +3,7 @@
 function SubHeading(){
     
     return (
-        <h2>WHY CS?</h2>
+        <h2>Equity First!</h2>
     );
 
 };

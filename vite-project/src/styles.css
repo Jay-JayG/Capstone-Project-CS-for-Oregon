@@ -124,10 +124,43 @@ li {
 }
 
 .context {
-  width: 48%;  /* Adjust the width as needed */
+  width: 48%;
 }
 
+.context-stats {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  color: #270F5A;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 .stats {
-  width: 48%;  /* Adjust the width as needed */
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  color: #270F5A;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.context {
+  color: #270F5A;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
