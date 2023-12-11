@@ -118,40 +118,46 @@ li {
   
 }
 
-.container {
+.ContextStats {
   display: flex;
-  justify-content: space-between;  /* Distributes the items evenly along the container */
+  justify-content: center;
+  margin: 2%;
 }
 
-.context {
-  width: 48%;
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid #C4DACD;
+  padding: 1%;
 }
 
-.context-stats {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: stretch;
+.context-container {
+  max-width: 50%;
+  background-color: #C4DACD;
+  padding: 1%;
+}
+
+.Stats-heading {
   color: #270F5A;
-  text-decoration: none;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 25px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
+
 .stats {
   display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: stretch;
   color: #270F5A;
-  text-decoration: none;
   font-family: Montserrat;
-  font-size: 15px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.stat-text {
+  padding: 10px;
 }
 
 .context {
@@ -162,5 +168,24 @@ li {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-left: 0;
+  padding-left: 0;
 }
 
+.stat-number {
+  font-size: 40px;
+  line-height: normal;
+  border-bottom-style: solid;
+}
+
+.SubHeading {
+  display: flex;
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 2%;
+  margin-left: 1%;
+}

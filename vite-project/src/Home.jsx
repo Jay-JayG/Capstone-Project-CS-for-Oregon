@@ -2,8 +2,8 @@ import React from 'react';
 import BannerImage from './BannerImage.jsx';
 import ThumbnailImage from './ThumbnailImage.jsx';
 import SubHeading from './SubHeading.jsx';
-import ContextStats from './ContextStats.jsx';
-
+import ContextStats from './ContextText.jsx';
+import StatsText from './StatsText.jsx';
 
 function Home() {
     return(
@@ -11,7 +11,11 @@ function Home() {
             <BannerImage />
             <ThumbnailImage />
             <SubHeading />
-            <ContextStats />
+            <div className='ContextStats'>
+                <ContextStats />
+                <StatsText />
+            </div>
+            
         </>
     );
 }
