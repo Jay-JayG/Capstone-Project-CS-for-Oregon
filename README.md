@@ -2,25 +2,24 @@
 
 
 ## Starting Locally
-To start the project locally, follow these steps:
 
-Open the Project in an Editor: 
-Open the project code in a text editor, such as Visual Studio Code. Download it from https://code.visualstudio.com/Download.
+Starting Locally
+To start the project on your local machine, follow these detailed steps:
 
-Access the Terminal: 
-Open two terminal windows within your editor. This can usually be done from the taskbar or menu.
+Open the Project in an Editor: Open the project code in a text editor, such as Visual Studio Code, which you can download from here.https://code.visualstudio.com/Download
 
-Check Project Files: 
-Type ls in the terminal and press Enter to list the files in the project directory.
+Access the Terminal: Open two terminal windows within your editor. This can usually be done from the taskbar or menu at the top.
+
+Check Project Files: In the terminal, type ls and press Enter. This will list the files in your project directory. You should see files like README.md, frontend, vite-project, etc.
 
 Start the Backend:
-In the first terminal, type cd backend and press Enter.
-Then, type npm run dev and press Enter.
+In the first terminal, type cd backend and press Enter to move into the backend folder.
+Then, type npm run dev and press Enter. You've now started the backend.
 
 Start the Frontend:
 In the second terminal, type cd vite-project and press Enter.
-Type npm run dev and press Enter.
-Copy the http://localhost:... URL and paste it into your browser.
+Then, type npm run dev and press Enter. Look for a line saying Local: http://localhost:5173/ (the number might be different).
+Copy the http://localhost:... URL and paste it into your preferred web browser.
 
 ## Installation and Use
 Clone the Repository:
