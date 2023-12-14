@@ -11,7 +11,6 @@ function Home() {
     return(
         <>
             <BannerImage />
-            <ThumbnailImage />
             <FirstSection />
             <SecondSection />
             <SubHeading />
