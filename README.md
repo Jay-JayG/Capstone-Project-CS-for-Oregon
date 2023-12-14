@@ -49,16 +49,16 @@ Project Documentation: https://docs.google.com/document/d/1jPH2BLjWqkPrfQq_SVOv-
 
 Figma Design Page: https://www.figma.com/file/Jdgj2GWQNKXp5qGoYAYQua/CS_for_Oregon
 
-Deploying on Different Hardware Platforms
-- Windows
+## Deploying on Different Hardware Platforms
+- Windows: 
 Open Command Prompt or PowerShell: Search for these applications in the Start menu.
 Navigate to the Project Directory: Use cd [path-to-project].
 Follow 'Installation and Use' Steps: Refer to the instructions above.
-- macOS
+- macOS:
 Open Terminal: Located in Applications under Utilities.
 Navigate to the Project Directory: Use cd [path-to-project].
 Follow 'Installation and Use' Steps: Execute the commands from the instructions above.
-- Linux
+- Linux:
 Open Terminal: Use the terminal shortcut or find it in the applications menu.
 Navigate to the Project Directory: Use cd [path-to-project].
 Follow 'Installation and Use' Steps: Execute the commands as detailed above.
