@@ -6,6 +6,7 @@ import StatsText from './StatsText.jsx';
 import FirstSection from './FirstSection.jsx'
 import SecondSection from './SecondSection.jsx';
 import SectionFour from './SectionFour.jsx';
+import SectionFive from './SectionFive.jsx';
 
 function Home() {
     return(
@@ -19,6 +20,7 @@ function Home() {
                 <StatsText />
             </div>
             <SectionFour />
+            <SectionFive />
         </>
     );
 }
