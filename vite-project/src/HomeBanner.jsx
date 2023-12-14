@@ -20,9 +20,6 @@ function HomeBanner() {
                     Sign Up
                 </p>
             </div>
-            <div style={{ color: 'grey', fontSize: '36px', fontWeight: '300' }} className="centered-text">
-                Sample Text
-            </div>
         </div>
     );
 }

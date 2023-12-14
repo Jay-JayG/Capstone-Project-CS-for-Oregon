@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeBanner from './HomeBanner.jsx';
-import ThumbnailImage from './ThumbnailImage.jsx';
 import SubHeading from './SubHeading.jsx';
 import ContextStats from './ContextText.jsx';
 import StatsText from './StatsText.jsx';
