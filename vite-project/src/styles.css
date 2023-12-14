@@ -14,6 +14,19 @@ header {
   text-align: center;
 }
 
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  position: relative;
+  width: 100%;
+  height: 367px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
 h1 {
   margin: 0;
 }
@@ -42,24 +55,38 @@ li {
 }
 
 
-.navLink {
+.navLink{
   color: #1D5846;         /* Sets the text color */
-  textDecoration: none;   /* Removes the underline */
-  fontSize: 20px;         /* Sets the font size */
+  text-decoration: none;   /* Removes the underline */
+  font-size: 20px;         /* Sets the font size */
+}
+
+.thumbnail-container {
+  width: 30%; /* Adjust the width as needed */
+  margin-left: 20px; /* Add margin between the two containers */
 }
 
 .thumbnail-image {
-  float: right;
-  margin-right: 30px;
-  width: 45%; 
+  width: 100%;
   height: auto;
   border: 4px solid #C4DACD; /* Adds a blue border */
   
 }
 
+.logo-image {
+  float: left;
+  margin-left: 30px;
+  width: 15%; 
+  height: auto;
+  
+ 
+  border: 4px solid #C4DACD;
+}
+
 .textbox-home {
   float: left;
   margin-left: 80px;
+  margin-bottom: 80px;
   width: 30%; 
   height: auto;
   border: 4px solid #C4DACD; /* Adds a blue border */
@@ -73,13 +100,92 @@ li {
 
 }
 
-.container {
-  margin-top: 80px;
+.footer-textbox {
+  color: #270F5A;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  justify-content: 'center'
   
+}
+.top-right-div {
+  position: absolute;
+  top: 0; /* Align to the top */
+  right: 0; /* Align to the right */
   
-   /* Enables Flexbox layout */
-  align-items: center; /* Vertically centers the items */
-  /* Add more styling as needed */
 }
 
+.ContextStats {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
 
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  border: 4px solid #C4DACD;
+  padding: 1%;
+}
+
+.context-container {
+  max-width: 50%;
+  background-color: #C4DACD;
+  padding: 1%;
+}
+
+.Stats-heading {
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.stats {
+  display: flex;
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.stat-text {
+  padding: 10px;
+}
+
+.context {
+  color: #270F5A;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.stat-number {
+  font-size: 40px;
+  line-height: normal;
+  border-bottom-style: solid;
+}
+
+.SubHeading {
+  display: flex;
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 2%;
+  margin-left: 1%;
+}
