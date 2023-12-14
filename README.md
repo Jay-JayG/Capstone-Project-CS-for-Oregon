@@ -1,5 +1,10 @@
 # Capstone-Project-CS-for-Oregon
 
+
+## Starting locally:
+To start the project locally, open the code in your editor and open 2 terminals. Your taskbar should have the option to open a terminal. Once in a terminal type ls. This should show you the files in the project. You should see README.md, frontend, What will be on the site.pdf, vite-project, and backend. To run the program locally, in your first terminal you should type "cd backend" (without quotes). You are now in the backend folder. Here you should type "npm run dev" (without quotes of corse). Congradulations! You have now started the backend. Now switch over to your second terminal. Type "cd vite-project". Now type "npm run dev". You should see a line that says Local:   http://localhost:5173/ (with some variation of numbers). Copy that line of text starting from the http line and paste it into your browser or choice. You now have access to the working app!
+
+
 ## Instalation and use
 
 
