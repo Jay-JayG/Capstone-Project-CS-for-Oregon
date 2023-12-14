@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerImage from './BannerImage.jsx';
+import HomeBanner from './HomeBanner.jsx';
 import ThumbnailImage from './ThumbnailImage.jsx';
 import SubHeading from './SubHeading.jsx';
 import ContextStats from './ContextStats.jsx';
@@ -8,7 +8,7 @@ import ContextStats from './ContextStats.jsx';
 function Home() {
     return(
         <>
-            <BannerImage />
+            <HomeBanner />
             <ThumbnailImage />
             <SubHeading />
             <ContextStats />

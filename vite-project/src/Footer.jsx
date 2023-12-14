@@ -1,4 +1,5 @@
 import logo from './assets/logo.webp';
+import sendicon from './assets/sendicon.webp';
 import './styles.css'
 
 function Footer(){
@@ -23,11 +24,16 @@ function Footer(){
                 <div style={{ textAlign: 'left' }}>
                     <p style={{ fontSize: '20px', margin: '0' }} className= "footer-textbox">Join Our Mailing List</p>
                     <p style={{ margin: '5px 0', fontWeight: '400'}} className= "footer-textbox">Never miss an update</p>
-                    <input type="email" placeholder="your@email.com" style={{ padding: '10px', border: 'none', borderRadius: '5px', fontSize: '16px', width: '250px' }} />
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <input type="email" placeholder="your@email.com" style={{ padding: '10px', border: 'none', borderRadius: '5px', fontSize: '16px', width: '250px' }} />
+                        <div style={{backgroundColor: '#fff', padding: '10px', borderRadius: '5px', display: 'flex', alignItems: 'center',justifyContent: 'center', marginLeft: '5px'}}>
+                            <img src={sendicon} alt="Send" style={{ maxWidth: '20px', maxHeight: '20px' }} /> 
+                        </div>
+                    </div>
                 </div>
             </div>
             <div>
-                <p>&copy; {new Date().getFullYear()} COPYRIGHT CS FOR OREGON – ALL RIGHTS RESERVED</p>
+                <p style={{color: '#FFF'}}>&copy; {new Date().getFullYear()} COPYRIGHT CS FOR OREGON – ALL RIGHTS RESERVED</p>
             </div>
         </footer>
     );
