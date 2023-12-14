@@ -257,3 +257,13 @@ font-weight: 200;
   margin: 0%;
 }
 
+.SectionFour{
+  color: #000;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 5%;
+}
