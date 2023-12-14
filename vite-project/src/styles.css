@@ -118,13 +118,81 @@ li {
   
 }
 
+.TempSectionThree{
+  background: #E3E7EF; 
+}
+
+.FirstSection{
+  display: flex;
+  padding: 2% 2% 5% 2%;
+  color: #270F5A;
+  font-family: Montserrat;
+  font-style: normal;
+  line-height: normal;
+  background: #E3E7EF; 
+}
+
+.FirstSectionLeft{
+  max-width: 50%;
+}
+
+.FirstSectionRight{
+  padding-top: 20px;
+}
+
+.FirstSectionLeftHeading{
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700; 
+}
+
+.FirstSectionLeftBody{
+text-align: center;
+font-size: 22px;
+font-weight: 200; 
+}
+
+.FirstSectionRightHeading{
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.FirstSectionRightPercentage{
+  text-align: center;
+  font-size: 70px;
+  font-weight: 700;
+  margin-top: 0px;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  margin-bottom: 0px
+}
+
+.FirstSectionRightBody{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.SecondSection{
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 10% 
+}
+
 .ContextStats {
+  background: #E3E7EF; 
   display: flex;
   justify-content: center;
-  margin: 2%;
+  padding: 0% 5% 5% 5%;
 }
 
 .stats-container {
+  background: #FFF; 
   display: flex;
   flex-direction: column;
   border: 4px solid #C4DACD;
@@ -168,8 +236,6 @@ li {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-left: 0;
-  padding-left: 0;
 }
 
 .stat-number {
@@ -179,6 +245,7 @@ li {
 }
 
 .SubHeading {
+  background: #E3E7EF; 
   display: flex;
   color: #270F5A;
   font-family: Montserrat;
@@ -186,6 +253,7 @@ li {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-top: 2%;
-  margin-left: 1%;
+  padding: 2%;
+  margin: 0%;
 }
+
