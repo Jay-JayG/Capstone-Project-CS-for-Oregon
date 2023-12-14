@@ -20,7 +20,7 @@ footer {
   align-items: start;
   position: relative;
   width: 100%;
-  height: 367px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   
@@ -56,9 +56,22 @@ li {
 
 
 .navLink{
-  color: #1D5846;         /* Sets the text color */
+  color: #270F5A;         /* Sets the text color */
   text-decoration: none;   /* Removes the underline */
   font-size: 20px;         /* Sets the font size */
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.fixedNav {
+  position: fixed;
+  top: 5;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1000;
 }
 
 .thumbnail-container {
@@ -79,8 +92,7 @@ li {
   width: 15%; 
   height: auto;
   
- 
-  border: 4px solid #C4DACD;
+
 }
 
 .textbox-home {
@@ -101,10 +113,10 @@ li {
 }
 
 .footer-textbox {
-  color: #270F5A;
+  color: #FFF;
   text-decoration: none;
   font-family: Montserrat;
-  font-size: 20px;
+  font-size: 15px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;

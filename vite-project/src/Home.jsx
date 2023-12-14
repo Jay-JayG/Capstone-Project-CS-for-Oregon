@@ -1,5 +1,6 @@
 import React from 'react';
-import BannerImage from './BannerImage.jsx';
+import HomeBanner from './HomeBanner.jsx';
+import ThumbnailImage from './ThumbnailImage.jsx';
 import SubHeading from './SubHeading.jsx';
 import ContextStats from './ContextText.jsx';
 import StatsText from './StatsText.jsx';
@@ -11,7 +12,7 @@ import SectionFive from './SectionFive.jsx';
 function Home() {
     return(
         <>
-            <BannerImage />
+            <HomeBanner />
             <FirstSection />
             <SecondSection />
             <SubHeading />
