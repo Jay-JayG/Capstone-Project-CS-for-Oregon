@@ -144,11 +144,18 @@ li {
   background: #E3E7EF; 
 }
 
+@media only screen and (max-width: 600px) {
+  .FirstSection {
+    display: block;
+  }
+}
+
 .FirstSectionLeft{
-  max-width: 50%;
+  flex: 1;
 }
 
 .FirstSectionRight{
+  flex: 1;
   padding-top: 20px;
 }
 
