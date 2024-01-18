@@ -1,0 +1,122 @@
+.Section1{
+    display: flex;
+    background-color: #E3E7EF;
+    padding: 3%;
+
+}
+
+.Section1LeftContext {
+    flex: 1;
+    border: 5px solid #FFFFFF;
+    padding: 1%;
+}
+
+.Section1LeftHeading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.Section1LeftText {
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.Section1RightStats {
+    flex: 1;
+    border: 5px solid #FFFFFF;
+    padding: 1%;
+    background-color: #FFFFFF;
+}
+
+.Section1RightHeading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: center;
+    
+}
+
+.Section2 {
+    margin: 5%;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    color: #270F5A;
+}
+
+.Section2Quote {
+    text-align: left;
+}
+
+.Section2Attribution {
+    text-align: right;
+}
+
+.Section3 {
+    padding: 3%;
+    background-color: #E3E7EF;
+}
+
+.Section3Container {
+    padding: 1%;
+    border: 5px solid #FFFFFF;
+}
+
+.Section3Heading {
+    font-family: Montserrat;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #270F5A;
+}
+
+ul {
+    list-style-type: disc;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.purple-text {
+    color: #5F1A58;
+}
+
+.LearnMoreButtonContainer {
+    text-align: center;
+}
+
+.LearnMoreButton {
+    padding: 1% 2%;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #270F5A;
+    background-color: #ffffff;
+    border-radius: 4px;
+    display: inline-block;
+    
+    
+    
+    
+    
+    
+    
+}
