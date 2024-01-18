@@ -4,7 +4,7 @@ function Section1(){
 
     return (
         <>
-            <Section1Left />
+            
         </>
     );
 
