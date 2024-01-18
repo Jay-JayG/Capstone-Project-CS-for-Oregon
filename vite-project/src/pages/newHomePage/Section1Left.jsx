@@ -1,4 +1,3 @@
-import './style.css';
 
 function Section1Left() {
 
