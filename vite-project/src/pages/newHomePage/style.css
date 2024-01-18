@@ -1,3 +1,37 @@
+.BannerSection {
+    position: relative;
+    max-width: 100%;
+  }
+
+.BannerImage {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.home-logo-image {
+    position: absolute;
+    top: 1%;
+    width: 100px;
+    height: auto;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 35%;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: white;
+	text-shadow: -1px 1px 0 #000,
+				  1px 1px 0 #000,
+				 1px -1px 0 #000;
+  }
+
 .Section1{
     display: flex;
     background-color: #E3E7EF;
@@ -112,11 +146,4 @@ ul {
     background-color: #ffffff;
     border-radius: 4px;
     display: inline-block;
-    
-    
-    
-    
-    
-    
-    
 }
