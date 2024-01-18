@@ -306,3 +306,61 @@ font-weight: 200;
   text-decoration-line: underline;
   margin: 5%;
 }
+
+.AboutSectionBackRound{
+  background: #E3E7EF;
+  padding: 20px;
+}
+
+.AboutSectionBox{
+  border: 5px solid #FFF;
+  flex: 1;
+  text-align: center;
+  margin: 20px;
+}
+
+.AboutSectionHeader{
+  color: #270F5A;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.AboutSectionText{
+  color: #000;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 20px;
+}
+
+.OurValuesBox{
+  border: 5px solid #8EA6D5;
+  flex: 1;
+  text-align: left;
+  margin: 20px;
+}
+
+.OurValuesHeader{
+  color: #5F1A58;
+  font-family: Montserrat;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.OurValuesText{
+  color: #270F5A;
+  font-family: Montserrat;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
