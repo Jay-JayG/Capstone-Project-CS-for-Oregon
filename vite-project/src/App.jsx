@@ -6,6 +6,7 @@ import Home from './Home.jsx';
 import About from './About.jsx';
 import Admin from './Admin.jsx';
 import DatabaseAdmin from './DatabaseAdmin.jsx';
+import NewHome from './pages/newHomePage/NewHome.jsx';
 import './styles.css';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/About' element={<About />} />
           <Route path='/Admin' element={<Admin />} />
           <Route path='/DatabaseAdmin/*' element={<DatabaseAdmin />} />
+          <Route path='/Home' element={<NewHome />} />
         </Routes>
       </BrowserRouter>
       <Footer />
