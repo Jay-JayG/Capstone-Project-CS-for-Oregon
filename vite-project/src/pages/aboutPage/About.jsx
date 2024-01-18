@@ -4,6 +4,6 @@ function About() {
         <p>About Page test</p>
       </>
     );
-  }
+  };
   
   export default About;
