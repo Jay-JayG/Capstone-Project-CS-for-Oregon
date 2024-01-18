@@ -1,7 +1,8 @@
 .Section1{
     display: flex;
     background-color: #E3E7EF;
-    padding: 1%;
+    padding: 3%;
+
 }
 
 .Section1LeftContext {
@@ -43,4 +44,21 @@
     letter-spacing: 0em;
     text-align: center;
     
+}
+
+.Section2 {
+    margin: 5%;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+}
+
+.Section2Quote {
+    text-align: left;
+}
+
+.Section2Attribution {
+    text-align: right;
 }
