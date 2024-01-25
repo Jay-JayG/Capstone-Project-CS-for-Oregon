@@ -1,12 +1,13 @@
 import headshot from '/Users/johnrundle/Capstone-Project-CS-for-Oregon/vite-project/src/assets/headshot.webp';
+import tony from '/Users/johnrundle/Capstone-Project-CS-for-Oregon/vite-project/src/assets/tonystark.webp';
 
 function AboutBoxes(){
 
     return (
         <div className="BoxesContainer">
             <div className="AboutSectionBoxes">
-                <img src={headshot} alt="headshot image" className="BoxImage" />
-                <div className="BoxHeader">John Rundle</div>
+                <img src={tony} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Tony Stark</div>
                 <div className="BoxContent">About: Genius, Billionaire, Playboy, Philanthropist</div>
             </div>
             <div className="AboutSectionBoxes">
