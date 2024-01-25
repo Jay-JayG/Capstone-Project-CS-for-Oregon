@@ -13,13 +13,10 @@ function Navbar(){
                         <Link to={`About`} className="navLink">About</Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <a href='#' className="navLink">The Data</a>
+                        <Link to={`Educators`} className="navLink">CS Educators</Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
-                        <a href='#' className="navLink">CS Educators</a>
-                    </li>
-                    <li style={{ marginRight: '20px' }}>
-                        <a href='#' className="navLink">Research & Policy</a>
+                    <Link to={`Research&Policy`} className="navLink">Research & Policy</Link>
                     </li>
                     <li style={{ marginRight: '20px' }}>
                         <a href='#' className="navLink">News & Features</a>

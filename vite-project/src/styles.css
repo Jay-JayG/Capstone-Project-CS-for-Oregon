@@ -305,14 +305,14 @@ font-weight: 200;
 
 .AboutSectionBackRound{
   background: #E3E7EF;
-  padding: 20px;
+  padding: 2%;
 }
 
 .AboutSectionBox{
   border: 5px solid #FFF;
   flex: 1;
   text-align: center;
-  margin: 20px;
+  margin: 3%
 }
 
 .AboutSectionHeader{
@@ -340,7 +340,7 @@ font-weight: 200;
   border: 5px solid #8EA6D5;
   flex: 1;
   text-align: left;
-  margin: 20px;
+  margin: 3%;
 }
 
 .OurValuesHeader{

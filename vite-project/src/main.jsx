@@ -10,6 +10,7 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from './pages/newHomePage/NewHome';
 import About from './pages/aboutPage/About';
+import Educators from './pages/educatorsPage/educators';
 import './styles.css';
 
 const router = createBrowserRouter(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
   <Route path="/" element={<Root />}>
     <Route index element={<Home />} />
     <Route path="about" element={<About />} />
+    <Route path="Educators" element={<Educators />} />
   </Route>
   )
 );
