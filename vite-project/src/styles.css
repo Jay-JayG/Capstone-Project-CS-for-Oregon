@@ -361,3 +361,77 @@ font-weight: 200;
   font-weight: 400;
   line-height: normal;
 }
+
+.AboutSectionBoxes{
+  width: 259px;
+  height: 294px;
+  background: #E3E7EF;
+  position: relative; /* Needed for absolute positioning of content */
+  overflow: hidden; /* Hide content that goes beyond the box */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to the bottom */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.BoxesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* Adjust the space between boxes */
+  margin: 20px 0; /* Vertical spacing from other elements */
+}
+
+.BoxHeader{
+  color: #270F5A;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 700;
+  position: absolute;
+  bottom: 0px; /* Adjust to place the header at the bottom */
+  width: 100%;
+  text-align: center;
+  transition: bottom 0.3s ease;
+  margin: 0; /* Remove margin to align properly */
+  padding: 10px;
+  box-sizing: border-box;
+  transition: bottom 0.3s ease; /* Transition for moving to the top */
+  z-index: 2; /* Ensures that the text is above the image */
+  background-color: rgba(142, 166, 213, 0.7);
+}
+
+.BoxContent{
+  color: #270F5A;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transform: translateY(100%); /* Initially hide the content */
+  transition: transform 0.3s ease; /* Smooth transition for the content */
+  background-color: rgba(143, 166, 213, 0.7); /* Semi-transparent background */
+  padding: 10px; /* Adjust as needed */
+  box-sizing: border-box; /* Include padding in height calculation */
+  z-index: 2;
+}
+
+.AboutSectionBoxes:hover .BoxHeader {
+  bottom: 255px; /* Move to the top on hover */
+}
+
+.AboutSectionBoxes:hover .BoxContent {
+  transform: translateY(0); /* Show content on hover */
+}
+
+.BoxImage {
+  width: 100%; /* Make image fill the entire box */
+  height: 100%; /* Make image fill the entire box */
+  object-fit: cover; /* Ensures that the image covers the box without stretching */
+  position: absolute; /* Position it relative to the 'AboutSectionBoxes' */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Ensures that the image is below the text */
+}

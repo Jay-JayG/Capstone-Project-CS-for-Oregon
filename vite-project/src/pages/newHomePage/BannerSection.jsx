@@ -1,5 +1,5 @@
-import banner from './OR-Statewide-CS-Implementation-Plan.png';
-import logo from './logo.webp';
+import banner from '/src/assets/OR-Statewide-CS-Implementation-Plan.png';
+import logo from '/src/assets/logo.webp';
 
 function BannerSection() {
   return (
