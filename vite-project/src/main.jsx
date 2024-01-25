@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
+  createRoutesFromElements,
+  Route,
   RouterProvider,
 } from "react-router-dom";
 import Root from "./routes/root";
@@ -10,21 +12,14 @@ import Home from './pages/newHomePage/NewHome';
 import About from './pages/aboutPage/About';
 import './styles.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "Home/",
-    element: <Home />,
-  },
-  {
-    path: "About/",
-    element: <About />,
-  },
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+  <Route path="/" element={<Root />}>
+    <Route index element={<Home />} />
+    <Route path="about" element={<About />} />
+  </Route>
+  )
+);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
