@@ -37,7 +37,12 @@
     display: flex;
     background-color: #E3E7EF;
     padding: 3%;
+}
 
+@media only screen and (max-width: 600px) {
+    .Section1 {
+      display: block;
+    }
 }
 
 .Section1LeftContext {
@@ -58,20 +63,32 @@
 .Section1LeftText {
     font-family: Montserrat;
     font-size: 22px;
-    font-weight: 400;
-    line-height: 27px;
+    font-weight: normal;
+    line-height: normal;
     letter-spacing: 0em;
     text-align: left;
 }
 
 .Section1RightStats {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
     border: 5px solid #FFFFFF;
-    padding: 1%;
+    background-color: #E3E7EF;
+}
+
+.Section1RightStatsHeadingsContainer {
     background-color: #FFFFFF;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
 }
 
 .Section1RightHeading {
+    margin: 0 1% 0 1%;
     font-family: Montserrat;
     font-size: 30px;
     font-weight: 700;
@@ -79,6 +96,102 @@
     letter-spacing: 0em;
     text-align: center;
     
+}
+
+.Section1RightSubHeading {
+    color: #5F1A58;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: noraml;
+    line-height: normal;
+}
+
+.Section1RightSubHeadingBoltText {
+    font-weight: bold;
+}
+
+.Section1RightSubsection1 {
+    background-color: #E3E7EF;
+    padding: 2% 5% 0% 5%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+}
+
+.Section1RightSubsection1Heading {
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.Section1RightSubsection1Container {
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+    .Section1RightSubsection1Container {
+      display: block;
+    }
+}
+
+.LeftPercentContainer {
+
+}
+
+.LeftPercentNumber {
+    margin: 0;
+    color: #5F1A58;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.LeftPercentText {
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.RightPercentContainer {
+
+}
+
+.RightPercentNumber {
+    margin: 0;
+    color: #5F1A58;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.RightPercentText{
+    margin: 0;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
 .Section2 {
@@ -127,7 +240,7 @@ ul {
     line-height: 26px;
 }
 
-.purple-text {
+.section3-purple-text {
     color: #5F1A58;
 }
 
