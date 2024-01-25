@@ -10,7 +10,7 @@ import Root from "./routes/root";
 import ErrorPage from "./error-page";
 import Home from './pages/newHomePage/NewHome';
 import About from './pages/aboutPage/About';
-import Educators from './pages/educatorsPage/educators';
+import Educators from './pages/educatorsPage/Educators';
 import './styles.css';
 
 const router = createBrowserRouter(
