@@ -12,6 +12,7 @@
 .home-logo-image {
     position: absolute;
     top: 1%;
+    left: 1%;
     width: 100px;
     height: auto;
 }
