@@ -1,4 +1,4 @@
-
+import AboutBoxes from "./AboutBoxes.jsx";
 
 function About() {
     return (
@@ -27,6 +27,12 @@ function About() {
           </ul>
         </div>
       </div>
+
+      <div> 
+      <p className="AboutSectionHeader"> Who We Are</p>
+        <AboutBoxes/>
+      </div>
+
 
 
       </>
