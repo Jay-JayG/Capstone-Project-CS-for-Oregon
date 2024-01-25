@@ -6,8 +6,8 @@ function AboutBoxes(){
         <div className="BoxesContainer">
             <div className="AboutSectionBoxes">
                 <img src={headshot} alt="headshot image" className="BoxImage" />
-                <div className="BoxHeader">Text for Box 1</div>
-                <div className="BoxContent">More text for Box 1</div>
+                <div className="BoxHeader">John Rundle</div>
+                <div className="BoxContent">About: Genius, Billionaire, Playboy, Philanthropist</div>
             </div>
             <div className="AboutSectionBoxes">
                 <img src={headshot} alt="headshot image" className="BoxImage" />
