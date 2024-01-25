@@ -1,5 +1,5 @@
-import headshot from '/Users/johnrundle/Capstone-Project-CS-for-Oregon/vite-project/src/assets/headshot.webp';
-import tony from '/Users/johnrundle/Capstone-Project-CS-for-Oregon/vite-project/src/assets/tonystark.webp';
+import headshot from '/src/assets/headshot.webp';
+import tony from '/src/assets/tonystark.webp';
 
 function AboutBoxes(){
 
