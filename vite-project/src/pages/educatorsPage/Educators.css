@@ -1,12 +1,11 @@
-.EducatorsContainer {
-    background: #E3E7EF;
-    padding: 2%;
+.EducatorsContainer1 {
+    background-color: #E3E7EF;
+    padding: 2%
 }
 
 .EducatorsSection1Container {
-    border: 5px solid #FFF;
+    border: 5px solid #ffffff;
     margin: 3%;
-    padding: 0% 3% 0% 3%;
 }
 
 .EducatorsHeading {
@@ -28,7 +27,84 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    margin: 2%
 }
 
 .Section1UnorderedList {
+    margin: 2%
+}
+
+.EducatorsContainer2 {
+    padding: 2%;
+}
+
+.EducatorsSection2Container {
+    background: #FFFDF8;
+    border: 5px solid #8EA6D5;
+    margin: 3%;
+    color: #270F5A;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.EducatorsHeading2 {
+    color: #270F5A;
+    font-family: Montserrat;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.Section2Text1 {
+    margin: 2%
+}
+
+.Section2Text2 {
+    margin: 2%
+}
+
+.EducatorsContaier3 {
+    background: #E3E7EF;
+    padding: 2%;
+}
+
+.EducatorsSection3Container {
+    border: 5px solid #FFF;
+    margin: 3%;
+}
+
+.EducatorsHeading3 {
+    color: #270F5A;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.Section3TextContaier{ 
+    color: #000;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 2%
+}
+
+.Section3BoldText {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
