@@ -1,4 +1,5 @@
 import AboutBoxes from "./AboutBoxes.jsx";
+import WebsiteDevelopers from "./WebsiteDevelopers.jsx";
 
 function About() {
     return (
@@ -31,6 +32,11 @@ function About() {
       <div> 
       <p className="AboutSectionHeader"> Who We Are</p>
         <AboutBoxes/>
+      </div>
+
+      <div>
+      <p className="AboutSectionHeader"> Website Developers</p>
+        <WebsiteDevelopers/>
       </div>
 
 
