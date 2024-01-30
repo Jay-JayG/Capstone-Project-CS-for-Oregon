@@ -6,8 +6,8 @@
 .BannerImage {
     display: block;
     position: relative;
-    height: 30%; /* Set your desired fixed height */
-    object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    height: 30%;
+    object-fit: cover;
 }
 
 .home-logo-image {
@@ -30,6 +30,13 @@
     text-align: center;
     color: rgb(255, 255, 255);
   }
+
+@media only screen and (max-width: 600px) {
+    .BannerImage {
+        height: 600px;
+        object-fit: none;
+    }
+}
 
 .Section1{
     display: flex;
