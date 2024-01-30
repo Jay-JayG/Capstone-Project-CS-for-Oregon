@@ -50,14 +50,7 @@ h1 {
 
 
 .navLink{
-  color: #270F5A;         /* Sets the text color */
-  text-decoration: none;   /* Removes the underline */
-  font-size: 20px;         /* Sets the font size */
-  font-family: Montserrat;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  
 }
 
 .fixedNav {

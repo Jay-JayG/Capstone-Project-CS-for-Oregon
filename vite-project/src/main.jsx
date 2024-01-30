@@ -11,7 +11,7 @@ import ErrorPage from "./error-page";
 import Home from './pages/newHomePage/NewHome';
 import About from './pages/aboutPage/About';
 import Educators from './pages/educatorsPage/Educators';
-import './styles.css';
+//import './styles.css';
 
 const router = createBrowserRouter(
   createRoutesFromElements(

@@ -1,6 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import Header from "../Header";
 import Navbar from "../Navbar";
+import NavigationBar from "../Navigationbar";
 import Footer from "../Footer";
 
 export default function Root() {
@@ -8,7 +9,7 @@ export default function Root() {
         <>
       <div id="sidebar">
         <Header />
-        <Navbar />
+        <NavigationBar />
         <Outlet />
         <Footer />
       </div>
