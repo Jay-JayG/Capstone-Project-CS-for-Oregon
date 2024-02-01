@@ -19,7 +19,7 @@
 
 @media only screen and (max-width: 645px) {
     .NavLinksContainer {
-        font-size: 1.2vw;
+        font-size: 3vw;
         flex-direction: column;
     }
 }
@@ -27,7 +27,7 @@
 @media only screen and (max-width: 600px) {
     .NavLinksContainer {
         flex-direction: column;
-        font-size: 3vw;
+        
     }
 }
 
