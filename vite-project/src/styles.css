@@ -101,17 +101,6 @@ h1 {
   font-weight: 200;
 }
 
-.footer-textbox {
-  color: #FFF;
-  text-decoration: none;
-  font-family: Montserrat;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  justify-content: 'center'
-  
-}
 .top-right-div {
   position: absolute;
   top: 0; /* Align to the top */
