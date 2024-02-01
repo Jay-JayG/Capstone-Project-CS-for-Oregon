@@ -50,14 +50,7 @@ h1 {
 
 
 .navLink{
-  color: #270F5A;         /* Sets the text color */
-  text-decoration: none;   /* Removes the underline */
-  font-size: 20px;         /* Sets the font size */
-  font-family: Montserrat;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  
 }
 
 .fixedNav {
@@ -433,4 +426,8 @@ font-weight: 200;
   top: 0;
   left: 0;
   z-index: 1; /* Ensures that the image is below the text */
+}
+
+.LeanrMore {
+
 }

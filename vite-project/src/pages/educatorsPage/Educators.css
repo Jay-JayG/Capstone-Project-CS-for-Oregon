@@ -1,6 +1,6 @@
 .EducatorsContainer1 {
     background-color: #E3E7EF;
-    padding: 2%
+    padding: 2%;
 }
 
 .EducatorsSection1Container {
@@ -16,7 +16,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-decoration-line: underline;
+    /*text-decoration-line: underline;*/
 }
 
 .Section1Text {
@@ -58,7 +58,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-decoration-line: underline;
+    /*text-decoration-line: underline;*/
 }
 
 .Section2Text1 {
@@ -67,6 +67,18 @@
 
 .Section2Text2 {
     margin: 2%
+}
+
+.SummerOfCSText {
+    color: #270F5A;
+    font-family: Montserrat;
+    text-align: center;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: block;
+    padding: 0% 2% 2% 2%;
 }
 
 .EducatorsContaier3 {

@@ -19,6 +19,7 @@ export default function Educators() {
                     <h2 className="EducatorsHeading2">SUMMER OF CS</h2>
                     <p className="Section2Text1">Summer of CS is a research-based professional development event for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</p>
                     <p className="Section2Text2">Seasons of CS is supported by a grant from the National Science Foundation and the Oregon Department of Education</p>
+                    <a href='google.com' class='SummerOfCSText' >Sign Up - Click Here</a>
                 </div>
             </div>
             <div className="EducatorsContaier3">

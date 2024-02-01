@@ -1,0 +1,84 @@
+.NavigationBar {
+
+}
+
+.NavLinksContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 18px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background-color: #E3E7EF;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .NavLinksContainer {
+    flex-direction: column;
+    }
+}
+
+.LogoLink {
+    color: black;
+    text-decoration: none;
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.NavLinksContainer a.item6 {
+    padding: 1%;
+    background-color: #E8805E;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.CSForOregon {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.CS_logo {
+    width: 60px;
+    height: auto;
+}
+
+.item1 {
+    padding: 1%;
+}
+
+.item2 {
+    padding: 1%;
+}
+
+.item3 {
+    padding: 1%;
+}
+
+.item4 {
+    padding: 1%;
+}
+
+.item5 {
+    padding: 1%;
+}
+
+.item6 {
+    color: white;
+}
+
+.envelope {
+    vertical-align: middle;
+}

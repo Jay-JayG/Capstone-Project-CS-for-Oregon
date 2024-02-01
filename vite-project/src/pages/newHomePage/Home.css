@@ -1,37 +1,42 @@
 .BannerSection {
-    position: relative;
-    max-width: 100%;
-  }
-
-.BannerImage {
-    width: 100%;
-    display: block;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.home-logo-image {
-    position: absolute;
-    top: 1%;
-    left: 1%;
-    width: 100px;
-    height: auto;
+.BannerImage {
+    display: block;
+    position: relative;
+    height: 30%;
+    object-fit: cover;
 }
 
 .text-overlay {
     position: absolute;
-    top: 35%;
+    z-index: 1;
+    top: 20%;
+    padding: 5%;
     text-align: center;
     font-family: Montserrat;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 100;
     line-height: 40px;
     letter-spacing: 0em;
     text-align: center;
-    color: white;
-	text-shadow: -1px 1px 0 #000,
-				  1px 1px 0 #000,
-				 1px -1px 0 #000;
+    color: rgb(255, 255, 255);
   }
+
+  @media only screen and (max-width: 600px) {
+    .text-overlay {
+        top: 35%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .BannerImage {
+        height: 600px;
+        object-fit: none;
+    }
+}
 
 .Section1{
     display: flex;
