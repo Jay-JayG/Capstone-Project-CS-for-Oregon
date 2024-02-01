@@ -10,12 +10,6 @@
     object-fit: cover;
 }
 
-.home-logo-image {
-    position: absolute;
-    top: auto;
-    left: auto;
-}
-
 .text-overlay {
     position: absolute;
     z-index: 1;
@@ -30,6 +24,12 @@
     text-align: center;
     color: rgb(255, 255, 255);
   }
+
+  @media only screen and (max-width: 600px) {
+    .text-overlay {
+        top: 35%;
+    }
+}
 
 @media only screen and (max-width: 600px) {
     .BannerImage {

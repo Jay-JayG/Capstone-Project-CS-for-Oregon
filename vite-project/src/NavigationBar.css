@@ -1,21 +1,63 @@
 .NavigationBar {
-    
+
 }
 
 .NavLinksContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
     font-size: 18px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    background-color: rgb(77, 100, 133);
+    background-color: #E3E7EF;
+    
 }
 
-.NavLinksContainer a {
+@media only screen and (max-width: 600px) {
+    .NavLinksContainer {
+    flex-direction: column;
+    }
+}
+
+.LogoLink {
+    color: black;
     text-decoration: none;
-    display: block;
-    padding: 10px 40px 10px 40px;
-    color:rgb(255, 255, 255);
-  }
+}
+
+.navLink {
+    text-decoration: none;
+}
+
+.NavLinksContainer a.SignUp {
+    padding: 1%;
+    background-color: #E8805E;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+.LogoContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.CSForOregon {
+    
+}
+
+.logo {
+    width: 40%;
+    margin: 0%;
+}
+
+.SignUp {
+    color: white;
+}
+
+.envelope {
+    vertical-align: middle;
+}
