@@ -27,11 +27,7 @@ function AboutBoxes(){
 
     return (
         <div className="BoxesContainer">
-            <div className="AboutSectionBoxes">
-                <img src={bailey} alt="headshot image" className="BoxImage" />
-                <div className="BoxHeader">Deb Bailey</div>
-                <div className="BoxContent"></div>
-            </div>
+            
             <div className="AboutSectionBoxes">
                 <img src={michelle} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Michelle Balmeo</div>
@@ -144,6 +140,12 @@ function AboutBoxes(){
                 <img src={jen} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jen Tuttle</div>
                 <div className="BoxContent">CS Teacher: Ontario High School, E-Textiles Facilitator, Social Justice Teacher Leader</div>
+            </div>
+
+            <div className="AboutSectionBoxes">
+                <img src={bailey} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Deb Bailey</div>
+                <div className="BoxContent"></div>
             </div>
 
             <div className="AboutSectionBoxes">
