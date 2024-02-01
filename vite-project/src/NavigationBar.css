@@ -30,7 +30,7 @@
     text-decoration: none;
 }
 
-.NavLinksContainer a.SignUp {
+.NavLinksContainer a.item6 {
     padding: 1%;
     background-color: #E8805E;
     text-decoration: none;
@@ -46,15 +46,36 @@
 }
 
 .CSForOregon {
-    
+    white-space: nowrap;
+    font-size: 14px;
 }
 
-.logo {
-    width: 40%;
-    margin: 0%;
+.CS_logo {
+    width: 60px;
+    height: auto;
 }
 
-.SignUp {
+.item1 {
+    padding: 1%;
+}
+
+.item2 {
+    padding: 1%;
+}
+
+.item3 {
+    padding: 1%;
+}
+
+.item4 {
+    padding: 1%;
+}
+
+.item5 {
+    padding: 1%;
+}
+
+.item6 {
     color: white;
 }
 

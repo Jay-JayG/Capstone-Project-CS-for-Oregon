@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from '/src/assets/logo.webp';
+import CS_logo from '/src/assets/logo.png';
 import envelope from '/src/assets/envelope.webp';
 import './NavigationBar.css'
 
@@ -8,20 +8,22 @@ export default function NavigationBar(){
     return (
         <nav className='NavigationBar'>
             <div className='NavLinksContainer'>
-            <Link to={`/`} className="LogoContainer">
-                    <img src={logo} className="logo" alt="logo" />
-                    <span className="CSForOregon">CS For Oregon</span>
-                </Link>
-                <div>
+                <div className="item1">
+                    <Link to={`/`} className="LogoContainer">
+                        <img src={CS_logo} className="CS_logo" alt="logo" />
+                        <div className="CSForOregon">CS For Oregon</div>
+                    </Link>
+                </div>
+                <div className="item2">
                     <Link to={`/`} className="navLink">HOME</Link>
                 </div>
-                <div>
+                <div className="item3">
                     <Link to={`About`} className="navLink">ABOUT</Link>
                 </div>
-                <div>
+                <div className="item4">
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
-                <div>
+                <div className="item5">
                     <Link to={`NewsAndFeatures`} className="navLink">NEWS & FEATURES</Link>
                 </div>
                 {/* 
@@ -29,7 +31,7 @@ export default function NavigationBar(){
                     <a href='#' className="navLink">SUMMER OF CS</a>
                 </div>
                 */}
-                <a href='#' className="SignUp"><img src={envelope} className="envelope" alt="Send"/>Sign up</a>
+                <a href='#' className="item6"><img src={envelope} className="envelope" alt="Send"/>Sign up</a>
             </div>
         </nav>
     );
