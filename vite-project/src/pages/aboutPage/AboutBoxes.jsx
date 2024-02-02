@@ -27,11 +27,23 @@ function AboutBoxes(){
 
     return (
         <div className="BoxesContainer">
+
+            <div className="AboutSectionBoxes">
+                <img src={bailey} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Deb Bailey</div>
+                <div className="BoxContent"></div>
+            </div>
+
             
             <div className="AboutSectionBoxes">
                 <img src={michelle} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Michelle Balmeo</div>
                 <div className="BoxContent">CS & Language Arts Teacher, West Albany High School, West Albany School District, ECS Facilitator, Social Justice Teacher Leader</div>
+            </div>
+
+            <div className="AboutSectionBoxes">
+                <div className="BoxHeader">Jenna Borberg</div>
+                <div className="BoxContent">Research Program Coordinator, College of Engineering Research Administration, Oregon State University </div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -53,6 +65,12 @@ function AboutBoxes(){
             </div>
 
             <div className="AboutSectionBoxes">
+                
+                <div className="BoxHeader">Trish Dorr</div>
+                <div className="BoxContent">Teacher, Helman Elementary School, Ashland School District, SOU Facilitator</div>
+            </div>
+
+            <div className="AboutSectionBoxes">
                 <img src={chris} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Christopher Doscher</div>
                 <div className="BoxContent">Physics/CS/Robotics Teacher, Churchill High School, 4J School District, Social Justice Teacher Leader</div>
@@ -69,6 +87,14 @@ function AboutBoxes(){
                 <div className="BoxHeader">Bryan Freschi</div>
                 <div className="BoxContent">Director of Technology, Lincoln County School District</div>
             </div>
+
+            <div className="AboutSectionBoxes">
+                
+                <div className="BoxHeader">Dylana Garfas-Knowles</div>
+                <div className="BoxContent">English Language Learning Teacher, Walker Elementary School, Ashland School District, SOU Facilitator</div>
+            </div>
+
+
 
             <div className="AboutSectionBoxes">
                 <img src={joanna} alt="headshot image" className="BoxImage" />
@@ -98,6 +124,12 @@ function AboutBoxes(){
                 <img src={jorge} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jorge Mendieta</div>
                 <div className="BoxContent">Science Teacher, Four Rivers Community School Senior Preparatory, Social Justice Teacher Leader</div>
+            </div>
+
+            <div className="AboutSectionBoxes">
+
+                <div className="BoxHeader">Jennifer Mohatt</div>
+                <div className="BoxContent">Teacher, Phoenix Elementary School, Phoenix-Talent School District, SOU Facilitator</div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -140,12 +172,6 @@ function AboutBoxes(){
                 <img src={jen} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jen Tuttle</div>
                 <div className="BoxContent">CS Teacher: Ontario High School, E-Textiles Facilitator, Social Justice Teacher Leader</div>
-            </div>
-
-            <div className="AboutSectionBoxes">
-                <img src={bailey} alt="headshot image" className="BoxImage" />
-                <div className="BoxHeader">Deb Bailey</div>
-                <div className="BoxContent"></div>
             </div>
 
             <div className="AboutSectionBoxes">
