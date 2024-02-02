@@ -13,7 +13,7 @@
 .text-overlay {
     position: absolute;
     z-index: 1;
-    top: 20%;
+    top: 30%;
     padding: 5%;
     text-align: center;
     font-family: Montserrat;
@@ -25,9 +25,15 @@
     color: rgb(255, 255, 255);
   }
 
-  @media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     .text-overlay {
-        top: 35%;
+        top: 43%;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .text-overlay {
+        top: 50%;
     }
 }
 

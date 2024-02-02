@@ -1,3 +1,4 @@
+import EducatorsResources from './EducatorsResources.jsx';
 import './Educators.css';
 
 export default function Educators() {
@@ -33,6 +34,7 @@ export default function Educators() {
                     </div>
                 </div>
             </div>
+            <EducatorsResources />
         </>
     );
 }
