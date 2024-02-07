@@ -1,47 +1,21 @@
-.BannerSection {
+.banner-container {
+    background-image: url('/src/assets/OR-Statewide-CS-Implementation-Plan.png'); /* Replace 'your_image_url.jpg' with the URL of your image */
+    background-size: cover;
+    background-position: center;
     display: flex;
-    flex-direction: column;
-}
-
-.BannerImage {
-    display: block;
-    position: relative;
-    height: 30%;
-    object-fit: cover;
-}
+    align-items: center;
+    height: 60vh;
+  }
 
 .text-overlay {
-    position: absolute;
-    z-index: 1;
-    top: 30%;
-    padding: 5%;
+    padding: 2%;
     text-align: center;
     font-family: Montserrat;
     font-size: 16px;
     font-weight: 100;
     line-height: 40px;
     letter-spacing: 0em;
-    text-align: center;
     color: rgb(255, 255, 255);
-  }
-
-@media only screen and (max-width: 600px) {
-    .text-overlay {
-        top: 43%;
-    }
-}
-
-@media only screen and (max-width: 1400px) {
-    .text-overlay {
-        top: 50%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .BannerImage {
-        height: 600px;
-        object-fit: none;
-    }
 }
 
 .Section1{
