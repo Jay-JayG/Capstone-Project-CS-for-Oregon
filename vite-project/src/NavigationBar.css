@@ -33,11 +33,12 @@
 
 .LogoLink {
     color: black;
-    text-decoration: none;
+    text-decoration: None;
 }
 
 .navLink {
     text-decoration: none;
+    color: black;
 }
 
 .NavLinksContainer a.item6 {
@@ -51,7 +52,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    text-decoration: none;
+    text-decoration: None;
     color: black;
 }
 
