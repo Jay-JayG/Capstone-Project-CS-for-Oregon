@@ -214,7 +214,6 @@
     line-height: 28px;
     letter-spacing: 0em;
     text-align: left;
-    color: #270F5A;
 }
 
 ul {
@@ -225,24 +224,11 @@ ul {
     line-height: 26px;
 }
 
-.section3-purple-text {
-    color: #5F1A58;
+ul li {
+    margin-bottom: 15px;
 }
 
-.LearnMoreButtonContainer {
-    text-align: center;
-}
-
-.LearnMoreButton {
-    padding: 1% 2%;
-    font-family: Montserrat;
-    font-size: 25px;
-    font-weight: 700;
-    line-height: 30px;
-    letter-spacing: 0em;
-    text-align: center;
-    color: #270F5A;
-    background-color: #ffffff;
-    border-radius: 4px;
-    display: inline-block;
+.section3-orange-text {
+    color: #E8805E;
+    font-weight: bold;
 }
