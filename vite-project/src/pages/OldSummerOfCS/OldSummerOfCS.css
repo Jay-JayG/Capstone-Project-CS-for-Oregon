@@ -1,9 +1,9 @@
-.NewsAndFeaturesContainer {
+.SummerOfCSContainer {
     background-color: #E3E7EF;
     padding: 2% 5% 1% 5%;
 }
 
-.NewsAndFeaturesEvent1Container {
+.SummerOfCSEvent1Container {
     display: flex;
     justify-content: space-evenly;
     border: 5px solid #FFFFFF;
@@ -12,7 +12,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-    .NewsAndFeaturesEvent1Container {
+    .SummerOfCSEvent1Container {
         display: block;
     }
 }
@@ -46,6 +46,7 @@
 
 .LearnMoreButtonContainer {
     padding: 3%;
+    text-align: center;
 }
 
 .LearnMoreButton {
@@ -74,7 +75,7 @@
     border: 5px solid #ffffff;
 }
 
-.NewsAndFeaturesEvent1Text {
+.SummerOfCSEvent1Text {
     font-family: Montserrat;
     font-size: 22px;
     font-weight: 500;
