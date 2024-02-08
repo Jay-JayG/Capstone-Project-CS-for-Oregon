@@ -51,8 +51,20 @@
     max-width: 200px;
 }
 
-.footer-links {
+.LogoContainer {
+    padding: 1%;
+}
 
+.NavBarCSForOregon {
+    font-size: 25px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.footer-links {
+    padding: 1%;
 }
 
 .footer-links ul {

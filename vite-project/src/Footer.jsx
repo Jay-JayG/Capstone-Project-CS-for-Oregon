@@ -7,10 +7,12 @@ import './Footer.css';
 function Footer() {
     return (
         <footer className='footer'>
-            <p className='footer-textbox'>CS For All In Oregon</p>
             <div className='container'>
                 <div className='logo-and-links'>
-                    <img className='logo-image' src={logo} alt='logo' />
+                    <Link to={`/`} className="LogoContainer">
+                        <img src={logo} className="logo-image" alt="logo" />
+                        <div className="NavBarCSForOregon">CS For Oregon</div>
+                    </Link>
                     <div className='footer-links'>
                         <nav className='footer-textbox'>
                             <ul>
