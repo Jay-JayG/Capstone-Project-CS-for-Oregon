@@ -39,7 +39,7 @@ export default function NavigationBar() {
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`NewsAndFeatures`} className="navLink">SUMMER OF CS</Link>
+                    <Link to={`SummerOfCS`} className="navLink">SUMMER OF CS</Link>
                 </div>
                 <a href='#' className="item6" onClick={togglePopup}>
                     <img src={envelope} className="envelope" alt="Send"/> Contact Us
