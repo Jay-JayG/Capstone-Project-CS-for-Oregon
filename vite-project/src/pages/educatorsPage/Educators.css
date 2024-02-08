@@ -39,26 +39,21 @@
 }
 
 .EducatorsSection2Container {
-    background: #FFFDF8;
-    border: 5px solid #8EA6D5;
-    margin: 3%;
-    color: #270F5A;
+    color: black;
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
-    font-weight: 700;
     line-height: normal;
 }
 
 .EducatorsHeading2 {
-    color: #270F5A;
+    color: #E8805E;
     font-family: Montserrat;
     text-align: center;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    /*text-decoration-line: underline;*/
 }
 
 .Section2Text1 {
@@ -70,7 +65,7 @@
 }
 
 .SummerOfCSText {
-    color: #270F5A;
+    color: #E8805E;
     font-family: Montserrat;
     text-align: center;
     font-size: 30px;
@@ -88,7 +83,7 @@
 
 .EducatorsSection3Container {
     border: 5px solid #FFF;
-    margin: 3%;
+    margin: 0% 3% 3% 3%;
 }
 
 .EducatorsHeading3 {
@@ -99,7 +94,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-decoration-line: underline;
+    text-decoration: none;
 }
 
 .Section3TextContaier{ 
