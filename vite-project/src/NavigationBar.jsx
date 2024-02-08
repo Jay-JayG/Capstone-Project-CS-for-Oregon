@@ -1,9 +1,24 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import CS_logo from '/src/assets/logo.png';
 import envelope from '/src/assets/envelope.webp';
 import './NavigationBar.css'
 
-export default function NavigationBar(){
+export default function NavigationBar() {
+    const [showPopup, setShowPopup] = useState(false);
+
+    // Toggle the popup's visibility
+    const togglePopup = () => setShowPopup(!showPopup);
+
+    // Close the popup if the user clicks outside of it
+    const closePopup = (event) => {
+        if (event.target.className === "popup-overlay") {
+            setShowPopup(false);
+        }
+    };
+
+
+
 
     return (
         <nav className='NavigationBar'>
@@ -26,8 +41,17 @@ export default function NavigationBar(){
                 <div className="item5">
                     <Link to={`NewsAndFeatures`} className="navLink">SUMMER OF CS</Link>
                 </div>
-                <a href='#' className="item6"><img src={envelope} className="envelope" alt="Send"/>Sign up</a>
+                <a href='#' className="item6" onClick={togglePopup}>
+                    <img src={envelope} className="envelope" alt="Send"/> Contact Us
+                </a>
             </div>
+            {showPopup && (
+                <div className="popup-overlay" onClick={closePopup}>
+                    <div className="popup-content">
+                        <p>Email: example@example.com</p>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };

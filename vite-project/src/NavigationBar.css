@@ -17,19 +17,22 @@
     
 }
 
+@media only screen and (max-width: 950px) {
+    .NavLinksContainer {
+        font-size: 1.4vw;
+        
+    }
+}
+
 @media only screen and (max-width: 645px) {
     .NavLinksContainer {
-        font-size: 3vw;
+        font-size: 2.5vw;
         flex-direction: column;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    .NavLinksContainer {
-        flex-direction: column;
-        
-    }
-}
+
+
 
 .LogoLink {
     color: black;
@@ -92,4 +95,32 @@
 
 .envelope {
     vertical-align: middle;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 35, 35, 0.3); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.popup-content {
+    background-color: #E3E7EF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: auto;
+    max-width: 400px; /* Maximum width, but can be less */
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    z-index: 1001; /* Above the overlay */
 }
