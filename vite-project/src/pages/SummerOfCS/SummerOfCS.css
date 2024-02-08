@@ -3,11 +3,20 @@
     background-color: #E3E7EF;
 }
 
+.SummerOfCSSupercontainer a {
+    color: black;
+}
+
 .SummerOfCScontainer {
     margin: 0 3%;
+    padding: 2%;
     border-width: 5px 5px 0px 5px;
     border-style: solid;
     border-color: white;
+}
+
+.SummerOfCSBoldText {
+    font-weight: bold;
 }
 
 .SummerOfCSHeaderContainer {
@@ -16,7 +25,7 @@
     align-items: center;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) {
     .SummerOfCSHeaderContainer{
         flex-direction: column;
     }
@@ -29,23 +38,21 @@
 
 .SummerOfCSHeaderContainerTextHeader {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 8vh;
     font-weight: bold;
-    line-height: 37px;
     color: green;
 }
 
 .SummerOfCSHeaderContainerTextSubheading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 5vh;
     font-weight: bold;
-    line-height: 37px;
     color: green;
 }
 
 .SummerOfCSHeaderContainerTextBody {
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 3vh;
     font-weight: bold;
 }
 
@@ -63,7 +70,7 @@
 .SummerOfCSSummary {
     padding: 3%;
     margin: 0 3%;
-    border-width: 5px 5px 3px 5px;
+    border-width: 0px 5px 5px 5px;
     border-style: solid;
     border-color: white;
 }
@@ -77,19 +84,25 @@
     font-weight: bold;
 }
 
+/* Event Item 1*/
+
 .SummerOfCSEventItem1 {
     display: flex;
     padding: 3%;
     margin: 0 3%;
+    border-width: 0px 5px 0px 5px;
     border-style: solid;
     border-color: white;
     background-color: green;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+.SummerOfCSEventItem1HeadingPhotoSpacer{
+    visibility: hidden;
 }
 
 .SummerOfCSEventItem1Heading {
-    margin-right: auto;
     font-family: Montserrat;
     font-size: 30px;
     font-weight: bold;
@@ -98,5 +111,231 @@
 }
 
 .SummerOfCSEventItem1HeadingPhoto {
-    margin-left: auto;
+}
+
+@media (max-width: 900px) {
+    .SummerOfCSEventItem1 {
+        flex-direction: column;
+    }
+    .SummerOfCSEventItem1HeadingPhotoSpacer{
+        display: none;
+    }
+}
+
+.SummerOfCSEventItem1SummaryContainer {
+    padding: 3% 3% 2% 3%;
+    margin: 0 3%;
+    border: 5px solid white;
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.SummerOfCSEventItem1SummaryText {
+
+}
+
+.SummerOfCSEventItem1SummaryEventOptionsContainer {
+    display: flex;
+    justify-content: center;
+    font-weight: Bold;
+}
+
+.SummerOfCSEventItem1SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+    padding: .5% 3%;
+    background-color: #E8805E;
+    border: 5px solid  #E8805E;
+    border-radius: 10px;
+}
+
+.SummerOfCSEventItem1SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+}
+
+/* Event Item 2*/
+
+.SummerOfCSEventItem2 {
+    display: flex;
+    padding: 3%;
+    margin: 0 3%;
+    border-width: 0px 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: green;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.SummerOfCSEventItem2HeadingPhotoSpacer{
+    height: 101px;
+    width: 300px;
+    visibility: hidden;
+}
+
+.SummerOfCSEventItem2Heading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: white;
+}
+
+.SummerOfCSEventItem2HeadingPhoto {
+    height: 101px;
+    width: 300px;
+}
+
+@media (max-width: 900px) {
+    .SummerOfCSEventItem2 {
+        flex-direction: column;
+    }
+    .SummerOfCSEventItem2HeadingPhotoSpacer{
+        display: none;
+    }
+}
+
+.SummerOfCSEventItem2SummaryContainer {
+    padding: 3% 3% 2% 3%;
+    margin: 0 3%;
+    border: 5px solid white;
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.SummerOfCSEventItem2SummaryText {
+
+}
+
+.SummerOfCSEventItem2SummaryEventOptionsContainer {
+    display: flex;
+    justify-content: center;
+    font-weight: Bold;
+}
+
+.SummerOfCSEventItem2SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+    padding: .5% 3%;
+    background-color: #E8805E;
+    border: 5px solid  #E8805E;
+    border-radius: 10px;
+}
+
+.SummerOfCSEventItem2SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+}
+
+/* Event Item 3*/
+
+.SummerOfCSEventItem3 {
+    display: flex;
+    padding: 3%;
+    margin: 0 3%;
+    border-width: 0px 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: green;
+    align-items: center;
+    justify-content: center;
+}
+
+.SummerOfCSEventItem3Heading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: white;
+}
+
+.SummerOfCSEventItem3SummaryContainer {
+    padding: 3% 3% 2% 3%;
+    margin: 0 3%;
+    border: 5px solid white;
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.SummerOfCSEventItem3SummaryText {
+}
+
+.SummerOfCSEventItem3SummaryEventOptionsContainer {
+    display: flex;
+    justify-content: center;
+    font-weight: Bold;
+}
+
+.SummerOfCSEventItem3SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+    padding: .5% 3%;
+    background-color: #E8805E;
+    border: 5px solid  #E8805E;
+    border-radius: 10px;
+}
+
+.SummerOfCSEventItem3SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+}
+
+/* Event Item 4*/
+
+.SummerOfCSEventItem4 {
+    display: flex;
+    padding: 3%;
+    margin: 0 3%;
+    border-width: 0px 5px;
+    border-style: solid;
+    border-color: white;
+    background-color: green;
+    align-items: center;
+    justify-content: center;
+}
+
+.SummerOfCSEventItem4Heading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: white;
+}
+
+.SummerOfCSEventItem4SummaryContainer {
+    padding: 3% 3% 2% 3%;
+    margin: 0 3%;
+    border: 5px solid white;
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.SummerOfCSEventItem4SummaryText {
+}
+
+.SummerOfCSEventItem4SummaryEventOptionsContainer {
+    display: flex;
+    justify-content: center;
+    font-weight: Bold;
+}
+
+.SummerOfCSEventItem4SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+    padding: .5% 3%;
+    background-color: #E8805E;
+    border: 5px solid  #E8805E;
+    border-radius: 10px;
+}
+
+.SummerOfCSEventItem4SummaryEventOptionsFlyer {
+    margin: 2% 2% 0% 2%;
+}
+
+.CSForOregonDescriptionContainer {
+    margin: 3%;
+    padding: 2%;
+    border-width: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: white;
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.CSForOregonBoldText {
+    font-weight: bold;
 }
