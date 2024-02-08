@@ -48,7 +48,7 @@ export default function NavigationBar() {
             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content">
-                        <p>Email: example@example.com</p>
+                        <p>Email: csfororegon@gmail.com</p>
                     </div>
                 </div>
             )}
