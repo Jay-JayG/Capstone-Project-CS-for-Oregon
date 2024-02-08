@@ -1,0 +1,102 @@
+.SummerOfCSSupercontainer {
+    padding: 2%;
+    background-color: #E3E7EF;
+}
+
+.SummerOfCScontainer {
+    margin: 0 3%;
+    border-width: 5px 5px 0px 5px;
+    border-style: solid;
+    border-color: white;
+}
+
+.SummerOfCSHeaderContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .SummerOfCSHeaderContainer{
+        flex-direction: column;
+    }
+}
+
+.SummerOfCSHeaderContainerText {
+    text-align: center;
+    flex: 1;
+}
+
+.SummerOfCSHeaderContainerTextHeader {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: green;
+}
+
+.SummerOfCSHeaderContainerTextSubheading {
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: green;
+}
+
+.SummerOfCSHeaderContainerTextBody {
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.SummerOfCSHeaderPhotoContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.SummerOfCSHeaderPhoto {
+    padding: 3%;
+    width: 70%;
+}
+
+.SummerOfCSSummary {
+    padding: 3%;
+    margin: 0 3%;
+    border-width: 5px 5px 3px 5px;
+    border-style: solid;
+    border-color: white;
+}
+
+.SummerOfCSSummaryText {
+    font-family: Montserrat;
+    font-size: 22px;
+}
+
+.SummerOfCSSummaryTextBold {
+    font-weight: bold;
+}
+
+.SummerOfCSEventItem1 {
+    display: flex;
+    padding: 3%;
+    margin: 0 3%;
+    border-style: solid;
+    border-color: white;
+    background-color: green;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.SummerOfCSEventItem1Heading {
+    margin-right: auto;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 37px;
+    color: white;
+}
+
+.SummerOfCSEventItem1HeadingPhoto {
+    margin-left: auto;
+}
