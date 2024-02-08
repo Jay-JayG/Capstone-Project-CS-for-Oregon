@@ -3,10 +3,10 @@ function Section2 () {
     return (
         <div className='Section2'>
             <p className='Section2Quote'>
-                “COMPUTER SCIENCE HAS SO MUCH ROOM FOR CREATIVITY. I LEARNED SO MUCH ABOUT HOW I COULD MAKE MY IDEAS INTO REALITY.  IT TAUGHT ME HOW TO BREAK THINGS INTO SMALLER PIECES AND THEN BUILD UP TO CREATE THE BIGGER PICTURE.  I FIND THAT REALLY APPEALING.”
+                “Computer Science Has So Much Room For Creativity. I Learned So Much About How I Could Make My Ideas Into Reality.  It Taught Me How To Break Things Into Smaller Pieces And Then Build Up To Create The Bigger Picture.  I Find That Really Appealing.”
             </p>
             <p className='Section2Attribution'>
-                - 12TH GRADE STUDENT AT WEST ALBANY HIGH SCHOOL
+                - 12th Grade Student At West Albany High School
             </p>
         </div>
     );

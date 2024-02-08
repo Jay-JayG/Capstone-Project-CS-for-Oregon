@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 1.4vw;
+    font-size: 16px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
@@ -62,12 +62,12 @@
 }
 
 .CS_logo {
-    width: 60px;
+    width: 110px;
     height: auto;
 }
 
 .item1 {
-    padding: 1%;
+    padding: 0.25%;
 }
 
 .item2 {

@@ -24,13 +24,8 @@ export default function NavigationBar(){
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`NewsAndFeatures`} className="navLink">NEWS & FEATURES</Link>
+                    <Link to={`NewsAndFeatures`} className="navLink">SUMMER OF CS</Link>
                 </div>
-                {/* 
-                <div>
-                    <a href='#' className="navLink">SUMMER OF CS</a>
-                </div>
-                */}
                 <a href='#' className="item6"><img src={envelope} className="envelope" alt="Send"/>Sign up</a>
             </div>
         </nav>
