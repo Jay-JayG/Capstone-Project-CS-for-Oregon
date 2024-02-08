@@ -9,6 +9,7 @@ function Section1Right() {
                 <p className='Section1RightSubHeading' >Oregon has a <span className='Section1RightSubHeadingBoltText'>participation</span> problem in CS education, particularly among girls and students of color.</p>
             </div>
             <Section1RightSubsection1 />
+            <div className="Asterisk">*Based on 2021-22 school district data</div>
         </div>
     );
 };

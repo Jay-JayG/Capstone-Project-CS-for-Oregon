@@ -32,7 +32,6 @@
 
 .Section1LeftContext {
     flex: 1;
-    border: 5px solid #FFFFFF;
     padding: 1%;
 }
 
@@ -58,12 +57,10 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    border: 5px solid #FFFFFF;
     background-color: #E3E7EF;
 }
 
 .Section1RightStatsHeadingsContainer {
-    background-color: #FFFFFF;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -82,7 +79,6 @@
 }
 
 .Section1RightSubHeading {
-    color: #5F1A58;
     text-align: center;
     font-family: Montserrat;
     font-size: 25px;
@@ -93,6 +89,7 @@
 
 .Section1RightSubHeadingBoltText {
     font-weight: bold;
+    color: #E8805E;
 }
 
 .Section1RightSubsection1 {
@@ -131,7 +128,7 @@
 
 .LeftPercentNumber {
     margin: 0;
-    color: #5F1A58;
+    color: #E8805E;
     text-align: center;
     font-family: Montserrat;
     font-size: 70px;
@@ -141,8 +138,8 @@
 }
 
 .LeftPercentText {
+    padding: 5%;
     margin: 0;
-    color: #000;
     text-align: center;
     font-family: Montserrat;
     font-size: 22px;
@@ -157,7 +154,7 @@
 
 .RightPercentNumber {
     margin: 0;
-    color: #5F1A58;
+    color: #E8805E;
     text-align: center;
     font-family: Montserrat;
     font-size: 70px;
@@ -167,6 +164,7 @@
 }
 
 .RightPercentText{
+    padding: 5%;
     margin: 0;
     color: #000;
     text-align: center;
@@ -177,11 +175,15 @@
     line-height: normal;
 }
 
+.Asterisk {
+    text-align: center;
+    font-family: Montserrat;
+}
+
 .Section2 {
     margin: 5%;
     font-family: Montserrat;
     font-size: 25px;
-    font-weight: 700;
     line-height: 37px;
     letter-spacing: 0em;
     color: #270F5A;
