@@ -1,0 +1,9 @@
+.AboutPageTitle {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 3% 4% 3%;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+}
