@@ -44,6 +44,10 @@
     color: black;
 }
 
+.navLink:hover {
+    color: #E8805E;
+}
+
 .NavLinksContainer a.item6 {
     padding: 1%;
     background-color: #E8805E;
