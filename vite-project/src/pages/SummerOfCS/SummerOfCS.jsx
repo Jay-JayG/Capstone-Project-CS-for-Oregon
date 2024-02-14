@@ -8,10 +8,10 @@ export default function SummerOfCS() {
             <div className="SummerOfCScontainer">
                 <div className="SummerOfCSHeaderContainer">
                     <div className="SummerOfCSHeaderContainerText">
-                        <div className='SummerOfCSHeaderContainerTextHeader'>SUMMER OF CS</div>
-                        <div className='SummerOfCSHeaderContainerTextSubheading'>K12 CS Equity Summit</div>
+                        <div className='SummerOfCSHeaderContainerTextHeader'>CS for Oregon</div>
+                        <div className='SummerOfCSHeaderContainerTextSubheading'>Summer Equity Symposium</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>OSU-Cascades</div>
-                        <div className='SummerOfCSHeaderContainerTextBody'>Bend ,Oregon</div>
+                        <div className='SummerOfCSHeaderContainerTextBody'>Bend, Oregon</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>July 29 - Aug 2, 2024</div>
                     </div>
                     <div className='SummerOfCSHeaderPhotoContainer'>

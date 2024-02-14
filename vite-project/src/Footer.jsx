@@ -11,7 +11,7 @@ function Footer() {
                 <div className='logo-and-links'>
                     <Link to={`/`} className="LogoContainer">
                         <img src={logo} className="logo-image" alt="logo" />
-                        <div className="NavBarCSForOregon">CS For Oregon</div>
+                        <div className="NavBarCSForOregon">CS for Oregon</div>
                     </Link>
                     <div className='footer-links'>
                         <nav className='footer-textbox'>

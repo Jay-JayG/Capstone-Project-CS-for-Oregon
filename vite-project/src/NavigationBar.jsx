@@ -26,7 +26,7 @@ export default function NavigationBar() {
                 <div className="item1">
                     <Link to={`/`} className="LogoContainer">
                         <img src={CS_logo} className="CS_logo" alt="logo" />
-                        <div className="CSForOregon">CS For Oregon</div>
+                        <div className="CSForOregon">CS for Oregon</div>
                     </Link>
                 </div>
                 <div className="item2">
@@ -39,12 +39,15 @@ export default function NavigationBar() {
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`SummerOfCS`} className="navLink">SUMMER OF CS</Link>
+                    <Link to={`SummerOfCS`} className="navLink">Summer Equity Symposium</Link>
                 </div>
+                {/*
                 <a href='#' className="item6" onClick={togglePopup}>
-                    <img src={envelope} className="envelope" alt="Send"/> Contact Us
+                    <img src={envelope} className="envelope" alt="Send" /> Contact Us
                 </a>
+                */}
             </div>
+            {/*
             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content">
@@ -52,6 +55,7 @@ export default function NavigationBar() {
                     </div>
                 </div>
             )}
+            */}
         </nav>
     );
 };
