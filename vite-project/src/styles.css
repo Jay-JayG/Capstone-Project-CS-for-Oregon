@@ -272,7 +272,7 @@ font-weight: 200;
 }
 
 .AboutSectionHeader{
-  color: #270F5A;
+  color: green;
   text-align: center;
   font-family: Montserrat;
   font-size: 30px;
@@ -300,7 +300,7 @@ font-weight: 200;
 }
 
 .OurValuesHeader{
-  color: #5F1A58;
+  color: #E8805E;
   font-family: Montserrat;
   font-size: 22px;
   font-style: normal;
