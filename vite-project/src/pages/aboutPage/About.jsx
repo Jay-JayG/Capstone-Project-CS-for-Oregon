@@ -1,10 +1,12 @@
 import AboutBoxes from "./AboutBoxes.jsx";
 import WebsiteDevelopers from "./WebsiteDevelopers.jsx";
+import './About.css';
 
 function About() {
     return (
       <>
       <div className="AboutSectionBackRound">
+        <div className='AboutPageTitle'>ABOUT</div>
         <div className='AboutSectionBox'> 
         <p className="AboutSectionHeader"> Our Mission</p>
         <div className="AboutSectionText"> 
