@@ -1,4 +1,5 @@
 import CSSummerPhoto from '/src/assets/summer_of_cs_photo.png';
+import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.png';
 import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import SummerEquity from '/src/assets/summersymposium.webp';
@@ -6,15 +7,16 @@ import './SummerOfCS.css';
 export default function SummerOfCS() {
     return (
         <div className='SummerOfCSSupercontainer'>
+            <div className='SummerCSPageTitle'>SUMMER EQUITY SYMPOSIUM</div>
             <div className="SummerOfCScontainer">
                 <div className="SummerOfCSHeaderContainer">
                     <div className="SummerOfCSHeaderContainerText">
-                        {/*<div className='SummerOfCSHeaderContainerTextHeader'>CS for Oregon</div>*/}
-                        <img className="SummerEquityPhoto" src={SummerEquity} alt="photo" />
-                        {/*<div className='SummerOfCSHeaderContainerTextSubheading'>Summer Equity Symposium</div>*/}
+                        <div className='SummerOfCSHeaderContainerTextHeader'>CS for Oregon</div>
+                        <div className='SummerOfCSHeaderContainerTextSubheading'>Summer Equity Symposium</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>OSU-Cascades</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>Bend, Oregon</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>July 29 - Aug 2, 2024</div>
+                        <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" />
                     </div>
                     <div className='SummerOfCSHeaderPhotoContainer'>
                         <img className="SummerOfCSHeaderPhoto" src={CSSummerPhoto} alt="CSSummerPhoto" />

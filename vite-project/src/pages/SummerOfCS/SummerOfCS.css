@@ -3,6 +3,16 @@
     background-color: #E3E7EF;
 }
 
+.SummerCSPageTitle {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 3% 4% 3%;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+}
+
 .SummerOfCSSupercontainer a {
     color: black;
 }
@@ -33,14 +43,14 @@
 
 .SummerOfCSHeaderContainerText {
     text-align: center;
-    flex: 1;
 }
 
 .SummerOfCSHeaderContainerTextHeader {
     font-family: Montserrat;
-    font-size: 8vh;
+    font-size: 6vh;
     font-weight: bold;
     color: green;
+    padding: 2%;
 }
 
 .SummerOfCSHeaderContainerTextSubheading {
@@ -56,15 +66,19 @@
     font-weight: bold;
 }
 
+.CSSymposiumLogo {
+    width: 50%;
+    padding: 2% 0 0 0;
+}
+
 .SummerOfCSHeaderPhotoContainer {
-    flex: 1;
     display: flex;
     justify-content: center;
 }
 
 .SummerOfCSHeaderPhoto {
     padding: 3%;
-    width: 70%;
+    width: 80%;
 }
 
 .SummerEquityPhoto {

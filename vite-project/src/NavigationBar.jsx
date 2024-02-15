@@ -39,7 +39,7 @@ export default function NavigationBar() {
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`SummerOfCS`} className="navLink">Summer Equity Symposium</Link>
+                    <Link to={`SummerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
                 </div>
                 {/*
                 <a href='#' className="item6" onClick={togglePopup}>
