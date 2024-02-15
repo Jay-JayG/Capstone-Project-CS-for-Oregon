@@ -2,7 +2,6 @@ import CSSummerPhoto from '/src/assets/summer_of_cs_photo.png';
 import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.png';
 import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
-import SummerEquity from '/src/assets/summersymposium.webp';
 import './SummerOfCS.css';
 export default function SummerOfCS() {
     return (
@@ -11,8 +10,7 @@ export default function SummerOfCS() {
             <div className="SummerOfCScontainer">
                 <div className="SummerOfCSHeaderContainer">
                     <div className="SummerOfCSHeaderContainerText">
-                        <div className='SummerOfCSHeaderContainerTextHeader'>CS for Oregon</div>
-                        <div className='SummerOfCSHeaderContainerTextSubheading'>Summer Equity Symposium</div>
+                        <div className='SummerOfCSHeaderContainerTextHeader'>Summer Equity Symposium</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>OSU-Cascades</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>Bend, Oregon</div>
                         <div className='SummerOfCSHeaderContainerTextBody'>July 29 - Aug 2, 2024</div>
@@ -29,7 +27,7 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSSummaryText'>We look forward to working with you to expand computer science educational opportunities for all in Oregon!  </div>
             </div>
             <div className='SummerOfCSEventItem1'>
-                <img className='SummerOfCSEventItem1HeadingPhotoSpacer' src={ECSLogo} />
+                
                 <div className='SummerOfCSEventItem1Heading'>Exploring Computer Science Teacher PD</div>
                 <img className='SummerOfCSEventItem1HeadingPhoto' src={ECSLogo} alt="Exploring Computer Science Logo" />
             </div>
@@ -43,7 +41,7 @@ export default function SummerOfCS() {
                 </div>
             </div>
             <div className='SummerOfCSEventItem2'>
-                <img className='SummerOfCSEventItem2HeadingPhotoSpacer' src={StitchingTheLoopLogo} />
+                
                 <div className='SummerOfCSEventItem2Heading'>E-Textiles Teacher PD</div>
                 <img className='SummerOfCSEventItem2HeadingPhoto' src={StitchingTheLoopLogo} alt="Stitching the Loop Logo" />
             </div>

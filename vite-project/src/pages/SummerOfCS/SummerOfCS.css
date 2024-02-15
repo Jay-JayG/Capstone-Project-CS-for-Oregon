@@ -114,7 +114,8 @@
     border-color: white;
     background-color: green;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 .SummerOfCSEventItem1HeadingPhotoSpacer{
@@ -123,13 +124,16 @@
 
 .SummerOfCSEventItem1Heading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vw;
     font-weight: bold;
-    line-height: 37px;
     color: white;
+    text-align: center; /* Center the text horizontally */
+    
 }
 
 .SummerOfCSEventItem1HeadingPhoto {
+    display: block; /* This makes the image a block-level element, enabling margin auto to work */
+    
 }
 
 @media (max-width: 900px) {
@@ -177,13 +181,15 @@
     display: flex;
     padding: 3%;
     margin: 0 3%;
-    border-width: 0px 5px;
+    border-width: 0px 5px 0px 5px;
     border-style: solid;
     border-color: white;
     background-color: green;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: column;
 }
+
 
 .SummerOfCSEventItem2HeadingPhotoSpacer{
     height: 101px;
@@ -193,14 +199,15 @@
 
 .SummerOfCSEventItem2Heading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
 }
 
 .SummerOfCSEventItem2HeadingPhoto {
-    height: 101px;
+    display: block;
+    
     width: 300px;
 }
 
@@ -260,7 +267,7 @@
 
 .SummerOfCSEventItem3Heading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
@@ -311,7 +318,7 @@
 
 .SummerOfCSEventItem4Heading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
