@@ -1,0 +1,128 @@
+.Background{
+    background: #E3E7EF;
+    padding: 1%;
+}
+
+.TopPageBox{
+    border: 5px solid #FFF;
+    flex: 1;
+    text-align: center;
+    margin: 3%;
+    padding: 20px;
+}
+
+.TopPageText{
+    color: #270F5A;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    
+}
+
+.OregonPolicyBox{
+    border: 5px solid #E3E7EF;
+    flex: 1;
+    text-align: center;
+    margin: 3%;
+    padding: 20px;
+  }
+
+
+.PolicyHeader{
+    color: #1D5846;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.PolicyContent{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.CardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Adjust the space between boxes */
+    margin: 20px 0; /* Vertical spacing from other elements */
+}
+.GreenCard{
+    background: #1D584642;
+    width: 295.112px;
+    height: 311.88px;
+    justify-content: center;
+    position: relative; /* Needed for absolute positioning of content */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontal alignment */
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+}
+
+.RedCard{
+    background: #FFA0A05C;
+    width: 295.112px;
+    height: 311.88px;
+    justify-content: center;
+    position: relative; /* Needed for absolute positioning of content */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontal alignment */
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+}
+
+.YellowCard{
+    background: #E39C325C;
+    width: 295.112px;
+    height: 311.88px;
+    justify-content: center;
+    position: relative; /* Needed for absolute positioning of content */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Horizontal alignment */
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+}
+
+.CardHeader {
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.BoxContent2 {
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 10px;
+}
+
+.Icon{
+    width: 59.755px;
+    height: 57px;
+    flex-shrink: 0;
+}

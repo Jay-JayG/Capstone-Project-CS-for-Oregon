@@ -17,14 +17,14 @@
     
 }
 
-@media only screen and (max-width: 990px) {
+@media only screen and (max-width: 1200px) {
     .NavLinksContainer {
-        font-size: 1.4vw;
+        font-size: 1.3vw;
         
     }
 }
 
-@media only screen and (max-width: 645px) {
+@media only screen and (max-width: 750px) {
     .NavLinksContainer {
         font-size: 2.5vw;
         flex-direction: column;

@@ -39,6 +39,9 @@ export default function NavigationBar() {
                     <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
+                    <Link to={`researchAndPolicy`} className="navLink">Research & Policy</Link>
+                </div>
+                <div className="item5">
                     <Link to={`SummerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
                 </div>
                 {/*
