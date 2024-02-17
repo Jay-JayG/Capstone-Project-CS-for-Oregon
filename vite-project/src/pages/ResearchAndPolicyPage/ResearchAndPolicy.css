@@ -74,8 +74,8 @@
 
 .GreenCard{
     background: #1D584642;
-    width: 295.112px;
-    height: 311.88px;
+    width: 29vw;
+    height: 31vw;
     justify-content: center;
     position: relative; /* Needed for absolute positioning of content */
     display: flex;
@@ -88,8 +88,8 @@
 
 .RedCard{
     background: #FFA0A05C;
-    width: 295.112px;
-    height: 311.88px;
+    width: 29vw;
+    height: 31vw;
     justify-content: center;
     position: relative; /* Needed for absolute positioning of content */
     display: flex;
@@ -102,8 +102,8 @@
 
 .YellowCard{
     background: #E39C325C;
-    width: 295.112px;
-    height: 311.88px;
+    width: 29vw;
+    height: 31vw;
     justify-content: center;
     position: relative; /* Needed for absolute positioning of content */
     display: flex;
@@ -118,7 +118,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 18px;
+    font-size: 2.5vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -128,7 +128,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 12px;
+    font-size: 1.2vw;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -136,7 +136,7 @@
 }
 
 .Icon{
-    width: 59.755px;
-    height: 57px;
+    width: 6vw;
+    height: 6vw;
     flex-shrink: 0;
 }

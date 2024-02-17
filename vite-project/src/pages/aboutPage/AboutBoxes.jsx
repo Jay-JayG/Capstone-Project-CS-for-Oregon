@@ -8,12 +8,12 @@ import kendra from '/src/assets/DeWater_Kendra.webp';
 import trish from '/src/assets/Trish_Dorr.webp';
 import chris from '/src/assets/Doscher_Christopher.webp';
 import taghrid from '/src/assets/Elmeligu_Taghrid.webp';
-import bryan from '/src/assets/Freschi_Bryan_FB.webp';
+import bryan from '/src/assets/Freschi_Bryan_v3.webp';
 import dylana from '/src/assets/Dylana_Garfas.webp';
 import joanna from '/src/assets/Goode_Joanna.webp';
 import jim from '/src/assets/Hook_Jim.webp';
 import jill from '/src/assets/Hubbard_Jill.webp';
-import sou from '/src/assets/Hung-SOU-New-Computer-Science-Faculty-Eping-Hung-Southern-Oregon-University.webp';
+import sou from '/src/assets/Hung_Eping.webp';
 import jorge from '/src/assets/Mendieta_Jorge.webp';
 import jennifer from '/src/assets/Jennifer_Mohatt.webp';
 import philip from '/src/assets/Reed_Philip.webp';
@@ -23,7 +23,7 @@ import greg from '/src/assets/Scott_Greg.webp';
 import max from '/src/assets/Skordinsky_Max.webp';
 import eva from '/src/assets/Skuratowicz_Eva.webp';
 import jen from '/src/assets/Tuttle_Jen.webp';
-import maggie from '/src/assets/Vanderberg-Maggie-Southern-Oregon-University-Computer-Science-Faculty.webp';
+import maggie from '/src/assets/Vanderberg_Maggie.webp';
 
 
 
