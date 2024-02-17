@@ -279,7 +279,6 @@ font-weight: 200;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  text-decoration-line: underline;
 }
 
 .AboutSectionText{
@@ -300,7 +299,6 @@ font-weight: 200;
 }
 
 .OurValuesHeader{
-  color: #E8805E;
   font-family: Montserrat;
   font-size: 22px;
   font-style: normal;
@@ -309,7 +307,6 @@ font-weight: 200;
 }
 
 .OurValuesText{
-  color: #270F5A;
   font-family: Montserrat;
   font-size: 22px;
   font-style: normal;

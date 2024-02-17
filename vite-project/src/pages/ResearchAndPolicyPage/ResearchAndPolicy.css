@@ -1,6 +1,17 @@
 .Background{
     background: #E3E7EF;
-    padding: 1%;
+    padding: 2%;
+    
+}
+
+.ResearchPageTitle {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 3% 4% 3%;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
 }
 
 .TopPageBox{
@@ -8,18 +19,16 @@
     flex: 1;
     text-align: center;
     margin: 3%;
-    padding: 20px;
+    padding: 2%;
 }
 
 .TopPageText{
-    color: #270F5A;
     text-align: center;
     font-family: Montserrat;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-decoration-line: underline;
     
 }
 
@@ -27,13 +36,13 @@
     border: 5px solid #E3E7EF;
     flex: 1;
     text-align: center;
-    margin: 3%;
-    padding: 20px;
+    margin: 5%;
+    padding: 2%;
   }
 
 
 .PolicyHeader{
-    color: #1D5846;
+    color: green;
     text-align: center;
     font-family: Montserrat;
     font-size: 30px;
@@ -58,6 +67,11 @@
     gap: 25px; /* Adjust the space between boxes */
     margin: 20px 0; /* Vertical spacing from other elements */
 }
+
+.OregonPolicyLink {
+    color: black;
+}
+
 .GreenCard{
     background: #1D584642;
     width: 295.112px;

@@ -36,8 +36,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - Aug 2, 2024</div>
                 <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators who are certified in any subject and interested in teaching ECS at their school. </div>
                 <div className='SummerOfCSEventItem1SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a href='' className='SummerOfCSEventItem1SummaryEventOptionsFlyer'>Event Flyer</a>
+                    <a href='' className='SummerOfCSEventItem1SummaryEventOptionsFlyer'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem2'>
@@ -50,8 +50,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - Aug 1, 2024</div>
                 <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators who are certified in any subject and interested in teaching ECS at their school. </div>
                 <div className='SummerOfCSEventItem2SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a href='' className='SummerOfCSEventItem2SummaryEventOptionsFlyer'>Event Flyer</a>
+                    <a href='' className='SummerOfCSEventItem2SummaryEventOptionsFlyer'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem3'>
@@ -62,8 +62,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 30 - 31, 2024</div>
                 <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon administrators, TOSA, school leaders, and counselors</div>
                 <div className='SummerOfCSEventItem3SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a href='' className='SummerOfCSEventItem3SummaryEventOptionsFlyer'>Event Flyer</a>
+                    <a href='' className='SummerOfCSEventItem3SummaryEventOptionsFlyer'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem4'>

@@ -17,10 +17,10 @@ export default function Educators() {
                         <li>Research-based, scalable curriculum intentionally designed to broaden participation in computing.</li>
                     </ul>
                     <div className="EducatorsSection2Container">
-                        <h2 className="EducatorsHeading2">SUMMER EQUITY SYMPOSIUM</h2>
+                        <Link to={`/SummerOfCS`} className="EducatorsHeading2">SUMMER EQUITY SYMPOSIUM</Link>
                         <p className="Section2Text1">The Summer Equity Symposium is a research-based professional development event for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</p>
                         <p className="Section2Text2">The Summer Equity Symposium is supported by a grant from the National Science Foundation and the Oregon Department of Education</p>
-                        <Link to={`/SummerOfCS`} className="SummerOfCSText">Learn More!</Link>
+                        
                     </div>
                 </div>
             </div>
