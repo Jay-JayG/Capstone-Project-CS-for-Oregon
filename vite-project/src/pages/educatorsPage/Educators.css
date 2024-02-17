@@ -122,8 +122,8 @@
 
 /* Start of EducatorsResources.jsx styling */
 
-.EducatorsResourcesContainer {
-
+.EducatorsResourcesContainer a{
+    color: black;
 }
 
 .ResourcesHeading {

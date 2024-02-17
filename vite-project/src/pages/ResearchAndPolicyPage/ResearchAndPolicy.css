@@ -67,6 +67,11 @@
     gap: 25px; /* Adjust the space between boxes */
     margin: 20px 0; /* Vertical spacing from other elements */
 }
+
+.OregonPolicyLink {
+    color: black;
+}
+
 .GreenCard{
     background: #1D584642;
     width: 295.112px;
