@@ -169,10 +169,7 @@
     background-color: #E8805E;
     border: 5px solid  #E8805E;
     border-radius: 10px;
-}
-
-.SummerOfCSEventItem1SummaryEventOptionsFlyer {
-    margin: 2% 2% 0% 2%;
+    text-decoration: none;
 }
 
 /* Event Item 2*/
@@ -244,6 +241,7 @@
     background-color: #E8805E;
     border: 5px solid  #E8805E;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 
@@ -296,6 +294,7 @@
     background-color: #E8805E;
     border: 5px solid  #E8805E;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .SummerOfCSEventItem3SummaryEventOptionsFlyer {
@@ -347,6 +346,7 @@
     background-color: #E8805E;
     border: 5px solid  #E8805E;
     border-radius: 10px;
+    text-decoration: none;
 }
 
 .SummerOfCSEventItem4SummaryEventOptionsFlyer {
