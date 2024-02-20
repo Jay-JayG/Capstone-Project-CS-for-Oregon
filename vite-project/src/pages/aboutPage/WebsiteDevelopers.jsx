@@ -9,11 +9,6 @@ function WebsiteDevelopers(){
         
         <div className="BoxesContainer">
 
-            <div className="AboutSectionBoxes">
-                <img src={anna} alt="headshot image" className="BoxImage" />
-                <div className="BoxHeader">Anna Vosko</div>
-                <div className="BoxContent">Website developer, Oregon State University Cascades</div>
-            </div>
 
             <div className="AboutSectionBoxes">
                 <img src={joel} alt="headshot image" className="BoxImage" />
@@ -24,7 +19,13 @@ function WebsiteDevelopers(){
             <div className="AboutSectionBoxes">
                 <img src={jack} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">John Rundle</div>
-                <div className="BoxContent">Frontend website developer, Oregon State University Cascades </div>
+                <div className="BoxContent">Website developer, Oregon State University Cascades </div>
+            </div>
+
+            <div className="AboutSectionBoxes">
+                <img src={anna} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Anna Vosko</div>
+                <div className="BoxContent">Website developer, Oregon State University Cascades</div>
             </div>
 
             
