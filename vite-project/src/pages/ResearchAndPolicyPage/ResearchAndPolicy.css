@@ -68,9 +68,12 @@
     margin: 20px 0; /* Vertical spacing from other elements */
 }
 
+
 .OregonPolicyLink {
     color: black;
 }
+
+
 
 .GreenCard{
     background: #1D584642;
@@ -114,6 +117,8 @@
     justify-content: space-evenly;
 }
 
+
+
 .CardHeader {
     color: #000;
     text-align: center;
@@ -139,4 +144,22 @@
     width: 6vw;
     height: 6vw;
     flex-shrink: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .GreenCard, .RedCard, .YellowCard {
+        width: 290px;
+        height: 320px;
+    }
+    .CardHeader {
+        font-size: 26px;
+    }
+    .BoxContent2 {
+        font-size: 12px;
+    }
+    .Icon{
+        width: 60px;
+        height: 60px;
+    }
+
 }
