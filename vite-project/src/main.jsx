@@ -13,6 +13,7 @@ import About from './pages/aboutPage/About';
 import Educators from './pages/educatorsPage/Educators';
 import SummerOfCS from './pages/SummerOfCS/SummerOfCS';
 import ResearchAndPolicy from './pages/ResearchAndPolicyPage/ResearchAndPolicy';
+import AdminPage from './pages/Admin/Admin';
 //import './styles.css';
 
 const router = createBrowserRouter(
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
     <Route path="Educators" element={<Educators />} />
     <Route path="SummerOfCS/" element={<SummerOfCS />} />
     <Route path="ResearchAndPolicy" element={<ResearchAndPolicy />} />
+    <Route path="AdminPage" element={<AdminPage />} />
   </Route>
   )
 );
