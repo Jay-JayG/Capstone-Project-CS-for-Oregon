@@ -1,3 +1,32 @@
 .AdminPageContainer {
     
 }
+
+.AdminPageTitle {
+    text-align: center;
+}
+
+.AdminPageSubmittedText {
+    text-align: center;
+}
+.AdminPageFormContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.AdminPageForm {
+    
+}
+
+.AdminPageFormFieldDiv {
+    padding: 5%;
+}
+
+.AdminPageFormField {
+
+}
+
+.AdminPageSubmitBotton {
+    padding: 5%;
+    align-self: center;
+}
