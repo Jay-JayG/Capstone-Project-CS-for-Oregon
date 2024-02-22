@@ -5,24 +5,24 @@ import axios from 'axios';
 export default function AdminPage() {
 
     const [formData, setFormData] = useState({
-        Title: '',
-        Description: '',
-        Extra: ''
+        title: '',
+        description: '',
+        extra: ''
     });
 
     const [submitted, setSubmitted] = useState(false);
 
     const handleTitleInputChange = (event) => {
-        setFormData({ ...formData, Title: event.target.value });
-        console.log(formData.Title)
+        setFormData({ ...formData, title: event.target.value });
+        console.log(formData.title)
     }
 
     const handleDescriptionInputChange = (event) => {
-        setFormData({ ...formData, Description: event.target.value });
+        setFormData({ ...formData, description: event.target.value });
     }
 
     const handleExtraInputChange = (event) => {
-        setFormData({ ...formData, Extra: event.target.value });
+        setFormData({ ...formData, extra: event.target.value });
     }
 
     const handleSubmit = async (event) => {
@@ -32,10 +32,13 @@ export default function AdminPage() {
             console.log('Object uploaded successfullyy:', res.data);
             setSubmitted(true);
             setFormData({
-                Title: '',
-                Description: '',
-                Extra: ''
+                title: '',
+                description: '',
+                extra: ''
             });
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 2000);
         } catch (error) {
             console.error('Error uploading object:', error);
         }
@@ -50,7 +53,7 @@ export default function AdminPage() {
                     <div className='AdminPageFormFieldDiv'>
                         <input
                             onChange={handleTitleInputChange}
-                            values={formData.Title}
+                            value={formData.title}
                             className='AdminPageFormField'
                             placeholder='Titel'
                             name='Title'
@@ -59,7 +62,7 @@ export default function AdminPage() {
                     <div className='AdminPageFormFieldDiv'>
                         <input
                             onChange={handleDescriptionInputChange}
-                            values={formData.Description}
+                            value={formData.description}
                             className='AdminPageFormField'
                             placeholder='Description'
                             name='Description'
@@ -68,7 +71,7 @@ export default function AdminPage() {
                     <div className='AdminPageFormFieldDiv'>
                         <input
                             onChange={handleExtraInputChange}
-                            values={formData.Extra}
+                            value={formData.extra}
                             className='AdminPageFormField'
                             placeholder='Extra'
                             name='Extra'
