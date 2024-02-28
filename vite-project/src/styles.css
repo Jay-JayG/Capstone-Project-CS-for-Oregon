@@ -316,7 +316,7 @@ font-weight: 200;
 }
 
 .AboutSectionBoxes{
-  width: 259px;
+  width: 280px;
   height: 294px;
   background: #E3E7EF;
   position: relative; /* Needed for absolute positioning of content */
@@ -331,8 +331,8 @@ font-weight: 200;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px; /* Adjust the space between boxes */
-  margin: 20px 0; /* Vertical spacing from other elements */
+  gap: 15px; /* Horizontal spacing */
+  margin: 20px 0; /* Vertical spacing */
 }
 
 .BoxHeader{
