@@ -4,6 +4,7 @@ import michelle from '/src/assets/Balmeo_Michelle.webp';
 import jenna from '/src/assets/Borberg_Jenna.webp';
 import james from '/src/assets/Cagney_James.webp';
 import andrew from '/src/assets/Cronk_Andrew.webp';
+import josh from '/src/assets/Davis_Josh.webp';
 import kendra from '/src/assets/DeWater_Kendra.webp';
 import trish from '/src/assets/Trish_Dorr.webp';
 import chris from '/src/assets/Doscher_Christopher.webp';
@@ -67,6 +68,12 @@ function AboutBoxes(){
             </div>
 
             <div className="AboutSectionBoxes">
+                <img src={josh} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Josh Davis</div>
+                <div className="BoxContent">CS Teacher, <a href="https://rvhs.redmondschools.org/" target="_blank"> Ridgeview High School</a>, <a href="https://redmondschools.org/" target="_blank">Redmond School District</a>, ECS Regional Specialist.</div>
+            </div>
+
+            <div className="AboutSectionBoxes">
                 <img src={kendra} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Kendra DeWater</div>
                 <div className="BoxContent">CS Teacher, <a href="https://www.reynolds.k12.or.us/rla" target="_blank">Reynolds Learning Academy, Reynolds School District</a>, Social Justice Teacher Leader</div>
@@ -75,7 +82,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={trish} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Trish Dorr</div>
-                <div className="BoxContent">Teacher, <a href="https://www.ashland.k12.or.us/o/hes" target="_blank">Helman Elementary School, Ashland School District</a>, SOU Facilitator</div>
+                <div className="BoxContent">Teacher, <a href="https://www.ashland.k12.or.us/o/hes" target="_blank">Helman Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -99,7 +106,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={dylana} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Dylana Garfas-Knowles</div>
-                <div className="BoxContent">English Language Learning Teacher, <a href="https://www.ashland.k12.or.us/o/wes" target="_blank">Walker Elementary School, Ashland School District</a>, SOU Facilitator</div>
+                <div className="BoxContent">English Language Learning Teacher, <a href="https://www.ashland.k12.or.us/o/wes" target="_blank">Walker Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
 
@@ -137,7 +144,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jennifer} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jennifer Mohatt</div>
-                <div className="BoxContent">Teacher, <a href="https://www.phoenix.k12.or.us/Page/9" target="_blank">Phoenix Elementary School, Phoenix-Talent School District</a>, SOU Facilitator</div>
+                <div className="BoxContent">Teacher, <a href="https://www.phoenix.k12.or.us/Page/9" target="_blank">Phoenix Elementary School, Phoenix-Talent School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
             <div className="AboutSectionBoxes">

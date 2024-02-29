@@ -133,6 +133,7 @@
 
 .SummerOfCSEventItem1HeadingPhoto {
     display: block; /* This makes the image a block-level element, enabling margin auto to work */
+    width: 30vw;
     
 }
 
@@ -205,7 +206,7 @@
 .SummerOfCSEventItem2HeadingPhoto {
     display: block;
     
-    width: 300px;
+    width: 30vw;
 }
 
 @media (max-width: 900px) {
