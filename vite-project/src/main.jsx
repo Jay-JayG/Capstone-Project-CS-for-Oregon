@@ -15,6 +15,7 @@ import SummerOfCS from './pages/SummerOfCS/SummerOfCS';
 import ResearchAndPolicy from './pages/ResearchAndPolicyPage/ResearchAndPolicy';
 import AdminPage from './pages/Admin/Admin';
 import NewsAndFeaturesPage from './pages/NewsAndFeatures/NewsAndFeatures';
+import EventsPage from './pages/NewsAndFeatures/EventsPage/EventsPage';
 //import './styles.css';
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     <Route path="ResearchAndPolicy" element={<ResearchAndPolicy />} />
     <Route path="AdminPage" element={<AdminPage />} />
     <Route path="News" element={<NewsAndFeaturesPage />} />
+    <Route path="EventsPage" element={<EventsPage />} />
   </Route>
   )
 );

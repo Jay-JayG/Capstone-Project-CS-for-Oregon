@@ -1,5 +1,6 @@
 import './NewsAndFeatures.css';
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
 
 export default function NewsAndFeaturesPage() {
@@ -19,14 +20,21 @@ export default function NewsAndFeaturesPage() {
 
 
     return (
-        <div className='NewsAndFeaturesPageContainer'>
+        <div className='news-and-features-page-container'>
+            <div className='news-and-features-page-navigator'>
+                <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
+                <Link to={`/EventsPage`} className='news-and-features-page-navigator-events'>Events</Link>
+                <div className='news-and-features-page-navigator-spotlight'>Spotlight</div>
+            </div>
             <h1>NewsAndFeaturesPage WIP</h1>
             <div className='news-object-list'>
                 {objects.map(obj => (
                     <div key={obj._id} className='object'>
-                        <h2>{obj.title}</h2>
-                        <p>{obj.description}</p>
-                        {obj.extra && <p>{obj.extra}</p>}
+                        <div className='object-container'>
+                            <h2>{obj.title}</h2>
+                            <p>{obj.description}</p>
+                            {obj.extra && <p>{obj.extra}</p>}
+                        </div>
                     </div>
                 ))}
             </div>
