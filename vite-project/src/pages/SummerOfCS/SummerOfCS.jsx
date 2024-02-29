@@ -36,8 +36,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - Aug 2, 2024</div>
                 <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators who are certified in any subject and interested in teaching ECS at their school. </div>
                 <div className='SummerOfCSEventItem1SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem1SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem1SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a className='SummerOfCSEventItem1SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1KE8GDDz4yj9cJujcfAH-7rkKHfThm2HO/view?usp=sharing' target='_blank'>Event Flyer</a>
+                    <a className='SummerOfCSEventItem1SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0CCQlCf5FSHJxPM' target='_blank'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem2'>
@@ -50,8 +50,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - Aug 1, 2024</div>
                 <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators who are certified in any subject and interested in teaching ECS at their school. </div>
                 <div className='SummerOfCSEventItem2SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem2SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem2SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a className='SummerOfCSEventItem2SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1w3QoDAEPTzTywabyNjIAjFjLVLGtDC2h/view?usp=sharing' target='_blank'>Event Flyer</a>
+                    <a className='SummerOfCSEventItem2SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_73etRVz37wQH8t8' target='_blank'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem3'>
@@ -62,8 +62,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 30 - 31, 2024</div>
                 <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon administrators, TOSA, school leaders, and counselors</div>
                 <div className='SummerOfCSEventItem3SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem3SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem3SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a className='SummerOfCSEventItem3SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/12RyEFqnIe4YxqOCxgymGZK00eU-HkZ5H/view?usp=sharing' target='_blank'>Event Flyer</a>
+                    <a className='SummerOfCSEventItem3SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_bJhJQXgTRuYXid0' target='_blank'>Apply Here</a>
                 </div>
             </div>
             <div className='SummerOfCSEventItem4'>
@@ -74,8 +74,8 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 30 - 31, 2024</div>
                 <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon elementary school teachers</div>
                 <div className='SummerOfCSEventItem4SummaryEventOptionsContainer'>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Event Flyer</a>
-                    <a href='' className='SummerOfCSEventItem4SummaryEventOptionsFlyer'>Apply Here</a>
+                    <a className='SummerOfCSEventItem4SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1mclDApms1-tPCe5iic9JDMt0VM0C3Rx-/view?usp=sharing' target='_blank'>Event Flyer</a>
+                    <a className='SummerOfCSEventItem4SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0f9WnqEhYpivQJo' target='_blank'>Apply Here</a>
                 </div>
             </div>
             <div className='CSForOregonDescriptionContainer'>
