@@ -24,7 +24,7 @@ export default function NewsAndFeaturesPage() {
             <div className='news-and-features-page-navigator'>
                 <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
                 <Link to={`/EventsPage`} className='news-and-features-page-navigator-events'>Events</Link>
-                <div className='news-and-features-page-navigator-spotlight'>Spotlight</div>
+                <Link to={`/SpotlightPage`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
             </div>
             <h1>NewsAndFeaturesPage WIP</h1>
             <div className='news-object-list'>

@@ -1,5 +1,5 @@
 import './Admin.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function AdminPage() {
@@ -9,6 +9,8 @@ export default function AdminPage() {
         description: '',
         extra: ''
     });
+
+    const [objects, setObjects] = useState([]);
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -39,10 +41,41 @@ export default function AdminPage() {
             setTimeout(() => {
                 setSubmitted(false);
             }, 2000);
+            await getObjects();
         } catch (error) {
             console.error('Error uploading object:', error);
         }
     }
+
+    useEffect(() => {
+        const getObjects = async () => {
+            try {
+                const res = await axios.get('http://localhost:3001/objects');
+                setObjects(res.data);
+            } catch (error) {
+                console.log('Error retrieving objects', error);
+            }
+        };
+        getObjects();
+    }, []);
+
+    const getObjects = async () => {
+        try {
+            const res = await axios.get('http://localhost:3001/objects');
+            setObjects(res.data);
+        } catch (error) {
+            console.log('Error retrieving objects', error);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:3001/objects/${id}`);
+            await getObjects();
+        } catch (error) {
+            console.log('Error deleting object', error);
+        }
+    };
 
     return (
         <div className='AdminPageContainer'>
@@ -83,6 +116,20 @@ export default function AdminPage() {
                         </button>
                     </div>
                 </form>
+            </div>
+            <div className='admin-news-object-list'>
+                {objects.map(obj => (
+                    <div key={obj._id} className='admmin-news-object'>
+                        <div className='admin-object-container'>
+                            <h2>{obj.title}</h2>
+                            <p>{obj.description}</p>
+                            {obj.extra && <p>{obj.extra}</p>}
+                        </div>
+                        <button className='admin-delete_item_button' type='button' onClick={() => handleDelete(obj._id)}>
+                            Delete
+                        </button>
+                    </div>
+                ))}
             </div>
         </div>
     );
