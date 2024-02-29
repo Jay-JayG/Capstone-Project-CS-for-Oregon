@@ -1,5 +1,3 @@
-import logo from '/src/assets/logo.webp';
-
 function BannerSection() {
   return (
       <div className='banner-container'>

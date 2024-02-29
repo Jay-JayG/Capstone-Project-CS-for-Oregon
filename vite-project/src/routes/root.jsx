@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import Header from "../Header";
 import Navbar from "../Navbar";
-import NavigationBar from "../Navigationbar";
+import NavigationBar from "../NavigationBar";
 import Footer from "../Footer";
 
 export default function Root() {
