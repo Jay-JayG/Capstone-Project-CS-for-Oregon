@@ -25,9 +25,8 @@
 .TopPageText{
     text-align: center;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 22px;
     font-style: normal;
-    font-weight: 700;
     line-height: normal;
     
 }
@@ -54,7 +53,7 @@
 .PolicyContent{
     color: #000;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
