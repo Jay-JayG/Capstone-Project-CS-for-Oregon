@@ -192,7 +192,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={maggie} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Maggie Vanderberg</div>
-                <div className="BoxContent">Associate Professor, Chair: <a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">outhern Oregon University</a></div>
+                <div className="BoxContent">Associate Professor, Chair: <a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Southern Oregon University</a></div>
             </div>
 
             
