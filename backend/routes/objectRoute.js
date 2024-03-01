@@ -24,4 +24,18 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const objectId = req.params.id;
+        const deletedObject = await ObjectModel.findByIdAndDelete(objectId);
+        if (!deletedObject) {
+            return res.status(404).json({error: 'Object not found'})
+        }
+        res.status(200).json({message: 'Object deleted successfully', deletedObject});
+    } catch (error) {
+        console.log('Error deleting objects', error)
+        res.status(500).json({error: 'Internal server error'})
+    }
+});
+
 export default router;
