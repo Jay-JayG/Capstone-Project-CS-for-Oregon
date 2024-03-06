@@ -67,7 +67,7 @@ export default function SummerOfCS() {
                 </div>
             </div>
             <div className='SummerOfCSEventItem4'>
-                <div className='SummerOfCSEventItem4Heading'>Computational Thinking in Elementary PD</div>
+                <div className='SummerOfCSEventItem4Heading'>The Thinking in Computational Thinking for K-5 PD</div>
             </div>
             <div className='SummerOfCSEventItem4SummaryContainer'>
                 <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>What:</span>  Elementary teachers will gain a deeper understanding of what computational thinking (CT) is and learn how to incorporate CT concepts into core elementary school subjects.</div>
