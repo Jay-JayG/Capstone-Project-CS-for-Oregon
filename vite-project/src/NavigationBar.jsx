@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import CS_logo from '/src/assets/logo.png';
-import envelope from '/src/assets/envelope.webp';
+import CS_logo from '../src/assets/logo.png';
+//import envelope from '../src/assets/envelope.webp';
 import './NavigationBar.css'
 
 export default function NavigationBar() {
@@ -33,32 +33,18 @@ export default function NavigationBar() {
                     <Link to={`/`} className="navLink">HOME</Link>
                 </div>
                 <div className="item3">
-                    <Link to={`About`} className="navLink">ABOUT</Link>
+                    <Link to="/about" className="navLink">ABOUT</Link>
                 </div>
                 <div className="item4">
-                    <Link to={`Educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
+                    <Link to={`/educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`researchAndPolicy`} className="navLink">RESEARCH & POLICY</Link>
+                    <Link to={`/researchAndPolicy`} className="navLink">RESEARCH & POLICY</Link>
                 </div>
                 <div className="item5">
-                    <Link to={`SummerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
+                    <Link to={`/summerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
                 </div>
-                {/*
-                <a href='#' className="item6" onClick={togglePopup}>
-                    <img src={envelope} className="envelope" alt="Send" /> Contact Us
-                </a>
-                */}
             </div>
-            {/*
-            {showPopup && (
-                <div className="popup-overlay" onClick={closePopup}>
-                    <div className="popup-content">
-                        <p>Email: csfororegon@gmail.com</p>
-                    </div>
-                </div>
-            )}
-            */}
         </nav>
     );
 };
