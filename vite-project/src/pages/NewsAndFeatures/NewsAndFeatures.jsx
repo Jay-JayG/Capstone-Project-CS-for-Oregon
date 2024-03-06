@@ -7,15 +7,15 @@ export default function NewsAndFeaturesPage() {
     const [objects, setObjects] = useState([]);
 
     useEffect(() => {
-        const getObjects = async () => {
+        const getObjects = async (tag) => {
             try {
-                const res = await axios.get('http://localhost:3001/objects');
+                const res = await axios.get(`http://localhost:3001/objects${tag ? `?tag=${tag}` : ''}`);
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
             }
         };
-        getObjects();
+        getObjects('news');
     }, []);
 
 

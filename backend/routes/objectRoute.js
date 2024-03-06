@@ -16,7 +16,9 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const objects = await  ObjectModel.find({});
+        const tag = req.query.tag;
+        const query = tag ? {label: tag} : {}
+        const objects = await  ObjectModel.find(query);
         res.status(200).json(objects);
     } catch (error) {
         console.log('Error getting objects', error)
