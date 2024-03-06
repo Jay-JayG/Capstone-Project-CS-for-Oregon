@@ -56,7 +56,6 @@ export default function AdminPage() {
                 console.log('Error retrieving objects', error);
             }
         };
-        getObjects();
     }, []);
 
     const getObjects = async () => {
