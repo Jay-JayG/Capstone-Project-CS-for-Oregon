@@ -12,6 +12,7 @@ import EventsPage from './pages/NewsAndFeatures/EventsPage/EventsPage';
 import Header from './Header';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
+import DataPage from './pages/DataPage/DataPage';
 import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/adminPage" element={<AdminPage />} />
         <Route path="/news" element={<NewsAndFeaturesPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/dataPage" element={<DataPage/>} />
       </Routes>
       <Footer />
     </BrowserRouter>
