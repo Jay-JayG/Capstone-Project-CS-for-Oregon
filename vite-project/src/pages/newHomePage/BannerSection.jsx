@@ -6,6 +6,9 @@ function BannerSection() {
             CS FOR OREGON IS GUIDING, SUPPORTING, AND PROMOTING RESEARCH-BASED, EQUITABLE, AND INCLUSIVE K-12 COMPUTER SCIENCE EDUCATION THROUGHOUT OREGON
           </h1>
         </div>
+        <span className="visually-hidden">
+          Banner image of diverse students coding.
+      </span>
     </div>
   );
 }

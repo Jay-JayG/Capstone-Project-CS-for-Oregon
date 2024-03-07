@@ -4,7 +4,7 @@ import './About.css';
 
 function About() {
     return (
-      <>
+      <div id="main-content">
       <div className="AboutSectionBackRound">
         <div className='AboutPageTitle'>ABOUT</div>
         <div className='AboutSectionBox'> 
@@ -43,7 +43,7 @@ function About() {
 
 
 
-      </>
+      </div>
     );
   };
   

@@ -4,7 +4,7 @@ import './ResearchAndPolicy.css';
 
 function researchAndPolicy() {
     return (
-    <>
+    <div id="main-content">
     <div className={'Background'}>
         <div className='ResearchPageTitle'>RESEARCH & POLICY</div>
         <div className={'TopPageBox'}>
@@ -19,7 +19,7 @@ function researchAndPolicy() {
         <ResearchAndPolicyCards/>
     </div>
         
-    </>
+    </div>
     );
   };
   

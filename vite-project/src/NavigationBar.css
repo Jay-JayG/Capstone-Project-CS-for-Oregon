@@ -1,6 +1,4 @@
-.NavigationBar {
-
-}
+.NavigationBar {}
 
 .NavLinksContainer {
     display: flex;
@@ -12,15 +10,15 @@
     font-weight: 700;
     line-height: normal;
     background-color: #E3E7EF;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
     flex-shrink: 1;
-    
+
 }
 
 @media only screen and (max-width: 1200px) {
     .NavLinksContainer {
         font-size: 1.2vw;
-        
+
     }
 }
 
@@ -107,11 +105,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 35, 35, 0.3); /* Semi-transparent background */
+    background-color: rgba(15, 35, 35, 0.3);
+    /* Semi-transparent background */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
+    /* Ensure it's above other content */
 }
 
 .popup-content {
@@ -120,11 +120,17 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: auto;
-    max-width: 400px; /* Maximum width, but can be less */
+    max-width: 400px;
+    /* Maximum width, but can be less */
     text-align: center;
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
-    z-index: 1001; /* Above the overlay */
+    z-index: 1001;
+    /* Above the overlay */
+}
+
+.NavLinksContainer .navLink:focus {
+    outline: 4px solid #000000;
 }

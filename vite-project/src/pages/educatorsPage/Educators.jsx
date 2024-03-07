@@ -4,7 +4,7 @@ import './Educators.css';
 
 export default function Educators() {
     return (
-        <>
+        <div id="main-content">
 
             <div className="EducatorsContainer1">
                 <div className='EducatorsPageTitle'>EDUCATORS, ADMINISTRATORS & COUNSELORS</div>
@@ -36,6 +36,6 @@ export default function Educators() {
                 </div>
             </div>
             <EducatorsResources />
-        </>
+        </div>
     );
 }

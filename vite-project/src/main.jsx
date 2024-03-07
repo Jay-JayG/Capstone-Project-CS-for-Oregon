@@ -18,6 +18,7 @@ import './styles.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Header />
       <NavigationBar />
       <Routes>
@@ -29,7 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/adminPage" element={<AdminPage />} />
         <Route path="/news" element={<NewsAndFeaturesPage />} />
         <Route path="/events" element={<EventsPage />} />
-        <Route path="/dataPage" element={<DataPage/>} />
+        <Route path="/dataPage" element={<DataPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
