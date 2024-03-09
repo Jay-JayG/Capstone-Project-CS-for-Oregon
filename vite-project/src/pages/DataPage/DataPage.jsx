@@ -16,7 +16,7 @@ export default function DataPage() {
             </select>
 
             {selectedItem === "item1" && <embed src="/src/assets/Understanding growth mindset practices.pdf" type="application/pdf" width="97%" height="800px" />}
-            {selectedItem === "item2" && <embed src="/src/assets/ECS E-textiles Curriculum Research publication overview 2022 .pdf" type="application/pdf" width="97%" height="800px" />}
+            {selectedItem === "item2" && <embed src="/src/assets/Distributed debugging.pdf" type="application/pdf" width="97%" height="800px" />}
         </div>
     );
 }

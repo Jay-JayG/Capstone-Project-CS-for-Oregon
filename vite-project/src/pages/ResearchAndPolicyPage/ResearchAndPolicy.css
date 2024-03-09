@@ -17,13 +17,13 @@
 .TopPageBox{
     border: 5px solid #FFF;
     flex: 1;
-    text-align: center;
+    text-align: left;
     margin: 3%;
     padding: 2%;
 }
 
 .TopPageText{
-    text-align: center;
+    text-align: left;
     font-family: Montserrat;
     font-size: 22px;
     font-style: normal;
