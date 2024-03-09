@@ -26,8 +26,8 @@ export default function NavigationBar() {
                 <div className="item1">
                     <Link to={`/`} className="Logo Container">
                         <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
-                        <div className="CSForOregon">CS for Oregon</div>
                     </Link>
+                    <div className="CSForOregon">CS for Oregon</div>
                 </div>
                 <div className="item2">
                     <Link to={`/`} className="navLink">HOME</Link>
