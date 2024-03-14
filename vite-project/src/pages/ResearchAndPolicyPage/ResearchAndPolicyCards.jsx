@@ -10,13 +10,13 @@ function ResearchAndPolicyCards() {
                 <div className="GreenCard">
                     <div className="CardHeader"> State Plan </div>
                     <img src={Check} alt="Check mark" className="Icon" />
-                    <p className="BoxContent2">The Oregon Department of Education released a statewide implementation plan for CS education in December 2023: <a className='OregonPolicyLink' href="https://www.oregon.gov/ode/schools-and-districts/grants/pages/computer-science-implementation-plan.aspx">Oregon CS Education Statewide Implementation Plan.</a></p>
+                    <p className="BoxContent2">The Oregon Department of Education released a statewide implementation plan for CS education in December 2023: <a className='OregonPolicyLink' href="https://www.oregon.gov/ode/schools-and-districts/grants/pages/computer-science-implementation-plan.aspx" target="_blank">Oregon CS Education Statewide Implementation Plan.</a></p>
                 </div>
 
                 <div className="RedCard">
                     <div className="CardHeader"> K-12 Standards </div>
                     <img src={X} alt="X mark" className="Icon" />
-                    <p className="BoxContent2">Oregon has not yet adopted rigorous CS standards that are publicly available across K-12. The future development of standards can be guided by the concepts, practices, and recommendations in the <a className='OregonPolicyLink' href='http://www.k12cs.org'>K-12 Computer Science Framework.</a></p>
+                    <p className="BoxContent2">Oregon has not yet adopted rigorous CS standards that are publicly available across K-12. The future development of standards can be guided by the concepts, practices, and recommendations in the <a className='OregonPolicyLink' href='http://www.k12cs.org' target="_blank">K-12 Computer Science Framework.</a></p>
                 </div>
 
                 <div className="RedCard">

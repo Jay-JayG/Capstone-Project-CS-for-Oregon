@@ -36,7 +36,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={bailey} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Deb Bailey</div>
-                <div className="BoxContent">STEM Specialist, Oregon Department of Education </div>
+                <div className="BoxContent">STEM Specialist, <a href='https://www.oregon.gov/ode/pages/default.aspx' target='_blank'>Oregon Department of Education</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon</a></div>
             </div>
 
             

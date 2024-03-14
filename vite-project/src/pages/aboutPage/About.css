@@ -7,3 +7,7 @@
     text-decoration: underline;
     text-decoration-thickness: 5px;
 }
+
+.AboutSectionText {
+    text-align: left;
+}
