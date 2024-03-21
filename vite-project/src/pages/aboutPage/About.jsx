@@ -10,12 +10,9 @@ function About() {
         <div className='AboutSectionBox'> 
         <p className="AboutSectionHeader"> Our Mission</p>
         <div className="AboutSectionText"> 
-          CS for Oregon is a coalition of K12 educators, nonprofit organizations, higher education, and industry leaders who believe that research, data and classroom experience are critical in ensuring that all Oregon students engage with high-quality CS education.<br /><br /> 
-        </div>
-        <div className="AboutSectionText"> 
+          CS for Oregon is a coalition of K12 educators and state educational leaders who believe that research, data and classroom experience are critical in ensuring that all Oregon students engage with high-quality CS education.<br /><br /> 
           We advocate for long-term systemic change that is sustainable and scalable to ensure that all educators across our state are equipped to teach CS.
         </div>
-      
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 import jack from '/src/assets/headshot.webp';
-import joel from '/src/assets/headshotjoel.webp';
+import joel from '/src/assets/headshotjoel.jpg';
 import anna from '/src/assets/headshotanna.webp';
 
 
