@@ -132,7 +132,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={sou} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Eping Hung</div>
-                <div className="BoxContent">Instructor of Computer Science, <a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Southern Oregon University</a> </div>
+                <div className="BoxContent"> CS Instructor and Researcher, <a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Southern Oregon University</a>, <a href="https://www.ashland.k12.or.us/" target="_blank">Ashland School District</a>, <a href="https://www.smschool.us/" target="_blank">St. Mary's School</a> </div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -162,7 +162,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jeff} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jeff Rhoades</div>
-                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a></div>
+                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a>, <a href = "https://ecepalliance.org/" target="_blank"> ECEP Oregon </a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -174,13 +174,13 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={max} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Max Skordinsky</div>
-                <div className="BoxContent">Computer Science Instructor, <a href="https://www.uoregon.edu/" target="_blank">University of Oregon</a>, Computer Science Teacher, <a href="https://ecco.4j.lane.edu/" target="_blank"></a>ECCO High School, ECS Facilitator, Social Justice Teacher Leader</div>
+                <div className="BoxContent">Computer Science Instructor, <a href="https://www.uoregon.edu/" target="_blank">University of Oregon</a>, Computer Science Teacher, <a href="https://ecco.4j.lane.edu/" target="_blank">ECCO High School</a>, ECS Facilitator, Social Justice Teacher Leader</div>
             </div>
 
             <div className="AboutSectionBoxes">
                 <img src={eva} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Eva Skuratowicz</div>
-                <div className="BoxContent">Director: <a href="https://inside.sou.edu/research/whoweare.html" target="_blank">Southern Oregon University Research Center</a></div>
+                <div className="BoxContent">Director of SOURCE: <a href="https://inside.sou.edu/research/whoweare.html" target="_blank">Southern Oregon University Research Center</a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -192,7 +192,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={maggie} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Maggie Vanderberg</div>
-                <div className="BoxContent">Associate Professor, Chair: <a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Southern Oregon University</a></div>
+                <div className="BoxContent"><a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Associate Professor of Computer Science, Southern Oregon University</a></div>
             </div>
 
             
