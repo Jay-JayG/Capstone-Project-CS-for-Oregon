@@ -43,7 +43,7 @@ export default function NavigationBar() {
                     <Link to="/about" className="navLink">ABOUT</Link>
                 </div>
                 <div className="item4">
-                    <Link to={`/educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
+                    <Link to={`/educators`} className="navLink">K-12 Educators</Link>
                 </div>
                 <div className="item5">
                     <Link to={`/researchAndPolicy`} className="navLink">RESEARCH & POLICY</Link>

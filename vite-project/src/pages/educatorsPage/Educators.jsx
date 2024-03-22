@@ -7,7 +7,7 @@ export default function Educators() {
         <div id="main-content">
 
             <div className="EducatorsContainer1">
-                <div className='EducatorsPageTitle'>EDUCATORS, ADMINISTRATORS & COUNSELORS</div>
+                <div className='EducatorsPageTitle'>K-12 Educators</div>
                 <div className="EducatorsSection1Container">
                     <h2 className="EducatorsHeading">Professional Development</h2>
                     <p className="Section1Text">Professional development plays a key role in expanding the CS teacher workforce, addressing equity gaps, recruiting and retaining both new and experienced teachers, and recruiting and retaining diverse students. Quality computer science education is only possible with: </p>
