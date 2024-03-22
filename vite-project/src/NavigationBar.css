@@ -54,7 +54,7 @@
 .NavLinksContainer a.item6 {
     padding: 1%;
     background-color: #E8805E;
-    text-decoration: None;
+    text-decoration: none;
     border-radius: 5%;
 }
 
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    text-decoration: None;
+    text-decoration: none;
 }
 
 .CS_logo {
@@ -74,7 +74,7 @@
     padding: 0.25%;
 }
 
-.item1: a {
+.item1 a {
     padding: 0.25%;
     text-decoration: none;
 }
@@ -177,6 +177,15 @@ button {
     cursor: pointer;
 }
 
-.NavLinksContainer .navLink:focus {
+ .NavLinksContainer .navLink:focus {
     outline: 4px solid #000000;
+}
+
+.NavLinksContainer .navLink {
+    text-decoration: none; /* Remove underline */
+    color: black;
+}
+
+.NavLinksContainer .navLink:hover {
+    color: green;
 }

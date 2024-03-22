@@ -6,8 +6,8 @@
 .SummerCSPageTitle {
     text-align: center;
     font-family: Montserrat;
-    font-size: 40px;
-    font-weight: 700;
+    font-size: 4vh;
+    font-weight: bold;
     margin: 0 3% 4% 3%;
     text-decoration: underline;
     text-decoration-thickness: 5px;
@@ -96,7 +96,7 @@
 
 .SummerOfCSSummaryText {
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .SummerOfCSSummaryTextBold {
@@ -124,20 +124,26 @@
 
 .SummerOfCSEventItem1Heading {
     font-family: Montserrat;
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
+    line-height: 37px;
     color: white;
     text-align: center; /* Center the text horizontally */
-    
 }
 
 .SummerOfCSEventItem1HeadingPhoto {
     display: block; /* This makes the image a block-level element, enabling margin auto to work */
-    width: 20vw;
+    width: 18vw;
     
 }
 
 @media (max-width: 900px) {
+    .SummerOfCSEventItem1Heading {
+        font-size: 3vh;
+    }
+    .SummerOfCSEventItem1HeadingPhoto {
+        width: 20vh;
+    }
     .SummerOfCSEventItem1 {
         flex-direction: column;
     }
@@ -151,7 +157,7 @@
     margin: 0 3%;
     border: 5px solid white;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .SummerOfCSEventItem1SummaryText {
@@ -197,18 +203,25 @@
 
 .SummerOfCSEventItem2Heading {
     font-family: Montserrat;
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
+    text-align: center;
 }
 
 .SummerOfCSEventItem2HeadingPhoto {
     display: block;
-    width: 20vw;
+    width: 18vw;
 }
 
 @media (max-width: 900px) {
+    .SummerOfCSEventItem2Heading {
+        font-size: 3vh;
+    }
+    .SummerOfCSEventItem2HeadingPhoto {
+        width: 20vh;
+    }
     .SummerOfCSEventItem2 {
         flex-direction: column;
     }
@@ -222,7 +235,7 @@
     margin: 0 3%;
     border: 5px solid white;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .SummerOfCSEventItem2SummaryText {
@@ -265,10 +278,20 @@
 
 .SummerOfCSEventItem3Heading {
     font-family: Montserrat;
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .SummerOfCSEventItem3Heading {
+        font-size: 3vh;
+    }
+    .SummerOfCSEventItem3 {
+        flex-direction: column;
+    }
 }
 
 .SummerOfCSEventItem3SummaryContainer {
@@ -276,7 +299,7 @@
     margin: 0 3%;
     border: 5px solid white;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .SummerOfCSEventItem3SummaryText {
@@ -317,10 +340,20 @@
 
 .SummerOfCSEventItem4Heading {
     font-family: Montserrat;
-    font-size: 3vw;
+    font-size: 2vw;
     font-weight: bold;
     line-height: 37px;
     color: white;
+    text-align: center;
+}
+
+@media (max-width: 900px) {
+    .SummerOfCSEventItem4Heading {
+        font-size: 3vh;
+    }
+    .SummerOfCSEventItem4 {
+        flex-direction: column;
+    }
 }
 
 .SummerOfCSEventItem4SummaryContainer {
@@ -328,7 +361,7 @@
     margin: 0 3%;
     border: 5px solid white;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .SummerOfCSEventItem4SummaryText {
@@ -360,7 +393,7 @@
     border-style: solid;
     border-color: white;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
 }
 
 .CSForOregonBoldText {

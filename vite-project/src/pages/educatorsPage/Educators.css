@@ -7,7 +7,7 @@
 .EducatorsPageTitle {
     text-align: center;
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: 4vh;
     font-weight: 700;
     margin: 0 3% 4% 3%;
     text-decoration: underline;
@@ -51,7 +51,7 @@
 .EducatorsSection2Container {
     color: black;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-style: normal;
     line-height: normal;
     display: flex;
@@ -105,7 +105,7 @@
     color: green;
     text-align: center;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vh;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -115,7 +115,7 @@
 .Section3TextContaier{ 
     color: #000;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -129,10 +129,8 @@
 .Section3BoldText {
     color: #000;
     font-family: Montserrat;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-size: 2.25vh;
+    font-weight: bold;
 }
 
 /* Start of EducatorsResources.jsx styling */
@@ -143,10 +141,8 @@
 
 .ResourcesHeading {
     font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 37px;
-    letter-spacing: 0em;
+    font-size: 3vh;
+    font-weight: bold;
     text-align: center;
     color: green;
 }
@@ -161,8 +157,7 @@
 .Media1 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 2.25vh;
     text-align: center;
     
 }
@@ -231,7 +226,7 @@
 .Media2 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-weight: 400;
     text-align: center;
     
@@ -304,7 +299,7 @@
 .Media3 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-weight: 400;
     text-align: center;
     

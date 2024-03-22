@@ -1,7 +1,7 @@
 .AboutPageTitle {
     text-align: center;
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: 4vh;
     font-weight: 700;
     margin: 0 3% 4% 3%;
     text-decoration: underline;
@@ -59,9 +59,6 @@
   .OurValuesText{
     font-family: Montserrat;
     font-size: 2.25vh;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     margin: 1%
   }
   
@@ -89,7 +86,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 17px;
+    font-size: 1.7vh;
     font-weight: 700;
     position: absolute;
     bottom: 0px; /* Adjust to place the header at the bottom */
@@ -108,7 +105,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 17px;
+    font-size: 1.7vh;
     font-weight: 400;
     position: absolute;
     bottom: 0;
