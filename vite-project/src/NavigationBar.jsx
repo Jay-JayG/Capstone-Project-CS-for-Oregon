@@ -34,7 +34,7 @@ export default function NavigationBar() {
                     <div className="CSForOregon">CS for Oregon</div>
                 </div>
                 <div className="item2">
-                <NavLink
+                    <NavLink
                         to="/"
                         exact  // Use exact to ensure it only matches the exact URL
                         className={({ isActive, isPending, isTransitioning }) =>
@@ -47,6 +47,7 @@ export default function NavigationBar() {
                         activeClassName="activeNavLink"  // Apply the active class when the link is active
                         style={({ isActive, isPending, isTransitioning }) => ({
                             color: isActive ? "green" : "black",  // Apply red color when active
+                            textDecoration: "none",
                             fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
                             // You can add more styles based on other states if needed
                         })}
@@ -57,20 +58,9 @@ export default function NavigationBar() {
                 <div className="item3">
                     <NavLink
                         to="/about"
-                        exact  // Use exact to ensure it only matches the exact URL
-                        className={({ isActive, isPending, isTransitioning }) =>
-                            [
-                                isPending ? "pending" : "",
-                                isActive ? "active" : "",
-                                isTransitioning ? "transitioning" : "",
-                            ].join(" ")
+                        className={({ isActive }) =>
+                            isActive ? "active" : "inactive"
                         }
-                        activeClassName="activeNavLink"  // Apply the active class when the link is active
-                        style={({ isActive, isPending, isTransitioning }) => ({
-                            color: isActive ? "green" : "black",  // Apply red color when active
-                            fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
-                            // You can add more styles based on other states if needed
-                        })}
                     >
                         ABOUT
                     </NavLink>
@@ -78,20 +68,9 @@ export default function NavigationBar() {
                 <div className="item4">
                     <NavLink
                         to="/educators"
-                        exact  // Use exact to ensure it only matches the exact URL
-                        className={({ isActive, isPending, isTransitioning }) =>
-                            [
-                                isPending ? "pending" : "",
-                                isActive ? "active" : "",
-                                isTransitioning ? "transitioning" : "",
-                            ].join(" ")
+                        className={({ isActive }) =>
+                            isActive ? "active" : "inactive"
                         }
-                        activeClassName="activeNavLink"  // Apply the active class when the link is active
-                        style={({ isActive, isPending, isTransitioning }) => ({
-                            color: isActive ? "green" : "black",  // Apply red color when active
-                            fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
-                            // You can add more styles based on other states if needed
-                        })}
                     >
                         K-12 EDUCATORS
                     </NavLink>
@@ -99,20 +78,9 @@ export default function NavigationBar() {
                 <div className="item5">
                     <NavLink
                         to="/researchAndPolicy"
-                        exact  // Use exact to ensure it only matches the exact URL
-                        className={({ isActive, isPending, isTransitioning }) =>
-                            [
-                                isPending ? "pending" : "",
-                                isActive ? "active" : "",
-                                isTransitioning ? "transitioning" : "",
-                            ].join(" ")
+                        className={({ isActive }) =>
+                            isActive ? "active" : "inactive"
                         }
-                        activeClassName="activeNavLink"  // Apply the active class when the link is active
-                        style={({ isActive, isPending, isTransitioning }) => ({
-                            color: isActive ? "green" : "black",  // Apply red color when active
-                            fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
-                            // You can add more styles based on other states if needed
-                        })}
                     >
                         RESEARCH & POLICY
                     </NavLink>
@@ -120,31 +88,20 @@ export default function NavigationBar() {
                 <div className="item5">
                     <NavLink
                         to="/summerOfCS"
-                        exact  // Use exact to ensure it only matches the exact URL
-                        className={({ isActive, isPending, isTransitioning }) =>
-                            [
-                                isPending ? "pending" : "",
-                                isActive ? "active" : "",
-                                isTransitioning ? "transitioning" : "",
-                            ].join(" ")
+                        className={({ isActive }) =>
+                            isActive ? "active" : "inactive"
                         }
-                        activeClassName="activeNavLink"  // Apply the active class when the link is active
-                        style={({ isActive, isPending, isTransitioning }) => ({
-                            color: isActive ? "green" : "black",  // Apply red color when active
-                            fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
-                            // You can add more styles based on other states if needed
-                        })}
                     >
                         SUMMER EQUITY SYMPOSIUM
                     </NavLink>
                 </div>
-                <a href='#' className="item6" onClick={togglePopup}>
+                {/* <a href='#' className="item6" onClick={togglePopup}>
                     <img src={envelope} className="envelope" alt="Send" /> Contact Us
-                </a>
+                </a> */}
 
             </div>
 
-            {showPopup && (
+            {/* {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Contact Information</h2>
@@ -167,7 +124,7 @@ export default function NavigationBar() {
                         <button onClick={handleSubmit}>Send</button>
                     </div>
                 </div>
-            )}
+            )} */}
         </nav>
     );
 };
