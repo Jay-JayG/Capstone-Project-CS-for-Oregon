@@ -13,10 +13,7 @@
     text-align: center;
     font-family: Montserrat;
     font-size: 1.5vh;
-    
     font-weight: 100;
-    line-height: 40px;
-    letter-spacing: 0em;
     color: rgb(255, 255, 255);
 }
 
@@ -50,19 +47,14 @@
 
 .Section1LeftHeading {
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vh;
     font-weight: 700;
-    line-height: 37px;
-    letter-spacing: 0em;
     text-align: center;
 }
 
 .Section1LeftText {
     font-family: Montserrat;
-    font-size: 22px;
-    font-weight: normal;
-    line-height: normal;
-    letter-spacing: 0em;
+    font-size: 2.25vh;
     text-align: left;
 }
 
@@ -83,10 +75,8 @@
 .Section1RightHeading {
     margin: 0 1% 0 1%;
     font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 37px;
-    letter-spacing: 0em;
+    font-size: 3vh;
+    font-weight: bold;
     text-align: center;
     
 }
@@ -94,9 +84,7 @@
 .Section1RightSubHeading {
     text-align: center;
     font-family: Montserrat;
-    font-size: 25px;
-    font-style: normal;
-    line-height: normal;
+    font-size: 2.3vh;
 }
 
 .Section1RightSubHeadingBoltText {
@@ -117,7 +105,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 20px;
+    font-size: 2vh;
     font-style: normal;
     font-weight: bold;
     line-height: normal;
@@ -142,10 +130,8 @@
     color: #E8805E;
     text-align: center;
     font-family: Montserrat;
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-size: 7vh;
+    font-weight: bold;
 }
 
 .LeftPercentText {
@@ -153,10 +139,7 @@
     margin: 0;
     text-align: center;
     font-family: Montserrat;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 2.25vh;
 }
 
 .RightPercentContainer {
@@ -168,10 +151,8 @@
     color: #E8805E;
     text-align: center;
     font-family: Montserrat;
-    font-size: 70px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-size: 7vh;
+    font-weight: bold;
 }
 
 .RightPercentText{
@@ -180,10 +161,7 @@
     color: #000;
     text-align: center;
     font-family: Montserrat;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: 2.25vh;
 }
 
 .Asterisk {
@@ -194,9 +172,8 @@
 .Section2 {
     margin: 5%;
     font-family: Montserrat;
-    font-size: 25px;
-    line-height: 37px;
-    letter-spacing: 0em;
+    font-size: 2.5vh;
+    line-height: 4vh;
 }
 
 .Section2Quote {
@@ -219,26 +196,25 @@
 
 .Section3Heading {
     font-family: Montserrat;
-    font-size: 23px;
-    font-weight: 800;
-    line-height: 28px;
-    letter-spacing: 0em;
+    font-size: 2.4vh;
     text-align: left;
 }
 
 ul {
     list-style-type: disc;
     font-family: Montserrat;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 26px;
+    font-size: 2.25vh;
 }
 
 ul li {
-    margin-bottom: 15px;
+    margin-bottom: 1.5vh;
 }
 
 .section3-orange-text {
     color: #E8805E;
     font-weight: bold;
+}
+
+.section3-swcsip-link {
+    color: black;
 }
