@@ -7,7 +7,6 @@ export default function SummerOfCS() {
     return (
         <div id="main-content">
             <div className='SummerOfCSSupercontainer'>
-                <div className='SummerCSPageTitle'>SUMMER EQUITY SYMPOSIUM</div>
                 <div className="SummerOfCScontainer">
                     <div className="SummerOfCSHeaderContainer">
                         <div className="SummerOfCSHeaderContainerText">

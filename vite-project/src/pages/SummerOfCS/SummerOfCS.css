@@ -3,16 +3,6 @@
     background-color: #E3E7EF;
 }
 
-.SummerCSPageTitle {
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 4vh;
-    font-weight: bold;
-    margin: 0 3% 4% 3%;
-    text-decoration: underline;
-    text-decoration-thickness: 5px;
-}
-
 .SummerOfCSSupercontainer a {
     color: black;
 }

@@ -6,7 +6,6 @@ function researchAndPolicy() {
     return (
     <div id="main-content">
     <div className={'Background'}>
-        <div className='ResearchPageTitle'>RESEARCH & POLICY</div>
         <div className={'TopPageBox'}>
         <p className="PolicyHeader"> Oregon Policy</p>
             <div className={'TopPageText'}> Computer Science is one of the few policy issues that can address both foundational education needs and workforce development demands for a state’s future workforce.</div>
