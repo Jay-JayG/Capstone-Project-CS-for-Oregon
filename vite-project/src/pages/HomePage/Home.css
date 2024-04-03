@@ -1,7 +1,7 @@
 .banner-container {
-    background-image: url('/src/assets/OR-Statewide-CS-Implementation-Plan.png');
+    background-image: url('/src/assets/OR-Statewide-CS-Implementation-Plan.jpg');
     background-size: cover;
-    background-position: center;
+    background-position:center;
     display: flex;
     align-items: center;
     justify-content: center;
