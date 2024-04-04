@@ -61,10 +61,10 @@ export default function EducatorsResources() {
                 <div className="MediaSubContainer3">
                     <div className="Media3">
                         <div className='Media3_1Container'>
-                            <a className='Media3Link1' href='https://www.exploringcs.org/e-textiles' target="_blank">
+                            <a className='Media3Link1' href='https://www.exploringcs.org' target="_blank">
                                 <img className='ECSLogo' src={ECSLogo} alt='ECS Logo' />
                             </a>
-                            <a className='Media3Link1' href='https://www.exploringcs.org/e-textiles' target="_blank">Exploring Computer Science research-based, high school intro-level curriculum and teacher professional development</a>
+                            <a className='Media3Link1' href='https://www.exploringcs.org' target="_blank">Exploring Computer Science research-based, high school intro-level curriculum and teacher professional development</a>
                         </div>
                         <div className='Media3_2Container'>
                             <a className='Media3Link2' href='https://www.exploringcs.org/e-textiles' target="_blank">

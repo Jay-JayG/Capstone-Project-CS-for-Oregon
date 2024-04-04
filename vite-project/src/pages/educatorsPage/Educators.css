@@ -1,17 +1,6 @@
-
 .EducatorsContainer1 {
     background-color: #E3E7EF;
     padding: 2%;
-}
-
-.EducatorsPageTitle {
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 40px;
-    font-weight: 700;
-    margin: 0 3% 4% 3%;
-    text-decoration: underline;
-    text-decoration-thickness: 5px;
 }
 
 .EducatorsSection1Container {
@@ -22,9 +11,9 @@
 .EducatorsHeading {
     text-align: center;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vh;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: normal;
     color: green;
 }
@@ -33,7 +22,7 @@
     text-align: Left;
     color: #000;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -51,7 +40,7 @@
 .EducatorsSection2Container {
     color: black;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-style: normal;
     line-height: normal;
     display: flex;
@@ -59,13 +48,28 @@
 }
 
 .EducatorsHeading2{
-    color: #E8805E;
+    margin: 0.5vh 0vw 0.5vh 0vw;
+    padding: 0 1% 0 1%;
+    color: #ffffff;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vh;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
     line-height: normal;
     align-self: center;
+    border-width: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #E8805E;
+    background-color: #E8805E;
+    text-decoration: none;
+    text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+    .EducatorsHeading2 {
+        margin: 4vh 8vw 4vh 8vw;
+    }
 }
 
 .Section2Text1 {
@@ -90,7 +94,7 @@
     color: green;
     text-align: center;
     font-family: Montserrat;
-    font-size: 30px;
+    font-size: 3vh;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -100,7 +104,7 @@
 .Section3TextContaier{ 
     color: #000;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -114,10 +118,8 @@
 .Section3BoldText {
     color: #000;
     font-family: Montserrat;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    font-size: 2.25vh;
+    font-weight: bold;
 }
 
 /* Start of EducatorsResources.jsx styling */
@@ -128,10 +130,8 @@
 
 .ResourcesHeading {
     font-family: Montserrat;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 37px;
-    letter-spacing: 0em;
+    font-size: 3vh;
+    font-weight: bold;
     text-align: center;
     color: green;
 }
@@ -146,8 +146,7 @@
 .Media1 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 2.25vh;
     text-align: center;
     
 }
@@ -216,7 +215,7 @@
 .Media2 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-weight: 400;
     text-align: center;
     
@@ -289,7 +288,7 @@
 .Media3 {
     display: flex;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 2.25vh;
     font-weight: 400;
     text-align: center;
     

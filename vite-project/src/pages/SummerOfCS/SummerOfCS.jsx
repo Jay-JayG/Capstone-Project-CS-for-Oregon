@@ -7,7 +7,6 @@ export default function SummerOfCS() {
     return (
         <div id="main-content">
             <div className='SummerOfCSSupercontainer'>
-                <div className='SummerCSPageTitle'>SUMMER EQUITY SYMPOSIUM</div>
                 <div className="SummerOfCScontainer">
                     <div className="SummerOfCSHeaderContainer">
                         <div className="SummerOfCSHeaderContainerText">
@@ -24,8 +23,6 @@ export default function SummerOfCS() {
                 </div>
                 <div className='SummerOfCSSummary'>
                     <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>CS for Oregon</span> is hosting a K12 Computer Science Equity Summit in Bend, Oregon this summer for educators, school leaders and school counselors.  To join us, please submit an application for one of the four professional development (PD) opportunities described below.</div>
-                    <br></br>
-                    <div className='SummerOfCSSummaryText'>We look forward to working with you to expand computer science educational opportunities for all in Oregon!  </div>
                 </div>
                 <div className='SummerOfCSEventItem1'>
 
@@ -34,8 +31,8 @@ export default function SummerOfCS() {
                 </div>
                 <div className='SummerOfCSEventItem1SummaryContainer'>
                     <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>What: Exploring Computer Science</span> is a year-long, research-based, high school foundational computer science curriculum and teacher professional development program shown to broaden  participation in computing.</div>
-                    <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - August 2, 2024</div>
                     <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators who are certified in any subject and interested in teaching ECS at their school. </div>
+                    <div className='SummerOfCSEventItem1SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - August 2, 2024</div>
                     <div className='SummerOfCSEventItem1SummaryEventOptionsContainer'>
                         <a className='SummerOfCSEventItem1SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1KE8GDDz4yj9cJujcfAH-7rkKHfThm2HO/view?usp=sharing' target='_blank'>Event Flyer</a>
                         <a className='SummerOfCSEventItem1SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0CCQlCf5FSHJxPM' target='_blank'>Apply Here</a>
@@ -48,8 +45,8 @@ export default function SummerOfCS() {
                 </div>
                 <div className='SummerOfCSEventItem2SummaryContainer'>
                     <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>What: E-Textiles</span> is an engaging, introductory, research-based high school computer science unit for Exploring Computer Science(ECS). E-Textiles are fabric-based crafts made with conductive thread, microcontrollers, lights, sensors, and other electronic components.</div>
-                    <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - August 1, 2024</div>
                     <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon high school educators with ECS teaching experience (more than one year) and completion of the ECS PD. ECS teachers are encouraged to invite an art teacher colleague at their school. Not an ECS trained teacher yet? Apply for the ECS Teacher PD and become one.</div>
+                    <div className='SummerOfCSEventItem2SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 29 - August 1, 2024</div>
                     <div className='SummerOfCSEventItem2SummaryEventOptionsContainer'>
                         <a className='SummerOfCSEventItem2SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1w3QoDAEPTzTywabyNjIAjFjLVLGtDC2h/view?usp=sharing' target='_blank'>Event Flyer</a>
                         <a className='SummerOfCSEventItem2SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_73etRVz37wQH8t8' target='_blank'>Apply Here</a>
@@ -60,8 +57,8 @@ export default function SummerOfCS() {
                 </div>
                 <div className='SummerOfCSEventItem3SummaryContainer'>
                     <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>What: School leaders</span> will gain a deeper understanding of the barriers and opportunities for implementing equitable computer science (CS) education in their schools and districts. This is in preparation for meeting  <a href='https://www.oregon.gov/ode/schools-and-districts/grants/pages/computer-science-implementation-plan.aspx' target='_blank'>Oregon’s Statewide CS Implementation Plan</a> goal of providing equitable computer science education to public school students by 2027-28.</div>
-                    <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 30 - 31, 2024</div>
                     <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon School and District Administrators, Teachers on Special Assignment, Curriculum Directors, Counselors, and other equity-focused school leaders.</div>
+                    <div className='SummerOfCSEventItem3SummaryText'><span className='SummerOfCSBoldText'>When:</span>  July 30 - 31, 2024</div>
                     <div className='SummerOfCSEventItem3SummaryEventOptionsContainer'>
                         <a className='SummerOfCSEventItem3SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/12RyEFqnIe4YxqOCxgymGZK00eU-HkZ5H/view?usp=sharing' target='_blank'>Event Flyer</a>
                         <a className='SummerOfCSEventItem3SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_bJhJQXgTRuYXid0' target='_blank'>Apply Here</a>
@@ -72,8 +69,8 @@ export default function SummerOfCS() {
                 </div>
                 <div className='SummerOfCSEventItem4SummaryContainer'>
                     <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>What: Elementary teachers</span> will learn the fundamentals of computational thinking and  discover its applications across core subjects like math, science, and language arts. They will learn how to integrate computational thinking concepts into their curriculum, enhancing student understanding and critical thinking skills.</div>
-                    <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>When:</span> July 30 - 31, 2024</div>
                     <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>Who is it for:</span> Oregon elementary school teachers</div>
+                    <div className='SummerOfCSEventItem4SummaryText'><span className='SummerOfCSBoldText'>When:</span> July 30 - 31, 2024</div>
                     <div className='SummerOfCSEventItem4SummaryEventOptionsContainer'>
                         <a className='SummerOfCSEventItem4SummaryEventOptionsFlyer' href='https://drive.google.com/file/d/1mclDApms1-tPCe5iic9JDMt0VM0C3Rx-/view?usp=sharing' target='_blank'>Event Flyer</a>
                         <a className='SummerOfCSEventItem4SummaryEventOptionsFlyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0f9WnqEhYpivQJo' target='_blank'>Apply Here</a>

@@ -3,24 +3,20 @@ import WebsiteDevelopers from "./WebsiteDevelopers.jsx";
 import './About.css';
 
 function About() {
-    return (
-      <div id="main-content">
+  return (
+    <div id="main-content">
       <div className="AboutSectionBackRound">
-        <div className='AboutPageTitle'>ABOUT</div>
-        <div className='AboutSectionBox'> 
-        <p className="AboutSectionHeader"> Our Mission</p>
-        <div className="AboutSectionText"> 
-          CS for Oregon is a coalition of K12 educators, nonprofit organizations, higher education, and industry leaders who believe that research, data and classroom experience are critical in ensuring that all Oregon students engage with high-quality CS education.<br /><br /> 
-        </div>
-        <div className="AboutSectionText"> 
-          We advocate for long-term systemic change that is sustainable and scalable to ensure that all educators across our state are equipped to teach CS.
-        </div>
-      
+        <div className='AboutSectionBox'>
+          <p className="AboutSectionHeader"> Our Mission</p>
+          <div className="AboutSectionText">
+            CS for Oregon is a coalition of K12 educators and state educational leaders who believe that research, data and classroom experience are critical in ensuring that all Oregon students engage with high-quality CS education.<br /><br />
+            We advocate for long-term systemic change that is sustainable and scalable to ensure that all educators across our state are equipped to teach CS.
+          </div>
         </div>
       </div>
 
-      <div style={{margin: '2%'}}>
-        <div className= 'OurValuesBox'>
+      <div style={{ margin: '2%' }}>
+        <div className='OurValuesBox'>
           <p className="AboutSectionHeader"> Our Values</p>
           <ul className='OurValuesText'>
             <li><span className="OurValuesHeader"> Inclusive:</span> We prioritize the meaningful inclusion of diverse perspectives to design learning experiences that embrace those historically marginalized in computing.</li>
@@ -31,20 +27,20 @@ function About() {
         </div>
       </div>
 
-      <div> 
-      <p className="AboutSectionHeader"> Who We Are</p>
-        <AboutBoxes/>
+      <div>
+        <p className="AboutSectionHeader"> Who We Are</p>
+        <AboutBoxes />
       </div>
 
       <div>
-      <p className="AboutSectionHeader"> Website Developers</p>
-        <WebsiteDevelopers/>
+        <p className="AboutSectionHeader"> Website Developers</p>
+        <WebsiteDevelopers />
       </div>
 
 
 
-      </div>
-    );
-  };
-  
-  export default About;
+    </div>
+  );
+};
+
+export default About;

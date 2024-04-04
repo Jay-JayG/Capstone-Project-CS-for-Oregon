@@ -1,13 +1,127 @@
-.AboutPageTitle {
+.AboutSectionBackRound{
+    background: #E3E7EF;
+    padding: 2%;
+  }
+  
+  .AboutSectionBox{
+    border: 5px solid #FFF;
+    text-align: center;
+    margin: 0 3% 3% 3%;
+  }
+  
+  .AboutSectionHeader{
+    color: green;
     text-align: center;
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: 3vh;
+    font-style: normal;
     font-weight: 700;
-    margin: 0 3% 4% 3%;
-    text-decoration: underline;
-    text-decoration-thickness: 5px;
-}
-
-.AboutSectionText {
+    line-height: normal;
+  }
+  
+  .AboutSectionText{
     text-align: left;
-}
+    color: #000;
+    font-family: Montserrat;
+    font-size: 2.25vh;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 2%
+  }
+  
+  .OurValuesBox{
+    border: 5px solid #E3E7EF;
+    flex: 1;
+    text-align: left;
+    margin: 3%;
+  }
+  
+  .OurValuesHeader{
+    font-family: Montserrat;
+    font-size: 2.25vh;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #E8805E;
+  }
+  
+  .OurValuesText{
+    font-family: Montserrat;
+    font-size: 2.25vh;
+    margin: 1%
+  }
+  
+  .AboutSectionBoxes{
+    width: 280px;
+    height: 294px;
+    background: #E3E7EF;
+    position: relative; /* Needed for absolute positioning of content */
+    overflow: hidden; /* Hide content that goes beyond the box */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align content to the bottom */
+    transition: all 0.3s ease; /* Smooth transition */
+  }
+  
+  .BoxesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Horizontal spacing */
+    margin: 20px 0; /* Vertical spacing */
+  }
+  
+  .BoxHeader{
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.7vh;
+    font-weight: 700;
+    position: absolute;
+    bottom: 0px; /* Adjust to place the header at the bottom */
+    width: 100%;
+    text-align: center;
+    transition: bottom 0.3s ease;
+    margin: 0; /* Remove margin to align properly */
+    padding: 10px;
+    box-sizing: border-box;
+    transition: bottom 0.3s ease; /* Transition for moving to the top */
+    z-index: 2; /* Ensures that the text is above the image */
+    background-color: rgba(142, 166, 213, 0.7);
+  }
+  
+  .BoxContent{
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 1.7vh;
+    font-weight: 400;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%); /* Initially hide the content */
+    transition: transform 0.3s ease; /* Smooth transition for the content */
+    background-color: rgba(143, 166, 213, 0.7); /* Semi-transparent background */
+    padding: 10px; /* Adjust as needed */
+    box-sizing: border-box; /* Include padding in height calculation */
+    z-index: 2;
+  }
+  
+  .AboutSectionBoxes:hover .BoxHeader {
+    bottom: 255px; /* Move to the top on hover */
+  }
+  
+  .AboutSectionBoxes:hover .BoxContent {
+    transform: translateY(0); /* Show content on hover */
+  }
+  
+  .BoxImage {
+    width: 100%; /* Make image fill the entire box */
+    height: 100%; /* Make image fill the entire box */
+    object-fit: cover; /* Ensures that the image covers the box without stretching */
+    position: absolute; /* Position it relative to the 'AboutSectionBoxes' */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Ensures that the image is below the text */
+  }

@@ -18,7 +18,7 @@ function Footer() {
                             <ul>
                                 <li><Link to={`/`} className="Home">Home</Link></li>
                                 <li><Link to={`About`} className="About">About</Link></li>
-                                <li><Link to={`Educators`} className="Educators">Educators, Administrators and Counselors</Link></li>
+                                <li><Link to={`Educators`} className="Educators">K-12 Educators</Link></li>
                                 <li><Link to={`SummerOfCS`} className="NEWS">Summer Equity Symposium</Link></li>
                             </ul>
                         </nav>

@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 .NavigationBar {
     position: relative;
   }
   
   .CSForOregon {
+=======
+.NavigationBar {}
+
+.CSForOregon {
+>>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
     white-space: nowrap;
     font-size: 14px;
     color: rgb(0, 0, 0);
@@ -15,12 +21,11 @@
     align-items: center;   
     font-size: 16px;
     font-family: Montserrat;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     background-color: #E3E7EF;
     flex-wrap: nowrap;
     flex-shrink: 1;
+<<<<<<< HEAD
   }
   
   .NavLinksContainer {
@@ -53,6 +58,11 @@
   
   
   @media only screen and (max-width: 850px) {
+=======
+}
+
+@media only screen and (max-width: 1380px) {
+>>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
     .NavLinksContainer {
       display: none;
       flex-direction: column;
@@ -91,27 +101,33 @@
     text-decoration: none;
 }
 
-.navLink {
+.active {
+    color: green;
     text-decoration: none;
-    color: black;
 }
 
-.navLink:hover {
-    color: green;
+.inactive{
+    text-decoration: none;
+    color: black;
 }
 
 .NavLinksContainer a.item6 {
     padding: 1%;
     background-color: #E8805E;
-    text-decoration: None;
+    text-decoration: none;
     border-radius: 5%;
 }
 
 .LogoContainer {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     text-decoration: None;
     
+=======
+    flex-direction: column;
+    text-decoration: none;
+>>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
 }
 
 .CS_logo {
@@ -121,12 +137,16 @@
 
 .item1 {
     padding: 0.25%;
+<<<<<<< HEAD
     align-items: center;
+=======
+    text-decoration: none;
+>>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
 }
 
-.item1: a {
+.item1 a {
     padding: 0.25%;
-    text-decoration: none;
+
 }
 
 .item2 {
@@ -147,7 +167,7 @@
 
 .item6 {
     color: white;
-    
+
 }
 
 .envelope {
@@ -185,17 +205,17 @@
 .input-container {
     position: relative;
     margin-bottom: 20px;
-  }
-  
-  .input-container input {
+}
+
+.input-container input {
     width: 90%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 10px;
-  }
-  
-  .input-container label {
+}
+
+.input-container label {
     position: absolute;
     top: 50%;
     left: 10px;
@@ -203,10 +223,10 @@
     color: #999;
     pointer-events: none;
     transition: all 0.3s ease;
-  }
-  
-  .input-container input:focus + label,
-  .input-container input:valid + label {
+}
+
+.input-container input:focus+label,
+.input-container input:valid+label {
     top: 0;
     left: 10px;
     font-size: 12px;
@@ -215,7 +235,8 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 0 5px;
-  }
+}
+
 button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -225,8 +246,12 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+<<<<<<< HEAD
 }
 
 .NavLinksContainer .navLink:focus {
     outline: 4px solid #000000;
 }
+=======
+}
+>>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
