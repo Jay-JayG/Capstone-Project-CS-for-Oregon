@@ -11,7 +11,10 @@ export default function NavigationBar() {
 
     // Toggle the popup's visibility
     const togglePopup = () => setShowPopup(!showPopup);
-    const toggleNavLinks = () => setShowNavLinks(!showNavLinks);
+    const toggleNavLinks = () => {
+        setShowNavLinks(!showNavLinks);
+        document.querySelector('.NavigationBar').classList.toggle('menu-expanded');
+    };
 
 
     // Close the popup if the user clicks outside of it
@@ -32,16 +35,11 @@ export default function NavigationBar() {
         <nav className='NavigationBar'>
             <div className="OuterContainer">
                 <div className="item1">
-<<<<<<< HEAD
                     <Link to={`/`} className="LogoContainer">
-=======
-                    <Link to={`/`} className="logo-container">
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
                         <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
                     </Link>
                     <div className="CSForOregon">CS for Oregon</div>
                 </div>
-<<<<<<< HEAD
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
                     <img src={hamburger} alt="Hamburger Icon" />
                 </div>
@@ -67,77 +65,10 @@ export default function NavigationBar() {
                 </div>
             
                 
-=======
-                <div className="item2">
-                    <NavLink
-                        to="/"
-                        exact  // Use exact to ensure it only matches the exact URL
-                        className={({ isActive, isPending, isTransitioning }) =>
-                            [
-                                isPending ? "pending" : "",
-                                isActive ? "active" : "",
-                                isTransitioning ? "transitioning" : "",
-                            ].join(" ")
-                        }
-                        activeClassName="activeNavLink"  // Apply the active class when the link is active
-                        style={({ isActive, isPending, isTransitioning }) => ({
-                            color: isActive ? "green" : "black",  // Apply red color when active
-                            textDecoration: "none",
-                            fontWeight: isActive ? "bold" : "",  // Apply bold font weight when active
-                            // You can add more styles based on other states if needed
-                        })}
-                    >
-                        HOME
-                    </NavLink>
-                </div>
-                <div className="item3">
-                    <NavLink
-                        to="/about"
-                        className={({ isActive }) =>
-                            isActive ? "active" : "inactive"
-                        }
-                    >
-                        ABOUT
-                    </NavLink>
-                </div>
-                <div className="item4">
-                    <NavLink
-                        to="/educators"
-                        className={({ isActive }) =>
-                            isActive ? "active" : "inactive"
-                        }
-                    >
-                        K-12 EDUCATORS
-                    </NavLink>
-                </div>
-                <div className="item5">
-                    <NavLink
-                        to="/researchAndPolicy"
-                        className={({ isActive }) =>
-                            isActive ? "active" : "inactive"
-                        }
-                    >
-                        RESEARCH & POLICY
-                    </NavLink>
-                </div>
-                <div className="item5">
-                    <NavLink
-                        to="/summerOfCS"
-                        className={({ isActive }) =>
-                            isActive ? "active" : "inactive"
-                        }
-                    >
-                        SUMMER EQUITY SYMPOSIUM
-                    </NavLink>
-                </div>
-                {/* <a href='#' className="item6" onClick={togglePopup}>
-                    <img src={envelope} className="envelope" alt="Send" /> Contact Us
-                </a> */}
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
 
             </div>
 
-            {/* {showPopup && (
+             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Contact Information</h2>
@@ -157,33 +88,14 @@ export default function NavigationBar() {
                             <input type="email" id="email" name="email" required />
                             <label htmlFor="email">Email</label>
                         </div>
+                        <div className="input-container">
+                            <input type="contect" id="contect" name="contact" required />
+                            <label htmlFor="contact">Reason for Connection</label>
+                        </div>
                         <button onClick={handleSubmit}>Send</button>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div className="input-container">
-                    <input type="text" id="title" name="title" required />
-                    <label htmlFor="title">Title</label>
-                </div>
-                <div className="input-container">
-                    <input type="text" id="employer" name="employer" required />
-                    <label htmlFor="employer">Employer</label>
-                </div>
-                <div className="input-container">
-                    <input type="email" id="email" name="email" required />
-                    <label htmlFor="email">Email</label>
-                </div>
-                <div className="input-container">
-                    <input type="reason" id="reason" name="reason" required />
-                    <label htmlFor="email">Reason for Contact</label>
-                </div>
-                <button onClick={handleSubmit}>Send</button>
-                </div>
-            </div>
-            )}
-=======
-            )} */}
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
+            )} 
         </nav>
     );
 };

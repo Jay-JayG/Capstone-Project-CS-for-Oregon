@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 .NavigationBar {
     position: relative;
   }
   
   .CSForOregon {
-=======
-.NavigationBar {}
-
-.CSForOregon {
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
     white-space: nowrap;
     font-size: 14px;
     color: rgb(0, 0, 0);
@@ -25,7 +19,6 @@
     background-color: #E3E7EF;
     flex-wrap: nowrap;
     flex-shrink: 1;
-<<<<<<< HEAD
   }
   
   .NavLinksContainer {
@@ -58,30 +51,42 @@
   
   
   @media only screen and (max-width: 850px) {
-=======
-}
-
-@media only screen and (max-width: 1380px) {
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
-    .NavLinksContainer {
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-      background-color: #E3E7EF;
-      padding: 20px;
-      font-size: 3vw;
+    .OuterContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
     }
+    .item1 {
+        position: relative;
+      }
+    
+
+      .NavLinksContainer {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: #E3E7EF;
+        margin: 20px;
+        margin-top: 40px;
+        padding-right: 15vw;
+        font-size: 2.4vw;
+      }
   
     .NavLinksContainer.show {
       display: flex;
     }
   
     .hamburger-icon {
-      display: block;
-      position: absolute;
-      right: 20px;
-      width: 60px;
-      height: 60px;
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
     }
   
     .hamburger-icon img {
@@ -121,13 +126,8 @@
 .LogoContainer {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     text-decoration: None;
     
-=======
-    flex-direction: column;
-    text-decoration: none;
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
 }
 
 .CS_logo {
@@ -137,11 +137,7 @@
 
 .item1 {
     padding: 0.25%;
-<<<<<<< HEAD
     align-items: center;
-=======
-    text-decoration: none;
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369
 }
 
 .item1 a {
@@ -246,12 +242,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-<<<<<<< HEAD
 }
 
 .NavLinksContainer .navLink:focus {
     outline: 4px solid #000000;
 }
-=======
-}
->>>>>>> d8e6cb098f230b261adf31e38f0897ce236e4369

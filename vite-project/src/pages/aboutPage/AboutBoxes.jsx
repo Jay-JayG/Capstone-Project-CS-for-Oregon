@@ -1,4 +1,4 @@
-
+import babcock from '/src/assets/Babcock_Julia.webp';
 import bailey from '/src/assets/Bailey_Deb.webp';
 import michelle from '/src/assets/Balmeo_Michelle.webp';
 import jenna from '/src/assets/Borberg_Jenna.webp';
@@ -32,6 +32,12 @@ function AboutBoxes(){
 
     return (
         <div className="BoxesContainer">
+
+            <div className="AboutSectionBoxes">
+                <img src={babcock} alt="headshot image" className="BoxImage" />
+                <div className="BoxHeader">Julia Babcock</div>
+                <div className="BoxContent"> Needs info </div>
+            </div>
 
             <div className="AboutSectionBoxes">
                 <img src={bailey} alt="headshot image" className="BoxImage" />
