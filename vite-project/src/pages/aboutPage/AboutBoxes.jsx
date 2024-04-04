@@ -36,7 +36,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={bailey} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Deb Bailey</div>
-                <div className="BoxContent">STEM Specialist, <a href='https://www.oregon.gov/ode/pages/default.aspx' target='_blank'>Oregon Department of Education</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon</a></div>
+                <div className="BoxContent">STEM Specialist, Oregon Department of Education </div>
             </div>
 
             
@@ -82,7 +82,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={trish} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Trish Dorr</div>
-                <div className="BoxContent">Teacher, <a href="https://www.ashland.k12.or.us/o/hes" target="_blank">Helman Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
+                <div className="BoxContent">Elementry Teacher, <a href="https://www.ashland.k12.or.us/o/hes" target="_blank">Helman Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -106,7 +106,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={dylana} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Dylana Garfas-Knowles</div>
-                <div className="BoxContent">English Language Learning Teacher, <a href="https://www.ashland.k12.or.us/o/wes" target="_blank">Walker Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
+                <div className="BoxContent">English Language Development (ELD) teacher, <a href="https://www.ashland.k12.or.us/o/wes" target="_blank">Walker Elementary School, Ashland School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
 
@@ -144,13 +144,13 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jennifer} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jennifer Mohatt</div>
-                <div className="BoxContent">Teacher, <a href="https://www.phoenix.k12.or.us/Page/9" target="_blank">Phoenix Elementary School, Phoenix-Talent School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
+                <div className="BoxContent">Bilingual Immersion Elementary Teacher, <a href="https://www.phoenix.k12.or.us/Page/9" target="_blank">Phoenix Elementary School, Phoenix-Talent School District</a>, <a href="https://sites.google.com/sou.edu/socs-for-all/" target="_blank">Southern Oregon CS Facilitator</a></div>
             </div>
 
             <div className="AboutSectionBoxes">
                 <img src={philip} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Philip Reed</div>
-                <div className="BoxContent">CS Teacher, <a href="https://waldport.lincoln.k12.or.us/" target="_blank">Waldport High School</a>, E-Textiles Facilitator</div>
+                <div className="BoxContent">CS Teacher, <a href="https://waldport.lincoln.k12.or.us/" target="_blank">Waldport High School</a>, E-Textiles Facilitator, ECS Regional Specialist</div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -186,7 +186,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jen} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jen Tuttle</div>
-                <div className="BoxContent">CS Teacher: <a href="https://ohs.ontario.k12.or.us/" target="_blank">Ontario High School</a>, E-Textiles Facilitator, Social Justice Teacher Leader</div>
+                <div className="BoxContent">CS Teacher: <a href="https://ohs.ontario.k12.or.us/" target="_blank">Ontario High School</a>, E-Textiles Facilitator, Social Justice Teacher Leader, ECS Regional</div>
             </div>
 
             <div className="AboutSectionBoxes">
