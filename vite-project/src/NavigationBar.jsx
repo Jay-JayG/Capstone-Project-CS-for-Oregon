@@ -34,16 +34,16 @@ export default function NavigationBar() {
     return (
         <nav className='NavigationBar'>
             <div className="OuterContainer">
-                <div className="item1">
-                    <Link to={`/`} className="LogoContainer">
-                        <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
-                    </Link>
-                    <div className="CSForOregon">CS for Oregon</div>
-                </div>
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
                     <img src={hamburger} alt="Hamburger Icon" />
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
+                    <div className="item1">
+                        <Link to={`/`} className="LogoContainer">
+                            <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
+                        </Link>
+                        <div className="CSForOregon">CS for Oregon</div>
+                    </div>
                     <div className="item2">
                         <NavLink
                             to="/"
