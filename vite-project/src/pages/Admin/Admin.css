@@ -1,5 +1,6 @@
 .AdminPageContainer {
-    
+    padding: 1%;
+    background-color: #E3E7EF;
 }
 
 .AdminPageTitle {
@@ -15,7 +16,6 @@
 }
 
 .AdminPageForm {
-    
 }
 
 .AdminPageFormFieldDiv {
@@ -29,6 +29,14 @@
 .AdminPageSubmitBotton {
     padding: 5%;
     align-self: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #E8805E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .admin-delete_item_button {
@@ -55,4 +63,20 @@
 
 .admin-object-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.object{
+    display: flex;
+    flex-direction: column;
+}
+.object-delete-button {
+    padding: 5%;
+    align-self: center;
+    margin: 1% 2% 2% 2%;
+    padding: 0.5%;
+    font-size: 18px;
+    background-color: #E8805E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

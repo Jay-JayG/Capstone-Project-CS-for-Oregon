@@ -9,8 +9,9 @@ export default function NewsAndFeaturesPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get("/api/endpoint");
-                setObjects(res.data.map(item => JSON.parse(item.object)));
+                //const res = await axios.get("/api/endpoint");
+                const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
             }
@@ -28,12 +29,17 @@ export default function NewsAndFeaturesPage() {
             </div>
             <h1>NewsAndFeaturesPage WIP</h1>
             <div className='news-object-list'>
-                {objects.map((obj, index ) => (
+                {objects.map((obj, index) => (
                     <div key={index} className='object'>
                         <div className='object-container'>
-                            <h2>{obj.name}</h2>
-                            <p>{obj.age}</p>
-                            {obj.city && <p>{obj.city}</p>}
+                            <div className='object-event'>
+                                <div className='object-title'>{obj.title}</div>
+                            </div>
+                            <div className='object-event-details'>
+                                <div><span className='object-bold-text'>What: {obj.bold} </span>{obj.what}</div>
+                                <div><span className='object-bold-text'>Who is it for: </span>{obj.who}</div>
+                                <div><span className='object-bold-text'>When: </span>{obj.when_date}</div>
+                            </div>
                         </div>
                     </div>
                 ))}
