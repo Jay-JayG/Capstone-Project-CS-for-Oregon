@@ -12,11 +12,12 @@ function researchAndPolicy() {
             <br /> 
             <div className={'PolicyContent'}>States and school districts can adopt policies that support access to computer science for all students. The following policy recommendations from code.org provide a framework of policy options states can choose from to support and expand computer science and indicate the current state of CS policy in Oregon.</div>
         </div>
-    </div>
-    <div>
-        <ResearchAndPolicyCards/>
-    </div>
+        <div>
+            <ResearchAndPolicyCards/>
+        </div>
         
+        
+    </div>
     </div>
     );
   };
