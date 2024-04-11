@@ -45,30 +45,65 @@ export default function NavigationBar() {
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
                     <div className="item2">
-                        <Link to={`/`} className="navLink">HOME</Link>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            HOME
+                        </NavLink>
                     </div>
                     <div className="item3">
-                        <Link to="/about" className="navLink">ABOUT</Link>
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            ABOUT
+                        </NavLink>
                     </div>
                     <div className="item4">
-                        <Link to={`/educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
+                        <NavLink
+                            to="/educators"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            K-12 EDUCATORS
+                        </NavLink>
                     </div>
                     <div className="item5">
-                        <Link to={`/researchAndPolicy`} className="navLink">RESEARCH & POLICY</Link>
+                        <NavLink
+                            to="/researchAndPolicy"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            RESEARCH & POLICY
+                        </NavLink>
                     </div>
                     <div className="item5">
-                        <Link to={`/summerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
+                        <NavLink
+                            to="/summerOfCS"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            SUMMER EQUITY SYMPOSIUM
+                        </NavLink>
                     </div>
-                    <a href='#' className="item6" onClick={togglePopup}>
+                    {/* <a href='#' className="item6" onClick={togglePopup}>
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
-                    </a>
+                    </a> */}
                 </div>
-            
-                
+
+
 
             </div>
 
-             {showPopup && (
+            {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Contact Information</h2>
@@ -95,7 +130,7 @@ export default function NavigationBar() {
                         <button onClick={handleSubmit}>Send</button>
                     </div>
                 </div>
-            )} 
+            )}
         </nav>
     );
 };
