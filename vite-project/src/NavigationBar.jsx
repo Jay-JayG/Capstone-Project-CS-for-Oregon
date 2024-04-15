@@ -17,7 +17,7 @@ export default function NavigationBar() {
         email: '',
         contact: ''
     });
-    
+
     const { name, title, employer, email, contact } = formData;
 
     // add or remove initial form fields here.
@@ -55,21 +55,26 @@ export default function NavigationBar() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         // Perform form submission logic here
-        if (!name || !title || !email || !contact){
+        if (!name || !title || !email || !contact) {
             setMissingFields(true);
             return;
         }
         setMissingFields(false);
         try {
             const res = await axios.post('http://localhost/backend/handle_form.php', formData);
+            console.log('Server response:', res.data);
+
+            if (res.data.success) {
+                alert('Form submitted successfully!');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
+            } else {
+                alert('Failed to submit form. Please try again.');
+            }
         } catch (error) {
-            console.log( 'Error uploading object:', error)
+            console.log('Error uploading object:', error)
+            alert('An error occurred. Please try again later.');
         }
-        console.log(formData);
-        console.log("Form submitted");
-        resetForm();
-        // Close the popup after submission
-        setShowPopup(false);
     };
 
     return (
