@@ -69,7 +69,9 @@ export default function NavigationBar() {
                 resetForm(); // Reset form fields after successful submission
                 setShowPopup(false); // Close the popup
             } else {
-                alert('Failed to submit form. Please try again.');
+                //alert('Failed to submit form. Please try again.');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
             }
         } catch (error) {
             console.log('Error uploading object:', error)
