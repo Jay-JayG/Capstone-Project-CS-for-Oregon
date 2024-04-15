@@ -13,6 +13,7 @@ import Header from './Header';
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import DataPage from './pages/DataPage/DataPage';
+import SpotlightPage from './pages/NewsAndFeatures/SpotlighPage/SpotligPage';
 import './styles.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -30,6 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/adminPage" element={<AdminPage />} />
         <Route path="/news" element={<NewsAndFeaturesPage />} />
         <Route path="/events" element={<EventsPage />} />
+        <Route path="/spotlight" element={<SpotlightPage />} />
         <Route path="/dataPage" element={<DataPage />} />
       </Routes>
       <Footer />

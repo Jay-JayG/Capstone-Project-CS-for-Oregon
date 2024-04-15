@@ -24,8 +24,8 @@ export default function NewsAndFeaturesPage() {
         <div className='news-and-features-page-container'>
             <div className='news-and-features-page-navigator'>
                 <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
-                <Link to={`/EventsPage`} className='news-and-features-page-navigator-events'>Events</Link>
-                <Link to={`/SpotlightPage`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
+                <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
+                <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
             </div>
             <h1>NewsAndFeaturesPage WIP</h1>
             <div className='news-object-list'>
@@ -39,6 +39,7 @@ export default function NewsAndFeaturesPage() {
                                 <div><span className='object-bold-text'>What: {obj.bold} </span>{obj.what}</div>
                                 <div><span className='object-bold-text'>Who is it for: </span>{obj.who}</div>
                                 <div><span className='object-bold-text'>When: </span>{obj.when_date}</div>
+                                <div><span className='object-bold-text'>Type: </span>{obj.news_type}</div>
                             </div>
                         </div>
                     </div>

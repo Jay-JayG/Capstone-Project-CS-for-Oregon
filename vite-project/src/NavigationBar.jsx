@@ -3,11 +3,40 @@ import { NavLink, Link } from "react-router-dom";
 import CS_logo from '../src/assets/logo.png';
 import envelope from '../src/assets/envelope.webp';
 import hamburger from '../src/assets/hamburger.webp';
+import axios from 'axios';
 import './NavigationBar.css'
 
 export default function NavigationBar() {
     const [showPopup, setShowPopup] = useState(false);
     const [showNavLinks, setShowNavLinks] = useState(false);
+    const [missingFields, setMissingFields] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        title: '',
+        employer: '',
+        email: '',
+        contact: ''
+    });
+
+    const { name, title, employer, email, contact } = formData;
+
+    // add or remove initial form fields here.
+    const initialFormState = {
+        name: '',
+        title: '',
+        employer: '',
+        email: '',
+        contact: ''
+    };
+
+    const resetForm = () => {
+        setFormData(initialFormState);
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
     // Toggle the popup's visibility
     const togglePopup = () => setShowPopup(!showPopup);
@@ -23,27 +52,46 @@ export default function NavigationBar() {
             setShowPopup(false);
         }
     };
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         // Perform form submission logic here
-        console.log("Form submitted");
-        // Close the popup after submission
-        setShowPopup(false);
+        if (!name || !title || !email || !contact) {
+            setMissingFields(true);
+            return;
+        }
+        setMissingFields(false);
+        try {
+            const res = await axios.post('http://localhost/backend/handle_form.php', formData);
+            console.log('Server response:', res.data);
+
+            if (res.data.success) {
+                alert('Form submitted successfully!');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
+            } else {
+                //alert('Failed to submit form. Please try again.');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
+            }
+        } catch (error) {
+            console.log('Error uploading object:', error)
+            alert('An error occurred. Please try again later.');
+        }
     };
 
     return (
         <nav className='NavigationBar'>
             <div className="OuterContainer">
-                <div className="item1">
-                    <Link to={`/`} className="LogoContainer">
-                        <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
-                    </Link>
-                    <div className="CSForOregon">CS for Oregon</div>
-                </div>
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
                     <img src={hamburger} alt="Hamburger Icon" />
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
+                    <div className="item1">
+                        <Link to={`/`} className="LogoContainer">
+                            <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
+                        </Link>
+                        <div className="CSForOregon">CS for Oregon</div>
+                    </div>
                     <div className="item2">
                         <NavLink
                             to="/"
@@ -94,9 +142,9 @@ export default function NavigationBar() {
                             SUMMER EQUITY SYMPOSIUM
                         </NavLink>
                     </div>
-                    {/* <a href='#' className="item6" onClick={togglePopup}>
+                    <a href='#' className="item6" onClick={togglePopup}>
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
-                    </a> */}
+                    </a>
                 </div>
 
 
@@ -108,24 +156,27 @@ export default function NavigationBar() {
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Contact Information</h2>
                         <div className="input-container">
-                            <input type="text" id="name" name="name" required />
+                            <input type="text" id="name" name="name" value={name} onChange={handleInputChange} />
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="title" name="title" required />
+                            <input type="text" id="title" name="title" value={title} onChange={handleInputChange} />
                             <label htmlFor="title">Title</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="employer" name="employer" required />
-                            <label htmlFor="employer">Employer</label>
+                            <input type="text" id="employer" name="employer" value={employer} onChange={handleInputChange} />
+                            <label htmlFor="employer">Employer/Affiliation/Organization (optional)</label>
                         </div>
                         <div className="input-container">
-                            <input type="email" id="email" name="email" required />
+                            <input type="text" id="email" name="email" value={email} onChange={handleInputChange} />
                             <label htmlFor="email">Email</label>
                         </div>
                         <div className="input-container">
-                            <input type="contect" id="contect" name="contact" required />
-                            <label htmlFor="contact">Reason for Connection</label>
+                            <input type="text" id="contect" name="contact" value={contact} onChange={handleInputChange} />
+                            <label htmlFor="contact">How can we help you?</label>
+                        </div>
+                        <div>
+                            {missingFields && <p>Please fill all fields</p>}
                         </div>
                         <button onClick={handleSubmit}>Send</button>
                     </div>

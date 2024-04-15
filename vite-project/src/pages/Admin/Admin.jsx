@@ -9,7 +9,8 @@ export default function AdminPage() {
         bold: '',
         what: '',
         who: '',
-        when_data: '',
+        when_date: '',
+        news_type: '',
     });
 
     const [objects, setObjects] = useState([]);
@@ -37,6 +38,10 @@ export default function AdminPage() {
         setFormData({ ...formData, when_date: event.target.value });
     }
 
+    const handleNews_typeInputChange = (event) => {
+        setFormData({ ...formData, news_type: event.target.value });
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -49,13 +54,14 @@ export default function AdminPage() {
                 what: '',
                 who: '',
                 when_date: '',
+                news_type: '',
             });
             setTimeout(() => {
                 setSubmitted(false);
             }, 2000);
             await getObjects();
         } catch (error) {
-            console.error('Error uploading object:', error);
+            console.log('Error uploading object:', error);
         }
     }
 
@@ -105,6 +111,7 @@ export default function AdminPage() {
 
     const handleEditInputChange = (event, id) => {
         const { name, value } = event.target;
+        console.log(`Editing ${name} to ${value}`);
         const updatedObjects = objects.map(obj => {
             if (obj.id === id) {
                 return { ...obj, [name]: value };
@@ -130,6 +137,7 @@ export default function AdminPage() {
     const handleSaveEdit = async (id) => {
         try {
             const editedObject = objects.find(obj => obj.id === id);
+            console.log('Edited Object:', editedObject);
             await axios.put(`http://localhost/backend/get_data.php?id=${id}`, editedObject);
             setSubmitted(true);
             setTimeout(() => {
@@ -194,6 +202,15 @@ export default function AdminPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
+                        <input
+                            onChange={handleNews_typeInputChange}
+                            value={formData.news_type}
+                            className='AdminPageFormField'
+                            placeholder='Type'
+                            name='news_type'
+                        />
+                    </div>
+                    <div className='AdminPageFormFieldDiv'>
                         <button className='AdminPageSubmitBotton' type='submit'>
                             Submit
                         </button>
@@ -228,10 +245,10 @@ export default function AdminPage() {
                                     </div>
                                     <div><span className='object-bold-text'>Who is it for: </span>{obj.who}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'who')}>Edit</button></div>
                                     <div><span className='object-bold-text'>When: </span>{obj.when_date}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'when_date')}>Edit</button></div>
+                                    <div><span className='object-bold-text'>Type: </span>{obj.news_type}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'news_type')}>Edit</button></div>
                                 </div>
                                 <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>Delete Entry Above</button>
                             </div>
-                            
                         )}
                     </div>
                 ))}
