@@ -3,12 +3,41 @@ import { NavLink, Link } from "react-router-dom";
 import CS_logo from '../src/assets/logo.png';
 import envelope from '../src/assets/envelope.webp';
 import hamburger from '../src/assets/hamburger.webp';
+import axios from 'axios';
 import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
 
 export default function NavigationBar() {
     const [showPopup, setShowPopup] = useState(false);
     const [showNavLinks, setShowNavLinks] = useState(false);
+    const [missingFields, setMissingFields] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        title: '',
+        employer: '',
+        email: '',
+        contact: ''
+    });
+
+    const { name, title, employer, email, contact } = formData;
+
+    // add or remove initial form fields here.
+    const initialFormState = {
+        name: '',
+        title: '',
+        employer: '',
+        email: '',
+        contact: ''
+    };
+
+    const resetForm = () => {
+        setFormData(initialFormState);
+    };
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
 
     // Toggle the popup's visibility
     const togglePopup = () => setShowPopup(!showPopup);
@@ -24,12 +53,31 @@ export default function NavigationBar() {
             setShowPopup(false);
         }
     };
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         // Perform form submission logic here
-        console.log("Form submitted");
-        // Close the popup after submission
-        setShowPopup(false);
+        if (!name || !title || !email || !contact) {
+            setMissingFields(true);
+            return;
+        }
+        setMissingFields(false);
+        try {
+            const res = await axios.post('http://localhost/backend/handle_form.php', formData);
+            console.log('Server response:', res.data);
+
+            if (res.data.success) {
+                alert('Form submitted successfully!');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
+            } else {
+                //alert('Failed to submit form. Please try again.');
+                resetForm(); // Reset form fields after successful submission
+                setShowPopup(false); // Close the popup
+            }
+        } catch (error) {
+            console.log('Error uploading object:', error)
+            alert('An error occurred. Please try again later.');
+        }
     };
 
     return (
@@ -46,57 +94,95 @@ export default function NavigationBar() {
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
                     <div className="item2">
-                        <Link to={`/`} className="navLink">HOME</Link>
+                        <NavLink
+                            to="/"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            HOME
+                        </NavLink>
                     </div>
                     <div className="item3">
-                        <Link to="/about" className="navLink">ABOUT</Link>
+                        <NavLink
+                            to="/about"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            ABOUT
+                        </NavLink>
                     </div>
                     <div className="item4">
-                        <Link to={`/educators`} className="navLink">EDUCATORS, ADMINISTRATORS & COUNSELORS</Link>
+                        <NavLink
+                            to="/educators"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            K-12 EDUCATORS
+                        </NavLink>
                     </div>
                     <div className="item5">
-                        <Link to={`/researchAndPolicy`} className="navLink">RESEARCH & POLICY</Link>
+                        <NavLink
+                            to="/researchAndPolicy"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            RESEARCH & POLICY
+                        </NavLink>
                     </div>
                     <div className="item5">
-                        <Link to={`/summerOfCS`} className="navLink">SUMMER EQUITY SYMPOSIUM</Link>
+                        <NavLink
+                            to="/summerOfCS"
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            SUMMER EQUITY SYMPOSIUM
+                        </NavLink>
                     </div>
                     <a href='#' className="item6" onClick={togglePopup}>
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
                     </a>
                 </div>
-            
-                
+
+
 
             </div>
 
-             {showPopup && (
+            {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h2>Contact Information</h2>
                         <div className="input-container">
-                            <input type="text" id="name" name="name" required />
+                            <input type="text" id="name" name="name" value={name} onChange={handleInputChange} />
                             <label htmlFor="name">Name</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="title" name="title" required />
+                            <input type="text" id="title" name="title" value={title} onChange={handleInputChange} />
                             <label htmlFor="title">Title</label>
                         </div>
                         <div className="input-container">
-                            <input type="text" id="employer" name="employer" required />
-                            <label htmlFor="employer">Employer/Affiliation/Organization (optional),</label>
+                            <input type="text" id="employer" name="employer" value={employer} onChange={handleInputChange} />
+                            <label htmlFor="employer">Employer/Affiliation/Organization (optional)</label>
                         </div>
                         <div className="input-container">
-                            <input type="email" id="email" name="email" required />
-                            <label htmlFor="email">Email Address</label>
+                            <input type="text" id="email" name="email" value={email} onChange={handleInputChange} />
+                            <label htmlFor="email">Email</label>
                         </div>
                         <div className="input-container">
-                            <input type="contect" id="contect" name="contact" required />
-                            <label htmlFor="contact">How Can We Help You?</label>
+                            <input type="text" id="contect" name="contact" value={contact} onChange={handleInputChange} />
+                            <label htmlFor="contact">How can we help you?</label>
+                        </div>
+                        <div>
+                            {missingFields && <p>Please fill all fields</p>}
                         </div>
                         <button onClick={handleSubmit}>Send</button>
                     </div>
                 </div>
-            )} 
+            )}
         </nav>
     );
 };
