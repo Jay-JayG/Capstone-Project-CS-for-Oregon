@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import CS_logo from '../src/assets/logo.png';
 import envelope from '../src/assets/envelope.webp';
 import hamburger from '../src/assets/hamburger.webp';
+import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
 
 export default function NavigationBar() {
@@ -41,7 +42,7 @@ export default function NavigationBar() {
                     <div className="CSForOregon">CS for Oregon</div>
                 </div>
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
-                    <img src={hamburger} alt="Hamburger Icon" />
+                    <img src={showNavLinks ? x : hamburger} alt="showNavLinks ? 'Close Icon' : 'Hamburger Icon" />
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
                     <div className="item2">
@@ -82,15 +83,15 @@ export default function NavigationBar() {
                         </div>
                         <div className="input-container">
                             <input type="text" id="employer" name="employer" required />
-                            <label htmlFor="employer">Employer</label>
+                            <label htmlFor="employer">Employer/Affiliation/Organization (optional),</label>
                         </div>
                         <div className="input-container">
                             <input type="email" id="email" name="email" required />
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Email Address</label>
                         </div>
                         <div className="input-container">
                             <input type="contect" id="contect" name="contact" required />
-                            <label htmlFor="contact">Reason for Connection</label>
+                            <label htmlFor="contact">How Can We Help You?</label>
                         </div>
                         <button onClick={handleSubmit}>Send</button>
                     </div>

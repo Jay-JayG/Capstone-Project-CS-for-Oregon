@@ -13,7 +13,7 @@
 }
 
 .TopPageText{
-    text-align: left;
+    text-align: center;
     font-family: Montserrat;
     font-size: 2.25vh;
     font-style: normal;
@@ -40,6 +40,7 @@
 }
 
 .PolicyContent{
+    text-align: center;
     color: #000;
     font-family: Montserrat;
     font-size: 2.25vh;
@@ -50,9 +51,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px; /* Adjust the space between boxes */
-    margin: 20px 0; /* Vertical spacing from other elements */
+    gap: 25px;
+    margin: 20px 0; 
 }
+
 
 
 .OregonPolicyLink {
@@ -132,9 +134,9 @@
     flex-shrink: 0;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .GreenCard, .RedCard, .YellowCard {
-        width: 290px;
+        width: 270px;
         height: 320px;
     }
     .CardHeader {
