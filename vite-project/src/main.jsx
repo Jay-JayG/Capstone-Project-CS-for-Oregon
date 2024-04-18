@@ -16,6 +16,7 @@ import DataPage from './pages/DataPage/DataPage';
 import SpotlightPage from './pages/NewsAndFeatures/SpotlighPage/SpotligPage';
 import Policy from './pages/PolicyPage/Policy';
 import './styles.css';
+import ResearchPage from './pages/ResearchPage.jsx/ResearchPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -35,6 +36,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/spotlight" element={<SpotlightPage />} />
         <Route path="/dataPage" element={<DataPage />} />
         <Route path="/policy" element={<Policy />} />
+        <Route path="/research" element={<ResearchPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

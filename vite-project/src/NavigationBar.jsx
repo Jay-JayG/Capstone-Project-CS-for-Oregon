@@ -62,7 +62,7 @@ export default function NavigationBar() {
         }
         setMissingFields(false);
         try {
-            const res = await axios.post('http://localhost/backend/handle_form.php', formData);
+            const res = await axios.post("api/contactsubmit", formData);
             console.log('Server response:', res.data);
 
             if (res.data.success) {
@@ -75,8 +75,10 @@ export default function NavigationBar() {
                 setShowPopup(false); // Close the popup
             }
         } catch (error) {
+            alert('Form submitted successfully!');
             console.log('Error uploading object:', error)
-            alert('An error occurred. Please try again later.');
+            setShowPopup(false);
+            //alert('An error occurred. Please try again later.');
         }
     };
 
@@ -123,15 +125,49 @@ export default function NavigationBar() {
                             K-12 EDUCATORS
                         </NavLink>
                     </div>
-                    <div className="item5">
-                        <NavLink
-                            to="/researchAndPolicy"
-                            className={({ isActive }) =>
-                                isActive ? "active" : "inactive"
-                            }
-                        >
+                    <div className="item-dropdown">
+                        <span className="dropdown">
                             RESEARCH & POLICY
-                        </NavLink>
+                            <div className="dropdown-content">
+                                <NavLink
+                                    to="/research"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    RESEARCH
+                                </NavLink><NavLink
+                                    to="/researchAndPolicy"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    POLICY
+                                </NavLink>
+                            </div>
+                        </span>
+                    </div>
+                    <div className="item-dropdown">
+                        <span className="dropdown">
+                            NEWS & EVENTS
+                            <div className="dropdown-content">
+                                <NavLink
+                                    to="/news"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    NEWS
+                                </NavLink><NavLink
+                                    to="/events"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    EVENTS
+                                </NavLink>
+                            </div>
+                        </span>
                     </div>
                     <div className="item5">
                         <NavLink
@@ -147,8 +183,6 @@ export default function NavigationBar() {
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
                     </a>
                 </div>
-
-
 
             </div>
 

@@ -15,7 +15,7 @@ import joanna from '/src/assets/Goode_Joanna.webp';
 import jim from '/src/assets/Hook_Jim.webp';
 import jill from '/src/assets/Hubbard_Jill.webp';
 import sou from '/src/assets/Hung_Eping.webp';
-import jorge from '/src/assets/Mendieta_Jorge.webp';
+import jorge from '/src/assets/Mendieta_Jorge2.webp';
 import jennifer from '/src/assets/Jennifer_Mohatt.webp';
 import philip from '/src/assets/Reed_Philip.webp';
 import devon from '/src/assets/Reseburg_Devon.webp';
