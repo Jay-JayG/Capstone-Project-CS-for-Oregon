@@ -62,7 +62,7 @@ function ResearchAndPolicyCards() {
                 </div>
 
                 <div className="GreenCard">
-                    <div className="CardHeader"> State agency </div>
+                    <div className="CardHeader"> State Agency </div>
                     <img src={Check} alt="check mark" className="Icon" />
                     <p className="BoxContent2"> Establish dedicated computer science positions in a state education agency </p>
                 </div>

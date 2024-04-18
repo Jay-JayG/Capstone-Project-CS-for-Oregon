@@ -132,7 +132,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jill} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jill Hubbard</div>
-                <div className="BoxContent">Computer Science Education Specialist,Oregon Department of Education, Associate Professor of Practice, <a href="https://oregonstate.edu/" target="_blank">Oregon State University</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon </a></div>
+                <div className="BoxContent">Computer Science Education Specialist, Oregon Department of Education, Associate Professor of Practice, <a href="https://oregonstate.edu/" target="_blank">Oregon State University</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon </a></div>
             </div>
 
             <div className="AboutSectionBoxes">

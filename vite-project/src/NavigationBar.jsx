@@ -82,7 +82,7 @@ export default function NavigationBar() {
 
     return (
         <nav className='NavigationBar'>
-            <div className="OuterContainer">
+            <div className={`OuterContainer ${showNavLinks ? 'OuterContainerExpanded' : 'OuterContainer'}`}>
                 <div className="item1">
                     <Link to={`/`} className="LogoContainer">
                         <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
