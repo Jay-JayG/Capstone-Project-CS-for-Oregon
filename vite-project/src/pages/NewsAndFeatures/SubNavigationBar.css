@@ -1,0 +1,20 @@
+.news-and-features-page-navigator {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    padding: 2%;
+    width: 100%;
+    font-family: Montserrat;
+}
+
+.news-and-features-page-navigator-news {
+    color: black;
+}
+
+.news-and-features-page-navigator-events {
+    color: black;
+}
+
+.news-and-features-page-navigator-spotlight {
+    color: black;
+}

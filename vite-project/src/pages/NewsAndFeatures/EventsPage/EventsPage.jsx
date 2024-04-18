@@ -1,16 +1,17 @@
 import './EventsPage.css';
+import '../NewsAndFeatures.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-    
+
 export default function EventsPage() {
     const [objects, setObjects] = useState([]);
 
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                const res = await axios.get("/api/endpoint");
+                //const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
@@ -22,13 +23,13 @@ export default function EventsPage() {
     const filteredObjects = objects.filter(obj => obj.news_type === '1');
 
     return (
-        <div className='news-and-features-page-container'>
+        <div className='events-page-container'>
             <div className='news-and-features-page-navigator'>
                 <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
                 <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
-                <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
+                {/* <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link> */}
             </div>
-            <h1>NewsAndFeaturesPage WIP</h1>
+
             <div className='news-object-list'>
                 {filteredObjects.map((obj, index) => (
                     <div key={index} className='object'>
@@ -41,6 +42,10 @@ export default function EventsPage() {
                                 <div><span className='object-bold-text'>Who is it for: </span>{obj.who}</div>
                                 <div><span className='object-bold-text'>When: </span>{obj.when_date}</div>
                                 <div><span className='object-bold-text'>Type: </span>{obj.news_type}</div>
+                                <div className='object-buttons-container'>
+                                    <a className='object-buttons-Flyer' href='https://drive.google.com/file/d/1KE8GDDz4yj9cJujcfAH-7rkKHfThm2HO/view?usp=sharing' target='_blank'>Event Flyer</a>
+                                    <a className='object-buttons-Flyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0CCQlCf5FSHJxPM' target='_blank'>Apply Here</a>
+                                </div>
                             </div>
                         </div>
                     </div>
