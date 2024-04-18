@@ -1,6 +1,9 @@
 .events-page-container {
     padding: 2%;
     background-color: #E3E7EF;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .events-page-navigator {
@@ -49,4 +52,20 @@
 
 .object-bold-text {
     font-weight: bold;
+}
+
+.object-buttons-container {
+    display: flex;
+    justify-content: center;
+    font-weight: Bold;
+}
+
+.object-buttons-Flyer {
+    margin: 2% 2% 0% 2%;
+    padding: .5% 3%;
+    background-color: #E8805E;
+    border: 5px solid  #E8805E;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
 }

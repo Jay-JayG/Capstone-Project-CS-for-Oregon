@@ -1,4 +1,5 @@
 import './NewsAndFeatures.css';
+import './SubNavigationBar.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -11,8 +12,8 @@ export default function NewsAndFeaturesPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                const res = await axios.get("/api/endpoint");
+                //const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
@@ -28,7 +29,7 @@ export default function NewsAndFeaturesPage() {
             <div className='news-and-features-page-navigator'>
                 <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
                 <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
-                <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
+                {/* <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link> */}
             </div>
             <div className='news-cards-container'>
                 {filteredObjects.map((obj, index) => (
@@ -38,11 +39,11 @@ export default function NewsAndFeaturesPage() {
                     <div className='news-card-date'>{obj.when_date}</div>
                     </div>
                 ))}
-                <div className='news-cards-background'>
+                {/* <div className='news-cards-background'>
                     <a className='news-card-title' href={link}>{text_1}</a>
                     <div className='news-card-description'>Jill Hubbard of OSU-Cascades works with Oregon educators to expand universally engaging, culturally appropriate, and inclusive computer science education for K-12 students.</div>
                     <div className='news-card-date'>January 24, 2024</div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

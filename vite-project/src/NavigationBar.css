@@ -35,6 +35,58 @@
     flex-shrink: 1;
 }
 
+.item-dropdown {
+    position: relative;
+    padding: 1%
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 1.1vw;
+    padding: 2%;
+    border-radius: 4px;
+    left: -7px;
+}
+
+/* Show the dropdown content when hovering over the dropdown container */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style for dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Change background color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Style for the "RESEARCH & POLICY" link */
+.item-dropdown a {
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+}
+
+/* Style for the active dropdown link (if needed) */
+.item-dropdown .active {
+    color: green;
+}
+
 .hamburger-icon {
     display: none;
     top: 25px;
