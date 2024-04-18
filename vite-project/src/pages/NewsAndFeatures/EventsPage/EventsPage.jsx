@@ -19,16 +19,17 @@ export default function EventsPage() {
         getObjects('news');
     }, []);
 
-    const filteredObjects = objects.filter(obj => obj.news_type === '1');
+    const filteredObjects = objects;
+    //const filteredObjects = objects.filter(obj => obj.news_type === '1');
 
     return (
-        <div className='news-and-features-page-container'>
-            <div className='news-and-features-page-navigator'>
-                <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
-                <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
-                <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link>
+        <div className='events-page-container'>
+            <div className='events-page-navigator'>
+                <Link to={`/News`} className='events-page-navigator-news'>News</Link>
+                <Link to={`/events`} className='events-page-navigator-events'>Events</Link>
+                <Link to={`/spotlight`} className='events-page-navigator-spotlight'>Spotlight</Link>
             </div>
-            <h1>NewsAndFeaturesPage WIP</h1>
+        
             <div className='news-object-list'>
                 {filteredObjects.map((obj, index) => (
                     <div key={index} className='object'>

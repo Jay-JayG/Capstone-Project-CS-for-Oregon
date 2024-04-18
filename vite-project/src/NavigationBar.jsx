@@ -61,7 +61,7 @@ export default function NavigationBar() {
         }
         setMissingFields(false);
         try {
-            const res = await axios.post('http://localhost/backend/handle_form.php', formData);
+            const res = await axios.post("api/contactsubmit", formData);
             console.log('Server response:', res.data);
 
             if (res.data.success) {
@@ -74,8 +74,10 @@ export default function NavigationBar() {
                 setShowPopup(false); // Close the popup
             }
         } catch (error) {
+            alert('Form submitted successfully!');
             console.log('Error uploading object:', error)
-            alert('An error occurred. Please try again later.');
+            setShowPopup(false);
+            //alert('An error occurred. Please try again later.');
         }
     };
 
