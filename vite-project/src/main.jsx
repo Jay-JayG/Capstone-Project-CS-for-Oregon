@@ -14,6 +14,7 @@ import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import DataPage from './pages/DataPage/DataPage';
 import SpotlightPage from './pages/NewsAndFeatures/SpotlighPage/SpotligPage';
+import Policy from './pages/PolicyPage/Policy';
 import './styles.css';
 import ResearchPage from './pages/ResearchPage.jsx/ResearchPage';
 
@@ -34,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/events" element={<EventsPage />} />
         <Route path="/spotlight" element={<SpotlightPage />} />
         <Route path="/dataPage" element={<DataPage />} />
+        <Route path="/policy" element={<Policy />} />
         <Route path="/research" element={<ResearchPage />} />
       </Routes>
       <Footer />

@@ -4,6 +4,7 @@ import CS_logo from '../src/assets/logo.png';
 import envelope from '../src/assets/envelope.webp';
 import hamburger from '../src/assets/hamburger.webp';
 import axios from 'axios';
+import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
 
 export default function NavigationBar() {
@@ -83,17 +84,17 @@ export default function NavigationBar() {
 
     return (
         <nav className='NavigationBar'>
-            <div className="OuterContainer">
+            <div className={`OuterContainer ${showNavLinks ? 'OuterContainerExpanded' : 'OuterContainer'}`}>
+                <div className="item1">
+                    <Link to={`/`} className="LogoContainer">
+                        <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
+                    </Link>
+                    <div className="CSForOregon">CS for Oregon</div>
+                </div>
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
-                    <img src={hamburger} alt="Hamburger Icon" />
+                    <img src={showNavLinks ? x : hamburger} alt="showNavLinks ? 'Close Icon' : 'Hamburger Icon" />
                 </div>
                 <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
-                    <div className="item1">
-                        <Link to={`/`} className="LogoContainer">
-                            <img src={CS_logo} className="CS_logo" alt="logo that links to homepage." />
-                        </Link>
-                        <div className="CSForOregon">CS for Oregon</div>
-                    </div>
                     <div className="item2">
                         <NavLink
                             to="/"

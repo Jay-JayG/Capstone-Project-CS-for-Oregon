@@ -45,10 +45,8 @@
 }
 
 .logo-image {
+    width: 110px;
     height: auto;
-    max-height: 200px; /* Set a fixed max height */
-    width: auto;
-    max-width: 200px;
 }
 
 .LogoContainer {
@@ -56,12 +54,12 @@
 }
 
 .NavBarCSForOregon {
-    font-size: 25px;
+    font-size: 20px;
     font-family: Montserrat;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    color: black;
+    color: white;
 }
 
 .footer-links {

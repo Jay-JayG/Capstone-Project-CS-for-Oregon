@@ -109,7 +109,7 @@
   }
   
   .AboutSectionBoxes:hover .BoxHeader {
-    bottom: 255px; /* Move to the top on hover */
+    bottom: 260px; /* Move to the top on hover */
   }
   
   .AboutSectionBoxes:hover .BoxContent {

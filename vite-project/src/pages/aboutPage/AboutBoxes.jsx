@@ -36,13 +36,13 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={babcock} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Julia Babcock</div>
-                <div className="BoxContent"> Needs info </div>
+                <div className="BoxContent"> Interim Program Coordinator, <a href="https://www.pdx.edu/"> Portland State University</a> </div>
             </div>
 
             <div className="AboutSectionBoxes">
                 <img src={bailey} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Deb Bailey</div>
-                <div className="BoxContent">STEM Specialist, Oregon Department of Education </div>
+                <div className="BoxContent"> STEM Specialist, Oregon Department of Education </div>
             </div>
 
             
@@ -132,7 +132,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jill} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jill Hubbard</div>
-                <div className="BoxContent">Associate Professor of Practice, <a href="https://oregonstate.edu/" target="_blank">Oregon State University</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon </a></div>
+                <div className="BoxContent">Computer Science Education Specialist, Oregon Department of Education, Associate Professor of Practice, <a href="https://oregonstate.edu/" target="_blank">Oregon State University</a>, <a href="https://ecepalliance.org/" target="_blank">ECEP Oregon </a></div>
             </div>
 
             <div className="AboutSectionBoxes">

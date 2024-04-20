@@ -61,6 +61,12 @@ function ResearchAndPolicyCards() {
                     <p className="BoxContent2"> Oregon does not yet require students to take a CS course to earn a high school diploma. This graduation requirement would ensure that all students get exposure to CS. </p>
                 </div>
 
+                <div className="GreenCard">
+                    <div className="CardHeader"> State Agency </div>
+                    <img src={Check} alt="check mark" className="Icon" />
+                    <p className="BoxContent2"> Establish dedicated computer science positions in a state education agency </p>
+                </div>
+
 
 
             </div>
