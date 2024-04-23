@@ -41,10 +41,9 @@ export default function EventsPage() {
                                 <div><span className='object-bold-text'>What: {obj.bold} </span>{obj.what}</div>
                                 <div><span className='object-bold-text'>Who is it for: </span>{obj.who}</div>
                                 <div><span className='object-bold-text'>When: </span>{obj.when_date}</div>
-                                <div><span className='object-bold-text'>Type: </span>{obj.news_type}</div>
                                 <div className='object-buttons-container'>
-                                    <a className='object-buttons-Flyer' href='https://drive.google.com/file/d/1KE8GDDz4yj9cJujcfAH-7rkKHfThm2HO/view?usp=sharing' target='_blank'>Event Flyer</a>
-                                    <a className='object-buttons-Flyer' href='https://oregonstate.qualtrics.com/jfe/form/SV_0CCQlCf5FSHJxPM' target='_blank'>Apply Here</a>
+                                    <a className='object-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
+                                    <a className='object-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
                                 </div>
                             </div>
                         </div>

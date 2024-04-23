@@ -34,7 +34,7 @@ export default function researchPage() {
                             physical computing classroom: high school students’
                             engagement with debugging by design activities
                         </div>
-                        <div className="paper-abstract">ABSTRACT
+                        <div className="paper-abstract">Abstract
                             Background and Context: While debugging is recognized as an
 
                             essential practice, for many students, encountering bugs can gen-
@@ -44,8 +44,7 @@ export default function researchPage() {
                             Growth mindsets can support perseverance and learning in these
                             situations, yet few studies have investigated how growth mindsets
 
-                            emerge in practice amongst K-12 computing students facing phy-
-                            sical computing debugging challenges.
+                            emerge in practice amongst K-12 computing students facing physical computing debugging challenges.
                         </div>
                     </div>
                 </div>
@@ -66,21 +65,19 @@ export default function researchPage() {
 
                             repairing physical computing projects
                         </div>
-                        <div className="paper-abstract">ABSTRACT
+                        <div className="paper-abstract"> Abstract
 
                             Background and Context: Debugging is a challenging yet under-
-                            studied practice within recent collaborative K-12 physical comput-
-                            ing contexts. We examined think-aloud interviews and reflections
+                            studied practice within recent collaborative K-12 physical computing contexts. We examined think-aloud interviews and reflections
 
-                            of seven high school student pairs who debugged researcher-
-                            designed buggy electronic textile projects.
+                            of seven high school student pairs who debugged researcher-designed buggy electronic textile projects.
                         </div>
                     </div>
                 </div>
                 <div className="research-paper-card-container">
                     <div className='research-paper-card-background'>
                         <img src={pdfFile2} alt="Example" className='pdf-image-1' />
-                        <div className='pdf-download'>Download {'>'}</div>
+                        <a href='https://drive.usercontent.google.com/download?id=1_gT1R9rX6aolh6CLLujqJL4sEXdZY21G&export=download&authuser=0&confirm=t&uuid=368d5c1b-c209-43ee-8c71-e4e0b23e7621&at=APZUnTXTEM-WPNcwCLzoQXmy0Fhk:1713481380379' className='pdf-download'>Download {'>'}</a>
                     </div>
                 </div>
             </div>
@@ -93,18 +90,15 @@ export default function researchPage() {
                             areas
                         </div>
                         <div className="paper-abstract">
-                            Abstract
+                            Abstract:
                             Our study documents how a Spanish-English bilingual elementary teacher learned
 
-                            computational thinking while working to incorporate it into mathematics and lan-
-                            guage arts lessons in a bilingual classroom. We classified the elements of the teach-
+                            computational thinking while working to incorporate it into mathematics and language arts lessons in a bilingual classroom. We classified the elements of the teach-
                             er’s process into two practices: intentional and unintentional use of computational
 
                             thinking. Intentional use of computational thinking included the teacher’s explicit
 
-                            incorporation of any of the four computational thinking elements (abstraction, al-
-                            gorithms, decomposition, and patterns) into her teaching practice. The unintention-
-                            al use of computational thinking included those instances where the teacher used
+                            incorporation of any of the four computational thinking elements (abstraction, algorithms, decomposition, and patterns) into her teaching practice. The unintentional use of computational thinking included those instances where the teacher used
 
                             computational thinking as a means for teaching content not specifically oriented
                             toward computational thinking. In addition, our work identifies how this bilingual
@@ -118,7 +112,7 @@ export default function researchPage() {
                 <div className="research-paper-card-container">
                     <div className='research-paper-card-background'>
                         <img src={pdfFile3} alt="Example" className='pdf-image-1' />
-                        <div className='pdf-download'>Download {'>'}</div>
+                        <a href='https://drive.usercontent.google.com/download?id=1-7gEFe5cu1507bUp3ZjsycWfI6hzQsW9&export=download&authuser=0&confirm=t&uuid=cc5b957e-edff-4bdf-bd52-299cb3fdd3de&at=APZUnTVmAkEys9LJnLCM26rTWRR_:1713481482478' className='pdf-download'>Download {'>'}</a>
                     </div>
                 </div>
             </div>
@@ -131,7 +125,8 @@ export default function researchPage() {
                         </div>
                         <div className="paper-abstract">
                             📕E-Textiles Exploring Computer Science Curriculum
-                            Teaching Practices that make the E-textiles Curriculum Successful
+                            <br />
+                            Teaching Practices that make the E-textiles Curriculum Successful<br />
                             🐞Debugging & Problem Solving Gains with E-Textiles
                         </div>
                     </div>
@@ -139,7 +134,7 @@ export default function researchPage() {
                 <div className="research-paper-card-container">
                     <div className='research-paper-card-background'>
                         <img src={pdfFile4} alt="Example" className='pdf-image-1' />
-                        <div className='pdf-download'>Download {'>'}</div>
+                        <a href='https://drive.usercontent.google.com/download?id=1mzgd3371vtW59yvcluE_-IZ9NNoML2fy&export=download&authuser=0&confirm=t&uuid=e8419982-c310-4650-9e3c-f29d3aa7f026&at=APZUnTWdE9BT-oTQEvFbw7RMBYk7:1713481320340' className='pdf-download'>Download {'>'}</a>
                     </div>
                 </div>
             </div>
