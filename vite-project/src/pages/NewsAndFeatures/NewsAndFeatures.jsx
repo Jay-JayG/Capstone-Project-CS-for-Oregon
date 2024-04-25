@@ -12,8 +12,8 @@ export default function NewsAndFeaturesPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get("/api/endpoint");
-                //const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                // const res = await axios.get("/api/endpoint");
+                const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
