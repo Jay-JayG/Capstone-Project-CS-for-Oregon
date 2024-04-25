@@ -13,55 +13,66 @@
     padding: 2%;
 }
 
-.news-object-list {}
-
-.object {}
-
-.object-container {}
-
-.object-event {
+.event-cards-container {
     display: flex;
-    padding: 3%;
-    margin: 0 3%;
-    border-width: 0px 5px 0px 5px;
-    border-style: solid;
-    border-color: white;
-    background-color: green;
-    align-items: center;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.event-cards-background {
+    background-color: rgb(255, 255, 255);
+    flex: 0 0 calc(50% - 4%);
+    border-radius: 5px;
+    margin: 2% 0%;
+    transition: box-shadow .4s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    font-family: Montserrat;
+    font-size: 25px;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
 }
 
-.object-title {
-    font-family: Montserrat;
-    font-size: 2vw;
+.event-cards-background:hover {
+    box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, .3);
+}
+
+@media (max-width: 1000px) {
+    .event-cards-background {
+        flex: 0 0 calc(100% - 10px);
+        /* Each child takes up 100% width on even smaller screens */
+    }
+}
+
+.event-card-title {
+    padding: 5% 3% 3% 3%;
     font-weight: bold;
-    line-height: 37px;
-    color: white;
-    text-align: center;
-    /* Center the text horizontally */
+    color: black;
+
 }
 
-.object-event-details {
-    padding: 3% 3% 2% 3%;
-    margin: 0 3%;
-    border: 5px solid white;
-    font-family: Montserrat;
-    font-size: 2.25vh;
+.event-card-description {
+    padding: 3%;
 }
 
-.object-bold-text {
+.event-card-date {
+    padding: 3%;
+}
+
+.event-bold-text {
     font-weight: bold;
 }
 
-.object-buttons-container {
+.event-buttons-container {
     display: flex;
     justify-content: center;
     font-weight: Bold;
 }
 
-.object-buttons-Flyer {
-    margin: 2% 2% 0% 2%;
+.event-buttons-Flyer {
+    margin: 2% 2% 2% 2%;
     padding: .5% 3%;
     background-color: #E8805E;
     border: 5px solid  #E8805E;

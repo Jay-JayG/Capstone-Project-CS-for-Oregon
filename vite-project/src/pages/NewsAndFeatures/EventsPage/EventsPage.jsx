@@ -10,8 +10,8 @@ export default function EventsPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get("/api/endpoint");
-                //const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                // const res = await axios.get("/api/endpoint");
+                const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
@@ -29,23 +29,16 @@ export default function EventsPage() {
                 <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
                 {/* <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link> */}
             </div>
-
-            <div className='news-object-list'>
+            <div className='event-cards-container'>
                 {filteredObjects.map((obj, index) => (
-                    <div key={index} className='object'>
-                        <div className='object-container'>
-                            <div className='object-event'>
-                                <div className='object-title'>{obj.title}</div>
-                            </div>
-                            <div className='object-event-details'>
-                                <div><span className='object-bold-text'>What: {obj.bold} </span>{obj.what}</div>
-                                <div><span className='object-bold-text'>Who is it for: </span>{obj.who}</div>
-                                <div><span className='object-bold-text'>When: </span>{obj.when_date}</div>
-                                <div className='object-buttons-container'>
-                                    <a className='object-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
-                                    <a className='object-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
-                                </div>
-                            </div>
+                    <div key={index} className='event-cards-background'>
+                        <a className='event-card-title' href={obj.bold}>{obj.title}</a>
+                        <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
+                        <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
+                        <div className='event-card-date'>{obj.when_date}</div>
+                        <div className='event-buttons-container'>
+                            <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
+                            <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
                         </div>
                     </div>
                 ))}
