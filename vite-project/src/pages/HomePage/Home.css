@@ -11,10 +11,12 @@
 .text-overlay {
     padding: 2%;
     text-align: center;
-    font-family: Montserrat;
-    font-size: 1.5vh;
-    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    /*font-family: Montserrat;*/
+    font-size: 2vh;
     color: rgb(255, 255, 255);
+    -webkit-text-stroke: 2px black; /* Add a black border around the text */
+    text-stroke: 2px black; /* Add a black border around the text */
 }
 
 .visually-hidden {
