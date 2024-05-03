@@ -4,6 +4,41 @@
     
 }
 
+.MarkContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.MarkBackground {
+    width: 5vw;
+    height: auto;
+}
+
+.MarkIconCheck {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3vw;
+    height: 3vw;
+}
+.MarkIconIdk {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3vw;
+    height: 3vw;
+}
+.MarkIconX {
+    position: absolute;
+    bottom: 2.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3vw;
+    height: 3vw;
+}
+
 .TopPageBox{
     border: 5px solid #FFF;
     flex: 1;
@@ -61,55 +96,36 @@
     color: black;
 }
 
-
-
-.GreenCard{
-    background: #1D584642;
-    width: 29vw;
-    height: 31vw;
-    justify-content: center;
-    position: relative; /* Needed for absolute positioning of content */
+.Card {
+    background: #E4ECFB;
+    width: 40vw;
+    height: 40vw;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center; /* Horizontal alignment */
-    flex-direction: column;
+    justify-content: space-between;
     box-sizing: border-box;
-    justify-content: space-evenly;
-}
-
-.RedCard{
-    background: #FFA0A05C;
-    width: 29vw;
-    height: 31vw;
-    justify-content: center;
-    position: relative; /* Needed for absolute positioning of content */
+    padding: 20px;
+    border: 5px solid white;
+  }
+  
+  .innerTextContainer {
     display: flex;
-    align-items: center;
-    justify-content: center; /* Horizontal alignment */
     flex-direction: column;
-    box-sizing: border-box;
-    justify-content: space-evenly;
-}
+    align-items: center;
+    text-align: center;
+  }
+  
+  .Icon {
+    margin-left: auto;
+  }
 
-.YellowCard{
-    background: #E39C325C;
-    width: 29vw;
-    height: 31vw;
-    justify-content: center;
-    position: relative; /* Needed for absolute positioning of content */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Horizontal alignment */
-    flex-direction: column;
-    box-sizing: border-box;
-    justify-content: space-evenly;
-}
+
 
 
 
 .CardHeader {
     color: #000;
-    text-align: center;
     font-family: Montserrat;
     font-size: 2.5vw;
     font-style: normal;
@@ -119,13 +135,10 @@
 
 .BoxContent2 {
     color: #000;
-    text-align: center;
     font-family: Montserrat;
     font-size: 1.2vw;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
-    margin: 10px;
 }
 
 .Icon{
@@ -135,7 +148,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-    .GreenCard, .RedCard, .YellowCard {
+    .Card {
         width: 270px;
         height: 320px;
     }
@@ -151,3 +164,4 @@
     }
 
 }
+

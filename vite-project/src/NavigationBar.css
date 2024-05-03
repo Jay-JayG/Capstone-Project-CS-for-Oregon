@@ -118,26 +118,30 @@
         justify-content: space-between;
         align-items: center;
         position: relative;
-        max-height: 150px;
-        transition: max-height 0.5s ease;
+        height: 120px;
+        transition: height 1.0s ease;
+        overflow: hidden;
     }
     .OuterContainerExpanded {
-        max-height: 100vh; 
+        height: 60vh; 
       }
 
     .item1 {
-        position: relative;
+        position: absolute;
+        top: 5px;
+        left: 5px;
     }
+   
 
 
     .NavLinksContainer {
         display: none;
         flex-direction: column;
-        align-items: left;
         justify-content: center;
+        align-items: center;
         text-align: center;
         background-color: #E3E7EF;
-        padding-right: 20vw;
+
         font-size: 2.2vw;
       }
       .NavLinksContainer > div {
@@ -152,10 +156,10 @@
         display: block;
         position: absolute;
         right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 28px;
         width: 60px;
         height: 60px;
+        
     }
 
     .hamburger-icon img {
@@ -183,17 +187,16 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100px;
-        max-height: 100px;
+        height: 120px;
+       
         overflow: hidden;
-        transition: max-height 0.5s ease;
+        transition: height 1.0s ease;
         z-index: 999;
       }
       
       .OuterContainerExpanded {
         position: fixed;
-        height: 100%;
-        max-height: 100vh; 
+        height: 100vh;
         z-index: 999;
         
       }
@@ -203,11 +206,10 @@
     .NavLinksContainer {
         display: none;
         flex-direction: column;
-        align-items: left;
+        align-items: center;
         justify-content: center;
         text-align: center;
         background-color: #E3E7EF;
-        padding-right: 20vw;
         font-size: 2.2vw;
       }
     }
