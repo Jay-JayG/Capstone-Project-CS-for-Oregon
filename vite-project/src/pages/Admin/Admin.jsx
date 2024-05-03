@@ -45,7 +45,8 @@ export default function AdminPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post('http://localhost/get_data.php', formData);
+            const res = await axios.post('api/endpoint', formData);
+            // const res = await axios.post('http://localhost/get_data.php', formData); // For local development
             console.log('Object uploaded successfullyy:', res.data);
             setSubmitted(true);
             setFormData({
@@ -68,8 +69,8 @@ export default function AdminPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/get_data.php"); // For local development
+                const res = await axios.get("/api/endpoint");
+                // const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
@@ -80,7 +81,8 @@ export default function AdminPage() {
 
     const getObjects = async () => {
         try {
-            const res = await axios.get('http://localhost/get_data.php');
+            const res = await axios.get("/api/endpoint");
+            // const res = await axios.get('http://localhost/get_data.php'); // For local development
             setObjects(res.data);
         } catch (error) {
             console.log('Error retrieving objects', error);
@@ -89,9 +91,11 @@ export default function AdminPage() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost/get_data.php?id=${id}`);
+            await axios.delete(`api/endpoint?id=${id}`);
+            // await axios.delete(`http://localhost/get_data.php?id=${id}`); // For local development
             // After successful deletion, fetch data again to update the UI
-            const res = await axios.get("http://localhost/get_data.php");
+            const res = await axios.get("/api/endpoint");
+            // const res = await axios.get("http://localhost/get_data.php"); // For local development
             setObjects(res.data);
         } catch (error) {
             console.log('Error deleting object', error);
@@ -138,7 +142,8 @@ export default function AdminPage() {
         try {
             const editedObject = objects.find(obj => obj.id === id);
             console.log('Edited Object:', editedObject);
-            await axios.put(`http://localhost/get_data.php?id=${id}`, editedObject);
+            await axios.put(`api/endpoint?id=${id}`, editedObject);
+            // await axios.put(`http://localhost/get_data.php?id=${id}`, editedObject); // For local development
             setSubmitted(true);
             setTimeout(() => {
                 setSubmitted(false);

@@ -10,9 +10,10 @@ export default function EventsPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                // const res = await axios.get("/api/endpoint");
+                //const res = await axios.get("/api/endpoint");
                 const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
+                console.log(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
             }
@@ -32,7 +33,7 @@ export default function EventsPage() {
             <div className='event-cards-container'>
                 {filteredObjects.map((obj, index) => (
                     <div key={index} className='event-cards-background'>
-                        <a className='event-card-title' href={obj.bold}>{obj.title}</a>
+                        <div className='event-card-title' href={obj.bold}>{obj.title}</div>
                         <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
                         <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
                         <div className='event-card-date'>{obj.when_date}</div>

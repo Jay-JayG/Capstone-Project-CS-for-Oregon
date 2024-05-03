@@ -1,6 +1,9 @@
 .SummerOfCSSupercontainer {
     padding: 2%;
     background-color: #E3E7EF;
+    /* align-items: center; */
+    display: flex;
+    flex-direction: column;
 }
 
 .SummerOfCSSupercontainer a {
@@ -26,7 +29,7 @@
 }
 
 @media only screen and (max-width: 950px) {
-    .SummerOfCSHeaderContainer{
+    .SummerOfCSHeaderContainer {
         flex-direction: column;
     }
 }
@@ -108,7 +111,7 @@
     flex-direction: column;
 }
 
-.SummerOfCSEventItem1HeadingPhotoSpacer{
+.SummerOfCSEventItem1HeadingPhotoSpacer {
     visibility: hidden;
 }
 
@@ -118,26 +121,31 @@
     font-weight: bold;
     line-height: 37px;
     color: white;
-    text-align: center; /* Center the text horizontally */
+    text-align: center;
+    /* Center the text horizontally */
 }
 
 .SummerOfCSEventItem1HeadingPhoto {
-    display: block; /* This makes the image a block-level element, enabling margin auto to work */
+    display: block;
+    /* This makes the image a block-level element, enabling margin auto to work */
     width: 18vw;
-    
+
 }
 
 @media (max-width: 900px) {
     .SummerOfCSEventItem1Heading {
         font-size: 3vh;
     }
+
     .SummerOfCSEventItem1HeadingPhoto {
         width: 20vh;
     }
+
     .SummerOfCSEventItem1 {
         flex-direction: column;
     }
-    .SummerOfCSEventItem1HeadingPhotoSpacer{
+
+    .SummerOfCSEventItem1HeadingPhotoSpacer {
         display: none;
     }
 }
@@ -150,9 +158,7 @@
     font-size: 2.25vh;
 }
 
-.SummerOfCSEventItem1SummaryText {
-
-}
+.SummerOfCSEventItem1SummaryText {}
 
 .SummerOfCSEventItem1SummaryEventOptionsContainer {
     display: flex;
@@ -164,7 +170,7 @@
     margin: 2% 2% 0% 2%;
     padding: .5% 3%;
     background-color: #E8805E;
-    border: 5px solid  #E8805E;
+    border: 5px solid #E8805E;
     border-radius: 10px;
     text-decoration: none;
 }
@@ -185,7 +191,7 @@
 }
 
 
-.SummerOfCSEventItem2HeadingPhotoSpacer{
+.SummerOfCSEventItem2HeadingPhotoSpacer {
     height: 101px;
     width: 300px;
     visibility: hidden;
@@ -209,13 +215,16 @@
     .SummerOfCSEventItem2Heading {
         font-size: 3vh;
     }
+
     .SummerOfCSEventItem2HeadingPhoto {
         width: 20vh;
     }
+
     .SummerOfCSEventItem2 {
         flex-direction: column;
     }
-    .SummerOfCSEventItem2HeadingPhotoSpacer{
+
+    .SummerOfCSEventItem2HeadingPhotoSpacer {
         display: none;
     }
 }
@@ -228,9 +237,7 @@
     font-size: 2.25vh;
 }
 
-.SummerOfCSEventItem2SummaryText {
-
-}
+.SummerOfCSEventItem2SummaryText {}
 
 .SummerOfCSEventItem2SummaryEventOptionsContainer {
     display: flex;
@@ -242,7 +249,7 @@
     margin: 2% 2% 0% 2%;
     padding: .5% 3%;
     background-color: #E8805E;
-    border: 5px solid  #E8805E;
+    border: 5px solid #E8805E;
     border-radius: 10px;
     text-decoration: none;
 }
@@ -279,6 +286,7 @@
     .SummerOfCSEventItem3Heading {
         font-size: 3vh;
     }
+
     .SummerOfCSEventItem3 {
         flex-direction: column;
     }
@@ -292,8 +300,7 @@
     font-size: 2.25vh;
 }
 
-.SummerOfCSEventItem3SummaryText {
-}
+.SummerOfCSEventItem3SummaryText {}
 
 .SummerOfCSEventItem3SummaryEventOptionsContainer {
     display: flex;
@@ -305,7 +312,7 @@
     margin: 2% 2% 0% 2%;
     padding: .5% 3%;
     background-color: #E8805E;
-    border: 5px solid  #E8805E;
+    border: 5px solid #E8805E;
     border-radius: 10px;
     text-decoration: none;
 }
@@ -341,6 +348,7 @@
     .SummerOfCSEventItem4Heading {
         font-size: 3vh;
     }
+
     .SummerOfCSEventItem4 {
         flex-direction: column;
     }
@@ -354,8 +362,7 @@
     font-size: 2.25vh;
 }
 
-.SummerOfCSEventItem4SummaryText {
-}
+.SummerOfCSEventItem4SummaryText {}
 
 .SummerOfCSEventItem4SummaryEventOptionsContainer {
     display: flex;
@@ -367,7 +374,7 @@
     margin: 2% 2% 0% 2%;
     padding: .5% 3%;
     background-color: #E8805E;
-    border: 5px solid  #E8805E;
+    border: 5px solid #E8805E;
     border-radius: 10px;
     text-decoration: none;
 }
@@ -388,4 +395,10 @@
 
 .CSForOregonBoldText {
     font-weight: bold;
+}
+
+.summer-of-cs-event-cards-container {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

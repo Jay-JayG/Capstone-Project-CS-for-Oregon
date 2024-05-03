@@ -23,8 +23,8 @@ export default function Admin_pdf() {
             const formDataToSend = new FormData();
             formDataToSend.append('fileName', formData.fileName);
             formDataToSend.append('pdfFile', formData.pdfFile);
-            const response = await axios.post('/api/pdf_upload', formDataToSend);
-            // const response = await axios.post("http://localhost/pdf_upload.php", formDataToSend);
+            ///const response = await axios.post('/api/pdf_upload', formDataToSend);
+            const response = await axios.post("http://localhost/pdf_upload.php", formDataToSend);
             console.log(response.data);
         } catch (error) {
             console.log('Error posting object', error);

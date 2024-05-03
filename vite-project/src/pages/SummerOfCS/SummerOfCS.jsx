@@ -3,7 +3,27 @@ import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.png';
 import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import './SummerOfCS.css';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 export default function SummerOfCS() {
+    const [objects, setObjects] = useState([]);
+
+    useEffect(() => {
+        const getObjects = async () => {
+            try {
+                //const res = await axios.get("/api/endpoint");
+                const res = await axios.get("http://localhost/get_data.php"); // For local development
+                setObjects(res.data);
+            } catch (error) {
+                console.log('Error retrieving objects', error);
+            }
+        };
+        getObjects('news');
+    }, []);
+
+    const filteredObjects = objects.filter(obj => obj.news_type === '1');
+
     return (
         <div id="main-content">
             <div className='SummerOfCSSupercontainer'>
@@ -24,7 +44,7 @@ export default function SummerOfCS() {
                 <div className='SummerOfCSSummary'>
                     <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>CS for Oregon</span> is hosting a K12 Computer Science Equity Summit in Bend, Oregon this summer for educators, school leaders and school counselors.  To join us, please submit an application for one of the four professional development (PD) opportunities described below.</div>
                 </div>
-                <div className='SummerOfCSEventItem1'>
+                {/* <div className='SummerOfCSEventItem1'>
 
                     <div className='SummerOfCSEventItem1Heading'>Exploring Computer Science Teacher Professional Development</div>
                     <img className='SummerOfCSEventItem1HeadingPhoto' src={ECSLogo} alt="Exploring Computer Science Logo" />
@@ -80,7 +100,21 @@ export default function SummerOfCS() {
                     <div className='CSForOregonDescriptionText'><span className='CSForOregonBoldText'>CS for Oregon</span> hosts research-based PD events for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education. Particular emphasis is for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</div>
                     <br></br>
                     <div className='CSForOregonDescriptionText'>The CS for Oregon PD series is supported by a grant from the National Science Foundation and the Oregon Department of Education.</div>
-                </div>
+                </div> */}
+                <div className='summer-of-cs-event-cards-container'>
+                {filteredObjects.map((obj, index) => (
+                    <div key={index} className='event-cards-background'>
+                        <div className='event-card-title' href={obj.bold}>{obj.title}</div>
+                        <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
+                        <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
+                        <div className='event-card-date'>{obj.when_date}</div>
+                        <div className='event-buttons-container'>
+                            <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
+                            <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
+                        </div>
+                    </div>
+                ))}
+            </div>
             </div>
         </div>
     );
