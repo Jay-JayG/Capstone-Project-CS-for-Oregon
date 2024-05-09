@@ -201,6 +201,13 @@ function AboutBoxes(){
                 <div className="BoxContent"><a href="https://sou.edu/academics/computer-science/faculty/" target="_blank">Associate Professor of Computer Science, Southern Oregon University</a></div>
             </div>
 
+            <div className="AboutSectionBoxes">
+                
+                <div className="BoxHeader">Sue Willson</div>
+                <div className="BoxContent"><a href="https://www.mapleton.k12.or.us/" target="_blank">Superintendent, Mapleton School District  </a></div>
+            </div>
+
+
             
 
             
