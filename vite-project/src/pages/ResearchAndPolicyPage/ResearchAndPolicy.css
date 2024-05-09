@@ -7,10 +7,10 @@
 .MarkContainer {
     position: relative;
     display: inline-block;
+    
 }
-
 .MarkBackground {
-    width: 5vw;
+    width: 3vw;
     height: auto;
 }
 
@@ -19,24 +19,24 @@
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
 }
 .MarkIconIdk {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translateX(-50%);
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
 }
 .MarkIconX {
     position: absolute;
     bottom: 2.5vw;
     left: 50%;
     transform: translateX(-50%);
-    width: 3vw;
-    height: 3vw;
+    width: 2vw;
+    height: 2vw;
 }
 
 .TopPageBox{
@@ -98,8 +98,8 @@
 
 .Card {
     background: #E4ECFB;
-    width: 40vw;
-    height: 40vw;
+    width: 20vw;
+    height: 20vw;
     position: relative;
     display: flex;
     align-items: center;
@@ -127,7 +127,7 @@
 .CardHeader {
     color: #000;
     font-family: Montserrat;
-    font-size: 2.5vw;
+    font-size: 1.8vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -136,7 +136,7 @@
 .BoxContent2 {
     color: #000;
     font-family: Montserrat;
-    font-size: 1.2vw;
+    font-size: .8vw;
     font-style: normal;
     font-weight: 400;
 }
@@ -147,9 +147,9 @@
     flex-shrink: 0;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1200px) {
     .Card {
-        width: 270px;
+        width: 320px;
         height: 320px;
     }
     .CardHeader {
@@ -162,6 +162,31 @@
         width: 60px;
         height: 60px;
     }
+    .MarkBackground {
+        width: 40px;
+        height: auto;
+    }
+    
+    .MarkIconCheck {
+        width: 30px;
+        height: 30px;
+    }
+    .MarkIconIdk {
+        width: 30px;
+        height: 30px;
+    }
+    .MarkIconX{
+        width: 30px;
+        height: 30px;
+    }
 
+
+}
+
+@media only screen and (max-width: 800px) {
+    .Card {
+        width: 420px;
+        height: 420px;
+    }
 }
 

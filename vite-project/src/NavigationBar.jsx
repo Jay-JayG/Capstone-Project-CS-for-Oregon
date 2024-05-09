@@ -94,7 +94,7 @@ export default function NavigationBar() {
                 <div className="hamburger-icon" onClick={toggleNavLinks}>
                     <img src={showNavLinks ? x : hamburger} alt="showNavLinks ? 'Close Icon' : 'Hamburger Icon" />
                 </div>
-                <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`}>
+                <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`} onClick={toggleNavLinks}>
                     <div className="item2">
                         <NavLink
                             to="/"
@@ -136,7 +136,9 @@ export default function NavigationBar() {
                                     }
                                 >
                                     RESEARCH
-                                </NavLink><NavLink
+                                </NavLink>
+                                
+                                <NavLink
                                     to="/researchAndPolicy"
                                     className={({ isActive }) =>
                                         isActive ? "active" : "inactive"
@@ -158,7 +160,9 @@ export default function NavigationBar() {
                                     }
                                 >
                                     NEWS
-                                </NavLink><NavLink
+                                </NavLink>
+                                
+                                <NavLink
                                     to="/events"
                                     className={({ isActive }) =>
                                         isActive ? "active" : "inactive"

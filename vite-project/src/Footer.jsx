@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './assets/logo.png';
-import sendicon from './assets/sendicon.webp';
 import { Link } from "react-router-dom";
 import './Footer.css';
 
@@ -14,12 +13,12 @@ function Footer() {
                         <div className="NavBarCSForOregon">CS for Oregon</div>
                     </Link>
                     <div className='footer-links'>
-                        <nav className='footer-textbox'>
+                        <nav className="footer-textbox">
                             <ul>
-                                <li><Link to={`/`} className="Home">Home</Link></li>
-                                <li><Link to={`About`} className="About">About</Link></li>
-                                <li><Link to={`Educators`} className="Educators">K-12 Educators</Link></li>
-                                <li><Link to={`SummerOfCS`} className="NEWS">Summer Equity Symposium</Link></li>
+                                <li><Link to={`/`}>Home</Link></li>
+                                <li><Link to={`About`}>About</Link></li>
+                                <li><Link to={`Educators`}>K-12 Educators</Link></li>
+                                <li><Link to={`SummerOfCS`}>Summer Equity Symposium</Link></li>
                             </ul>
                         </nav>
                     </div>
