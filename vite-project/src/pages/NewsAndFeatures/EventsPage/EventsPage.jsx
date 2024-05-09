@@ -10,8 +10,8 @@ export default function EventsPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/get_data.php"); // For local development
+                const res = await axios.get("/api/endpoint");
+                //const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
                 console.log(res.data);
             } catch (error) {

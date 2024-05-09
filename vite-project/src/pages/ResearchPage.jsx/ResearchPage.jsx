@@ -14,7 +14,7 @@ export default function researchPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost/get_pdf_metadata.php');
+                const response = await axios.get('http://localhost/get_pdf_metadata.php'); // For Local Development
                 console.log(response.data);
                 setPdfFiles(response.data);
             } catch (error) {
@@ -27,7 +27,7 @@ export default function researchPage() {
 
     const getPdfDownloadLink = async (id, file_name) => {
         try {
-            const response = await axios.get(`http://localhost/download_pdf.php?id=${id}`, { responseType: 'blob' });
+            const response = await axios.get(`http://localhost/download_pdf.php?id=${id}`, { responseType: 'blob' }); // For local Development
             setPdfBlob(response.data);
             // Create a temporary anchor element and trigger the download
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -45,18 +45,29 @@ export default function researchPage() {
     return (
         <div>
             <div>
-                <h2>Download Links</h2>
                 <ul>
                     {pdfFiles && pdfFiles.map((pdfFile, index) => (
-                        <li key={index}>
-                            <button onClick={() => getPdfDownloadLink(pdfFile.id)}>
-                                {pdfFile.file_name}
-                            </button>
-                        </li>
+                        <div className={`research-page-container ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
+                            <div className="right-text">
+                                <div className="research-paper-text">
+                                    <div className="paper-title">{pdfFile.study_title}</div>
+                                    <div className="paper-abstract">{pdfFile.abstract}</div>
+                                    <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
+                                    Download: {pdfFile.file_name}
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="research-paper-card-container">
+                                <div className='research-paper-card-background'>
+                                    <img src={pdfFile1} alt="Example" className='pdf-image-1' />
+                                    <a className='pdf-download' href='https://drive.usercontent.google.com/download?id=1rCsTC6YgLr-5OHB6atn8oIMDzKcU0FKe&export=download&authuser=0&confirm=t&uuid=d2b9f1f9-8ebb-491d-8314-d936af6b0bc4&at=APZUnTW6Go85UAwk9Wqu_qKn25Pj:1713470044298'>Download {'>'}</a>
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </ul>
             </div>
-            <div className="research-page-container ">
+            <div className="research-page-container even">
                 <div className="right-text">
                     <div className="research-paper-text">
                         <div className="paper-title">Understanding growth mindset practices in an introductory
@@ -84,7 +95,7 @@ export default function researchPage() {
                     </div>
                 </div>
             </div>
-            <div className="research-page-container ">
+            <div className={`research-page-container odd`}>
                 <div className="right-text">
                     <div className="research-paper-text">
                         <div className="paper-title">
@@ -110,7 +121,7 @@ export default function researchPage() {
                     </div>
                 </div>
             </div>
-            <div className="research-page-container ">
+            <div className="research-page-container even">
                 <div className="right-text">
                     <div className="research-paper-text">
                         <div className="paper-title">
@@ -145,7 +156,7 @@ export default function researchPage() {
                     </div>
                 </div>
             </div>
-            <div className="research-page-container ">
+            <div className="research-page-container odd">
                 <div className="right-text">
                     <div className="research-paper-text">
                         <div className="paper-title">

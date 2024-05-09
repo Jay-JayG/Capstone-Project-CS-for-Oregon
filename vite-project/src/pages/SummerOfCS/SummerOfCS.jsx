@@ -12,9 +12,10 @@ export default function SummerOfCS() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/get_data.php"); // For local development
+                const res = await axios.get("/api/endpoint");
+                //const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
+                console.log(res.data)
             } catch (error) {
                 console.log('Error retrieving objects', error);
             }
@@ -102,19 +103,28 @@ export default function SummerOfCS() {
                     <div className='CSForOregonDescriptionText'>The CS for Oregon PD series is supported by a grant from the National Science Foundation and the Oregon Department of Education.</div>
                 </div> */}
                 <div className='summer-of-cs-event-cards-container'>
-                {filteredObjects.map((obj, index) => (
-                    <div key={index} className='event-cards-background'>
-                        <div className='event-card-title' href={obj.bold}>{obj.title}</div>
-                        <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
-                        <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
-                        <div className='event-card-date'>{obj.when_date}</div>
-                        <div className='event-buttons-container'>
-                            <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
-                            <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
+                    {filteredObjects.map((obj, index) => (
+                        <div key={index} className='event-cards-background'>
+                            <div className='event-card-title' href={obj.bold}>{obj.title}</div>
+                            <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
+                            <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
+                            <div className='event-card-date'>{obj.when_date}</div>
+                            {obj.is_full === "1" ? (
+                                <div className='event-full'>
+                                    <h3>Event Full</h3>
+                                    We're sorry, but this event is currently at full capacity. Stay tuned for future opportunities.
+                                </div>
+                            ) : null}
+                            <div className='event-buttons-container'>
+                                <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
+                                {obj.is_full === "1" ? (
+                                    <div className='event-buttons-Flyer-disabled'>Event Full</div>
+                                ) : <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>}
+                            </div>
+
                         </div>
-                    </div>
-                ))}
-            </div>
+                    ))}
+                </div>
             </div>
         </div>
     );

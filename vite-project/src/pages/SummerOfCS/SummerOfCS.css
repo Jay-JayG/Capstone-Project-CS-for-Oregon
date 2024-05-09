@@ -402,3 +402,17 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+.event-full {
+    padding: 2%;
+    color: red;
+}
+
+.event-buttons-Flyer-disabled {
+    margin: 2%;
+    padding: .5% 3%;
+    background-color: grey;
+    border: 5px solid grey;
+    border-radius: 10px;
+    text-decoration: none;
+}
