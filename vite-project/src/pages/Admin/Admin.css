@@ -80,3 +80,7 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.pdf-image {
+    width: 300
+}

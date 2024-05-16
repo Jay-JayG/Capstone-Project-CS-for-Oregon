@@ -1,0 +1,90 @@
+.research-page-container-admin.even{
+    display: flex;
+    /* margin: 5% 2.5%; */
+    padding: 5%;
+    flex-direction: column;
+}
+
+.research-page-container-admin.odd{
+    display: flex;
+    /* margin: 5% 2.5%; */
+    background-color: #E3E7EF;
+    padding: 5%;
+    flex-direction: column;
+}
+
+.research-page-container-admin-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.research-page-container-temp.even{
+    display: flex;
+}
+
+.research-page-container-temp.odd{
+    display: flex;
+    background-color: #E3E7EF;
+}
+
+@media (max-width:1400px) {
+    .research-page-container {
+        flex-direction: column;
+    }
+}
+
+.right-text {
+    flex: 3;
+}
+
+.research-paper-text {
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 3.25vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    text-align: left;
+    margin-bottom: 3%;
+}
+
+.paper-title {
+    font-weight: bold;
+}
+
+.paper-abstract {
+}
+
+.research-paper-card-container {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-paper-card-background {
+    width: 80%;
+    height: 100%;
+    background-color: #8EA6D5;
+    border-radius: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.paper-pdf-image {}
+
+.pdf-image-1 {
+    margin-top: 3%;
+    max-width: 95%;
+    max-height: 90%;
+}
+
+.pdf-download {
+    margin-top: 1.5%;
+    width: 80%;
+    font-family: Montserrat;
+    font-size: 2.5vh;
+}

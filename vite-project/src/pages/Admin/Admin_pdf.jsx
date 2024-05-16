@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './admin_pdf.css';
 
 export default function Admin_pdf() {
     const [formData, setFormData] = useState({
@@ -12,6 +13,10 @@ export default function Admin_pdf() {
     const [pdfFiles, setPdfFiles] = useState([]);
     const [pdfBlob, setPdfBlob] = useState([]);
     const [pdfImage, setImage] = useState([]);
+    const [showTextEdit, setTextEdit] = useState(0);
+    const [showAbstractEdit, setAbstractEdit] = useState(0);
+    const [showFirstPageEdit, setFirstPageEdit] = useState(0);
+    const [showPdfFileEdit, setPdfFileEdit] = useState(0);
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
@@ -38,7 +43,7 @@ export default function Admin_pdf() {
             console.error("Error fetching pdf images:", error);
         }
     };
-    
+
     useEffect(() => {
         fetchData();
     }, []);
@@ -70,6 +75,35 @@ export default function Admin_pdf() {
         fetchData();
     }
 
+    const displayEditField = (field_name) => {
+        if (field_name === "title") {
+            setTextEdit(1);
+        }
+        if (field_name === "abstract") {
+            setAbstractEdit(1);
+        }
+        if (field_name === "firstPage") {
+            setFirstPageEdit(1);
+        }
+        if (field_name === "pdfFile") {
+            setPdfFileEdit(1);
+        }
+    }
+
+    const submitEditField = (field_name) => {
+        if (field_name === "title") {
+            setTextEdit(0);
+        }
+        if (field_name === "abstract") {
+            setAbstractEdit(0);
+        }
+        if (field_name === "firstPage") {
+            setFirstPageEdit(0);
+        }
+        if (field_name === "pdfFile") {
+            setPdfFileEdit(0);
+        }
+    }
 
 
     const handleSubmit = async (event) => {
@@ -89,6 +123,41 @@ export default function Admin_pdf() {
             console.log('Error posting object', error);
         }
     }
+
+    const handleUpdate = async (event, fieldId, field_name) => {
+        event.preventDefault();
+        try {
+            const formDataToSend = new FormData();
+
+            // Add the fileId to identify which record to update
+            formDataToSend.append('fileId', fieldId);
+
+            // Conditionally add fields to the FormData object if they are present
+            if (formData.fileName) {
+                formDataToSend.append('fileName', formData.fileName);
+            }
+            if (formData.studyTitle) {
+                formDataToSend.append('studyTitle', formData.studyTitle);
+            }
+            if (formData.abstract) {
+                formDataToSend.append('abstract', formData.abstract);
+            }
+            if (formData.firstPage) {
+                formDataToSend.append('firstPage', formData.firstPage);
+            }
+            if (formData.pdfFile) {
+                formDataToSend.append('pdfFile', formData.pdfFile);
+            }
+
+            // Send the update request to the server
+            const response = await axios.post("http://localhost/pdf_update.php", formDataToSend);
+            console.log(response.data);
+        } catch (error) {
+            console.log('Error updating object', error);
+        }
+        fetchData();
+        submitEditField(field_name);
+    };
 
     return (
         <div>
@@ -139,31 +208,106 @@ export default function Admin_pdf() {
             <div>
                 <ul>
                     {pdfFiles && pdfFiles.map((pdfFile, index) => (
-                        <div className={`research-page-container ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
-                            <div className="right-text">
-                                <div className="research-paper-text">
-                                    <div className="paper-title">{pdfFile.study_title}</div>
-                                    <div className="paper-abstract">{pdfFile.abstract}</div>
-                                    <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
-                                        Download: {pdfFile.file_name}
-                                    </button>
-                                    <button onClick={() => deletePdf(pdfFile.id)}>
-                                        Delete Entry
-                                    </button>
-                                </div>
+                        <div className={`research-page-container-admin ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
+                            <div>
+                                <button onClick={() => deletePdf(pdfFile.id)}>
+                                    Delete Entry
+                                </button>
                             </div>
-                            <div className="research-paper-card-container">
-                                <div className='research-paper-card-background'>
-                                    {pdfImage[index] && (
-                                        <img src={`data:image/jpeg;base64,${pdfImage[index]}`} alt="Example" className='pdf-image-1' />
-                                    )}
+                            <div className='research-page-container-admin-container'>
+                                <div className="right-text">
+                                    <div className="research-paper-text">
+                                        <div className="paper-title">{pdfFile.study_title}</div>
+                                        {showTextEdit === 1 && (
+                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "title")}>
+                                                <input
+                                                    type="text"
+                                                    name="studyTitle"
+                                                    value={formData.studyTitle}
+                                                    onChange={e => setFormData({ ...formData, studyTitle: e.target.value })}
+                                                />
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        )}
+                                        {showTextEdit === 0 ? (
+                                            <div>
+                                                <button onClick={() => displayEditField("title")}>
+                                                    Edit Title
+                                                </button>
+                                            </div>) : null}
+
+
+                                        <div className="paper-abstract">{pdfFile.abstract}</div>
+                                        {showAbstractEdit === 1 && (
+                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "abstract")}>
+                                                <input
+                                                    type="text"
+                                                    name="abstract"
+                                                    value={formData.abstract}
+                                                    onChange={e => setFormData({ ...formData, abstract: e.target.value })}
+                                                />
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        )}
+                                        {showAbstractEdit === 0 ? (
+                                            <div>
+                                                <button onClick={() => displayEditField("abstract")}>
+                                                    Edit Abstract
+                                                </button>
+                                            </div>) : null}
+
+
+                                        <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
+                                            Download: {pdfFile.file_name}
+                                        </button>
+                                        {showPdfFileEdit === 1 && (
+                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "pdfFile")}>
+                                                <input
+                                                    type="file"
+                                                    name="pdfFile"
+                                                    onChange={handleChange}
+                                                    accept=".pdf"
+                                                />
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        )}
+                                        {showPdfFileEdit === 0 ? (
+                                            <div>
+                                                <button onClick={() => displayEditField("pdfFile")}>
+                                                    Edit Download File
+                                                </button>
+                                            </div>) : null}
+                                    </div>
+                                </div>
+                                <div className="research-paper-card-container">
+                                    <div className='research-paper-card-background'>
+                                        {pdfImage[index] && (
+                                            <img src={`data:image/jpeg;base64,${pdfImage[index]}`} alt="Example" className='pdf-image-1' />
+                                        )}
+                                        {showFirstPageEdit === 1 && (
+                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "firstPage")}>
+                                                <input
+                                                    type="file"
+                                                    name="firstPage"
+                                                    onChange={handleChange}
+                                                    accept=".jpg"
+                                                />
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        )}
+                                        {showFirstPageEdit === 0 ? (
+                                            <div>
+                                                <button onClick={() => displayEditField("firstPage")}>
+                                                    Edit First Page
+                                                </button>
+                                            </div>) : null}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     ))}
-
                 </ul>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
