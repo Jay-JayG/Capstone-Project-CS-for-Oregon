@@ -1,6 +1,6 @@
 <img src="https://github.com/Jay-JayG/Capstone-Project-CS-for-Oregon/assets/105891722/f745d0b9-6f47-44e4-a3e3-20723a86f785" width="200"  />
 
-# CS for Oregon! 
+# CS for Oregon
 
 CSforOregon.org is the home website of the CS for Oregon organization. CS for Oregon provides the information that educators, administrators, councilors, and legislators need to know about expanding equitable Computer Science education to K-12 students across Oregon.
 
