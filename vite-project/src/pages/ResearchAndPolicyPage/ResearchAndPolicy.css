@@ -32,7 +32,7 @@
 }
 .MarkIconX {
     position: absolute;
-    bottom: 3.5vw;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 2vw;
@@ -195,4 +195,5 @@
     .BoxContent2 {
         font-size: 4vw;
     }
+    
 }
