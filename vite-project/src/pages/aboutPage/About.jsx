@@ -15,7 +15,7 @@ function About() {
         </div>
       </div>
 
-      <div style={{ margin: '2%' }}>
+      <div>
         <div className='OurValuesBox'>
           <p className="AboutSectionHeader"> Our Values</p>
           <ul className='OurValuesText'>

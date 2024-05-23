@@ -26,6 +26,20 @@
     }
 }
 
+.pdf-download {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    text-align: left;
+}
+.pdf-download:hover {
+    color: darkblue;
+}
+
 .right-text {
     flex: 3;
 }

@@ -2,15 +2,18 @@ import './SpotlighPage.css';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-    
+
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+console.log("API Base URL:", apiBaseUrl); // Add this line to verify
+
 export default function SpotlightPage() {
     const [objects, setObjects] = useState([]);
 
     useEffect(() => {
         const getObjects = async () => {
             try {
-                //const res = await axios.get("/api/endpoint");
-                const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
+                const res = await axios.get(`${apiBaseUrl}get_data.php`);
+                //const res = await axios.get("http://localhost/backend/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);

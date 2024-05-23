@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from "react-router-dom";
 import CS_logo from '../src/assets/logo.png';
 import envelope from '../src/assets/envelope.webp';
@@ -6,6 +6,9 @@ import hamburger from '../src/assets/hamburger.webp';
 import axios from 'axios';
 import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
+
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 
 export default function NavigationBar() {
     const [showPopup, setShowPopup] = useState(false);
@@ -18,6 +21,7 @@ export default function NavigationBar() {
         email: '',
         contact: ''
     });
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
 
     const { name, title, employer, email, contact } = formData;
 
@@ -29,6 +33,18 @@ export default function NavigationBar() {
         email: '',
         contact: ''
     };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 950);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
 
     const resetForm = () => {
         setFormData(initialFormState);
@@ -62,7 +78,7 @@ export default function NavigationBar() {
         }
         setMissingFields(false);
         try {
-            const res = await axios.post("api/contactsubmit", formData);
+            const res = await axios.post(`${apiBaseUrl}handle_form.php`, formData);
             console.log('Server response:', res.data);
 
             if (res.data.success) {
@@ -125,54 +141,41 @@ export default function NavigationBar() {
                             K-12 EDUCATORS
                         </NavLink>
                     </div>
-                    <div className="item-dropdown">
-                        <span className="dropdown">
-                            RESEARCH & POLICY
-                            <div className="dropdown-content">
-                                <NavLink
-                                    to="/research"
-                                    className={({ isActive }) =>
-                                        isActive ? "active" : "inactive"
-                                    }
-                                >
-                                    RESEARCH
-                                </NavLink>
-                                
-                                <NavLink
-                                    to="/researchAndPolicy"
-                                    className={({ isActive }) =>
-                                        isActive ? "active" : "inactive"
-                                    }
-                                >
-                                    POLICY
-                                </NavLink>
+                    {/* Conditionally render based on isMobile */}
+                    {isMobile ? (
+                        <>
+                            <div className="item-dropdown">
+                                <NavLink to="/research" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>RESEARCH</NavLink>
                             </div>
-                        </span>
-                    </div>
-                    <div className="item-dropdown">
-                        <span className="dropdown">
-                            NEWS & EVENTS
-                            <div className="dropdown-content">
-                                <NavLink
-                                    to="/news"
-                                    className={({ isActive }) =>
-                                        isActive ? "active" : "inactive"
-                                    }
-                                >
-                                    NEWS
-                                </NavLink>
-                                
-                                <NavLink
-                                    to="/events"
-                                    className={({ isActive }) =>
-                                        isActive ? "active" : "inactive"
-                                    }
-                                >
-                                    EVENTS
-                                </NavLink>
+                            <div className="item-dropdown">
+                                <NavLink to="/researchAndPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>POLICY</NavLink>
                             </div>
-                        </span>
-                    </div>
+                            <div className="item-dropdown">
+                                <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>NEWS & EVENTS</NavLink>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className="item-dropdown">
+                                <span className="dropdown">
+                                    RESEARCH & POLICY
+                                    <div className="dropdown-content">
+                                        <NavLink to="/research" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>RESEARCH</NavLink>
+                                        <NavLink to="/researchAndPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>POLICY</NavLink>
+                                    </div>
+                                </span>
+                            </div>
+                            <div className="item-dropdown">
+                                <span className="dropdown">
+                                    NEWS & EVENTS
+                                    <div className="dropdown-content">
+                                        <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>NEWS</NavLink>
+                                        <NavLink to="/events" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>EVENTS</NavLink>
+                                    </div>
+                                </span>
+                            </div>
+                        </>
+                    )}
                     <div className="item5">
                         <NavLink
                             to="/summerOfCS"
@@ -187,7 +190,6 @@ export default function NavigationBar() {
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
                     </a>
                 </div>
-
             </div>
 
             {showPopup && (

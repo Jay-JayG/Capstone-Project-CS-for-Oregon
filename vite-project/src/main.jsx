@@ -32,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/summerOfCS" element={<SummerOfCS />} />
         <Route path="/researchAndPolicy" element={<ResearchAndPolicy />} />
         <Route path="/adminPage" element={<AdminPage />} />
-        <Route path="/adminPage/pdfPage" element={<PdfPage />} />
+        <Route path="/pdfPage" element={<PdfPage />} />
         <Route path="/news" element={<NewsAndFeaturesPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/spotlight" element={<SpotlightPage />} />

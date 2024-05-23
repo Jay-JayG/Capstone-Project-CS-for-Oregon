@@ -362,26 +362,3 @@ button {
 .NavLinksContainer .navLink:focus {
     outline: 4px solid #000000;
 }
-
-/* .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    min-width: 1.1vw;
-    padding: 2%;
-    border-radius: 4px;
-    left: -7px;
-} */
-
-/* Show the dropdown content when hovering over the dropdown container */
-/* .dropdown:hover .dropdown-content {
-    display: block;
-} */
-
-/* Add this media query to hide dropdown content on small screens */
-/* @media only screen and (max-width: 850px) {
-    .dropdown:hover .dropdown-content {
-        display: none;
-    }
-} */
