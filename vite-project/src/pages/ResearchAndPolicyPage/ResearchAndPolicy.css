@@ -32,7 +32,7 @@
 }
 .MarkIconX {
     position: absolute;
-    bottom: 2.5vw;
+    bottom: 3.5vw;
     left: 50%;
     transform: translateX(-50%);
     width: 2vw;
@@ -188,5 +188,11 @@
         width: 420px;
         height: 420px;
     }
+    
 }
 
+@media only screen and (max-width: 500px) {
+    .BoxContent2 {
+        font-size: 4vw;
+    }
+}
