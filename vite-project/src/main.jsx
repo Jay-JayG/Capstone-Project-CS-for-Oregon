@@ -17,7 +17,7 @@ import SpotlightPage from './pages/NewsAndFeatures/SpotlighPage/SpotligPage';
 import Policy from './pages/PolicyPage/Policy';
 import './styles.css';
 import ResearchPage from './pages/ResearchPage.jsx/ResearchPage';
-import Admin_pdfPage from './pages/Admin/Admin_pdf';
+import PdfPage from './pages/Admin/Admin_pdf';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -32,7 +32,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/summerOfCS" element={<SummerOfCS />} />
         <Route path="/researchAndPolicy" element={<ResearchAndPolicy />} />
         <Route path="/adminPage" element={<AdminPage />} />
-        <Route path="/adminPage/Admin_pdfPage" element={<Admin_pdfPage />} />
+        <Route path="/pdfPage" element={<PdfPage />} />
         <Route path="/news" element={<NewsAndFeaturesPage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/spotlight" element={<SpotlightPage />} />

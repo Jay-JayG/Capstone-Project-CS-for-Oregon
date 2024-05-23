@@ -1,12 +1,43 @@
-.research-page-container {
+.research-page-container.even{
     display: flex;
-    margin: 5% 2.5%;
+    /* margin: 5% 2.5%; */
+    padding: 5%;
+}
+
+.research-page-container.odd{
+    display: flex;
+    /* margin: 5% 2.5%; */
+    background-color: #E3E7EF;
+    padding: 5%;
+}
+
+.research-page-container-temp.even{
+    display: flex;
+}
+
+.research-page-container-temp.odd{
+    display: flex;
+    background-color: #E3E7EF;
 }
 
 @media (max-width:1400px) {
     .research-page-container {
         flex-direction: column;
     }
+}
+
+.pdf-download {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+    text-align: left;
+}
+.pdf-download:hover {
+    color: darkblue;
 }
 
 .right-text {

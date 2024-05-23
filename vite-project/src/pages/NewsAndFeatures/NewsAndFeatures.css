@@ -33,14 +33,14 @@
     box-shadow: 2px 4px 6px 2px rgba(0, 0, 0, .3);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .news-cards-background {
         flex: 0 0 calc(50% - 10px);
         /* Each child takes up 50% width on smaller screens */
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 800px) {
     .news-cards-background {
         flex: 0 0 calc(100% - 10px);
         /* Each child takes up 100% width on even smaller screens */
