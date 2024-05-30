@@ -73,10 +73,18 @@ export default function EventsPage() {
                         <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
                         <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
                         <div className='event-card-date'>{obj.when_date}</div>
-                        <div className='event-buttons-container'>
-                            <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
-                            <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>
-                        </div>
+                        {obj.is_full === "1" ? (
+                                <div className='event-full'>
+                                    <h3>Event Full</h3>
+                                    We're sorry, but this event is currently at full capacity. Stay tuned for future opportunities.
+                                </div>
+                            ) : null}
+                            <div className='event-buttons-container'>
+                                <a className='event-buttons-Flyer' href={obj.flyer_link} target='_blank'>Event Flyer</a>
+                                {obj.is_full === "1" ? (
+                                    <div className='event-buttons-Flyer-disabled'>Event Full</div>
+                                ) : <a className='event-buttons-Flyer' href={obj.apply_link} target='_blank'>Apply Here</a>}
+                            </div>
                     </div>
                 ))}
             </div>

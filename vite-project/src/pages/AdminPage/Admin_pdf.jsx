@@ -10,6 +10,7 @@ export default function Admin_pdf() {
         fileName: '',
         studyTitle: '',
         abstract: '',
+        publicationDate: '',
         firstPage: null,
         pdfFile: null
     });
@@ -21,6 +22,15 @@ export default function Admin_pdf() {
     const [showAbstractEdit, setAbstractEdit] = useState(0);
     const [showFirstPageEdit, setFirstPageEdit] = useState(0);
     const [showPdfFileEdit, setPdfFileEdit] = useState(0);
+    const [showPublicationDateEdit, setPublicationDateEdit] = useState(0);
+    const fieldSetters = {
+        title: setTextEdit,
+        abstract: setAbstractEdit,
+        publicationDate: setPublicationDateEdit,
+        firstPage: setFirstPageEdit,
+        pdfFile: setPdfFileEdit,
+        fileName: setFileNameEdit
+    };
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
@@ -36,6 +46,7 @@ export default function Admin_pdf() {
             fileName: '',
             studyTitle: '',
             abstract: '',
+            publicationDate: '',
         });
         document.getElementById('firstPage').value = ''; // Clear the firstPage input
         document.getElementById('pdfFile').value = ''; // Clear the pdfFile input
@@ -100,6 +111,9 @@ export default function Admin_pdf() {
         if (field_name === "abstract") {
             setAbstractEdit(1);
         }
+        if (field_name === "publicationDate") {
+            setPublicationDateEdit(1);
+        }
         if (field_name === "firstPage") {
             setFirstPageEdit(1);
         }
@@ -117,6 +131,9 @@ export default function Admin_pdf() {
         }
         if (field_name === "abstract") {
             setAbstractEdit(0);
+        }
+        if (field_name === "publicationDate") {
+            setPublicationDateEdit(0);
         }
         if (field_name === "firstPage") {
             setFirstPageEdit(0);
@@ -138,15 +155,16 @@ export default function Admin_pdf() {
             formDataToSend.append('fileName', formData.fileName);
             formDataToSend.append('studyTitle', formData.studyTitle);
             formDataToSend.append('abstract', formData.abstract);
+            formDataToSend.append('publicationDate', formData.publicationDate);
             formDataToSend.append('firstPage', formData.firstPage);
             formDataToSend.append('pdfFile', formData.pdfFile);
             const response = await axios.post(`${apiBaseUrl}pdf_upload.php`, formDataToSend);
-            // const response = await axios.post("http://localhost/pdf_upload.php", formDataToSend);
+            clearFields();
             console.log(response.data);
         } catch (error) {
             console.log('Error posting object', error);
         }
-        clearFields();
+        
         console.log(formData);
         fetchData();
     }
@@ -169,6 +187,9 @@ export default function Admin_pdf() {
             if (formData.abstract) {
                 formDataToSend.append('abstract', formData.abstract);
             }
+            if (formData.publicationDate) {
+                formDataToSend.append('publicationDate', formData.publicationDate);
+            }
             if (formData.firstPage) {
                 formDataToSend.append('firstPage', formData.firstPage);
             }
@@ -188,6 +209,38 @@ export default function Admin_pdf() {
         fetchData();
         submitEditField(field_name);
     };
+
+    // Sorted pdfFiles
+    // Step 1: Combine pdfFiles and pdfImage into a single array
+    const combinedArray = pdfFiles.map((pdfFile, index) => ({
+        ...pdfFile,
+        pdfImage: pdfImage[index]
+    }));
+
+    // Step 2: Sort the combined array
+    const sortedCombinedArray = combinedArray.slice().sort((a, b) => {
+        const parseDate = (dateStr) => {
+            if (!dateStr) return new Date(0); // Treat empty dates as the earliest date possible
+            const parts = dateStr.split('/');
+            if (parts.length !== 3) return new Date(0); // Treat invalid dates as the earliest date possible
+            return new Date(parts.reverse().join('-'));
+        };
+
+        const dateA = parseDate(a.publicationDate);
+        const dateB = parseDate(b.publicationDate);
+        return dateB - dateA;
+    });
+
+    // Step 3: Extract sorted pdfFiles and pdfImage back from the sorted combined array
+    const sortedPdfFiles = sortedCombinedArray.map(item => {
+        const { pdfImage, ...pdfFile } = item;
+        return pdfFile;
+    });
+
+    const sortedPdfImage = sortedCombinedArray.map(item => item.pdfImage);
+
+    console.log("Unsorted: ", pdfFiles);
+    console.log("Sorted: ", sortedPdfFiles);
 
     return (
         <div>
@@ -212,6 +265,17 @@ export default function Admin_pdf() {
                             name="abstract"
                             value={formData.abstract}
                             onChange={handleChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="publicationDate">Publication Date:</label>
+                        <input
+                            type="text"
+                            id="publicationDate"
+                            name="publicationDate"
+                            value={formData.publicationDate}
+                            onChange={handleChange}
+                            placeholder="DD/MM/YYYY"
                         />
                     </div>
                     <div className="form-group">
@@ -256,7 +320,7 @@ export default function Admin_pdf() {
             </div>
             <div>
                 <ul>
-                    {Array.isArray(pdfFiles) && pdfFiles.length > 0 && pdfFiles.map((pdfFile, index) => (
+                    {Array.isArray(sortedPdfFiles) && sortedPdfFiles.length > 0 && sortedPdfFiles.map((pdfFile, index) => (
                         <div className={`research-page-container-admin ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
                             <div>
                                 <button onClick={() => deletePdf(pdfFile.id)}>
@@ -313,6 +377,29 @@ export default function Admin_pdf() {
                                                 </button>
                                             </div>)}
 
+                                        <div className="publication-date">{pdfFile.publicationDate}</div>
+                                        {showPublicationDateEdit === 1 && (
+                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "publicationDate")}>
+                                                <input
+                                                    type="text"
+                                                    name="publicationDate"
+                                                    value={formData.publicationDate}
+                                                    onChange={e => setFormData({ ...formData, publicationDate: e.target.value })}
+                                                    placeholder="DD/MM/YYYY"
+                                                />
+                                                <button type="submit">Update</button>
+                                            </form>
+                                        )}
+                                        {showPublicationDateEdit === 0 ? (
+                                            <div>
+                                                <button onClick={() => displayEditField("publicationDate")}>
+                                                    Edit Publication Date
+                                                </button>
+                                            </div>) : (<div>
+                                                <button onClick={() => submitEditField("publicationDate")}>
+                                                    Cancel Edit Publication Date
+                                                </button>
+                                            </div>)}
 
                                         <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
                                             Download: {pdfFile.file_name}
@@ -365,7 +452,7 @@ export default function Admin_pdf() {
                                 <div className="research-paper-card-container">
                                     <div className='research-paper-card-background'>
                                         {pdfImage[index] && (
-                                            <img src={`data:image/jpeg;base64,${pdfImage[index]}`} alt="Example" className='pdf-image-1' />
+                                            <img src={`data:image/jpeg;base64,${sortedPdfImage[index]}`} alt="Example" className='pdf-image-1' />
                                         )}
                                         {showFirstPageEdit === 1 && (
                                             <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "firstPage")}>
