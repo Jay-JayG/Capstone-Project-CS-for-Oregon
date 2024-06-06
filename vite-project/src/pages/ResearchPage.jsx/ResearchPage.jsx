@@ -49,22 +49,50 @@ export default function researchPage() {
         }
     }
 
+    // Sorting pdfFiles
+    // Step 1: Combine pdfFiles and pdfImage into a single array
+    const combinedArray = pdfFiles.map((pdfFile, index) => ({
+        ...pdfFile,
+        pdfImage: pdfImage[index]
+    }));
+
+    // Step 2: Sort the combined array
+    const sortedCombinedArray = combinedArray.slice().sort((a, b) => {
+        const parseDate = (dateStr) => {
+            if (!dateStr) return new Date(0); // Treat empty dates as the earliest date possible
+            const parts = dateStr.split('/');
+            if (parts.length !== 3) return new Date(0); // Treat invalid dates as the earliest date possible
+            return new Date(parts.reverse().join('-'));
+        };
+
+        const dateA = parseDate(a.publicationDate);
+        const dateB = parseDate(b.publicationDate);
+        return dateB - dateA;
+    });
+
+    // Step 3: Extract sorted pdfFiles and pdfImage back from the sorted combined array
+    const sortedPdfFiles = sortedCombinedArray.map(item => {
+        const { pdfImage, ...pdfFile } = item;
+        return pdfFile;
+    });
+
+    const sortedPdfImage = sortedCombinedArray.map(item => item.pdfImage);
+
     return (
         <div>
             <div>
-                    {pdfFiles.length > 0 && pdfFiles.map((pdfFile, index) => (
+                    {sortedPdfFiles.length > 0 && sortedPdfFiles.map((pdfFile, index) => (
                         <div className={`research-page-container ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
                             <div className="right-text">
                                 <div className="research-paper-text">
                                     <div className="paper-title">{pdfFile.study_title}</div>
                                     <div className="paper-abstract">{pdfFile.abstract}</div>
-
                                 </div>
                             </div>
                             <div className="research-paper-card-container">
                                 <div className='research-paper-card-background'>
                                     {pdfImage[index] && (
-                                        <img src={`data:image/jpeg;base64,${pdfImage[index]}`} alt="Example" className='pdf-image-1' />
+                                        <img src={`data:image/jpeg;base64,${sortedPdfImage[index]}`} alt="Example" className='pdf-image-1' />
                                     )}
                                     <button className="pdf-download" onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
                                         Download {'>'}{/*  {pdfFile.file_name} */}

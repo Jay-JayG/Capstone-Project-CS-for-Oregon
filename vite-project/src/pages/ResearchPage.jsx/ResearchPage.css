@@ -47,7 +47,6 @@
 .research-paper-text {
     text-align: center;
     font-family: Montserrat;
-    font-size: 3.25vh;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -58,9 +57,11 @@
 
 .paper-title {
     font-weight: bold;
+    font-size: 3vh;
 }
 
 .paper-abstract {
+    font-size: 2.25vh;
 }
 
 .research-paper-card-container {
