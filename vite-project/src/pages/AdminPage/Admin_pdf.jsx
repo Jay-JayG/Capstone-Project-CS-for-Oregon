@@ -266,9 +266,9 @@ export default function Admin_pdf() {
                             name="abstract"
                             value={formData.abstract}
                             onChange={handleChange}
-                            maxLength="1750"
+                            maxLength="1000"
                         />
-                        <small> {1750 - formData.abstract.length} characters remaining</small>
+                        <small> {1000 - formData.abstract.length} characters remaining</small>
                     </div>
                     <div className="form-group">
                         <label htmlFor="publicationDate">Publication Date:</label>

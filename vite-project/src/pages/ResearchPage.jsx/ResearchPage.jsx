@@ -87,7 +87,6 @@ export default function researchPage() {
                                 <div className="research-paper-text">
                                     <div className="paper-title">{pdfFile.study_title}</div>
                                     <div className="paper-abstract">{pdfFile.abstract}</div>
-
                                 </div>
                             </div>
                             <div className="research-paper-card-container">

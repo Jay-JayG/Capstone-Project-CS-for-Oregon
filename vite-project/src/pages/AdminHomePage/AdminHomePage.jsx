@@ -1,0 +1,12 @@
+import './AdminHomePage.css';
+import { Link } from "react-router-dom";
+export default function AdminHomePage() {
+    return (
+        <div className='admin-home-page-container'>
+            <div className='links-container'>
+                <Link to={`/adminPage`} className='link-to-page'>News & Events Admin Page</Link>
+                <Link to={`/pdfPage`} className='link-to-page'>PDF Reseach Papers Admin Page</Link>
+            </div>
+        </div>
+    );
+}
