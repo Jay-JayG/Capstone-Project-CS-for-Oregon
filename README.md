@@ -64,6 +64,10 @@ In the second terminal, type cd vite-project and press Enter.
 Then, type npm run dev and press Enter. Look for a line saying Local: http://localhost:5173/ (the number might be different).
 Copy the http://localhost:... URL and paste it into your preferred web browser.
 
+## Uploading Source Code to the Web Host
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ojH0yLmjofQ/0.jpg)](https://www.youtube.com/watch?v=ojH0yLmjofQ)
+
 ## Additional Resources
 Data Visualization: https://public.tableau.com/app/profile/ecep/viz/CMP_OR/Access
 
