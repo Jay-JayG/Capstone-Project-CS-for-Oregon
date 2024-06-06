@@ -13,7 +13,7 @@ export default function AdminPage() {
         what: '',
         who: '',
         when_date: '',
-        news_type: '',
+        news_type: '1',
         is_full: '',
     });
 
@@ -44,6 +44,7 @@ export default function AdminPage() {
 
     const handleNews_typeInputChange = (event) => {
         setFormData({ ...formData, news_type: event.target.value });
+        console.log(formData.news_type);
     }
 
     // const handleIs_FullInputChange = (event) => {
@@ -217,13 +218,28 @@ export default function AdminPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <input
-                            onChange={handleNews_typeInputChange}
-                            value={formData.news_type}
-                            className='AdminPageFormField'
-                            placeholder='Type'
-                            name='news_type'
-                        />
+                        <div className='AdminPageFormField'>
+                            <label>
+                                <input
+                                    type='radio'
+                                    name='news_type'
+                                    value='1'
+                                    checked={formData.news_type === '1'}
+                                    onChange={handleNews_typeInputChange}
+                                />
+                                News
+                                </label>
+                                <label>
+                                <input
+                                    type='radio'
+                                    name='news_type'
+                                    value='0'
+                                    checked={formData.news_type === '0'}
+                                    onChange={handleNews_typeInputChange}
+                                />
+                                Event
+                            </label>
+                        </div>
                     </div>
                     <div className='AdminPageFormFieldDiv'>
                         <button className='AdminPageSubmitBotton' type='submit'>
@@ -260,8 +276,8 @@ export default function AdminPage() {
                                     </div>
                                     <div><span className='object-bold-text'>Who is it for: </span>{obj.who}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'who')}>Edit</button></div>
                                     <div><span className='object-bold-text'>When: </span>{obj.when_date}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'when_date')}>Edit</button></div>
-                                    <div><span className='object-bold-text'>Type: </span>{obj.news_type}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'news_type')}>Edit</button></div>
-                                    <div><span className='object-bold-text'>Is Full: </span>{obj.is_full}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'is_full')}>Edit</button></div>
+                                    <div className='object-bold-text'>Type {obj.news_type}:  {obj.news_type === '0' ? ("News") : ("Event")}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'news_type')}>Edit</button></div>
+                                    <div className='object-bold-text'>{obj.is_full === '1' ? (<span>Event is Full </span>) : (<span>Event is not Full </span>)}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'is_full')}>Edit</button></div>
                                 </div>
                                 <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>Delete Entry Above</button>
                             </div>

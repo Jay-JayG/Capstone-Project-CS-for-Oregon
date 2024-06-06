@@ -24,7 +24,7 @@ export default function NewsAndFeaturesPage() {
     }, []);
 
     const filteredObjects = objects
-    .filter(obj => obj.news_type === '3')
+    .filter(obj => obj.news_type === '0')
     .sort((a, b) => {
         const dateA = new Date(a.when_date);
         const dateB = new Date(b.when_date);
