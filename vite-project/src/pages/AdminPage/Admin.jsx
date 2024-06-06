@@ -14,6 +14,7 @@ export default function AdminPage() {
         who: '',
         when_date: '',
         news_type: '',
+        is_full: '',
     });
 
     const [objects, setObjects] = useState([]);
@@ -45,6 +46,10 @@ export default function AdminPage() {
         setFormData({ ...formData, news_type: event.target.value });
     }
 
+    // const handleIs_FullInputChange = (event) => {
+    //     setFormData({ ...formData, is_full: event.target.value });
+    // }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -59,6 +64,7 @@ export default function AdminPage() {
                 who: '',
                 when_date: '',
                 news_type: '',
+                is_full: '',
             });
             setTimeout(() => {
                 setSubmitted(false);
@@ -145,7 +151,7 @@ export default function AdminPage() {
         try {
             const editedObject = objects.find(obj => obj.id === id);
             console.log('Edited Object:', editedObject);
-            await axios.put(`${apiBaseUrl}get_data.php?id=${id}`, editedObject);
+            const res = await axios.put(`${apiBaseUrl}get_data.php?id=${id}`, editedObject);
             // await axios.put(`http://localhost/get_data.php?id=${id}`, editedObject); // For local development
             setSubmitted(true);
             setTimeout(() => {
@@ -153,6 +159,7 @@ export default function AdminPage() {
             }, 2000);
             handleCancelEdit(id);
             getObjects();
+            console.log(res);
         } catch (error) {
             console.log('Error updating object', error);
         }
@@ -169,7 +176,7 @@ export default function AdminPage() {
                             onChange={handleTitleInputChange}
                             value={formData.title}
                             className='AdminPageFormField'
-                            placeholder='Titel'
+                            placeholder='Title'
                             name='Title'
                         />
                     </div>
@@ -254,6 +261,7 @@ export default function AdminPage() {
                                     <div><span className='object-bold-text'>Who is it for: </span>{obj.who}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'who')}>Edit</button></div>
                                     <div><span className='object-bold-text'>When: </span>{obj.when_date}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'when_date')}>Edit</button></div>
                                     <div><span className='object-bold-text'>Type: </span>{obj.news_type}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'news_type')}>Edit</button></div>
+                                    <div><span className='object-bold-text'>Is Full: </span>{obj.is_full}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'is_full')}>Edit</button></div>
                                 </div>
                                 <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>Delete Entry Above</button>
                             </div>

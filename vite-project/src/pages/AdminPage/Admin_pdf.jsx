@@ -164,7 +164,7 @@ export default function Admin_pdf() {
         } catch (error) {
             console.log('Error posting object', error);
         }
-        
+
         console.log(formData);
         fetchData();
     }
@@ -223,7 +223,8 @@ export default function Admin_pdf() {
             if (!dateStr) return new Date(0); // Treat empty dates as the earliest date possible
             const parts = dateStr.split('/');
             if (parts.length !== 3) return new Date(0); // Treat invalid dates as the earliest date possible
-            return new Date(parts.reverse().join('-'));
+            const [month, day, year] = parts;
+            return new Date(`${year}-${month}-${day}`);
         };
 
         const dateA = parseDate(a.publicationDate);
@@ -265,7 +266,9 @@ export default function Admin_pdf() {
                             name="abstract"
                             value={formData.abstract}
                             onChange={handleChange}
+                            maxLength="1750"
                         />
+                        <small> {1750 - formData.abstract.length} characters remaining</small>
                     </div>
                     <div className="form-group">
                         <label htmlFor="publicationDate">Publication Date:</label>
@@ -275,7 +278,7 @@ export default function Admin_pdf() {
                             name="publicationDate"
                             value={formData.publicationDate}
                             onChange={handleChange}
-                            placeholder="DD/MM/YYYY"
+                            placeholder="MM/DD/YYYY"
                         />
                     </div>
                     <div className="form-group">
