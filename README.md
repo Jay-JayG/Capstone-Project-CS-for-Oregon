@@ -68,6 +68,23 @@ Copy the http://localhost:... URL and paste it into your preferred web browser.
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ojH0yLmjofQ/0.jpg)](https://www.youtube.com/watch?v=ojH0yLmjofQ)
 
+### Gathering files
+- In the project repository, Navigate to vite-project. 
+- Type the command "npm run build". (Make sure any changes are saved prior)
+- Open a file browser and navigate to the dist directory in the project
+- Select all and compress to zip file.
+
+### Uploading files to server
+- Navigate to https://gator4177.hostgator.com:2083/
+- Log in with the proper credentials
+- Navigate the webpage to 'file manager'
+- Navigate to the 'public_html' directory
+- Delete the zip file in that directory or simply override it in future steps
+- Select upload in the action bar
+- Drag the zip file that you created into the box (if you didnt delete the existing zip file select yes for overriding the current zip file)
+- Select the new zip file and select extract to pull the contents of the file to the server.
+- Check the live site and verify new changes
+
 ## Additional Resources
 Data Visualization: https://public.tableau.com/app/profile/ecep/viz/CMP_OR/Access
 
