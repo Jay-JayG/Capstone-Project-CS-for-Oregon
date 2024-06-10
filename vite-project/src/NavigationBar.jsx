@@ -69,6 +69,9 @@ export default function NavigationBar() {
             setShowPopup(false);
         }
     };
+    const closeBtn = (event) => {
+            setShowPopup(false);
+    };
     const handleSubmit = async (event) => {
         event.preventDefault();
         // Perform form submission logic here
@@ -195,6 +198,9 @@ export default function NavigationBar() {
             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+                    <button className="close-btn" onClick={closeBtn}>
+                        <img src={x} alt="Close" />
+                    </button>
                         <h2>Contact Information</h2>
                         <div className="input-container">
                             <input type="text" id="name" name="name" value={name} onChange={handleInputChange} />
