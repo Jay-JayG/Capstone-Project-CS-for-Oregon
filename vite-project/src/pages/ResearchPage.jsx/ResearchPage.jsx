@@ -80,7 +80,7 @@ export default function researchPage() {
 
     return (
         <div>
-            <div>
+            <div id="main-content">
                     {sortedPdfFiles.length > 0 && sortedPdfFiles.map((pdfFile, index) => (
                         <div className={`research-page-container ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
                             <div className="right-text">

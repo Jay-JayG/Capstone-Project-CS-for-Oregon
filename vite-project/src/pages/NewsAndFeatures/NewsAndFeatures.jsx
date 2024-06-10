@@ -32,7 +32,7 @@ export default function NewsAndFeaturesPage() {
     });
 
     return (
-        <div className='news-and-features-page-container'>
+        <div id="main-content" className='news-and-features-page-container'>
             <div className='news-and-features-page-navigator'>
                 <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
                 <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
