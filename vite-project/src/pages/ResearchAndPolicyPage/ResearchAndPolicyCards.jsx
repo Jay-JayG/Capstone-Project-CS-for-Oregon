@@ -39,7 +39,7 @@ function ResearchAndPolicyCards() {
                 
 
             <Card 
-                header="K-12 Standards" content={<>Oregon has not yet adopted rigorous computer science standards that are publicly available across K-12. The future development of standards can be guided by the concepts, practices, and recommendations in the{" "}<a className="OregonPolicyLink" href="http://www.k12computer science.org" target="_blank" rel="noopener noreferrer">K-12 Computer Science Framework.</a></>} mark={<div className="MarkContainer"><img src={background} alt="position" className="MarkBackground" /><img src={X} alt="X mark" className="MarkIconX" /></div>} 
+                header="K-12 Standards" content={<>Oregon has not yet adopted rigorous computer science standards that are publicly available across K-12. The future development of standards can be guided by the concepts, practices, and recommendations in the{" "}<a className="OregonPolicyLink" href="https://k12cs.org" target="_blank" rel="noopener noreferrer">K-12 Computer Science Framework.</a></>} mark={<div className="MarkContainer"><img src={background} alt="position" className="MarkBackground" /><img src={X} alt="X mark" className="MarkIconX" /></div>} 
             />
 
             <Card 
