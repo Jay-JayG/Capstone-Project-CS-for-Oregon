@@ -1,0 +1,15 @@
+.admin-home-page-container {
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 3vh;
+}
+
+.link-to-page {
+    padding: 3%;
+    color: black;
+}
