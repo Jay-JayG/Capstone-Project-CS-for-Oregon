@@ -18,6 +18,7 @@ import './styles.css';
 import ResearchPage from './pages/ResearchPage.jsx/ResearchPage';
 import PdfPage from './pages/AdminPage/Admin_pdf';
 import AdminHome from './pages/AdminHomePage/AdminHomePage';
+import NewsAdminPage from './pages/AdminPage/NewsAdminPage/NewsAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -39,6 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         {/* <Route path="/policy" element={<Policy />} /> */}
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/admin" element={<AdminHome />} />
+        <Route path="/NewsAdminPage" element={<NewsAdminPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

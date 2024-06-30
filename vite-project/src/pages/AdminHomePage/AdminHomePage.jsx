@@ -6,6 +6,7 @@ export default function AdminHomePage() {
             <div className='links-container'>
                 <Link to={`/adminPage`} className='link-to-page'>News & Events Admin Page</Link>
                 <Link to={`/pdfPage`} className='link-to-page'>PDF Reseach Papers Admin Page</Link>
+                <Link to={`/NewsAdminPage`} className='link-to-page'>News</Link>
             </div>
         </div>
     );
