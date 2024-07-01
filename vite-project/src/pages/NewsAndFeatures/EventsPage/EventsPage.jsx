@@ -1,5 +1,5 @@
 import './EventsPage.css';
-import '../NewsAndFeatures.css'
+import '../NewsPage/NewsPage.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
@@ -13,7 +13,7 @@ export default function EventsPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get(`${apiBaseUrl}get_data.php`);
+                const res = await axios.get(`${apiBaseUrl}events.php`);
                 //const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
                 console.log(res.data);
@@ -21,10 +21,9 @@ export default function EventsPage() {
                 console.log('Error retrieving objects', error);
             }
         };
-        getObjects('news');
+        getObjects();
     }, []);
 
-    const filteredObjects = objects.filter(obj => obj.news_type === '1');
 
     const compareStartDate = (eventA, eventB) => {
         console.log(eventA.when_date.split(' - '));
@@ -57,7 +56,7 @@ export default function EventsPage() {
     };
 
     // Sort filtered objects by start date in reverse chronological order
-    const sortedObjects = filteredObjects.sort(compareStartDate);
+    const sortedObjects = objects.sort(compareStartDate);
 
     return (
         <div id="main-content" className='events-page-container'>

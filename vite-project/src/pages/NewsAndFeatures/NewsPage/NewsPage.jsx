@@ -1,4 +1,4 @@
-import './NewsAndFeatures.css';
+import './NewsPage.css'
 import './SubNavigationBar.css'
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function NewsAndFeaturesPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get(`${apiBaseUrl}get_data.php`);
+                const res = await axios.get(`${apiBaseUrl}news.php`);
                 //const res = await axios.get("http://localhost/get_data.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
@@ -24,7 +24,6 @@ export default function NewsAndFeaturesPage() {
     }, []);
 
     const filteredObjects = objects
-    .filter(obj => obj.news_type === '0')
     .sort((a, b) => {
         const dateA = new Date(a.when_date);
         const dateB = new Date(b.when_date);

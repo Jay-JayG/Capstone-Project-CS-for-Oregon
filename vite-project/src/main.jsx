@@ -7,7 +7,7 @@ import Educators from './pages/EducatorsPage/Educators';
 import SummerOfCS from './pages/SummerOfCS/SummerOfCS';
 import ResearchAndPolicy from './pages/ResearchAndPolicyPage/ResearchAndPolicy';
 import AdminPage from './pages/AdminPage/Admin';
-import NewsAndFeaturesPage from './pages/NewsAndFeatures/NewsAndFeatures';
+import NewsAndFeaturesPage from './pages/NewsAndFeatures/NewsPage/NewsPage';
 import EventsPage from './pages/NewsAndFeatures/EventsPage/EventsPage';
 import Header from './Header';
 import NavigationBar from './NavigationBar';

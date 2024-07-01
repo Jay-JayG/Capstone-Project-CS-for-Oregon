@@ -45,6 +45,24 @@ export default function NavigationBar() {
         };
     }, []);
 
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+                setShowPopup(false);
+            }
+        };
+
+        if (showPopup) {
+            window.addEventListener('keydown', handleKeyDown);
+        } else {
+            window.removeEventListener('Keydown', handleKeyDown);
+        }
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [showPopup]);
+
 
     const resetForm = () => {
         setFormData(initialFormState);
