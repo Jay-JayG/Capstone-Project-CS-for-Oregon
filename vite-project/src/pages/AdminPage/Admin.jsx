@@ -13,8 +13,9 @@ export default function AdminPage() {
         what: '',
         who: '',
         when_date: '',
-        news_type: '',
-        is_full: '',
+        is_full: 0,
+        flyer_link: '',
+        apply_link: ''
     });
 
     const [objects, setObjects] = useState([]);
@@ -42,19 +43,18 @@ export default function AdminPage() {
         setFormData({ ...formData, when_date: event.target.value });
     }
 
-    const handleNews_typeInputChange = (event) => {
-        setFormData({ ...formData, news_type: event.target.value });
+    const handleFlyerInputChange = (event) => {
+        setFormData({ ...formData, flyer_link: event.target.value });
     }
 
-    // const handleIs_FullInputChange = (event) => {
-    //     setFormData({ ...formData, is_full: event.target.value });
-    // }
+    const handleApplyInputChange = (event) => {
+        setFormData({ ...formData, apply_link: event.target.value });
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post(`${apiBaseUrl}get_data.php`, formData);
-            // const res = await axios.post('http://localhost/get_data.php', formData); // For local development
+            const res = await axios.post(`${apiBaseUrl}events.php`, formData);
             console.log('Object uploaded successfullyy:', res.data);
             setSubmitted(true);
             setFormData({
@@ -63,8 +63,9 @@ export default function AdminPage() {
                 what: '',
                 who: '',
                 when_date: '',
-                news_type: '',
-                is_full: '',
+                is_full: 0,
+                flyer_link: '',
+                apply_link: ''
             });
             setTimeout(() => {
                 setSubmitted(false);
@@ -78,8 +79,8 @@ export default function AdminPage() {
     useEffect(() => {
         const getObjects = async () => {
             try {
-                const res = await axios.get(`${apiBaseUrl}get_data.php`);
-                // const res = await axios.get("http://localhost/get_data.php"); // For local development
+                const res = await axios.get(`${apiBaseUrl}events.php`);
+                // const res = await axios.get("http://localhost/events.php"); // For local development
                 setObjects(res.data);
             } catch (error) {
                 console.log('Error retrieving objects', error);
@@ -90,8 +91,8 @@ export default function AdminPage() {
 
     const getObjects = async () => {
         try {
-            const res = await axios.get(`${apiBaseUrl}get_data.php`);
-            // const res = await axios.get('http://localhost/get_data.php'); // For local development
+            const res = await axios.get(`${apiBaseUrl}events.php`);
+            // const res = await axios.get('http://localhost/events.php'); // For local development
             setObjects(res.data);
         } catch (error) {
             console.log('Error retrieving objects', error);
@@ -100,11 +101,11 @@ export default function AdminPage() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`${apiBaseUrl}get_data.php?id=${id}`);
-            // await axios.delete(`http://localhost/get_data.php?id=${id}`); // For local development
+            await axios.delete(`${apiBaseUrl}events.php?id=${id}`);
+            // await axios.delete(`http://localhost/events.php?id=${id}`); // For local development
             // After successful deletion, fetch data again to update the UI
-            const res = await axios.get(`${apiBaseUrl}get_data.php`);
-            // const res = await axios.get("http://localhost/get_data.php"); // For local development
+            const res = await axios.get(`${apiBaseUrl}events.php`);
+            // const res = await axios.get("http://localhost/events.php"); // For local development
             setObjects(res.data);
         } catch (error) {
             console.log('Error deleting object', error);
@@ -151,8 +152,8 @@ export default function AdminPage() {
         try {
             const editedObject = objects.find(obj => obj.id === id);
             console.log('Edited Object:', editedObject);
-            const res = await axios.put(`${apiBaseUrl}get_data.php?id=${id}`, editedObject);
-            // await axios.put(`http://localhost/get_data.php?id=${id}`, editedObject); // For local development
+            const res = await axios.put(`${apiBaseUrl}events.php?id=${id}`, editedObject);
+            // await axios.put(`http://localhost/events.php?id=${id}`, editedObject); // For local development
             setSubmitted(true);
             setTimeout(() => {
                 setSubmitted(false);
@@ -218,11 +219,20 @@ export default function AdminPage() {
                     </div>
                     <div className='AdminPageFormFieldDiv'>
                         <input
-                            onChange={handleNews_typeInputChange}
-                            value={formData.news_type}
+                            onChange={handleFlyerInputChange}
+                            value={formData.flyer_link}
                             className='AdminPageFormField'
-                            placeholder='Type'
-                            name='news_type'
+                            placeholder='Flyer Link'
+                            name='flyer_link'
+                        />
+                    </div>
+                    <div className='AdminPageFormFieldDiv'>
+                        <input
+                            onChange={handleApplyInputChange}
+                            value={formData.apply_link}
+                            className='AdminPageFormField'
+                            placeholder='Apply Link'
+                            name='apply_link'
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
@@ -232,6 +242,28 @@ export default function AdminPage() {
                     </div>
                 </form>
             </div>
+
+            <div className='event-cards-container'>
+                <div className='event-cards-background'>
+                    <div className='event-card-title' href={formData.bold}>{formData.title}</div>
+                    <div className='event-card-description'><span className='event-bold-text'>What: {formData.bold} </span>{formData.what}</div>
+                    <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{formData.who}</div>
+                    <div className='event-card-date'>{formData.when_date}</div>
+                    {formData.is_full === "1" ? (
+                        <div className='event-full'>
+                            <h3>Event Full</h3>
+                            We're sorry, but this event is currently at full capacity. Stay tuned for future opportunities.
+                        </div>
+                    ) : null}
+                    <div className='event-buttons-container'>
+                        <a className='event-buttons-Flyer' href={formData.flyer_link} target='_blank'>Event Flyer</a>
+                        {formData.is_full === "1" ? (
+                            <div className='event-buttons-Flyer-disabled'>Event Full</div>
+                        ) : <a className='event-buttons-Flyer' href={formData.apply_link} target='_blank'>Apply Here</a>}
+                    </div>
+                </div>
+            </div>
+
             <div className='news-object-list'>
                 {objects.map((obj, index) => (
                     <div key={index} className='object'>
@@ -260,8 +292,7 @@ export default function AdminPage() {
                                     </div>
                                     <div><span className='object-bold-text'>Who is it for: </span>{obj.who}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'who')}>Edit</button></div>
                                     <div><span className='object-bold-text'>When: </span>{obj.when_date}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'when_date')}>Edit</button></div>
-                                    <div><span className='object-bold-text'>Type: </span>{obj.news_type}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'news_type')}>Edit</button></div>
-                                    <div><span className='object-bold-text'>Is Full: </span>{obj.is_full}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'is_full')}>Edit</button></div>
+                                    <div className='object-bold-text'>{obj.is_full === '1' ? (<span>Event is Full </span>) : (<span>Event is not Full </span>)}<button className='object-edit-button' onClick={() => handleEdit(obj.id, 'is_full')}>Edit</button></div>
                                 </div>
                                 <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>Delete Entry Above</button>
                             </div>

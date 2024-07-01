@@ -23,6 +23,7 @@ export default function Admin_pdf() {
     const [showFirstPageEdit, setFirstPageEdit] = useState(0);
     const [showPdfFileEdit, setPdfFileEdit] = useState(0);
     const [showPublicationDateEdit, setPublicationDateEdit] = useState(0);
+    const [message, setMessage] = useState('');
     const fieldSetters = {
         title: setTextEdit,
         abstract: setAbstractEdit,
@@ -48,6 +49,7 @@ export default function Admin_pdf() {
             abstract: '',
             publicationDate: '',
         });
+        setMessage('');
         document.getElementById('firstPage').value = ''; // Clear the firstPage input
         document.getElementById('pdfFile').value = ''; // Clear the pdfFile input
     }
@@ -150,7 +152,13 @@ export default function Admin_pdf() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        if (!formData.fileName || !formData.pdfFile || !formData.firstPage) {
+            setMessage('Please provide a file name, a PDF file, and a first page image.');
+            return;
+        }
+
         try {
+            setMessage('Sending Entry Please Wait...');
             const formDataToSend = new FormData();
             formDataToSend.append('fileName', formData.fileName);
             formDataToSend.append('studyTitle', formData.studyTitle);
@@ -160,8 +168,10 @@ export default function Admin_pdf() {
             formDataToSend.append('pdfFile', formData.pdfFile);
             const response = await axios.post(`${apiBaseUrl}pdf_upload.php`, formDataToSend);
             clearFields();
-            console.log(response.data);
+            console.log(response);
+            setMessage(response.data.message || 'Object sent successfully');
         } catch (error) {
+            setMessage(error.response.data.error || 'Error posting object');
             console.log('Error posting object', error);
         }
 
@@ -315,6 +325,9 @@ export default function Admin_pdf() {
                         <button type="submit">Upload PDF</button>
                     </div>
                 </form>
+                <div className="form-group">
+                    Status: {message && <span className="message">{message}</span>} {/* Display the message */}
+                </div>
                 <div className="form-group">
                     <button onClick={() => clearFields()}>
                         Reset Fields
