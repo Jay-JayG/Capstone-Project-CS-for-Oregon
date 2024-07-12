@@ -2,11 +2,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../../NewsAndFeatures/NewsPage/NewsPage.css'
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 
-export default function NewsAdminPage(){
+export default function NewsAdminPage() {
 
     const [formData, setFormData] = useState({
         title: '',
@@ -183,6 +184,17 @@ export default function NewsAdminPage(){
                     </div>
                 </form>
             </div>
+
+            <div className='news-and-features-page-container'>
+                <div className='news-cards-container'>
+                    <div className='news-cards-background'>
+                        <a className='news-card-title' href={formData.link} target='_blank'>{formData.title}</a>
+                        <div className='news-card-description'>{formData.what}</div>
+                        <div className='news-card-date'>{formData.when_date}</div>
+                    </div>
+                </div>
+            </div>
+
             <div className='news-object-list'>
                 {objects.map((obj, index) => (
                     <div key={index} className='object'>
