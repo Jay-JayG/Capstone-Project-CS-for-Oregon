@@ -13,10 +13,16 @@
     margin-left: 3%;
 }
 
+.research-page-container-admin-example{
+    display: flex;
+    /* margin: 5% 2.5%; */
+    padding: 2% 5% 2% 5%;
+}
 .research-page-container-admin.even{
     display: flex;
     /* margin: 5% 2.5%; */
     padding: 5%;
+    flex-direction: column;
 }
 
 .research-page-container-admin.odd{
@@ -72,6 +78,9 @@
     font-size: 2.25vh;
 }
 
+.publication-date{
+    margin: 2% 0 2% 0;
+}
 .research-paper-card-container {
     flex: 2;
     display: flex;

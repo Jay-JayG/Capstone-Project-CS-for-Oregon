@@ -12,7 +12,8 @@ export default function Admin_pdf() {
         abstract: '',
         publicationDate: '',
         firstPage: null,
-        pdfFile: null
+        pdfFile: null,
+        imagePreview: null
     });
     const [pdfFiles, setPdfFiles] = useState([]);
     const [pdfBlob, setPdfBlob] = useState([]);
@@ -35,11 +36,25 @@ export default function Admin_pdf() {
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
+        if (files && files[0]) {
+            const file = files[0];
 
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: files ? files[0] : value
-        }));
+            // Create a FileReader to read the file and set the image preview
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: file,
+                    imagePreview: reader.result, // Store the preview URL
+                }));
+            };
+            reader.readAsDataURL(file);
+        } else {
+            setFormData((prevFormData) => ({
+                ...prevFormData,
+                [name]: files ? files[0] : value
+            }));
+        }
     };
 
     const clearFields = () => {
@@ -107,7 +122,7 @@ export default function Admin_pdf() {
     }
 
     const displayEditField = (field_name) => {
-        if (field_name === "title") {
+        if (field_name === "studyTitle") {
             setTextEdit(1);
         }
         if (field_name === "abstract") {
@@ -128,7 +143,7 @@ export default function Admin_pdf() {
     }
 
     const submitEditField = (field_name) => {
-        if (field_name === "title") {
+        if (field_name === "studyTitle") {
             setTextEdit(0);
         }
         if (field_name === "abstract") {
@@ -334,169 +349,185 @@ export default function Admin_pdf() {
                     </button>
                 </div>
             </div>
+
             <div>
-                <ul>
-                    {Array.isArray(sortedPdfFiles) && sortedPdfFiles.length > 0 && sortedPdfFiles.map((pdfFile, index) => (
-                        <div className={`research-page-container-admin ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
-                            <div>
-                                <button onClick={() => deletePdf(pdfFile.id)}>
-                                    Delete Entry
-                                </button>
-                            </div>
-                            <div className='research-page-container-admin-container'>
-                                <div className="right-text">
-                                    <div className="research-paper-text">
-                                        <div className="paper-title">{pdfFile.study_title}</div>
-                                        {showTextEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "title")}>
-                                                <input
-                                                    type="text"
-                                                    name="studyTitle"
-                                                    value={formData.studyTitle}
-                                                    onChange={e => setFormData({ ...formData, studyTitle: e.target.value })}
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showTextEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("title")}>
-                                                    Edit Title
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("title")}>
-                                                    Cancel Edit Title
-                                                </button>
-                                            </div>)}
+                <div className={'research-page-container-admin-example'} >
+                    <div className="right-text">
+                        <div className="research-paper-text">
+                            <div className="paper-title">{formData.studyTitle}</div>
+                            <div className="paper-abstract">{formData.abstract}</div>
+                            <div className="publication-date">{formData.publicationDate}</div>
+                        </div>
+                    </div>
+                    <div className="research-paper-card-container">
+                        <div className='research-paper-card-background'>
+                            <img src={formData.imagePreview} alt="Example" className='pdf-image-1' />
+                            <button className="pdf-download" onClick={() => getPdfDownloadLink(formData.id, formData.file_name)}>
+                                Download {'>'}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {Array.isArray(sortedPdfFiles) && sortedPdfFiles.length > 0 && sortedPdfFiles.map((pdfFile, index) => (
+                    <div className={`research-page-container-admin ${index % 2 === 0 ? 'even' : 'odd'}`} key={index}>
+                        <div>
+                            <button onClick={() => deletePdf(pdfFile.id)}>
+                                Delete Entry
+                            </button>
+                        </div>
+                        <div className='research-page-container-admin-container'>
+                            <div className="right-text">
+                                <div className="research-paper-text">
+                                    <div className="paper-title">{pdfFile.study_title}</div>
+                                    {showTextEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "title")}>
+                                            <input
+                                                type="text"
+                                                name="studyTitle"
+                                                value={formData.studyTitle}
+                                                onChange={e => setFormData({ ...formData, studyTitle: e.target.value })}
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showTextEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("title")}>
+                                                Edit Title
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("title")}>
+                                                Cancel Edit Title
+                                            </button>
+                                        </div>)}
 
 
-                                        <div className="paper-abstract">{pdfFile.abstract}</div>
-                                        {showAbstractEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "abstract")}>
-                                                <input
-                                                    type="text"
-                                                    name="abstract"
-                                                    value={formData.abstract}
-                                                    onChange={e => setFormData({ ...formData, abstract: e.target.value })}
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showAbstractEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("abstract")}>
-                                                    Edit Abstract
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("abstract")}>
-                                                    Cancel Edit Abstract
-                                                </button>
-                                            </div>)}
+                                    <div className="paper-abstract">{pdfFile.abstract}</div>
+                                    {showAbstractEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "abstract")}>
+                                            <input
+                                                type="text"
+                                                name="abstract"
+                                                value={formData.abstract}
+                                                onChange={e => setFormData({ ...formData, abstract: e.target.value })}
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showAbstractEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("abstract")}>
+                                                Edit Abstract
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("abstract")}>
+                                                Cancel Edit Abstract
+                                            </button>
+                                        </div>)}
 
-                                        <div className="publication-date">{pdfFile.publicationDate}</div>
-                                        {showPublicationDateEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "publicationDate")}>
-                                                <input
-                                                    type="text"
-                                                    name="publicationDate"
-                                                    value={formData.publicationDate}
-                                                    onChange={e => setFormData({ ...formData, publicationDate: e.target.value })}
-                                                    placeholder="DD/MM/YYYY"
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showPublicationDateEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("publicationDate")}>
-                                                    Edit Publication Date
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("publicationDate")}>
-                                                    Cancel Edit Publication Date
-                                                </button>
-                                            </div>)}
+                                    <div className="publication-date">{pdfFile.publicationDate}</div>
+                                    {showPublicationDateEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "publicationDate")}>
+                                            <input
+                                                type="text"
+                                                name="publicationDate"
+                                                value={formData.publicationDate}
+                                                onChange={e => setFormData({ ...formData, publicationDate: e.target.value })}
+                                                placeholder="DD/MM/YYYY"
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showPublicationDateEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("publicationDate")}>
+                                                Edit Publication Date
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("publicationDate")}>
+                                                Cancel Edit Publication Date
+                                            </button>
+                                        </div>)}
 
-                                        <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
-                                            Download: {pdfFile.file_name}
-                                        </button>
-                                        {showFileNameEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "fileName")}>
-                                                <input
-                                                    type="text"
-                                                    name="fileName"
-                                                    value={formData.fileName}
-                                                    onChange={e => setFormData({ ...formData, fileName: e.target.value })}
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showFileNameEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("fileName")}>
-                                                    Edit File Name
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("fileName")}>
-                                                    Cancel Edit File Name
-                                                </button>
-                                            </div>)}
+                                    <button onClick={() => getPdfDownloadLink(pdfFile.id, pdfFile.file_name)}>
+                                        Download: {pdfFile.file_name}
+                                    </button>
+                                    {showFileNameEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "fileName")}>
+                                            <input
+                                                type="text"
+                                                name="fileName"
+                                                value={formData.fileName}
+                                                onChange={e => setFormData({ ...formData, fileName: e.target.value })}
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showFileNameEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("fileName")}>
+                                                Edit File Name
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("fileName")}>
+                                                Cancel Edit File Name
+                                            </button>
+                                        </div>)}
 
-                                        {showPdfFileEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "pdfFile")}>
-                                                <input
-                                                    type="file"
-                                                    name="pdfFile"
-                                                    onChange={handleChange}
-                                                    accept=".pdf"
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showPdfFileEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("pdfFile")}>
-                                                    Edit Download File
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("pdfFile")}>
-                                                    Cancel Edit Download File
-                                                </button>
-                                            </div>)}
-                                    </div>
+                                    {showPdfFileEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "pdfFile")}>
+                                            <input
+                                                type="file"
+                                                name="pdfFile"
+                                                onChange={handleChange}
+                                                accept=".pdf"
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showPdfFileEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("pdfFile")}>
+                                                Edit Download File
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("pdfFile")}>
+                                                Cancel Edit Download File
+                                            </button>
+                                        </div>)}
                                 </div>
-                                <div className="research-paper-card-container">
-                                    <div className='research-paper-card-background'>
-                                        {pdfImage[index] && (
-                                            <img src={`data:image/jpeg;base64,${sortedPdfImage[index]}`} alt="Example" className='pdf-image-1' />
-                                        )}
-                                        {showFirstPageEdit === 1 && (
-                                            <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "firstPage")}>
-                                                <input
-                                                    type="file"
-                                                    name="firstPage"
-                                                    onChange={handleChange}
-                                                    accept=".jpg"
-                                                />
-                                                <button type="submit">Update</button>
-                                            </form>
-                                        )}
-                                        {showFirstPageEdit === 0 ? (
-                                            <div>
-                                                <button onClick={() => displayEditField("firstPage")}>
-                                                    Edit First Page
-                                                </button>
-                                            </div>) : (<div>
-                                                <button onClick={() => submitEditField("firstPage")}>
-                                                    Cancel Edit First Page
-                                                </button>
-                                            </div>)}
-                                    </div>
+                            </div>
+                            <div className="research-paper-card-container">
+                                <div className='research-paper-card-background'>
+                                    {pdfImage[index] && (
+                                        <img src={`data:image/jpeg;base64,${sortedPdfImage[index]}`} alt="Example" className='pdf-image-1' />
+                                    )}
+                                    {showFirstPageEdit === 1 && (
+                                        <form onSubmit={(event) => handleUpdate(event, pdfFile.id, "firstPage")}>
+                                            <input
+                                                type="file"
+                                                name="firstPage"
+                                                onChange={handleChange}
+                                                accept=".jpg"
+                                            />
+                                            <button type="submit">Update</button>
+                                        </form>
+                                    )}
+                                    {showFirstPageEdit === 0 ? (
+                                        <div>
+                                            <button onClick={() => displayEditField("firstPage")}>
+                                                Edit First Page
+                                            </button>
+                                        </div>) : (<div>
+                                            <button onClick={() => submitEditField("firstPage")}>
+                                                Cancel Edit First Page
+                                            </button>
+                                        </div>)}
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </ul>
+                    </div>
+                ))}
             </div >
         </div >
     );
