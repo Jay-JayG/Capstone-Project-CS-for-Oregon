@@ -1,3 +1,9 @@
+
+.AdminPageTitle {
+    font-size: 2.25vh;
+    font-family: Montserrat;
+
+}
 .news-and-features-page-container {
     padding: 2%;
     background-color: #E3E7EF;
@@ -9,8 +15,8 @@
 .news-cards-container {
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
     justify-content: space-evenly;
+    flex-direction: row;
 }
 
 .news-cards-background {
@@ -62,6 +68,11 @@
     padding: 3%;
 }
 
+.news-edit-button{
+   padding: 2% 0 2% 0;
+
+   margin: 2% 30% 2% 30%;
+}
 
 .news-object-list {}
 

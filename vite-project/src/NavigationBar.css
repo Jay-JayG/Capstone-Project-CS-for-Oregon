@@ -350,7 +350,7 @@
     padding: 0 5px;
 }
 
-button {
+/* button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 18px;
@@ -359,7 +359,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 .NavLinksContainer .navLink:focus {
     outline: 4px solid #000000;

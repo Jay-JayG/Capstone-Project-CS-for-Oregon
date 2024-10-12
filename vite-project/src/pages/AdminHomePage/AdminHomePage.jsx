@@ -4,9 +4,10 @@ export default function AdminHomePage() {
     return (
         <div className='admin-home-page-container'>
             <div className='links-container'>
-                <Link to={`/adminPage`} className='link-to-page'>News & Events Admin Page</Link>
-                <Link to={`/pdfPage`} className='link-to-page'>PDF Reseach Papers Admin Page</Link>
+                <Link to={`/adminPage`} className='link-to-page'>Events</Link>
+                <Link to={`/pdfPage`} className='link-to-page'>PDF Research Papers</Link>
                 <Link to={`/NewsAdminPage`} className='link-to-page'>News</Link>
+                <Link to={`/BannerAdminPage`} className='link-to-page'>Banner</Link>
             </div>
         </div>
     );

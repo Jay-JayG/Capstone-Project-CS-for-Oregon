@@ -77,16 +77,7 @@ export default function AdminPage() {
     }
 
     useEffect(() => {
-        const getObjects = async () => {
-            try {
-                const res = await axios.get(`${apiBaseUrl}events.php`);
-                // const res = await axios.get("http://localhost/events.php"); // For local development
-                setObjects(res.data);
-            } catch (error) {
-                console.log('Error retrieving objects', error);
-            }
-        };
-        getObjects('news');
+        getObjects();
     }, []);
 
     const getObjects = async () => {
@@ -104,9 +95,8 @@ export default function AdminPage() {
             await axios.delete(`${apiBaseUrl}events.php?id=${id}`);
             // await axios.delete(`http://localhost/events.php?id=${id}`); // For local development
             // After successful deletion, fetch data again to update the UI
-            const res = await axios.get(`${apiBaseUrl}events.php`);
+            getObjects();
             // const res = await axios.get("http://localhost/events.php"); // For local development
-            setObjects(res.data);
         } catch (error) {
             console.log('Error deleting object', error);
         }
@@ -152,8 +142,7 @@ export default function AdminPage() {
         try {
             const editedObject = objects.find(obj => obj.id === id);
             console.log('Edited Object:', editedObject);
-            const res = await axios.put(`${apiBaseUrl}events.php?id=${id}`, editedObject);
-            // await axios.put(`http://localhost/events.php?id=${id}`, editedObject); // For local development
+            const res = await axios.put(`${apiBaseUrl}banner.php?id=${id}`, editedObject);
             setSubmitted(true);
             setTimeout(() => {
                 setSubmitted(false);

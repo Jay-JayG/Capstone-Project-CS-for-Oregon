@@ -25,10 +25,11 @@ import max from '/src/assets/Skordinsky_Max.webp';
 import eva from '/src/assets/Skuratowicz_Eva.webp';
 import jen from '/src/assets/Tuttle_Jen.webp';
 import maggie from '/src/assets/Vanderberg_Maggie.webp';
+import sue from '/src/assets/WIlson_Sue.webp';
 
 
 
-function AboutBoxes(){
+function AboutBoxes() {
 
     return (
         <div className="BoxesContainer">
@@ -45,11 +46,11 @@ function AboutBoxes(){
                 <div className="BoxContent"> STEM Specialist, Oregon Department of Education </div>
             </div>
 
-            
+
             <div className="AboutSectionBoxes">
                 <img src={michelle} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Michelle Balmeo</div>
-                <div className="BoxContent"> CS & Language Arts Teacher, 
+                <div className="BoxContent"> CS & Language Arts Teacher,
                     <a href="https://wahs.albany.k12.or.us/"> West Albany High School, West Albany School District</a>
                     , ECS Facilitator, Social Justice Teacher Leader
                 </div>
@@ -64,7 +65,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={james} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">James Cagney</div>
-                <div className="BoxContent">Assistant Professor, Computer Information Systems Specialist, <a href="https://www.cocc.edu/" target="_blank">Central Oregon Community College</a>, <a href = "https://ecepalliance.org/" target="_blank"> ECEP Oregon </a> </div>
+                <div className="BoxContent">Assistant Professor, Computer Information Systems Specialist, <a href="https://www.cocc.edu/" target="_blank">Central Oregon Community College</a>, <a href="https://ecepalliance.org/" target="_blank"> ECEP Oregon </a> </div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -168,7 +169,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jeff} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jeff Rhoades</div>
-                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a>, <a href = "https://ecepalliance.org/" target="_blank"> ECEP Oregon </a></div>
+                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a>, <a href="https://ecepalliance.org/" target="_blank"> ECEP Oregon </a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -202,15 +203,15 @@ function AboutBoxes(){
             </div>
 
             <div className="AboutSectionBoxes">
-                
+                <img src={sue} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Sue Willson</div>
                 <div className="BoxContent"><a href="https://www.mapleton.k12.or.us/" target="_blank">Superintendent, Mapleton School District  </a></div>
             </div>
 
 
-            
 
-            
+
+
         </div>
     );
 

@@ -16,14 +16,17 @@
 }
 
 .AdminPageForm {
+    
 }
 
 .AdminPageFormFieldDiv {
     padding: 5%;
+    display: flex;
+    flex-direction: column;
 }
 
 .AdminPageFormField {
-
+    align-self: center;
 }
 
 .AdminPageSubmitBotton {

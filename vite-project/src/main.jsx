@@ -15,10 +15,12 @@ import Footer from './Footer';
 import SpotlightPage from './pages/NewsAndFeatures/SpotlighPage/SpotligPage';
 import Policy from './pages/PolicyPage/Policy';
 import './styles.css';
+import './main.css';
 import ResearchPage from './pages/ResearchPage.jsx/ResearchPage';
 import PdfPage from './pages/AdminPage/Admin_pdf';
 import AdminHome from './pages/AdminHomePage/AdminHomePage';
 import NewsAdminPage from './pages/AdminPage/NewsAdminPage/NewsAdminPage';
+import BannerAdminPage from './pages/AdminPage/BannerAdminPage/BannerAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -41,6 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/admin" element={<AdminHome />} />
         <Route path="/NewsAdminPage" element={<NewsAdminPage />} />
+        <Route path="/BannerAdminPage" element={<BannerAdminPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

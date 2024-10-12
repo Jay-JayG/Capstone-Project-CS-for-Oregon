@@ -1,15 +1,44 @@
-import React from 'react';
 import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import './Header.css';
+import axios from 'axios';
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 function Header(){
 
+    const [formData, setFormData] = useState({
+        banner_text: '',
+        banner_link: '',
+        banner_link_text: ''
+    });
+
+    const [objects, setObjects] = useState([]);
+
+    useEffect(() => {
+        getObjects();
+    }, []);
+
+    const getObjects = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}banner.php`);
+            const data = Array.isArray(res.data) ? res.data : [];
+            setObjects(data);
+            console.log(data)
+
+        } catch (error) {
+            console.log('Error retrieving objects', error);
+        }
+    };
+
     return (
         <header className="header">
-            <h1>
-                Summer Equity Symposium July 29 - August 2, 2024 | <Link to={`/SummerOfCS`} className="HeaderLink">LEARN MORE!</Link>
-            </h1>
+            
+                {objects.length > 0 ? (
+                    <h1>
+                        {objects[0].banner_text}<Link to={objects[0].banner_link} className="HeaderLink">{objects[0].banner_link_text}</Link>
+                    </h1>
+                ) : (<></>) }
         </header>
     );
 }

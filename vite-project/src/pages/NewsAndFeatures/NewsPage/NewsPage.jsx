@@ -40,7 +40,7 @@ export default function NewsAndFeaturesPage() {
             <div className='news-cards-container'>
                 {filteredObjects.map((obj, index) => (
                     <div key={index} className='news-cards-background'>
-                        <a className='news-card-title' href={obj.bold} target='_blank'>{obj.title}</a>
+                        <a className='news-card-title' href={obj.link} target='_blank'>{obj.title}</a>
                     <div className='news-card-description'>{obj.what}</div>
                     <div className='news-card-date'>{obj.when_date}</div>
                     </div>

@@ -1,5 +1,5 @@
-import CSSummerPhoto from '/src/assets/summer_of_cs_photo.png';
-import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.png';
+import CSSummerPhoto from '/src/assets/summer_of_cs_photo.webp';
+import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.webp';
 import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import './SummerOfCS.css';
