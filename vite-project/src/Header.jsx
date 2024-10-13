@@ -21,7 +21,7 @@ function Header(){
 
     const getObjects = async () => {
         try {
-            const res = await axios.get(`${apiBaseUrl}banner.php`);
+            const res = await axios.get(`${apiBaseUrl}get_headder.php`);
             const data = Array.isArray(res.data) ? res.data : [];
             setObjects(data);
             console.log(data)

@@ -25,10 +25,18 @@ export default function BannerAdminPage() {
 
     const [editFormVisibility, setEditFormVisibility] = useState({});
 
-    const handleToggleEdit = (id) => {
+    const handleToggleEdit = (id, obj, fill=false) => {
         setEditFormVisibility((prev) => {
             const newVisability = {};
             newVisability[id] = !prev[id];
+            if (fill) {
+                const mergedData = {
+                    ...obj
+                };
+                setEditedFormData(mergedData);
+                console.log(formEditedData);
+                console.log(fill);
+            }
             return newVisability;
         });
     };
@@ -39,7 +47,7 @@ export default function BannerAdminPage() {
 
     const getObjects = async () => {
         try {
-            const res = await axios.get(`${apiBaseUrl}banner.php`);
+            const res = await axios.get(`${apiBaseUrl}get_headder.php`);
             const data = Array.isArray(res.data) ? res.data : [];
             setObjects(data);
         } catch (error) {
@@ -60,7 +68,7 @@ export default function BannerAdminPage() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post(`${apiBaseUrl}banner.php`, formData);
+            const res = await axios.post(`${apiBaseUrl}get_headder.php`, formData);
             console.log('Object uploaded successfullyy:', res.data);
             setSubmitted(true);
             setFormData({
@@ -78,10 +86,18 @@ export default function BannerAdminPage() {
         }
     }
 
-    const handleSubmitEdit = async (event, id) => {
+    const handleSubmitEdit = async (event, id, obj) => {
         event.preventDefault();
         try {
-            const res = await axios.put(`${apiBaseUrl}banner.php?id=${id}`, formEditedData);
+
+            const mergedData = {
+                ...obj, // Original values
+                ...Object.fromEntries( // Overwrite only the non-null values from formEditedData
+                    Object.entries(formEditedData).filter(([key, value]) => value !== '' && value !== null)
+                )
+            };
+
+            const res = await axios.put(`${apiBaseUrl}get_headder.php?id=${id}`, mergedData);
             console.log('Object uploaded successfullyy:', res.data);
             setEditFormVisibility((prev) => ({
                 ...prev,
@@ -95,13 +111,13 @@ export default function BannerAdminPage() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`${apiBaseUrl}banner.php?id=${id}`);
+            await axios.delete(`${apiBaseUrl}get_headder.php?id=${id}`);
             getObjects();
         } catch (error) {
             console.log('Error deleting object', error);
         }
     };
-    
+
 
     useEffect(() => {
         if (editFormVisibility[objects.id]) {
@@ -116,10 +132,10 @@ export default function BannerAdminPage() {
     return (
         <div className='AdminPageContainer'>
             <p className='AdminPageTitle'>Admin Page</p>
-            <p style={{'text-align': 'center'}}>This is the admin page to change the banner at the top the entire site.</p>
-            <p style={{'text-align': 'center'}}>If you would like no banner at the top delete the current banner below.</p>
-            <p style={{'text-align': 'center'}}>Only one banner can be used at a time.</p>
-            <p style={{'text-align': 'center'}}>Please ensure the banner you want is the first and only banner in the data base.</p>
+            <p style={{ 'textAlign': 'center' }}>This is the admin page to change the banner at the top the entire site.</p>
+            <p style={{ 'textAlign': 'center' }}>If you would like no banner at the top delete the current banner below.</p>
+            <p style={{ 'textAlign': 'center' }}>Only one banner can be used at a time.</p>
+            <p style={{ 'textAlign': 'center' }}>Please ensure the banner you want is the first and only banner in the data base.</p>
             {submitted ? <p className='AdminPageSubmittedText'>Submitted</p> : null}
             <div className='AdminPageFormContainer'>
                 <form className='AdminPageForm' onSubmit={handleSubmit}>
@@ -175,11 +191,12 @@ export default function BannerAdminPage() {
                     </header>
                     {editFormVisibility[obj.id] && (
                         <div className='AdminPageFormContainer'>
-                            <form className='AdminPageForm' onSubmit={(e) => handleSubmitEdit(e, obj.id)}>
+                            <form className='AdminPageForm' onSubmit={(e) => handleSubmitEdit(e, obj.id, obj)}>
                                 <div className='AdminPageFormFieldDiv'>
                                     <input
                                         onChange={(e) => handleInputChange(e, true)}
-                                        value={formEditedData.banner_text || obj.banner_text}
+                                        // defaultValue={obj.banner_text} 
+                                        value={formEditedData.banner_text}
                                         className='AdminPageFormField'
                                         placeholder='Banner Text'
                                         name='banner_text'
@@ -189,7 +206,8 @@ export default function BannerAdminPage() {
                                 <div className='AdminPageFormFieldDiv'>
                                     <input
                                         onChange={(e) => handleInputChange(e, true)}
-                                        value={formEditedData.banner_link || obj.banner_link}
+                                        // defaultValue={obj.banner_link}
+                                        value={formEditedData.banner_link}
                                         className='AdminPageFormField'
                                         placeholder='http://your-link-url.com'
                                         name='banner_link'
@@ -199,7 +217,8 @@ export default function BannerAdminPage() {
                                 <div className='AdminPageFormFieldDiv'>
                                     <input
                                         onChange={(e) => handleInputChange(e, true)}
-                                        value={formEditedData.banner_link_text || obj.banner_link_text}
+                                        // defaultValue={obj.banner_link_text}
+                                        value={formEditedData.banner_link_text}
                                         className='AdminPageFormField'
                                         placeholder='Text That Appears Inplace of url'
                                         name='banner_link_text'
@@ -215,9 +234,12 @@ export default function BannerAdminPage() {
                         </div>
                     )}
                     <div className='flex-rows-center'>
-                        <button className='object-delete-button' onClick={() => handleToggleEdit(obj.id)}>
-                            {editFormVisibility[obj.id] ? 'Cancel Edit' : 'Edit'}
-                        </button>
+                        {editFormVisibility[obj.id] ? (<button className='object-delete-button' onClick={() => handleToggleEdit(obj.id, obj)}>
+                            Cancel Edit
+                        </button>) : (
+                            <button className='object-delete-button' onClick={() => handleToggleEdit(obj.id, obj, true)}>
+                                Edit
+                            </button>)}
                         <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>
                             Delete
                         </button>
