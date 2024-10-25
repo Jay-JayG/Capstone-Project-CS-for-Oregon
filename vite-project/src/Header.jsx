@@ -36,7 +36,7 @@ function Header(){
             
                 {objects.length > 0 ? (
                     <h1>
-                        {objects[0].banner_text}<Link to={objects[0].banner_link} className="HeaderLink">{objects[0].banner_link_text}</Link>
+                        {objects[0].banner_text}<a href={objects[0].banner_link} className="HeaderLink">{objects[0].banner_link_text}</a>
                     </h1>
                 ) : (<></>) }
         </header>

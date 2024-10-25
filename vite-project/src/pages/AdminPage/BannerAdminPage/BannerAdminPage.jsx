@@ -150,6 +150,7 @@ export default function BannerAdminPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
+                    <p>Note: Include http:// or https:// in your link or your link will have https://csfororegon.org/ added to the font of it.</p>
                         <input
                             onChange={(e) => handleInputChange(e)}
                             value={formData.banner_link}
@@ -171,7 +172,7 @@ export default function BannerAdminPage() {
                     </div>
                     <header className="header">
                         <h1>
-                            {formData.banner_text}<Link to={formData.banner_link} className="HeaderLink">{formData.banner_link_text ? formData.banner_link_text : formData.banner_link}</Link>
+                            {formData.banner_text}<a href={formData.banner_link} className="HeaderLink">{formData.banner_link_text ? formData.banner_link_text : formData.banner_link}</a>
                         </h1>
                     </header>
                     <div className='AdminPageFormFieldDiv'>
@@ -186,7 +187,7 @@ export default function BannerAdminPage() {
                 <div key={obj.id} className='object'>
                     <header className="header">
                         <h1>
-                            {obj.banner_text}<Link to={obj.banner_link} className="HeaderLink">{obj.banner_link_text ? obj.banner_link_text : obj.banner_link}</Link>
+                        {objects[0].banner_text}<a href={objects[0].banner_link} className="HeaderLink">{objects[0].banner_link_text}</a>
                         </h1>
                     </header>
                     {editFormVisibility[obj.id] && (
@@ -203,7 +204,9 @@ export default function BannerAdminPage() {
                                         size='50'
                                     />
                                 </div>
+                                
                                 <div className='AdminPageFormFieldDiv'>
+                                <p>Note: Include http:// or https:// in your link or your link will have https://csfororegon.org/ added to the font of it.</p>
                                     <input
                                         onChange={(e) => handleInputChange(e, true)}
                                         // defaultValue={obj.banner_link}
