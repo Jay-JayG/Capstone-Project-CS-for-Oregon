@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import '../../../Header.css';
+import { useBanner } from '../../../BannerContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export default function BannerAdminPage() {
+
+    const { bannerData, updateBannerData } = useBanner();
 
     const [formData, setFormData] = useState({
         banner_text: '',
@@ -103,6 +106,7 @@ export default function BannerAdminPage() {
                 ...prev,
                 [id]: false, // Set visibility of the form for this object to false
             }));
+            updateBannerData(mergedData);
             getObjects();
         } catch (error) {
             console.log('Error updating object', error);

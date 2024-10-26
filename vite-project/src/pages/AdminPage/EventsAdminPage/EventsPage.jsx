@@ -1,11 +1,11 @@
-import './Admin.css';
+import './EventsPage.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 
-export default function AdminPage() {
+export default function EventsPage() {
 
     const [formData, setFormData] = useState({
         title: '',
@@ -157,7 +157,7 @@ export default function AdminPage() {
 
     return (
         <div className='AdminPageContainer'>
-            <p className='AdminPageTitle'>Admin Page</p>
+            <p className='AdminPageTitle'>Events Admin Page</p>
             {submitted ? <p className='AdminPageSubmittedText'>Submitted</p> : null}
             <div className='AdminPageFormContainer'>
                 <form className='AdminPageForm' onSubmit={handleSubmit}>
