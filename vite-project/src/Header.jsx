@@ -10,29 +10,6 @@ function Header(){
 
     const { bannerData } = useBanner();
 
-    // const [formData, setFormData] = useState({
-    //     banner_text: '',
-    //     banner_link: '',
-    //     banner_link_text: ''
-    // });
-
-    // const [objects, setObjects] = useState([]);
-
-    // useEffect(() => {
-    //     getObjects();
-    // }, []);
-
-    // const getObjects = async () => {
-    //     try {
-    //         const res = await axios.get(`${apiBaseUrl}get_headder.php`);
-    //         const data = Array.isArray(res.data) ? res.data : [];
-    //         setObjects(data);
-
-    //     } catch (error) {
-    //         console.log('Error retrieving objects', error);
-    //     }
-    // };
-
     return (
         <header className="header">
             

@@ -22,6 +22,7 @@ import AdminHome from './pages/AdminHomePage/AdminHomePage';
 import NewsAdminPage from './pages/AdminPage/NewsAdminPage/NewsAdminPage';
 import BannerAdminPage from './pages/AdminPage/BannerAdminPage/BannerAdminPage';
 import { BannerProvider } from './BannerContext';
+import MajorEventsAdminPage from './pages/AdminPage/MajorEventsAdminPage/MajorEventsAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -36,7 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/educators" element={<Educators />} />
           <Route path="/summerOfCS" element={<SummerOfCS />} />
           <Route path="/researchAndPolicy" element={<ResearchAndPolicy />} />
-          <Route path="/adminPage" element={<EventsAdminPage />} />
+          <Route path="/EventsAdminPage" element={<EventsAdminPage />} />
           <Route path="/pdfPage" element={<PdfPage />} />
           <Route path="/news" element={<NewsAndFeaturesPage />} />
           <Route path="/events" element={<EventsPage />} />
@@ -45,7 +46,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/research" element={<ResearchPage />} />
           <Route path="/admin" element={<AdminHome />} />
           <Route path="/NewsAdminPage" element={<NewsAdminPage />} />
-          <Route path="/BannerAdminPage" element={<BannerAdminPage />} />\
+          <Route path="/BannerAdminPage" element={<BannerAdminPage />} />
+          <Route path="/MajorEventsAdminPage" element={<MajorEventsAdminPage />} />
         </Routes>
         <Footer />
       </BannerProvider>
