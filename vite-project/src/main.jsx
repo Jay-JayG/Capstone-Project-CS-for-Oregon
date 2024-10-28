@@ -23,7 +23,7 @@ import NewsAdminPage from './pages/AdminPage/NewsAdminPage/NewsAdminPage';
 import BannerAdminPage from './pages/AdminPage/BannerAdminPage/BannerAdminPage';
 import { BannerProvider } from './BannerContext';
 import MajorEventsAdminPage from './pages/AdminPage/MajorEventsAdminPage/MajorEventsAdminPage';
-import MajorEventsAdminPage2 from './MajorEventsAdminPage2';
+import WinterOfCS from './pages/WinterEventpage/WinterOfCS';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -37,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/about" element={<About />} />
           <Route path="/educators" element={<Educators />} />
           <Route path="/summerOfCS" element={<SummerOfCS />} />
+          <Route path="/winterOfCS" element={<WinterOfCS />} />
           <Route path="/researchAndPolicy" element={<ResearchAndPolicy />} />
           <Route path="/EventsAdminPage" element={<EventsAdminPage />} />
           <Route path="/pdfPage" element={<PdfPage />} />
@@ -49,7 +50,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/NewsAdminPage" element={<NewsAdminPage />} />
           <Route path="/BannerAdminPage" element={<BannerAdminPage />} />
           <Route path="/MajorEventsAdminPage" element={<MajorEventsAdminPage />} />
-          <Route path="/MajorEventsAdminPage2" element={<MajorEventsAdminPage2 />} />
         </Routes>
         <Footer />
       </BannerProvider>

@@ -1,0 +1,97 @@
+import CSSummerPhoto from '/src/assets/summer_of_cs_photo.webp';
+import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.webp';
+import ECSLogo from '/src/assets/ECS-Logo-.png';
+import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+console.log("API Base URL:", apiBaseUrl); // Add this line to verify
+
+
+
+export default function WinterOfCS() {
+    const [objects, setObjects] = useState([]);
+    const [events, setEvents] = useState([]);
+
+    const getEvents = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}events.php`);
+            // const res = await axios.get('http://localhost/events.php'); // For local development
+            setEvents(res.data);
+        } catch (error) {
+            console.log('Error retrieving objects', error);
+        }
+    };
+
+    const getObjects = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}majorevents.php`);
+            setObjects(res.data);
+            console.log(res.data);
+        } catch (error) {
+            console.log('Error retrieving objects', error);
+        }
+    }
+
+    useEffect(() => {
+        getObjects();
+        getEvents();
+        console.log(objects)
+        console.log("events", events)
+    }, []);
+
+    return (
+        <div id="main-content">
+            {objects.filter(obj => obj.event_season === "1").map((obj, index) => (
+                <div id="main-content">
+                    <div key={index} className='SummerOfCSSupercontainer'>
+                        <div className="SummerOfCScontainer">
+                            <div className="SummerOfCSHeaderContainer">
+                                <div className="SummerOfCSHeaderContainerText">
+                                    <div className='SummerOfCSHeaderContainerTextHeader'>{obj.header}</div>
+                                    <div className='SummerOfCSHeaderContainerTextBody'>{obj.organization}</div>
+                                    <div className='SummerOfCSHeaderContainerTextBody'>{obj.location}</div>
+                                    <div className='SummerOfCSHeaderContainerTextBody'>{obj.date_range}</div>
+                                    {/* <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" /> */}
+                                </div>
+                                <div className='SummerOfCSHeaderPhotoContainer'>
+                                    {/* <img className="SummerOfCSHeaderPhoto" src={CSSummerPhoto} alt="Summer Equity Symposium Group Photo" /> */}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='SummerOfCSSummary'>
+                            <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span>{obj.event_description}</div>
+                        </div>
+                    </div>
+
+                    <div className='summer-of-cs-event-cards-container'>
+                        {events.filter(event => event.major_event_type === obj.event_season)
+                        .map((event, index) => (
+                            <div key={index} className='event-cards-background'>
+                                <div className='event-card-title'>{event.title}</div>
+                                <div className='event-card-description'><span className='event-bold-text'>What: {event.bold} </span>{event.what}</div>
+                                <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{event.who}</div>
+                                <div className='event-card-date'>{event.when_date}</div>
+                                {event.is_full === "1" ? (
+                                    <div className='event-full'>
+                                        <h3>Event Full</h3>
+                                        We're sorry, but this event is currently at full capacity. Stay tuned for future opportunities.
+                                    </div>
+                                ) : null}
+                                <div className='event-buttons-container'>
+                                    <a className='event-buttons-Flyer' href={event.flyer_link} target='_blank'>Event Flyer</a>
+                                    {event.is_full === "1" ? (
+                                        <div className='event-buttons-Flyer-disabled'>Event Full</div>
+                                    ) : <a className='event-buttons-Flyer' href={event.apply_link} target='_blank'>Apply Here</a>}
+                                </div>
+
+                            </div>
+                        ))}
+                    </div>
+
+                </div>
+            ))}
+        </div>
+    );
+};
