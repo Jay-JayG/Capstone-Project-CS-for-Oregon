@@ -96,7 +96,7 @@ export default function BannerAdminPage() {
             const mergedData = {
                 ...obj, // Original values
                 ...Object.fromEntries( // Overwrite only the non-null values from formEditedData
-                    Object.entries(formEditedData).filter(([key, value]) => value !== '' && value !== null)
+                    Object.entries(formEditedData).filter(([key, value]) => value !== null)
                 )
             };
 

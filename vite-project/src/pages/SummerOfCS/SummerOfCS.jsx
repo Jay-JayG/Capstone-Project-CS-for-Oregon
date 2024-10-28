@@ -52,7 +52,7 @@ export default function SummerOfCS() {
                 <div className='summer-of-cs-event-cards-container'>
                     {filteredObjects.map((obj, index) => (
                         <div key={index} className='event-cards-background'>
-                            <div className='event-card-title' href={obj.bold}>{obj.title}</div>
+                            <div className='event-card-title'>{obj.title}</div>
                             <div className='event-card-description'><span className='event-bold-text'>What: {obj.bold} </span>{obj.what}</div>
                             <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{obj.who}</div>
                             <div className='event-card-date'>{obj.when_date}</div>

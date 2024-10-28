@@ -15,7 +15,8 @@ export default function EventsPage() {
         when_date: '',
         is_full: 0,
         flyer_link: '',
-        apply_link: ''
+        apply_link: '',
+        major_event_type: 0
     });
 
     const [objects, setObjects] = useState([]);
@@ -51,9 +52,15 @@ export default function EventsPage() {
         setFormData({ ...formData, apply_link: event.target.value });
     }
 
+    const handleRadioChange = (event) => {
+        setFormData({ ...formData, major_event_type: Number(event.target.value) });
+    };
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            console.log(formData);
             const res = await axios.post(`${apiBaseUrl}events.php`, formData);
             console.log('Object uploaded successfullyy:', res.data);
             setSubmitted(true);
@@ -65,7 +72,8 @@ export default function EventsPage() {
                 when_date: '',
                 is_full: 0,
                 flyer_link: '',
-                apply_link: ''
+                apply_link: '',
+                major_event_type: 0
             });
             setTimeout(() => {
                 setSubmitted(false);
@@ -225,10 +233,18 @@ export default function EventsPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
+                        <input
+                            onChange={handleRadioChange}
+                            value={formData.major_event_type}
+                            className='AdminPageFormField'
+                            placeholder='major_event_type'
+                            name='major_event_type'
+                        />
+                    </div>
+                    <div className='AdminPageFormFieldDiv'>
                         <button className='AdminPageSubmitBotton' type='submit'>
                             Submit
                         </button>
-                        
                     </div>
                 </form>
             </div>
