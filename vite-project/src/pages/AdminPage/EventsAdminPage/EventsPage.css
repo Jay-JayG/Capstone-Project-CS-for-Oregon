@@ -12,27 +12,31 @@
 }
 .AdminPageFormContainer {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .AdminPageForm {
-    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .AdminPageFormFieldDiv {
-    padding: 5%;
+    padding: 2%;
     display: flex;
-    flex-direction: column;
+    text-wrap: wrap;
 }
 
 .AdminPageFormField {
     align-self: center;
 }
 
-.AdminPageSubmitBotton {
+.AdminPageSubmitButton {
     padding: 5%;
     align-self: center;
     margin-top: 20px;
+    margin-right: 20px;
     padding: 10px 20px;
     font-size: 18px;
     background-color: #E8805E;

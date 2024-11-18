@@ -21,7 +21,7 @@ import PdfPage from './pages/AdminPage/ResearchPaperAdminPage/Admin_pdf';
 import AdminHome from './pages/AdminHomePage/AdminHomePage';
 import NewsAdminPage from './pages/AdminPage/NewsAdminPage/NewsAdminPage';
 import BannerAdminPage from './pages/AdminPage/BannerAdminPage/BannerAdminPage';
-import { BannerProvider } from './BannerContext';
+import { AppProviders  } from './Contexts';
 import MajorEventsAdminPage from './pages/AdminPage/MajorEventsAdminPage/MajorEventsAdminPage';
 import WinterOfCS from './pages/WinterEventpage/WinterOfCS';
 
@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <a href="#main-content" className="skip-link">Skip to main content</a>
-      <BannerProvider>
+      <AppProviders>
         <Header />
         <NavigationBar />
         <Routes>
@@ -52,7 +52,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/MajorEventsAdminPage" element={<MajorEventsAdminPage />} />
         </Routes>
         <Footer />
-      </BannerProvider>
+      </AppProviders>
     </BrowserRouter>
   </React.StrictMode>,
 );

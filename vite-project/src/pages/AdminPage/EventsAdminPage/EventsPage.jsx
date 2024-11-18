@@ -1,4 +1,5 @@
 import './EventsPage.css';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -16,8 +17,20 @@ export default function EventsPage() {
         is_full: 0,
         flyer_link: '',
         apply_link: '',
-        major_event_type: 0
+        major_event_associated: ''
     });
+
+    const [EventPages, setEventPages] = useState([]);
+
+    const getEventPages = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}majorevents.php`);
+            const data = Array.isArray(res.data) ? res.data : [];
+            setEventPages(data);
+        } catch (error) {
+            console.log('Error retrieving EventPages', error);
+        }
+    };
 
     const [objects, setObjects] = useState([]);
 
@@ -53,7 +66,8 @@ export default function EventsPage() {
     }
 
     const handleRadioChange = (event) => {
-        setFormData({ ...formData, major_event_type: Number(event.target.value) });
+        setFormData({ ...formData, major_event_associated: event.target.value });
+        console.log("Selected Event ID:", event.target.value);
     };
 
 
@@ -73,7 +87,7 @@ export default function EventsPage() {
                 is_full: 0,
                 flyer_link: '',
                 apply_link: '',
-                major_event_type: 0
+                major_event_associated: 0
             });
             setTimeout(() => {
                 setSubmitted(false);
@@ -86,6 +100,8 @@ export default function EventsPage() {
 
     useEffect(() => {
         getObjects();
+        getEventPages();
+        console.log("Test1: ", EventPages);
     }, []);
 
     const getObjects = async () => {
@@ -165,7 +181,7 @@ export default function EventsPage() {
 
     return (
         <div className='AdminPageContainer'>
-            <p className='AdminPageTitle'>Events Admin Page</p>
+            <p className='AdminPageTitle'>Event Card Admin Page</p>
             {submitted ? <p className='AdminPageSubmittedText'>Submitted</p> : null}
             <div className='AdminPageFormContainer'>
                 <form className='AdminPageForm' onSubmit={handleSubmit}>
@@ -233,19 +249,34 @@ export default function EventsPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <input
-                            onChange={handleRadioChange}
-                            value={formData.major_event_type}
-                            className='AdminPageFormField'
-                            placeholder='major_event_type'
-                            name='major_event_type'
-                        />
+                        If you want an Event Card to show on an Event Page select the event page below.<br /> To not associate a card with an Event Pgae select None.
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <button className='AdminPageSubmitBotton' type='submit'>
+                        <label>
+                            <input
+                                type="radio"
+                                name="major_event"
+                                value="None"
+                                onChange={handleRadioChange}
+                            />
+                            None
+                        </label>
+                        {EventPages.length > 0 ? (EventPages.map((event, index) => (<label key={event.id || index}>
+                            <input
+                                type="radio"
+                                name="major_event"
+                                value={event.header}
+                                onChange={handleRadioChange}
+                            />
+                            {event.header}</label>
+                        ))
+                        ) : null}
+                    </div>
+                    <div className='AdminPageFormFieldDiv'>
+                        <button className='AdminPageSubmitButton' type='submit'>
                             Submit
                         </button>
-                    </div>
+                    </div >
                 </form>
             </div>
 

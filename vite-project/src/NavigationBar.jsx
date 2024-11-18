@@ -23,6 +23,18 @@ export default function NavigationBar() {
     });
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
 
+    const [EventPages, setEventPages] = useState([]);
+
+    const getEventPages = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}majorevents.php`);
+            const data = Array.isArray(res.data) ? res.data : [];
+            setEventPages(data);
+        } catch (error) {
+            console.log('Error retrieving EventPages', error);
+        }
+    };
+
     const { name, title, employer, email, contact } = formData;
 
     // add or remove initial form fields here.
@@ -38,7 +50,7 @@ export default function NavigationBar() {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 950);
         };
-
+        getEventPages();
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
@@ -88,7 +100,7 @@ export default function NavigationBar() {
         }
     };
     const closeBtn = (event) => {
-            setShowPopup(false);
+        setShowPopup(false);
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -188,25 +200,38 @@ export default function NavigationBar() {
                             </div>
                             <div className="item-dropdown">
                                 <span className="dropdown">
-                                    NEWS & EVENTS
+                                    <NavLink to="/events">EVENTS</NavLink>
                                     <div className="dropdown-content">
-                                        <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>NEWS</NavLink>
-                                        <NavLink to="/events" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>EVENTS</NavLink>
+                                        <NavLink
+                                            to="/summerOfCS"
+                                            className={({ isActive }) =>
+                                                isActive ? "active" : "inactive"
+                                            }
+                                        >
+                                            SUMMER EQUITY SYMPOSIUM
+                                        </NavLink>
+                                        {EventPages.filter(obj => obj.hidden === "0")
+                                            .map((obj) => (
+                                                <NavLink key={obj.id} to="/winterofcs" style={{ textTransform: 'uppercase' }}>{obj.header}</NavLink>))}
+                                        {/* <NavLink to="/events" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>EVENTS</NavLink> */}
                                     </div>
                                 </span>
                             </div>
+                            <div className="item3">
+                                <NavLink
+                                    to="/news"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    NEWS
+                                </NavLink>
+                            </div>
                         </>
                     )}
-                    <div className="item5">
-                        <NavLink
-                            to="/summerOfCS"
-                            className={({ isActive }) =>
-                                isActive ? "active" : "inactive"
-                            }
-                        >
-                            SUMMER EQUITY SYMPOSIUM
-                        </NavLink>
-                    </div>
+                    {/* <div className="item5">
+
+                    </div> */}
                     <a href='#' className="item6" onClick={togglePopup}>
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
                     </a>
@@ -216,9 +241,9 @@ export default function NavigationBar() {
             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                    <button className="close-btn" onClick={closeBtn}>
-                        <img src={x} alt="Close" />
-                    </button>
+                        <button className="close-btn" onClick={closeBtn}>
+                            <img src={x} alt="Close" />
+                        </button>
                         <h2>Contact Information</h2>
                         <div className="input-container">
                             <input type="text" id="name" name="name" value={name} onChange={handleInputChange} />

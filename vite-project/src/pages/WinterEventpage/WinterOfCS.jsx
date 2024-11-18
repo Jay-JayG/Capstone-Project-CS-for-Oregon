@@ -4,6 +4,7 @@ import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
@@ -43,9 +44,8 @@ export default function WinterOfCS() {
 
     return (
         <div id="main-content">
-            {objects.filter(obj => obj.event_season === "1").map((obj, index) => (
-                <div id="main-content">
-                    <div key={index} className='SummerOfCSSupercontainer'>
+            {objects.filter(obj => obj.hidden === "0").map((obj, index) => (
+                    <div key={`object-${index}`} className='SummerOfCSSupercontainer'>
                         <div className="SummerOfCScontainer">
                             <div className="SummerOfCSHeaderContainer">
                                 <div className="SummerOfCSHeaderContainerText">
@@ -55,20 +55,19 @@ export default function WinterOfCS() {
                                     <div className='SummerOfCSHeaderContainerTextBody'>{obj.date_range}</div>
                                     {/* <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" /> */}
                                 </div>
-                                <div className='SummerOfCSHeaderPhotoContainer'>
-                                    {/* <img className="SummerOfCSHeaderPhoto" src={CSSummerPhoto} alt="Summer Equity Symposium Group Photo" /> */}
-                                </div>
+                                {/* <div className='SummerOfCSHeaderPhotoContainer'>
+                                    <img className="SummerOfCSHeaderPhoto" src={CSSummerPhoto} alt="Summer Equity Symposium Group Photo" />
+                                </div> */}
                             </div>
                         </div>
                         <div className='SummerOfCSSummary'>
-                            <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span>{obj.event_description}</div>
+                        <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span><ReactMarkdown>{obj.event_description}</ReactMarkdown></div>
                         </div>
-                    </div>
 
                     <div className='summer-of-cs-event-cards-container'>
-                        {events.filter(event => event.major_event_type === obj.event_season)
-                        .map((event, index) => (
-                            <div key={index} className='event-cards-background'>
+                        {events.filter(event => event.major_event_associated === obj.header)
+                        .map((event, eventIndex) => (
+                            <div key={`event-${eventIndex}`} className='event-cards-background'>
                                 <div className='event-card-title'>{event.title}</div>
                                 <div className='event-card-description'><span className='event-bold-text'>What: {event.bold} </span>{event.what}</div>
                                 <div className='event-card-date'><span className='event-bold-text'>Who is it for: </span>{event.who}</div>

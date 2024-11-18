@@ -1,24 +1,27 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 import './Header.css';
-import axios from 'axios';
-import { useBanner } from './BannerContext';
+import { BannerContext } from './BannerContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-function Header(){
+function Header() {
 
-    const { bannerData } = useBanner();
-
+    const { bannerData, globalData } = useContext(BannerContext);
+    console.log(globalData);
     return (
-        <header className="header">
-            
-                {bannerData.banner_text ? (
+
+        <>
+            {globalData?.show_banner === "1" && bannerData.banner_text && (
+                <header className="header">
                     <h1>
-                        {bannerData.banner_text}<a href={bannerData.banner_link} className="HeaderLink">{bannerData.banner_link_text}</a>
+                        {bannerData.banner_text}
+                        <a href={bannerData.banner_link} className="HeaderLink">
+                            {bannerData.banner_link_text}
+                        </a>
                     </h1>
-                ) : (<></>) }
-        </header>
+                </header>
+            )}
+        </>
     );
 }
 

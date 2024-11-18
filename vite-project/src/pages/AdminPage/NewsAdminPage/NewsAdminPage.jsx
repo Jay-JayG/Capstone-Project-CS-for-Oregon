@@ -267,7 +267,7 @@ export default function NewsAdminPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <button className='AdminPageSubmitBotton' type='submit'>
+                        <button className='AdminPageSubmitButton' type='submit'>
                             Submit
                         </button>
                     </div>
@@ -338,7 +338,7 @@ export default function NewsAdminPage() {
                                         />
                                     </div>
                                     <div className='AdminPageFormFieldDiv'>
-                                        <button className='AdminPageSubmitBotton' type='submit'>
+                                        <button className='AdminPageSubmitButton' type='submit'>
                                             Submit
                                         </button>
                                     </div>
