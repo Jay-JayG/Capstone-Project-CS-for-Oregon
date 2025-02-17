@@ -1,0 +1,27 @@
+/*
+This main.css file will be the master css file.
+This web app uses a Hybrid CSS file organization structure.
+Commonly used stryling that are used throughout the file will be defined here.
+Page or objects specific styling can be in a dedicated css file for that page.
+*/
+
+.site-txt-size-standard {
+    font-family: Montserrat;
+    font-size: 2.25vh;
+}
+
+/* Button Stylings */
+.edit-button-margins-1 {
+    margin-left: 0.25%;
+    margin-right: 1.25%;
+}
+
+.flex-rows-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.center-text {
+    text-align: center;
+}

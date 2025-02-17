@@ -6,11 +6,13 @@ import hamburger from '../src/assets/hamburger.webp';
 import axios from 'axios';
 import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
+import { useEventPages } from './pages/AdminPage/MajorEventsAdminPage/EventPageContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 
 export default function NavigationBar() {
+    const { eventPages } = useEventPages();
     const [showPopup, setShowPopup] = useState(false);
     const [showNavLinks, setShowNavLinks] = useState(false);
     const [missingFields, setMissingFields] = useState(false);
@@ -22,6 +24,17 @@ export default function NavigationBar() {
         contact: ''
     });
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
+
+
+    // const getEventPages = async () => {
+    //     try {
+    //         const res = await axios.get(`${apiBaseUrl}majorevents.php`);
+    //         const data = Array.isArray(res.data) ? res.data : [];
+    //         setEventPages(data);
+    //     } catch (error) {
+    //         console.log('Error retrieving EventPages', error);
+    //     }
+    // };
 
     const { name, title, employer, email, contact } = formData;
 
@@ -38,7 +51,7 @@ export default function NavigationBar() {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 950);
         };
-
+        // getEventPages();
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
@@ -88,7 +101,7 @@ export default function NavigationBar() {
         }
     };
     const closeBtn = (event) => {
-            setShowPopup(false);
+        setShowPopup(false);
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -149,7 +162,7 @@ export default function NavigationBar() {
                                 isActive ? "active" : "inactive"
                             }
                         >
-                            ABOUT
+                            ABOUT US
                         </NavLink>
                     </div>
                     <div className="item4">
@@ -159,8 +172,18 @@ export default function NavigationBar() {
                                 isActive ? "active" : "inactive"
                             }
                         >
-                            K-12 EDUCATORS
+                            RESOURCES FOR K-12 EDUCATORS
                         </NavLink>
+                    </div>
+                    <div className="item4">
+                        <a
+                            href="https://public.tableau.com/app/profile/joel.gochez/viz/shared/TBHHMNNQ9"
+                            className="inactive"
+                            target="_blank"
+                            rel="noopener noreferrer" // Aparently indended to prevent the new tab from being able to access the window.opener property, which could be used to run malicious code.
+                        >
+                            DATA DASHBOARD
+                        </a>
                     </div>
                     {/* Conditionally render based on isMobile */}
                     {isMobile ? (
@@ -188,25 +211,29 @@ export default function NavigationBar() {
                             </div>
                             <div className="item-dropdown">
                                 <span className="dropdown">
-                                    NEWS & EVENTS
+                                    EVENTS
                                     <div className="dropdown-content">
-                                        <NavLink to="/news" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>NEWS</NavLink>
-                                        <NavLink to="/events" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>EVENTS</NavLink>
+                                        {eventPages.filter(obj => obj.hidden === "0")
+                                            .map((obj) => (
+                                                <NavLink key={obj.id} to={obj.page_url ? (obj.page_url) : ("/")} style={{ textTransform: 'uppercase' }}>{obj.header}</NavLink>))}
                                     </div>
                                 </span>
                             </div>
+                            <div className="item3">
+                                <NavLink
+                                    to="/news"
+                                    className={({ isActive }) =>
+                                        isActive ? "active" : "inactive"
+                                    }
+                                >
+                                    NEWS
+                                </NavLink>
+                            </div>
                         </>
                     )}
-                    <div className="item5">
-                        <NavLink
-                            to="/summerOfCS"
-                            className={({ isActive }) =>
-                                isActive ? "active" : "inactive"
-                            }
-                        >
-                            SUMMER EQUITY SYMPOSIUM
-                        </NavLink>
-                    </div>
+                    {/* <div className="item5">
+
+                    </div> */}
                     <a href='#' className="item6" onClick={togglePopup}>
                         <img src={envelope} className="envelope" alt="Send" /> Contact Us
                     </a>
@@ -216,9 +243,9 @@ export default function NavigationBar() {
             {showPopup && (
                 <div className="popup-overlay" onClick={closePopup}>
                     <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-                    <button className="close-btn" onClick={closeBtn}>
-                        <img src={x} alt="Close" />
-                    </button>
+                        <button className="close-btn" onClick={closeBtn}>
+                            <img src={x} alt="Close" />
+                        </button>
                         <h2>Contact Information</h2>
                         <div className="input-container">
                             <input type="text" id="name" name="name" value={name} onChange={handleInputChange} />

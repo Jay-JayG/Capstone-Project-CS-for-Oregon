@@ -1,8 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import EducatorsResources from './EducatorsResources.jsx';
 import './Educators.css';
+import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
 
 export default function Educators() {
+
+    const { eventPages } = useEventPages();
+    console.log(eventPages);
+    const visibleEventPage = eventPages
+        .filter(page => page.hidden === "0")  // Filter out hidden pages
+        .sort((a, b) => a.id - b.id)[0];   // Sort by id and take the first (smallest)
+
+    // Set the header to the header of the first visible eventPage or use a default
+    const header = visibleEventPage ? visibleEventPage.header : "Default Header";
+
     return (
         <div id="main-content">
 
@@ -16,10 +28,10 @@ export default function Educators() {
                         <li>Research-based, scalable curriculum intentionally designed to broaden participation in computing.</li>
                     </ul>
                     <div className="EducatorsSection2Container">
-                        <Link to={`/SummerOfCS`} className="EducatorsHeading2">Summer Equity Symposium</Link>
-                        <p className="Section2Text1">The Summer Equity Symposium is a research-based professional development event for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</p>
-                        <p className="Section2Text2">The Summer Equity Symposium is supported by a grant from the National Science Foundation and the Oregon Department of Education</p>
-                        
+                        <Link to={`/winterofcs`} className="EducatorsHeading2">{header}</Link>
+                        <p className="Section2Text1">The {header} is a research-based professional development event for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</p>
+                        <p className="Section2Text2">The {header} is supported by a grant from the National Science Foundation and the Oregon Department of Education</p>
+
                     </div>
                 </div>
             </div>

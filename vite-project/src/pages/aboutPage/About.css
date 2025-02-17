@@ -125,3 +125,9 @@
     left: 0;
     z-index: 1; /* Ensures that the image is below the text */
   }
+
+.DeleteProfileButton {
+  z-index: 3;
+  padding: 10%;
+  transform: translateY(50%);
+}

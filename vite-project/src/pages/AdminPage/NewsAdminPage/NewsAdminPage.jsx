@@ -16,6 +16,16 @@ export default function NewsAdminPage() {
         when_date: '',
     });
 
+    const [updateData, setUpdateData] = useState({
+        title: '',
+        link: '',
+        what: '',
+        when_date: '',
+    });
+
+    const [showEditField, setShowEditField] = useState(false);
+    const [editIndex, setEditIndex] = useState(null);
+
     const [objects, setObjects] = useState([]);
 
     const [submitted, setSubmitted] = useState(false);
@@ -35,6 +45,23 @@ export default function NewsAdminPage() {
 
     const handleWhen_dateInputChange = (event) => {
         setFormData({ ...formData, when_date: event.target.value });
+    }
+
+    const handleTitleInputUpdate = (event) => {
+        setUpdateData({ ...updateData, title: event.target.value });
+        console.log(updateData.title)
+    }
+
+    const handleBoldInputUpdate = (event) => {
+        setUpdateData({ ...updateData, link: event.target.value });
+    }
+
+    const handleWhatInputUpdate = (event) => {
+        setUpdateData({ ...updateData, what: event.target.value });
+    }
+
+    const handleWhen_dateInputUpdate = (event) => {
+        setUpdateData({ ...updateData, when_date: event.target.value });
     }
 
 
@@ -57,6 +84,32 @@ export default function NewsAdminPage() {
             console.log('Error uploading object:', error);
         }
     }
+
+    const handleUpdate = async (id, updateData) => {
+        try {
+            const res = await axios.put(`${apiBaseUrl}news.php?id=${id}`, updateData);
+            setSubmitted(true);
+            setUpdateData({
+                title: '',
+                link: '',
+                what: '',
+                when_date: '',
+            });
+            setTimeout(() => {
+                setSubmitted(false);
+            }, 2000);
+            setEditIndex(null);
+            await getObjects();
+        } catch (error) {
+            console.log('Error uploading object:', error);
+        }
+    };
+
+    const onSubmit = (id) => (e) => {
+        e.preventDefault();
+        handleUpdate(id, updateData);
+    };
+
     const getObjects = async () => {
         try {
             const res = await axios.get(`${apiBaseUrl}news.php`);
@@ -66,15 +119,35 @@ export default function NewsAdminPage() {
         }
     };
 
+    // const handleUpdate = async (event, id) => {
+    //     event.preventDefault();
+    //     try {
+    //         const res = await axios.post(`${apiBaseUrl}news.phpid=${id}`, formData);
+    //         setSubmitted(true);
+    //         setFormData({
+    //             title: '',
+    //             link: '',
+    //             what: '',
+    //             when_date: '',
+    //         });
+    //         setTimeout(() => {
+    //             setSubmitted(false);
+    //         }, 2000);
+    //         await getObjects();
+    //     } catch (error) {
+    //         console.log('Error uploading object:', error);
+    //     }
+    // }
+
     useEffect(() => {
-        getObjects('news');
+        getObjects();
     }, []);
 
     const handleDelete = async (id) => {
         try {
             await axios.delete(`${apiBaseUrl}news.php?id=${id}`);
             // After successful deletion, fetch data again to update the UI
-            getObjects('news');
+            getObjects();
         } catch (error) {
             console.log('Error deleting object', error);
         }
@@ -134,38 +207,54 @@ export default function NewsAdminPage() {
         }
     };
 
+    const handleEditClick = (index, obj) => {
+        setEditIndex(index);
+        setUpdateData({
+            title: obj.title || '',
+            link: obj.link || '',
+            what: obj.what || '',
+            when_date: obj.when_date || '',
+        });
+    };
+
     return (
         <div className='AdminPageContainer'>
             <Link to={`/admin`} className='link-to-page'> {`<`} Admin Home Page</Link>
-            <p className='AdminPageTitle'>Admin Page</p>
+            <p className='AdminPageTitle'>News Admin Page</p>
             {submitted ? <p className='AdminPageSubmittedText'>Submitted</p> : null}
             <div className='AdminPageFormContainer'>
                 <form className='AdminPageForm' onSubmit={handleSubmit}>
                     <div className='AdminPageFormFieldDiv'>
-                        <input
+                        <textarea
                             onChange={handleTitleInputChange}
                             value={formData.title}
                             className='AdminPageFormField'
                             placeholder='Title'
                             name='Title'
+                            rows="6"
+                            cols="50"
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <input
+                        <textarea
                             onChange={handleBoldInputChange}
                             value={formData.link}
                             className='AdminPageFormField'
                             placeholder='URL Link to News article'
                             name='Link'
+                            rows="4"
+                            cols="50"
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <input
+                        <textarea
                             onChange={handleWhatInputChange}
                             value={formData.what}
                             className='AdminPageFormField'
-                            placeholder='What'
+                            placeholder='Description of News article'
                             name='what'
+                            rows="6"
+                            cols="50"
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
@@ -178,7 +267,7 @@ export default function NewsAdminPage() {
                         />
                     </div>
                     <div className='AdminPageFormFieldDiv'>
-                        <button className='AdminPageSubmitBotton' type='submit'>
+                        <button className='AdminPageSubmitButton' type='submit'>
                             Submit
                         </button>
                     </div>
@@ -193,9 +282,75 @@ export default function NewsAdminPage() {
                         <div className='news-card-date'>{formData.when_date}</div>
                     </div>
                 </div>
+
+
+                <div className='news-cards-container'>
+
+                    {objects.map((obj, index) => (
+                        <div key={index} className='news-cards-background'>
+                            <a className='news-card-title' href={obj.link} target='_blank'>{obj.title}</a>
+                            <div className='news-card-description'>{obj.what}</div>
+                            <div className='news-card-date'>{obj.when_date}</div>
+                            <button className='news-edit-button' onClick={() => handleDelete(obj.id)}>Delete Entry Above</button>
+                            {editIndex !== index ? (<button className='news-edit-button' onClick={() => handleEditClick(index, obj)}>Edit</button>) : (<button className='news-edit-button' onClick={() => setEditIndex(null)}>Cancel</button>)}
+                            {editIndex == index && <div className='AdminPageFormContainer'>
+                                <form className='AdminPageForm' onSubmit={onSubmit(obj.id)}>
+                                    <div className='AdminPageFormFieldDiv'>
+                                        <textarea
+                                            onChange={handleTitleInputUpdate}
+                                            value={updateData.title}
+                                            className='AdminPageFormField'
+                                            placeholder='Title'
+                                            name='Title'
+                                            rows='6'
+                                            cols="50"
+                                        />
+                                    </div>
+                                    <div className='AdminPageFormFieldDiv'>
+                                        <textarea
+                                            onChange={handleBoldInputUpdate}
+                                            value={updateData.link}
+                                            className='AdminPageFormField'
+                                            placeholder='URL Link to News article'
+                                            name='Link'
+                                            rows='4'
+                                            cols="50"
+                                        />
+                                    </div>
+                                    <div className='AdminPageFormFieldDiv'>
+                                        <textarea
+                                            onChange={handleWhatInputUpdate}
+                                            value={updateData.what}
+                                            className='AdminPageFormField'
+                                            placeholder='What'
+                                            name='what'
+                                            rows='6'
+                                            cols="50"
+                                        />
+                                    </div>
+                                    <div className='AdminPageFormFieldDiv'>
+                                        <input
+                                            onChange={handleWhen_dateInputUpdate}
+                                            value={updateData.when_date}
+                                            className='AdminPageFormField'
+                                            placeholder='Date YYYY-MM-DD'
+                                            name='when'
+                                        />
+                                    </div>
+                                    <div className='AdminPageFormFieldDiv'>
+                                        <button className='AdminPageSubmitButton' type='submit'>
+                                            Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>}
+                        </div>
+                    ))}
+
+                </div>
             </div>
 
-            <div className='news-object-list'>
+            {/* <div className='news-object-list'>
                 {objects.map((obj, index) => (
                     <div key={index} className='object'>
                         {obj.editingField ? (
@@ -228,7 +383,7 @@ export default function NewsAdminPage() {
                         )}
                     </div>
                 ))}
-            </div>
+            </div>*/}
         </div>
     );
 }

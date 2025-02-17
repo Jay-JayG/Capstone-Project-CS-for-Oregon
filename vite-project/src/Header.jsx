@@ -1,16 +1,27 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import { useContext } from 'react';
 import './Header.css';
+import { BannerContext } from './BannerContext';
 
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
-function Header(){
+function Header() {
 
+    const { bannerData, globalData } = useContext(BannerContext);
+    // console.log(globalData);
     return (
-        <header className="header">
-            <h1>
-                Summer Equity Symposium July 29 - August 2, 2024 | <Link to={`/SummerOfCS`} className="HeaderLink">LEARN MORE!</Link>
-            </h1>
-        </header>
+
+        <>
+            {globalData?.show_banner === "1" && bannerData.banner_text && (
+                <header className="header">
+                    <h1>
+                        {bannerData.banner_text}
+                        <a href={bannerData.banner_link} className="HeaderLink">
+                            {bannerData.banner_link_text}
+                        </a>
+                    </h1>
+                </header>
+            )}
+        </>
     );
 }
 

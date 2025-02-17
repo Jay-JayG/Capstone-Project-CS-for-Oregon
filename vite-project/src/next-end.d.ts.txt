@@ -1,0 +1,7 @@
+// next-env.d.ts
+// namespace NodeJS {
+//     interface ProcessEnv {
+//       readonly NEXT_PUBLIC_API_BASE_URL: string;
+//       // Add other environment variables as needed
+//     }
+//   }

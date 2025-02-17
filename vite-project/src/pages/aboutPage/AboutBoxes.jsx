@@ -5,7 +5,7 @@ import jenna from '/src/assets/Borberg_Jenna.webp';
 import james from '/src/assets/Cagney_James.webp';
 import andrew from '/src/assets/Cronk_Andrew.webp';
 import josh from '/src/assets/Davis_Josh.webp';
-import kendra from '/src/assets/DeWater_Kendra.webp';
+import kendra from '/src/assets/DeWater_Kendra_USE_THIS_ONE.jpg';
 import trish from '/src/assets/Trish_Dorr.webp';
 import chris from '/src/assets/Doscher_Christopher.webp';
 import taghrid from '/src/assets/Elmeligu_Taghrid.webp';
@@ -25,13 +25,70 @@ import max from '/src/assets/Skordinsky_Max.webp';
 import eva from '/src/assets/Skuratowicz_Eva.webp';
 import jen from '/src/assets/Tuttle_Jen.webp';
 import maggie from '/src/assets/Vanderberg_Maggie.webp';
+import sue from '/src/assets/WIlson_Sue.webp';
+
+import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 
+function AboutBoxes() {
 
-function AboutBoxes(){
+    // const [profiles, setProfiles] = useState([]);
+
+    // const getProfiles = async () => {
+    //     try {
+    //         const res = await axios.get(`${apiBaseUrl}about_us.php?timestamp=${new Date().getTime()}`);
+    //         setProfiles(res.data);
+    //     } catch (error) {
+    //         console.log('Error retrieving Profiles', error);
+    //     }
+
+    // };
+
+    // useEffect(() => {
+    //     console.log("Fetching profiles..."); // Debugging
+    //     getProfiles();
+    // }, []);
 
     return (
         <div className="BoxesContainer">
+
+            {/* {profiles.length > 0 && Array.isArray(profiles) ? (
+                profiles.map((profile) => (
+                    <div key={profile.id} className="ProfileCardWrapper">
+                        <div className="AboutSectionBoxes">
+                            <div className="ProfileCard">
+                                <p>{profile.name}</p>
+                                {profile.headshot && (
+                                    <img
+                                        src={`data:image/jpeg;base64,${profile.headshot}`}
+                                        alt={profile.name}
+                                        className="BoxImage"
+                                    />
+                                )}
+                                <div className="BoxHeader">{profile.name}</div>
+                                <div className="BoxContent">
+                                    <ReactMarkdown
+                                        components={{
+                                            a: ({ node, ...props }) => (
+                                                <a {...props} target="_blank" rel="noopener noreferrer">
+                                                    {props.children}
+                                                </a>
+                                            ),
+                                        }}
+                                    >
+                                        {profile.title}
+                                    </ReactMarkdown>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                <p>No profiles available.</p>
+            )} */}
 
             <div className="AboutSectionBoxes">
                 <img src={babcock} alt="headshot image" className="BoxImage" />
@@ -45,11 +102,11 @@ function AboutBoxes(){
                 <div className="BoxContent"> STEM Specialist, Oregon Department of Education </div>
             </div>
 
-            
+
             <div className="AboutSectionBoxes">
                 <img src={michelle} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Michelle Balmeo</div>
-                <div className="BoxContent"> CS & Language Arts Teacher, 
+                <div className="BoxContent"> CS & Language Arts Teacher,
                     <a href="https://wahs.albany.k12.or.us/"> West Albany High School, West Albany School District</a>
                     , ECS Facilitator, Social Justice Teacher Leader
                 </div>
@@ -64,7 +121,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={james} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">James Cagney</div>
-                <div className="BoxContent">Assistant Professor, Computer Information Systems Specialist, <a href="https://www.cocc.edu/" target="_blank">Central Oregon Community College</a>, <a href = "https://ecepalliance.org/" target="_blank"> ECEP Oregon </a> </div>
+                <div className="BoxContent">Assistant Professor, Computer Information Systems Specialist, <a href="https://www.cocc.edu/" target="_blank">Central Oregon Community College</a>, <a href="https://ecepalliance.org/" target="_blank"> ECEP Oregon </a> </div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -168,7 +225,7 @@ function AboutBoxes(){
             <div className="AboutSectionBoxes">
                 <img src={jeff} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Jeff Rhoades</div>
-                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a>, <a href = "https://ecepalliance.org/" target="_blank"> ECEP Oregon </a></div>
+                <div className="BoxContent">Arts, Information Communication Technologies Education Specialist, <a href="https://www.oregon.gov/ode/pages/default.aspx" target="_blank">Oregon Department of Education</a>, <a href="https://ecepalliance.org/" target="_blank"> ECEP Oregon </a></div>
             </div>
 
             <div className="AboutSectionBoxes">
@@ -202,15 +259,10 @@ function AboutBoxes(){
             </div>
 
             <div className="AboutSectionBoxes">
-                
+                <img src={sue} alt="headshot image" className="BoxImage" />
                 <div className="BoxHeader">Sue Willson</div>
                 <div className="BoxContent"><a href="https://www.mapleton.k12.or.us/" target="_blank">Superintendent, Mapleton School District  </a></div>
             </div>
-
-
-            
-
-            
         </div>
     );
 
