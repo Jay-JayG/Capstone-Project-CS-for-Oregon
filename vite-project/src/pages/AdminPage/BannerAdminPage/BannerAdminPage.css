@@ -38,11 +38,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0vh 0vh 5vh 0vh;
 }
 
 .toggle-input {
-    display: none; /* Hide the checkbox */
+    display: none;
+    /* Hide the checkbox */
 }
 
 /* Create the slider (the actual toggle) */
@@ -60,12 +60,15 @@
 .toggle-slider::before {
     content: '';
     position: absolute;
-    top: 4px; /* Vertical centering */
-    left: 4px; /* Horizontal centering */
+    top: 4px;
+    /* Vertical centering */
+    left: 4px;
+    /* Horizontal centering */
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: white; /* Circle color */
+    background-color: white;
+    /* Circle color */
     transition: transform 0.2s;
 }
 
@@ -75,7 +78,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 10px;
     user-select: none;
 }
@@ -86,25 +89,49 @@
 
 .toggle-text.right {
     right: 10px;
-    opacity: 0; /* Initially hide the "ON" text */
+    opacity: 0;
+    /* Initially hide the "ON" text */
 }
 
 /* When the checkbox is checked, change background and move circle */
-.toggle-input:checked + .toggle-slider {
-    background-color: #4CAF50; /* Green when toggled */
+.toggle-input:checked+.toggle-slider {
+    background-color: #4CAF50;
+    /* Green when toggled */
 }
 
 /* Move the circle when the toggle is checked */
-.toggle-input:checked + .toggle-slider::before {
+.toggle-input:checked+.toggle-slider::before {
     transform: translateX(26px);
 }
 
 /* Make "ON" text visible when checked */
-.toggle-input:checked + .toggle-slider .toggle-text.right {
+.toggle-input:checked+.toggle-slider .toggle-text.right {
     opacity: 1;
 }
 
 /* Make "OFF" text hidden when checked */
-.toggle-input:checked + .toggle-slider .toggle-text.left {
+.toggle-input:checked+.toggle-slider .toggle-text.left {
     opacity: 0;
+}
+
+.object-options-buttons {
+    padding: 5%;
+    align-self: center;
+    margin: 1% 2% 1% 2%;
+    padding: 0.5%;
+    font-size: 18px;
+    background-color: #E8805E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.object-map {
+    margin: 1.5% 0% 0% 0%;
+}
+
+.toggle-description {
+    align-self: center;
+    padding: 0% 0.25% 0% 0%;
 }

@@ -10,6 +10,7 @@
 .AdminPageSubmittedText {
     text-align: center;
 }
+
 .AdminPageFormContainer {
     display: flex;
     align-items: center;
@@ -46,6 +47,18 @@
     cursor: pointer;
 }
 
+.EditSubmitButton {
+    padding: 5%;
+    align-self: center;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #E8805E;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .admin-delete_item_button {
     margin-bottom: 2%;
 }
@@ -62,19 +75,21 @@
 }
 
 .admin-object-container {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     margin: 2%;
     padding: 1%;
 }
 
 .admin-object-container:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-.object{
+
+.object {
     display: flex;
     flex-direction: column;
 }
+
 .object-delete-button {
     padding: 5%;
     align-self: center;
@@ -90,4 +105,79 @@
 
 .pdf-image {
     width: 300
+}
+
+/* Full-page overlay */
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    overflow: auto;
+    /* Ensures it is above other content */
+}
+
+/* Dialog box styling */
+.dialog-box {
+    position: relative; /* Relative to the overlay */
+    max-width: 90%; /* Prevents the dialog box from exceeding viewport width */
+    max-height: 90%; /* Prevents the dialog box from exceeding viewport height */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center;
+    z-index: 1001; /* Higher than the overlay */
+    padding: 20px; /* Space inside the dialog box */
+    overflow: auto; /* Allows scrolling if content exceeds max height */
+}
+
+/* Optional: Prevent scroll on the page when dialog is open */
+body.dialog-open {
+    overflow: hidden;
+}
+
+.admin-edit-button {
+    width: 10vh;
+    align-self: center;
+    margin: 2vh;
+    padding: 0.75vh;
+    font-size: 2vh;
+    border-radius: 8px;
+}
+
+.dialog-box-content-container {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.event-cards-background-dialog-box {
+    background-color: rgb(255, 255, 255);
+    flex: 1 1 33.333%;
+    border-radius: 5px;
+    transition: box-shadow .4s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    font-family: Montserrat;
+    font-size: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.EventEditForm-style {
+    flex: 1 1 33.333%;
+    align-self: center;
+}
+
+.buttons-center {
+    display:flex;
+    justify-content: center;
 }

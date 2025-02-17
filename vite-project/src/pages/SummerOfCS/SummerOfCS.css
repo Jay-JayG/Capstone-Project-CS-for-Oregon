@@ -24,7 +24,7 @@
 
 .SummerOfCSHeaderContainer {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -43,7 +43,7 @@
     font-size: 6vh;
     font-weight: bold;
     color: green;
-    padding: 2%;
+    padding: 0%;
 }
 
 .SummerOfCSHeaderContainerTextSubheading {
@@ -70,8 +70,8 @@
 }
 
 .SummerOfCSHeaderPhoto {
-    padding: 3%;
-    width: 80%;
+    padding: 5%;
+    width: 50%;
 }
 
 .SummerEquityPhoto {
@@ -399,8 +399,8 @@
 
 .summer-of-cs-event-cards-container {
     display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .event-full {

@@ -8,6 +8,7 @@ export type EventPage = {
     optional_event_description_bold_text: string;
     event_description: string;
     hidden: string;
+    page_url: string;
 };
 
 export type NewEventPage = Omit<EventPage, 'id'>;
@@ -38,3 +39,5 @@ export type RetrievedEventCard = {
     is_full: string;
     major_event_associated: string;
 };
+
+export type PolicyText = string;

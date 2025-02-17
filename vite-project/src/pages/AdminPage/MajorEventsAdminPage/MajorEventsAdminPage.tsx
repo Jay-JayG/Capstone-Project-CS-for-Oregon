@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { EventPage, NewEventPage, RetrievedEventCard } from '../../../types/eventTypes';
 import ReactMarkdown from 'react-markdown';
-// import { useEventPages  } from './EventPageContext';
+import rehypeRaw from "rehype-raw";
+import { useEventPages } from './EventPageContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
-console.log("API Base URL:", apiBaseUrl); // Add this line to verify
+//console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 // const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-export default function MajorEventsAdminPage() {
+export default function EcsHuddlePage() {
     const [formData, setFormData] = useState<NewEventPage>({
         header: '',
         location: '',
@@ -17,10 +18,13 @@ export default function MajorEventsAdminPage() {
         organization: '',
         optional_event_description_bold_text: '',
         event_description: '',
-        hidden: "1"
+        hidden: "1",
+        page_url: ''
     });
 
-    // const { eventPages, fetchEventPages } = useEventPages();
+    const strings: string[] = ["/winterofcs", "/summerOfCS", "/ECS_Huddle", "/EventPage1", "/EventPage2", "/EventPage3"];
+
+    const { eventPages, setEventPages } = useEventPages();
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -52,8 +56,6 @@ export default function MajorEventsAdminPage() {
         setEditingId(null);
         setEditedData(null);
     };
-    
-    const [EventPages, setEventPages] = useState<EventPage[]>([]);
 
     const getEventPages = async () => {
         try {
@@ -61,27 +63,53 @@ export default function MajorEventsAdminPage() {
             const data = Array.isArray(res.data) ? res.data : [];
             setEventPages(data);
         } catch (error) {
-            console.log('Error retrieving EventPages', error);
+            console.log('Error retrieving eventPages', error);
         }
     };
 
-    const getEvents = async () => {
-        try {
-            const res = await axios.get(`${apiBaseUrl}events.php`);
-            // const res = await axios.get('http://localhost/events.php'); // For local development
-            setEvents(res.data);
-        } catch (error) {
-            console.log('Error retrieving EventPages', error);
-        }
-    };
-
+    // const getEvents = async () => {
+    //     try {
+    //         const res = await axios.get(`${apiBaseUrl}events.php`);
+    //         // const res = await axios.get('http://localhost/events.php'); // For local development
+    //         setEvents(res.data);
+    //     } catch (error) {
+    //         console.log('Error retrieving eventPages', error);
+    //     }
+    // };
 
     useEffect(() => {
-        getEventPages();
-        getEvents();
-        // console.log(EventPages)
-        // console.log(events)
-    }, [])
+        const eventSource = new EventSource(`${apiBaseUrl}majorevents.php?sse=true`);
+
+        // Handle incoming SSE events
+        eventSource.onmessage = (event) => {
+            try {
+                const data = JSON.parse(event.data);
+
+                // Update the context state with the new data
+                setEventPages(data);
+            } catch (error) {
+                console.error('Error parsing SSE data:', error);
+            }
+        };
+
+        // Handle connection errors
+        eventSource.onerror = (error) => {
+            console.error('SSE connection error:', error);
+            eventSource.close(); // Close the connection on error
+        };
+
+        // Cleanup: close the EventSource connection when the component unmounts
+        return () => {
+            eventSource.close();
+        };
+    }, [setEventPages]);
+
+    // useEffect(() => {
+    //     // getEventPages();
+    //     getEvents();
+    //     // console.log(eventPages)
+    //     // console.log(events)
+    // }, [])
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -90,7 +118,7 @@ export default function MajorEventsAdminPage() {
             console.log('Object uploaded successfully:', res.data);
 
             const newEventPage = res.data;
-             // Update the local state to include the newly created event page
+            // Update the local state to include the newly created event page
             setEventPages((prevEventPages) => [...prevEventPages, newEventPage]);
 
             // Reseting the Form to be empty
@@ -102,7 +130,8 @@ export default function MajorEventsAdminPage() {
                 organization: '',
                 optional_event_description_bold_text: '',
                 event_description: '',
-                hidden: "1"
+                hidden: "1",
+                page_url: ''
             })
             setTimeout(() => {
                 setSubmitted(false);
@@ -159,9 +188,12 @@ export default function MajorEventsAdminPage() {
     };
 
     const handleDelete = async (id) => {
+        const userConfirmed = window.confirm("Are you sure you want to delete this event page?");
+        if (!userConfirmed) {
+            return; // Exit if the user cancels
+        }
         try {
             const res = await axios.delete(`${apiBaseUrl}majorevents.php?id=${id}`);
-            getEventPages();
             if (res.status === 200) {
                 // Update local state immediately to remove the item
                 setEventPages(prevEventPages => prevEventPages.filter(eventPage => eventPage.id !== id));
@@ -198,6 +230,16 @@ export default function MajorEventsAdminPage() {
         }
     };
 
+    const handleRadioChange = (event) => {
+        setFormData({ ...formData, page_url: event.target.value });
+        console.log("Selected Event URL:", event.target.value);
+    };
+
+    const handleRadioChangeEdit = (event) => {
+        setEditedData({ ...editedData, page_url: event.target.value });
+        console.log("Selected Event URL:", event.target.value);
+    };
+
     const inputform = () => {
 
         return (
@@ -214,7 +256,7 @@ export default function MajorEventsAdminPage() {
                             required
                         />
                     </label>
-                    Organization
+                    Organization (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -224,7 +266,7 @@ export default function MajorEventsAdminPage() {
                             onChange={handleChange}
                         />
                     </label>
-                    Location
+                    Location (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -234,7 +276,7 @@ export default function MajorEventsAdminPage() {
                             onChange={handleChange}
                         />
                     </label>
-                    Date Range
+                    Date Range (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -264,6 +306,34 @@ export default function MajorEventsAdminPage() {
                             cols={100}
                         />
                     </label>
+                    Event Page URL (Greyed out options are being used):
+                    <div className='AdminPageFormFieldDiv'>
+                        <label>
+                            <input
+                                type="radio"
+                                name="major_event_url"
+                                value="None"
+                                onChange={handleRadioChange}
+                            />
+                            None
+                        </label>
+                        {strings.length > 0 ? (strings.map((str, index) => {
+                            const isDisabled = eventPages.some((page) => page.page_url === str);
+                            return (
+                                <label key={index}>
+                                    <input
+                                        type="radio"
+                                        name="major_event_url"
+                                        value={str}
+                                        onChange={handleRadioChange}
+                                        disabled={isDisabled} // Disable if there's a match
+                                    />
+                                    {str}
+                                </label>
+                            );
+                        })
+                        ) : null}
+                    </div>
                     <button type="submit">Submit</button>
                 </form>
             </div>
@@ -324,7 +394,7 @@ export default function MajorEventsAdminPage() {
                             required
                         />
                     </label>
-                    Organization
+                    Organization (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -334,7 +404,7 @@ export default function MajorEventsAdminPage() {
                             onChange={handleEditChange}
                         />
                     </label>
-                    Location
+                    Location (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -344,7 +414,7 @@ export default function MajorEventsAdminPage() {
                             onChange={handleEditChange}
                         />
                     </label>
-                    Date Range
+                    Date Range (Optional)
                     <label>
                         <input
                             className='major-events-form-field'
@@ -374,6 +444,34 @@ export default function MajorEventsAdminPage() {
                             cols={100}
                         />
                     </label>
+                    Event Page URL (Greyed out options are being used):
+                    <div className='AdminPageFormFieldDiv'>
+                        <label>
+                            <input
+                                type="radio"
+                                name="major_event_url"
+                                value="None"
+                                onChange={handleRadioChangeEdit}
+                            />
+                            None
+                        </label>
+                        {strings.length > 0 ? (strings.map((str, index) => {
+                            const isDisabled = eventPages.some((page) => page.page_url === str);
+                            return (
+                                <label key={index}>
+                                    <input
+                                        type="radio"
+                                        name="major_event_url"
+                                        value={str}
+                                        onChange={handleRadioChangeEdit}
+                                        disabled={isDisabled} // Disable if there's a match
+                                    />
+                                    {str}
+                                </label>
+                            );
+                        })
+                        ) : null}
+                    </div>
                     <div>
                         <button className="AdminPageSubmitButton" onClick={handleCancel}>Cancel</button>
                         <button className="AdminPageSubmitButton" type="submit">Submit</button>
@@ -395,8 +493,8 @@ export default function MajorEventsAdminPage() {
                     <div className="SummerOfCScontainer">
                         <div className="SummerOfCSHeaderContainer">
                             <div className="SummerOfCSHeaderContainerText">
-                                <div className='SummerOfCSHeaderContainerTextHeader'>{formData.header}</div>
-                                <div className='SummerOfCSHeaderContainerTextBody'>{formData.organization}</div>
+                                <div className='SummerOfCSHeaderContainerTextHeader'><ReactMarkdown>{formData.header}</ReactMarkdown></div>
+                                <div className='SummerOfCSHeaderContainerTextBody'><ReactMarkdown>{formData.organization}</ReactMarkdown></div>
                                 <div className='SummerOfCSHeaderContainerTextBody'>{formData.location}</div>
                                 <div className='SummerOfCSHeaderContainerTextBody'>{formData.date_range}</div>
                                 {/* <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" /> */}
@@ -412,14 +510,14 @@ export default function MajorEventsAdminPage() {
                 </div>
             </div>
 
-            {EventPages.map((obj, index) => (
+            {eventPages.map((obj, index) => (
                 <div key={obj.id} id="main-content">
                     <div className='SummerOfCSSupercontainer'>
                         <div className="SummerOfCScontainer">
                             <div className="SummerOfCSHeaderContainer">
                                 <div className="SummerOfCSHeaderContainerText">
-                                    <div className='SummerOfCSHeaderContainerTextHeader'>{obj.header}</div>
-                                    <div className='SummerOfCSHeaderContainerTextBody'>{obj.organization}</div>
+                                    <div className='SummerOfCSHeaderContainerTextHeader'><ReactMarkdown>{obj.header}</ReactMarkdown></div>
+                                    <div className='SummerOfCSHeaderContainerTextBody'><ReactMarkdown>{obj.organization}</ReactMarkdown></div>
                                     <div className='SummerOfCSHeaderContainerTextBody'>{obj.location}</div>
                                     <div className='SummerOfCSHeaderContainerTextBody'>{obj.date_range}</div>
                                     {/* <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" /> */}
@@ -430,7 +528,20 @@ export default function MajorEventsAdminPage() {
                             </div>
                         </div>
                         <div className='SummerOfCSSummary'>
-                            <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span><ReactMarkdown>{obj.event_description}</ReactMarkdown></div>
+                            <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span>
+                                <ReactMarkdown
+                                    rehypePlugins={[rehypeRaw]}
+                                    components={{
+                                        a: ({ node, ...props }) => (
+                                            <a {...props} target="_blank" rel="noopener noreferrer">
+                                                {props.children}
+                                            </a>
+                                        ),
+                                    }}
+                                >
+                                    {obj.event_description}
+                                </ReactMarkdown>
+                            </div>
                         </div>
                     </div>
 

@@ -32,11 +32,6 @@ export default function NewsAndFeaturesPage() {
 
     return (
         <div id="main-content" className='news-and-features-page-container'>
-            <div className='news-and-features-page-navigator'>
-                <Link to={`/News`} className='news-and-features-page-navigator-news'>News</Link>
-                <Link to={`/events`} className='news-and-features-page-navigator-events'>Events</Link>
-                {/* <Link to={`/spotlight`} className='news-and-features-page-navigator-spotlight'>Spotlight</Link> */}
-            </div>
             <div className='news-cards-container'>
                 {filteredObjects.map((obj, index) => (
                     <div key={index} className='news-cards-background'>

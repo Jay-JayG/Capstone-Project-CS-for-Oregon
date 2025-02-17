@@ -27,6 +27,8 @@ export default function BannerAdminPage() {
 
     const [isToggled, setIsToggled] = useState(false);
 
+    const [ShownId, setShownId] = useState(false);
+
     const [objects, setObjects] = useState([]);
 
     const [submitted, setSubmitted] = useState(false);
@@ -53,7 +55,9 @@ export default function BannerAdminPage() {
         getObjects();
         if (globalData) {
             setIsToggled(globalData.show_banner === '1'); // Expression return a boolean
+            setShownId(globalData.banner_to_show);
         }
+        
     }, [globalData]);
 
     const getObjects = async () => {
@@ -162,24 +166,50 @@ export default function BannerAdminPage() {
     const handleSelectedBanner = async (id) => {
         try {
             await axios.put(`${apiBaseUrl}globals.php?`, {
-                banner_to_show : id
+                banner_to_show: id
             },
-            {
-                params: { update_type: 'banner_selected' }
-            }
-        );
-        updateGlobalData({
-            banner_to_show: id
-        });
+                {
+                    params: { update_type: 'banner_selected' }
+                }
+            );
+            updateGlobalData({
+                banner_to_show: id
+            });
+            setShownId(id);
         } catch (error) {
             console.log('Error updating global', error);
         }
     };
 
+    // const handleSelectedBanner = async (id) => {
+    //     try {
+    //         await axios.put(`${apiBaseUrl}globals.php?`, {
+    //             banner_to_show: id
+    //         },
+    //             {
+    //                 params: { update_type: 'banner_selected' }
+    //             }
+    //         );
+    //         updateGlobalData({
+    //             banner_to_show: id
+    //         });
+    //     } catch (error) {
+    //         console.log('Error updating global', error);
+    //     }
+    // };
+
     const handleToggleChange = (e) => {
         const newValue = e.target.checked; // true if ON, false if OFF
         setIsToggled(newValue); // Update local state
         updateGlobal(newValue);  // Call the update function to make the PUT request
+        if (!newValue) {
+            setShownId(0);
+            console.log(ShownId);
+        } else {
+            setShownId(globalData.banner_to_show);
+            console.log(ShownId);
+        }
+
     };
 
     return (
@@ -249,7 +279,8 @@ export default function BannerAdminPage() {
                     <span className="toggle-text right">ON</span>
                 </label>
             </div>
-            <h2 className='banner-toggle-header'>Which banner to show: </h2>
+
+            {/* <h2 className='banner-toggle-header'>Which banner to show: </h2>
             <div className='flex-rows-center margin_bottom-vh5'>{
                 objects.map((obj, index) => (
                     <button
@@ -258,11 +289,11 @@ export default function BannerAdminPage() {
                     >
                         {index + 1}
                     </button>))}
-            </div>
+            </div> */}
 
             {
                 objects.map((obj) => (
-                    <div key={obj.id} className='object'>
+                    <div key={obj.id} className='object-map'>
                         <header className="header">
                             <h1>
                                 {obj.banner_text}<a href={obj.banner_link} className="HeaderLink">{obj.banner_link_text}</a>
@@ -315,50 +346,32 @@ export default function BannerAdminPage() {
                                 </form>
                             </div>
                         )}
+
                         <div className='flex-rows-center'>
-                            <>
-                                {obj.hidden === "0" ? (
-                                    <button
-                                        className={`object-delete-button ${obj.hidden === "0" ? 'object-delete-button-deactivated' : ''}`}
-                                        onClick={() => handleHide(obj.id, obj.hidden)}
-                                        disabled={true} // Disable the Hide button if the page is shown
-                                    >
-                                        Show banner
-                                    </button>
-                                ) : (
-                                    <button
-                                        className={`object-delete-button ${obj.hidden === "0" ? 'object-delete-button-deactivated' : ''}`}
-                                        onClick={() => handleShow(obj.id, obj.hidden)}
-                                        disabled={false} // Enable the Show button if the page is hidden
-                                    >
-                                        Show Banner
-                                    </button>
-                                )}
-                                {obj.hidden === "1" ? (
-                                    <button
-                                        className={`object-delete-button ${obj.hidden === "1" ? 'object-delete-button-deactivated' : ''}`}
-                                        onClick={() => handleShow(obj.id, obj.hidden)}
-                                        disabled={true} // Enable the Show button if the page is hidden
-                                    >
-                                        Hide Banner
-                                    </button>
-                                ) : (
-                                    <button
-                                        className={`object-delete-button ${obj.hidden === "1" ? 'object-delete-button-deactivated' : ''}`}
-                                        onClick={() => handleHide(obj.id, obj.hidden)}
-                                        disabled={false} // Enable the Hide button if the page is shown
-                                    >
-                                        Hide Banner
-                                    </button>
-                                )}
-                            </>
-                            {editFormVisibility[obj.id] ? (<button className='object-delete-button' onClick={() => handleToggleEdit(obj.id, obj)}>
+                        <label className="toggle-description">Show This Banner:</label>
+                            <div className='toggle-container'>
+                            
+                                <input
+                                    type="checkbox"
+                                    className="toggle-input"
+                                    id={`toggle-${obj.id}`}
+                                    key={obj.id}
+                                    checked={ShownId == obj.id}
+                                    disabled={ShownId == obj.id} // Disables toggle if already checked to make toggles act like radio buttons
+                                    onChange={() => handleSelectedBanner(obj.id)} // Triggered on toggle change    
+                                />
+                                <label className="toggle-slider" htmlFor={`toggle-${obj.id}`}>
+                                    <span className="toggle-text left">OFF</span>
+                                    <span className="toggle-text right">ON</span>
+                                </label>
+                            </div>
+                            {editFormVisibility[obj.id] ? (<button className='object-options-buttons' onClick={() => handleToggleEdit(obj.id, obj)}>
                                 Cancel Edit
                             </button>) : (
-                                <button className='object-delete-button' onClick={() => handleToggleEdit(obj.id, obj, true)}>
+                                <button className='object-options-buttons' onClick={() => handleToggleEdit(obj.id, obj, true)}>
                                     Edit
                                 </button>)}
-                            <button className='object-delete-button' onClick={() => handleDelete(obj.id)}>
+                            <button className='object-options-buttons' onClick={() => handleDelete(obj.id)}>
                                 Delete
                             </button>
                         </div>

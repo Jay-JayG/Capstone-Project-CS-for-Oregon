@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/HomePage/NewHome';
-import About from './pages/aboutPage/About';
+import About from './pages/AboutPage/About';
+import About1 from './pages/AboutPage1/About1';
 import Educators from './pages/EducatorsPage/Educators';
 import SummerOfCS from './pages/SummerOfCS/SummerOfCS';
 import ResearchAndPolicy from './pages/ResearchAndPolicyPage/ResearchAndPolicy';
@@ -24,6 +25,13 @@ import BannerAdminPage from './pages/AdminPage/BannerAdminPage/BannerAdminPage';
 import { AppProviders  } from './Contexts';
 import MajorEventsAdminPage from './pages/AdminPage/MajorEventsAdminPage/MajorEventsAdminPage';
 import WinterOfCS from './pages/WinterEventpage/WinterOfCS';
+import EcsHuddlePage from './pages/EcsHuddlePage/EcsHuddlePage';
+import EventPage1 from './pages/EventPage1/EventPage1';
+import EventPage2 from './pages/EventPage2/EventPage2';
+import EventPage3 from './pages/EventPage3/EventPage3';
+import PolicyAdminPage from './pages/AdminPage/PolicyAdminPage/PolicyAdminPage';
+import AboutUsAdminPage from './pages/AdminPage/AboutUsAdminPage/AboutUsAdminPage';
+import DropDownEventsAdminPage from './pages/AdminPage/DropDownEventsAdminPage/DropDownEventsAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -35,10 +43,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/about1" element={<About1 />} />
           <Route path="/educators" element={<Educators />} />
           <Route path="/summerOfCS" element={<SummerOfCS />} />
           <Route path="/winterOfCS" element={<WinterOfCS />} />
           <Route path="/researchAndPolicy" element={<ResearchAndPolicy />} />
+          <Route path="/PolicyAdminPage" element={<PolicyAdminPage />} />
           <Route path="/EventsAdminPage" element={<EventsAdminPage />} />
           <Route path="/pdfPage" element={<PdfPage />} />
           <Route path="/news" element={<NewsAndFeaturesPage />} />
@@ -50,6 +60,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/NewsAdminPage" element={<NewsAdminPage />} />
           <Route path="/BannerAdminPage" element={<BannerAdminPage />} />
           <Route path="/MajorEventsAdminPage" element={<MajorEventsAdminPage />} />
+          <Route path="/ECS_Huddle" element={<EcsHuddlePage />} />
+          <Route path="/EventPage1" element={<EventPage1 />} />
+          <Route path="/EventPage2" element={<EventPage2 />} />
+          <Route path="/EventPage3" element={<EventPage3 />} />
+          <Route path="/AboutUsAdminPage" element={<AboutUsAdminPage />} />
+          <Route path="/DropDownEventsAdminPage" element={<DropDownEventsAdminPage />} />
         </Routes>
         <Footer />
       </AppProviders>

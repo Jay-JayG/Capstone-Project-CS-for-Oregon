@@ -37,8 +37,12 @@ export const EventPagesProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
+// This is a "custome hook" which wraps useContext meaning useing useEventPages on a module
+// does not nerquire importing useContext.
+
 export const useEventPages = () => {
     const context = useContext(EventPagesContext);
+    // This line below prevents errors if context is undefines, which it would be if the provider does not wrap the page it used on.
     if (!context) throw new Error('useEventPages must be used within an EventPagesProvider');
     return context;
 };

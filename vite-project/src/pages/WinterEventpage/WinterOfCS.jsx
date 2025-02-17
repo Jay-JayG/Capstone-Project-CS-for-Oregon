@@ -1,10 +1,9 @@
-import CSSummerPhoto from '/src/assets/summer_of_cs_photo.webp';
-import CSSymposiumLogo from '../../assets/CS_SYM_JAN2024.webp';
 import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
+import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
@@ -12,7 +11,8 @@ console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 
 
 export default function WinterOfCS() {
-    const [objects, setObjects] = useState([]);
+    const { eventPages } = useEventPages();
+    // const [eventPages, setObjects] = useState([]);
     const [events, setEvents] = useState([]);
 
     const getEvents = async () => {
@@ -21,43 +21,39 @@ export default function WinterOfCS() {
             // const res = await axios.get('http://localhost/events.php'); // For local development
             setEvents(res.data);
         } catch (error) {
-            console.log('Error retrieving objects', error);
+            console.log('Error retrieving eventPages', error);
         }
     };
 
-    const getObjects = async () => {
-        try {
-            const res = await axios.get(`${apiBaseUrl}majorevents.php`);
-            setObjects(res.data);
-            console.log(res.data);
-        } catch (error) {
-            console.log('Error retrieving objects', error);
-        }
-    }
+    // const getObjects = async () => {
+    //     try {
+    //         const res = await axios.get(`${apiBaseUrl}majorevents.php`);
+    //         setObjects(res.data);
+    //         console.log(res.data);
+    //     } catch (error) {
+    //         console.log('Error retrieving eventPages', error);
+    //     }
+    // }
 
     useEffect(() => {
-        getObjects();
+        // getObjects();
         getEvents();
-        console.log(objects)
+        // console.log(eventPages)
         console.log("events", events)
     }, []);
 
     return (
         <div id="main-content">
-            {objects.filter(obj => obj.hidden === "0").map((obj, index) => (
+            {eventPages.filter(obj => obj.hidden === "0" && obj.page_url === "/winterofcs").map((obj, index) => (
                     <div key={`object-${index}`} className='SummerOfCSSupercontainer'>
                         <div className="SummerOfCScontainer">
                             <div className="SummerOfCSHeaderContainer">
                                 <div className="SummerOfCSHeaderContainerText">
-                                    <div className='SummerOfCSHeaderContainerTextHeader'>{obj.header}</div>
-                                    <div className='SummerOfCSHeaderContainerTextBody'>{obj.organization}</div>
+                                    <div className='SummerOfCSHeaderContainerTextHeader'><ReactMarkdown>{obj.header}</ReactMarkdown></div>
+                                    <div className='SummerOfCSHeaderContainerTextBody'><ReactMarkdown>{obj.organization}</ReactMarkdown></div>
                                     <div className='SummerOfCSHeaderContainerTextBody'>{obj.location}</div>
                                     <div className='SummerOfCSHeaderContainerTextBody'>{obj.date_range}</div>
-                                    {/* <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" /> */}
                                 </div>
-                                {/* <div className='SummerOfCSHeaderPhotoContainer'>
-                                    <img className="SummerOfCSHeaderPhoto" src={CSSummerPhoto} alt="Summer Equity Symposium Group Photo" />
-                                </div> */}
                             </div>
                         </div>
                         <div className='SummerOfCSSummary'>

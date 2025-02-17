@@ -7,7 +7,7 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 function Header() {
 
     const { bannerData, globalData } = useContext(BannerContext);
-    console.log(globalData);
+    // console.log(globalData);
     return (
 
         <>

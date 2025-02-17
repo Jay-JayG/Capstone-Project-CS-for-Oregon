@@ -9,8 +9,57 @@
     font-family: Montserrat;
     font-size: 3vh;
 }
-
+/* 
 .link-to-page {
     padding: 3%;
     color: black;
+} */
+
+.admin-home-page-container {
+    padding: 20px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.link-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.link-to-page {
+    font-size: 18px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.link-to-page:hover {
+    text-decoration: underline;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+}
+
+.dropdown-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #000000;
+    text-align: start;
 }

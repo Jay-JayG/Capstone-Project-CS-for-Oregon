@@ -3,8 +3,6 @@ import axios from 'axios';
 
 export const BannerContext = createContext();
 
-export const useBanner = () => useContext(BannerContext);
-
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export const BannerProvider = ({ children }) => {
@@ -22,7 +20,7 @@ export const BannerProvider = ({ children }) => {
             const res = await axios.get(`${apiBaseUrl}get_headder.php`);
             if (res.data && res.data.length > 0) {
                 setAllBanners(res.data);
-                console.log("res.data", res.data);
+                // console.log("res.data", res.data);
             }
         } catch (error) {
             console.error("Error fetching banner data:", error);
@@ -33,7 +31,7 @@ export const BannerProvider = ({ children }) => {
         try {
             const res = await axios.get(`${apiBaseUrl}globals.php`);
             if (res.status === 200) {
-            console.log("global data", res.data);
+            // console.log("global data", res.data);
             setGlobalData(res.data);
             }
         } catch (error) {
@@ -54,7 +52,7 @@ export const BannerProvider = ({ children }) => {
             if (bannerToShow) {
                 setBannerData(bannerToShow); // Set the bannerData to the matching banner
             }
-            console.log("banner set", bannerData);
+            // console.log("banner set", bannerData);
         }
     }, [globalData, allBanners]);
 
@@ -74,4 +72,10 @@ export const BannerProvider = ({ children }) => {
             {children}
         </BannerContext.Provider>
     );
+};
+
+export const useBanner = () => {
+    const context = useContext(BannerContext)
+    if (!context) throw new Error('useEventPages must be used within an EventPagesProvider');
+    return context;
 };

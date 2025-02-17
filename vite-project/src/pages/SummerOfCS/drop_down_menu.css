@@ -1,0 +1,87 @@
+.drop-down-container {
+    margin: 0% 0% 3% 0%;
+    padding: 0% 0% 2% 0%;
+    /* border-width: 5px 5px 5px 5px;
+    border-style: solid;
+    border-color: white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-text {
+    font-family: Montserrat;
+    font-size: 2.25vh;
+}
+
+.sub-header {
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.events-drop-down-header {
+    font-family: Montserrat;
+    margin-top: 4%;
+    font-size: 4vh;
+    text-align: left;
+    font-weight: bold;
+    color: green;
+}
+
+.event-drop-down {
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+}
+
+.event-drop-down-button {
+    font-family: Montserrat;
+    font-size: 3vh;
+    font-weight: bold;
+    color: rgb(57, 74, 231);
+    width: auto;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center; /* Vertically centers the image and text */
+    justify-content: left;
+    padding: 10px;
+}
+
+.drop-down-button-text {
+    font-family: Montserrat;
+    font-size: 2.25vh;
+    margin: 1%; 
+    text-align: left;
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
+  }
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.workshopimage {
+    width: 35%;
+    padding: 2% 0 0 0;
+}
+
+.eventimage {
+    width: 8%;
+    padding: 1%;
+}
