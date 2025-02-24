@@ -149,6 +149,10 @@ export default function SummerOfCS() {
         console.log("events", events)
     }, []);
 
+    const handleScrollToEvent = (eventIndex) => {
+        toggleDropdown(eventIndex);
+        document.getElementById(`event-${eventIndex}`)?.scrollIntoView({ behavior: "smooth" });
+    };
 
     return (
         <div id="main-content">
@@ -168,13 +172,39 @@ export default function SummerOfCS() {
                     </div>
                     <div className='SummerOfCSSummary'>
                         <div className='SummerOfCSSummaryText'><span className='SummerOfCSSummaryTextBold'>{obj.optional_event_description_bold_text}</span>
-                            <ReactMarkdown rehypePlugins={[rehypeRaw]}
+                            <ReactMarkdown
+                                rehypePlugins={[rehypeRaw]}
                                 components={{
-                                    a: ({ node, ...props }) => (
-                                        <a {...props} target="_blank" rel="noopener noreferrer">
-                                            {props.children}
-                                        </a>
-                                    ),
+                                    a: ({ node, href, ...props }) => {
+                                        const childrenString = props.children?.[0] || "";
+                                        const containsHTML = /<\/?[a-z][\s\S]*>/i.test(childrenString);
+
+                                        // Handle internal event links
+                                        if (href.startsWith("#event-")) {
+                                            const eventIndex = parseInt(href.replace("#event-", ""), 10);
+                                            return (
+                                                <a
+                                                    href={href}
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        handleScrollToEvent(eventIndex);
+                                                    }}
+                                                    {...props}
+                                                >
+                                                    {props.children}
+                                                </a>
+                                            );
+                                        }
+
+                                        // Handle external links with embedded HTML spans
+                                        return containsHTML ? (
+                                            <a href={href} target="_blank" rel="noopener noreferrer" dangerouslySetInnerHTML={{ __html: childrenString }} />
+                                        ) : (
+                                            <a href={href} target="_blank" rel="noopener noreferrer">
+                                                {props.children}
+                                            </a>
+                                        );
+                                    },
                                 }}
                             >
                                 {obj.event_description}
@@ -183,8 +213,8 @@ export default function SummerOfCS() {
                         <div className='events-drop-down-header' style={{ 'textAlign': 'center' }}>Event Details</div>
                         <div className='body-text sub-header'>Click the drop-down arrows to see event details</div>
                         <div className='drop-down-container'>
-                            {eventDropdowns.map(event => (
-                                <div key={event.id} className='event-drop-down'>
+                            {eventDropdowns.map((event, index) => (
+                                <div key={event.id} id={`event-${index + 1}`} className='event-drop-down'>
                                     <button onClick={() => toggleDropdown(event.id)} className='event-drop-down-button'>
                                         {event.id < 6 ? (<img className='eventimage' src={eventImages[event.id]} alt={event.title} />) : (null)}
                                         <span className='event-title'>{event.title} {openStates[event.id] ? (<i className="arrow up"></i>) : (<i className="arrow down"></i>)}</span>
@@ -211,22 +241,6 @@ export default function SummerOfCS() {
                             <img src={workshopimage} alt="Summer Equity Symposium Logo" className='workshopimage' />
                         </div>
                     </div>
-
-                    {/* <div className='drop-down-container'>
-                        <div className='events-drop-down-header'>Events</div>
-                        {events_drop.map(event => (
-                            <div key={event.id} className='event-drop-down'>
-                                <button onClick={() => toggleDropdown(event.id)} className='event-drop-down-button'>
-                                    {event.title} {openStates[event.id] ? (<i className="arrow up"></i>) : (<i className="arrow down"></i>)}
-                                </button>
-                                {openStates[event.id] && (
-                                    <div className='drop-down-button-text'><ReactMarkdown>{event.details}</ReactMarkdown></div>
-                                )}
-                            </div>
-                        ))}
-                        <img src={workshopimage} alt="Summer Equity Symposium Logo" className='workshopimage' />
-
-                    </div> */}
 
                     <div className='summer-of-cs-event-cards-container'>
                         {events.filter(event => event.major_event_associated === obj.header && (event.display_event === "1" || event.display_event === "2"))

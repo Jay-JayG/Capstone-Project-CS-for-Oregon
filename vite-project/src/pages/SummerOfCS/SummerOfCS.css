@@ -416,3 +416,7 @@
     border-radius: 10px;
     text-decoration: none;
 }
+
+html {
+    scroll-behavior: smooth;
+}
