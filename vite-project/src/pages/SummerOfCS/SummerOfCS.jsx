@@ -154,6 +154,24 @@ export default function SummerOfCS() {
         document.getElementById(`event-${eventIndex}`)?.scrollIntoView({ behavior: "smooth" });
     };
 
+    const [workShopImage, setWorkShopImage] = useState(null);
+
+    const fetchImage = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}workshop_schedule.php?timestamp=${new Date().getTime()}`);
+            if (res.data.image) {
+                setWorkShopImage(res.data.image); // Store base64 image
+            }
+        } catch (error) {
+            console.log("Error fetching image:", error);
+        }
+    };
+
+    // Fetch image when component mounts
+    useEffect(() => {
+        fetchImage();
+    }, []);
+
     return (
         <div id="main-content">
             {eventPages.filter(obj => obj.hidden === "0" && obj.page_url === "/summerOfCS").map((obj, index) => (
@@ -238,7 +256,7 @@ export default function SummerOfCS() {
                                     )}
                                 </div>
                             ))}
-                            <img src={workshopimage} alt="Summer Equity Symposium Logo" className='workshopimage' />
+                            <img src={workShopImage} alt="Summer Equity Symposium Logo" className='workshopimage' />
                         </div>
                     </div>
 

@@ -131,6 +131,54 @@ export default function DropDownEventsAdminPage() {
 
     }, []);
 
+    const [formData, setFormData] = useState(null);
+    const [workShopImage, setWorkShopImage] = useState(null);
+
+    const postImage = async (event) => {
+        event.preventDefault();
+        if (!formData) {
+            console.log("No file selected.");
+            return;
+        }
+
+        const formDataToSend = new FormData();
+        formDataToSend.append("image", formData);
+
+        try {
+            const res = await axios.post(`${apiBaseUrl}workshop_schedule.php`, formDataToSend, {
+                headers: { "Content-Type": "multipart/form-data" },
+            });
+
+            console.log("Image uploaded successfully:", res.data);
+
+            // Fetch updated image after upload
+            fetchImage();
+        } catch (error) {
+            console.log("Error uploading image:", error);
+        }
+    };
+
+    const handleFileChange = (event) => {
+        setFormData(event.target.files[0]); // Store file directly
+    };
+
+    const fetchImage = async () => {
+        try {
+            const res = await axios.get(`${apiBaseUrl}workshop_schedule.phptimestamp=${new Date().getTime()}`);
+            if (res.data.image) {
+                setWorkShopImage(res.data.image); // Store base64 image
+            }
+        } catch (error) {
+            console.log("Error fetching image:", error);
+        }
+    };
+
+    // Fetch image when component mounts
+    useEffect(() => {
+        fetchImage();
+    }, []);
+
+
     return (
         <div className='AdminPageContainer'>
             <p className='AdminPageTitle'>Drop Down Events for Summer of CS</p>
@@ -139,7 +187,7 @@ export default function DropDownEventsAdminPage() {
             <p className='text-align-center'>Markdown is supported here. See <a href='https://www.markdownguide.org/basic-syntax/' target='_blank'>Mark Down Tutorial</a> for how to use Markdown.</p>
 
             <div className='AdminPageFormContainer' style={{ display: "flex", flexDirection: "column" }}>
-            <p className='AdminPageTitle'>Add an Event:</p>
+                <p className='AdminPageTitle'>Add an Event:</p>
                 <form onSubmit={handleSubmit} className="major-events-form" style={{ padding: '1%' }}>
                     Event Drop Down Title:
                     <label>
@@ -179,6 +227,24 @@ export default function DropDownEventsAdminPage() {
                     </div>
                 </div>
             </div>
+
+            <div className='AdminPageFormContainer' style={{ display: "flex", flexDirection: "column" }}>
+                <p className='AdminPageTitle'>Change Workshop Schedule Image::</p>
+                <form onSubmit={postImage} className="major-events-form" style={{ padding: '1%' }}>
+                    <label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            className='major-events-form-field'
+                            onChange={handleFileChange}
+                        />
+                    </label>
+                    <button type="submit">Submit</button>
+                </form>
+                <div>Current Set Workshop Image:</div>
+                    {workShopImage && <img src={workShopImage} alt="Workshop Schedule" className='workshopimage'/>}
+            </div>
+
             <p className='AdminPageTitle'>Edit Events:</p>
             <div className='drop-down-container'>
                 {eventDropdowns?.length > 0 && eventDropdowns.map(event => (
