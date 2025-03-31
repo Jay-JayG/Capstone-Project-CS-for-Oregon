@@ -82,7 +82,8 @@ export default function AdminHomePage() {
         { path: '/MajorEventsAdminPage', title: 'Event Page', description: 'Manage event pages, change event visibility and URLs.' },
         { path: '/PolicyAdminPage', title: 'Policy Page', description: 'Edit text that appears in the "Oregon Policy" section of the Policy page.' },
         { path: '/AboutUsAdminPage', title: 'About Us Page', description: 'Add or remove people from the About Us page and edit their name and title.' },
-        { path: '/DropDownEventsAdminPage', title: 'Drop Down Events on Summer Equity Symposium Page', description: 'Edit title and content of drop down events on the Summer Equity Symposium Page' }
+        { path: '/DropDownEventsAdminPage', title: 'Drop Down Events on Summer Equity Symposium Page', description: 'Edit title and content of drop down events on the Summer Equity Symposium Page' },
+        { path: '/ResourcesAdminPage', title: 'Resources for K-12 Educators', description: 'Add, remove and edit resources and their images/logos on the Resources for K-12 Educators page.' }
     ];
 
     const toggleDropdown = (index) => {
