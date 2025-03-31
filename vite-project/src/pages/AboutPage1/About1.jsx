@@ -1,10 +1,39 @@
 import AboutBoxes from "./AboutBoxes1.jsx";
 import WebsiteDevelopers from "./WebsiteDevelopers1.jsx";
 import './About.css';
+import Carousel from './SpotlightCarousel.jsx';
+import jack from '/src/assets/headshot.webp';
+import joel from '/src/assets/headshotjoel.jpg';
+import anna from '/src/assets/headshotanna.webp';
+import testImage from '/src/assets/SIPsandEnvisionShoreline.webp';
+
+const slides = [
+  {
+    image: testImage,
+    text: "This is the testImage's description or text content"
+  },
+  {
+    image: jack,
+    text: "This is Jack's description or text content"
+  },
+  {
+    image: joel,
+    text: "This is Joel's description or text content"
+  },
+  {
+    image: anna,
+    text: "This is Anna's description or text content"
+  }
+];
 
 function About1() {
   return (
     <div id="main-content">
+
+      <div>
+        <Carousel slides={slides} />
+      </div>
+
       <div className="AboutSectionBackRound">
         <div className='AboutSectionBox'>
           <p className="AboutSectionHeader"> Our Mission</p>

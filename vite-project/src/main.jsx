@@ -32,6 +32,7 @@ import EventPage3 from './pages/EventPage3/EventPage3';
 import PolicyAdminPage from './pages/AdminPage/PolicyAdminPage/PolicyAdminPage';
 import AboutUsAdminPage from './pages/AdminPage/AboutUsAdminPage/AboutUsAdminPage';
 import DropDownEventsAdminPage from './pages/AdminPage/DropDownEventsAdminPage/DropDownEventsAdminPage';
+import ResourcesAdminPage from './pages/AdminPage/K12Res-EduAdminPage/ResourcesAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -66,6 +67,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/EventPage3" element={<EventPage3 />} />
           <Route path="/AboutUsAdminPage" element={<AboutUsAdminPage />} />
           <Route path="/DropDownEventsAdminPage" element={<DropDownEventsAdminPage />} />
+          <Route path="/ResourcesAdminPage" element={<ResourcesAdminPage />} />
         </Routes>
         <Footer />
       </AppProviders>

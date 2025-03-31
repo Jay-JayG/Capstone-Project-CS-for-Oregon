@@ -178,7 +178,7 @@ export default function AboutUsAdminPage() {
 
     return (
         <div className='AdminPageContainer'>
-            <p className='AdminPageTitle'>Event Card Admin Page</p>
+            <p className='AdminPageTitle'>About Us Profiles Admin Page</p>
             {submitted ? <p className='AdminPageSubmittedText'>Submitted</p> : null}
             <div className='AdminPageFormContainer'>
                 <form className='AdminPageForm' onSubmit={handleSubmit}>

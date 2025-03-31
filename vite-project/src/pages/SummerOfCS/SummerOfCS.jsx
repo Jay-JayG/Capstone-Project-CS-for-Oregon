@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
 import ReactMarkdown from 'react-markdown';
-import workshopimage from '../../assets/workshoptable.png';
+// import workshopimage from '../../assets/workshoptable.png';
 import rocket from '../../assets/rocket.png';
 import brain from '../../assets/brain.png';
 import thread from '../../assets/thread.png';
@@ -106,34 +106,14 @@ export default function SummerOfCS() {
 
     const [eventDropdowns, setEventDropdowns] = useState([]);
 
-    useEffect(() => {
-        const eventSource = new EventSource(`${apiBaseUrl}event_dropdowns.php?sse=true`);
-
-        // Handle incoming SSE events
-        eventSource.onmessage = (event) => {
-            try {
-                const data = JSON.parse(event.data);
-
-                // Update the context state with the new data
-                setEventDropdowns(data);
-                console.log("Event Dropdowns", data);
-            } catch (error) {
-                console.error('Error parsing SSE data:', error);
-            }
-        };
-
-        // Handle connection errors
-        eventSource.onerror = (error) => {
-            console.error('SSE connection error:', error);
-            eventSource.close(); // Close the connection on error
-        };
-
-        // Cleanup: close the EventSource connection when the component unmounts
-        return () => {
-            eventSource.close();
-        };
-
-    }, []);
+    const fetchEventDropdowns = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}event_dropdowns.php?timestamp=${new Date().getTime()}`);
+            setEventDropdowns(response.data);
+        } catch (error) {
+            console.error("Error fetching event dropdowns:", error);
+        }
+    };
 
     const getEvents = async () => {
         try {
@@ -169,6 +149,7 @@ export default function SummerOfCS() {
 
     // Fetch image when component mounts
     useEffect(() => {
+        fetchEventDropdowns();
         fetchImage();
     }, []);
 
@@ -234,7 +215,14 @@ export default function SummerOfCS() {
                             {eventDropdowns.map((event, index) => (
                                 <div key={event.id} id={`event-${index + 1}`} className='event-drop-down'>
                                     <button onClick={() => toggleDropdown(event.id)} className='event-drop-down-button'>
-                                        {event.id < 6 ? (<img className='eventimage' src={eventImages[event.id]} alt={event.title} />) : (null)}
+                                        {event.image_icon ? (
+                                            <img
+                                                src={`data:image/jpeg;base64,${event.image_icon}`}
+                                                alt={event.title}
+                                                className="eventimage"
+                                            />) : (
+                                            (<img className='eventimage' src={eventImages[event.id]} alt={event.title} />)
+                                            )}
                                         <span className='event-title'>{event.title} {openStates[event.id] ? (<i className="arrow up"></i>) : (<i className="arrow down"></i>)}</span>
 
                                     </button>
@@ -256,7 +244,7 @@ export default function SummerOfCS() {
                                     )}
                                 </div>
                             ))}
-                            <img src={workShopImage} alt="Summer Equity Symposium Logo" className='workshopimage' />
+                            <img src={workShopImage} alt="Workshop Schedule" className='workshopimage' />
                         </div>
                     </div>
 

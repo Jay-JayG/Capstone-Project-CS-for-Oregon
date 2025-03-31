@@ -9,7 +9,8 @@ export default function DropDownEventsAdminPage() {
     const [eventContent, setEventContent] = useState(
         {
             title: '',
-            content: ''
+            content: '',
+            image_icon: null
         }
     );
 
@@ -26,7 +27,7 @@ export default function DropDownEventsAdminPage() {
             // Prefill the form fields if opening the form
             setEditFormFields((prev) => ({
                 ...prev,
-                [eventId]: { title: event.title, content: event.content },
+                [eventId]: { id: eventId, title: event.title, content: event.content },
             }));
         }
     };
@@ -50,10 +51,38 @@ export default function DropDownEventsAdminPage() {
         console.log(eventContent)
     };
 
+    const handleIconChange = (event) => {
+        setEventContent(prevState => ({ ...prevState, image_icon: event.target.files[0] }));
+    };
+
+    const handleEditFileChange = (eventId, event) => {
+        const file = event.target.files[0]; // Get the selected file
+
+        if (file) {
+            setEditFormFields((prevState) => ({
+                ...prevState,
+                [eventId]: {
+                    ...prevState[eventId], // Preserve existing title & content
+                    image_icon: file, // Update image field
+                },
+            }));
+        }
+    };
+
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const res = await axios.post(`${apiBaseUrl}event_dropdowns.php`, eventContent);
+            const formDataToSend = new FormData();
+            formDataToSend.append('title', eventContent.title);
+            formDataToSend.append('content', eventContent.content);
+            if (eventContent.image_icon instanceof File) {
+                formDataToSend.append('image_icon', eventContent.image_icon);
+            }
+            const res = await axios.post(`${apiBaseUrl}event_dropdowns.php`, formDataToSend, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
             console.log(res.data);
 
             setTimeout(() => {
@@ -62,7 +91,8 @@ export default function DropDownEventsAdminPage() {
 
             setEventContent({
                 title: '',
-                content: ''
+                content: '',
+                image_icon: null
             });
         } catch (error) {
             console.log('Error uploading object:', error);
@@ -72,21 +102,29 @@ export default function DropDownEventsAdminPage() {
     const handleEditSubmit = async (event, eventId) => {
         event.preventDefault();
         try {
-            const updatedEvent = editFormFields[eventId]; // Get the updated title and content for the event
+            const formDataToSend = new FormData();
+            console.log("formdata1", editFormFields[eventId]);
+            console.log("formdata id", eventId);
+            console.log("formdata title", editFormFields[eventId].title);
+            console.log("formdata image_icon", editFormFields[eventId].image_icon);
+            formDataToSend.append('id', eventId);
+            formDataToSend.append('title', editFormFields[eventId].title);
+            formDataToSend.append('content', editFormFields[eventId].content);
+            if (editFormFields[eventId].image_icon instanceof File) {
+                formDataToSend.append('image_icon', editFormFields[eventId].image_icon);
+            }
+            console.log("formdata", formDataToSend);
 
-            const res = await axios.put(`${apiBaseUrl}event_dropdowns.php`, {
-                id: eventId,
-                title: updatedEvent.title,
-                content: updatedEvent.content,
+            const res = await axios.post(`${apiBaseUrl}event_dropdowns.php`, formDataToSend, {
+                headers: { 'Content-Type': 'multipart/form-data' }
             });
-
             console.log('Edit successful:', res.data);
 
             // Update the local state with the edited event
             setEventDropdowns((prevEvents) =>
                 prevEvents.map((ev) =>
                     ev.id === eventId
-                        ? { ...ev, title: updatedEvent.title, content: updatedEvent.content }
+                        ? { ...ev, title: editFormFields[eventId].title, content: editFormFields[eventId].content }
                         : ev
                 )
             );
@@ -102,34 +140,14 @@ export default function DropDownEventsAdminPage() {
         }
     };
 
-    useEffect(() => {
-        const eventSource = new EventSource(`${apiBaseUrl}event_dropdowns.php?sse=true`);
-
-        // Handle incoming SSE events
-        eventSource.onmessage = (event) => {
-            try {
-                const data = JSON.parse(event.data);
-
-                // Update the context state with the new data
-                setEventDropdowns(data);
-                console.log("Event Dropdowns", data);
-            } catch (error) {
-                console.error('Error parsing SSE data:', error);
-            }
-        };
-
-        // Handle connection errors
-        eventSource.onerror = (error) => {
-            console.error('SSE connection error:', error);
-            eventSource.close(); // Close the connection on error
-        };
-
-        // Cleanup: close the EventSource connection when the component unmounts
-        return () => {
-            eventSource.close();
-        };
-
-    }, []);
+    const fetchEventDropdowns = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}event_dropdowns.php`);
+            setEventDropdowns(response.data);
+        } catch (error) {
+            console.error("Error fetching event dropdowns:", error);
+        }
+    };
 
     const [formData, setFormData] = useState(null);
     const [workShopImage, setWorkShopImage] = useState(null);
@@ -164,7 +182,7 @@ export default function DropDownEventsAdminPage() {
 
     const fetchImage = async () => {
         try {
-            const res = await axios.get(`${apiBaseUrl}workshop_schedule.phptimestamp=${new Date().getTime()}`);
+            const res = await axios.get(`${apiBaseUrl}workshop_schedule.php?timestamp=${new Date().getTime()}`);
             if (res.data.image) {
                 setWorkShopImage(res.data.image); // Store base64 image
             }
@@ -175,6 +193,7 @@ export default function DropDownEventsAdminPage() {
 
     // Fetch image when component mounts
     useEffect(() => {
+        fetchEventDropdowns();
         fetchImage();
     }, []);
 
@@ -189,6 +208,15 @@ export default function DropDownEventsAdminPage() {
             <div className='AdminPageFormContainer' style={{ display: "flex", flexDirection: "column" }}>
                 <p className='AdminPageTitle'>Add an Event:</p>
                 <form onSubmit={handleSubmit} className="major-events-form" style={{ padding: '1%' }}>
+                    Event Icon
+                    <label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleIconChange}
+                            className='major-events-form-field'
+                        />
+                    </label>
                     Event Drop Down Title:
                     <label>
                         <textarea
@@ -242,14 +270,21 @@ export default function DropDownEventsAdminPage() {
                     <button type="submit">Submit</button>
                 </form>
                 <div>Current Set Workshop Image:</div>
-                    {workShopImage && <img src={workShopImage} alt="Workshop Schedule" className='workshopimage'/>}
+                {workShopImage && <img src={workShopImage} alt="Workshop Schedule" className='workshopimage' />}
             </div>
 
             <p className='AdminPageTitle'>Edit Events:</p>
             <div className='drop-down-container'>
                 {eventDropdowns?.length > 0 && eventDropdowns.map(event => (
                     <div key={event.id} className='event-drop-down'>
+
                         <button className='event-drop-down-button'>
+                            {event.image_icon && (
+                                <img
+                                    src={`data:image/jpeg;base64,${event.image_icon}`}
+                                    alt={event.title}
+                                    className="eventimage"
+                                />)}
                             {/* <img className='eventimage' src={event.image} alt={event.title} /> */}
                             {openForms[event.id] ? (<span className='event-title'>{editFormFields[event.id]?.title || ''} <i className="arrow up"></i></span>) : (<span className='event-title'>{event.title} <i className="arrow up"></i></span>)}
                         </button>
@@ -262,6 +297,15 @@ export default function DropDownEventsAdminPage() {
 
                         {openForms[event.id] && (
                             <form onSubmit={(e) => handleEditSubmit(e, event.id)} className="major-events-form" style={{ padding: '1%' }}>
+                                Event Icon
+                                <label>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={(e) => handleEditFileChange(event.id, e)}
+                                        className='major-events-form-field'
+                                    />
+                                </label>
                                 Event Drop Down Title:
                                 <label>
                                     <textarea
