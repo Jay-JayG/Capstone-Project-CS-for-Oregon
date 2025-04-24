@@ -88,6 +88,7 @@
     margin: 2vw;
     
 }
+
 @media only screen and (max-width: 800px) {
     .footer-links ul {
       flex-direction: column;
@@ -106,6 +107,17 @@
     color: #FFF;
     padding: 1%;
     margin: 0%;
+}
+
+.footer-disclaimer  {
+    display: flex;
+    padding: 1%;
+    flex-direction: column;
+    color: #FFF;
+    font-size: 18px;
+    margin: 2vw;
+    align-items: center;
+    height: 30px;   
 }
 
 .join-mailing-list {
