@@ -50,11 +50,7 @@ function ResearchAndPolicyCards() {
                         <Card
 
                             header={policy.title}
-                            content={
-                                <>
-                                    {policy.text}
-                                </>
-                            }
+                            content={policy.text}
                             mark={
                                 <div className="MarkContainer">
                                     <img src={background} alt="position" className="MarkBackground" />
@@ -62,7 +58,6 @@ function ResearchAndPolicyCards() {
                                 </div>
                             }
                         />
-                        <br />
                         {/* <button onClick={() => handleDelete(policy.id)}>Delete</button>
                         <button onClick={() => handleEdit(policy)}>Edit</button> */}
                     </div>

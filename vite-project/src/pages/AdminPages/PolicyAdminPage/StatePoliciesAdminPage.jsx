@@ -220,11 +220,7 @@ export default function StatePolicyAdminPage() {
                         <Card
 
                             header={policy.title}
-                            content={
-                                <>
-                                    {policy.text}
-                                </>
-                            }
+                            content={policy.text}
                             mark={
                                 <div className="MarkContainer">
                                     <img src={background} alt="position" className="MarkBackground" />
@@ -246,11 +242,7 @@ export default function StatePolicyAdminPage() {
                         <Card
                             key={editPolicy.id}
                             header={editPolicy.title}
-                            content={
-                                <>
-                                    {editPolicy.text}
-                                </>
-                            }
+                            content={editPolicy.text}
                             mark={
                                 <div className="MarkContainer">
                                     <img src={background} alt="position" className="MarkBackground" />
@@ -270,7 +262,7 @@ export default function StatePolicyAdminPage() {
                             value={editPolicy.title}
                             onChange={handleEditChange}
                             required
-                            rows={2}
+                            rows={10}
                             cols={100}
                         />
                     </label>
@@ -282,7 +274,7 @@ export default function StatePolicyAdminPage() {
                             value={editPolicy.text}
                             onChange={handleEditChange}
                             required
-                            rows={2}
+                            rows={10}
                             cols={100}
                         />
                     </label>
