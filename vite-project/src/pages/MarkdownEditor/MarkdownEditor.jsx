@@ -140,7 +140,7 @@ export default function MarkdownEditor() {
 
                     <br />
 
-                    <button onClick={() => applyWrapperFormatting(`<a href="https://!!!LINK GOES HERE!!!" style="color:${customColor}; text-decoration-color:${customColor};">`, '</span>')}>
+                    <button onClick={() => applyWrapperFormatting(`<a href="https://!!!LINK GOES HERE!!!" style="color:${customColor}; text-decoration-color:${customColor};">`, '</a>')}>
                         Custom Colored Link HTML (Opens in New Tab)
                     </button>
                     <button onClick={() => applyWrapperFormatting('[', '](place link here)')}>

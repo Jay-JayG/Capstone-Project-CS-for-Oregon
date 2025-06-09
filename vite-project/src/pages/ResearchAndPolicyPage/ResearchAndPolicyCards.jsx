@@ -61,7 +61,7 @@ function ResearchAndPolicyCards() {
                         {/* <button onClick={() => handleDelete(policy.id)}>Delete</button>
                         <button onClick={() => handleEdit(policy)}>Edit</button> */}
                     </div>
-                    ))) : (<p>No Resources available.</p>)}
+                    ))) : (<p>Loading State Policies</p>)}
 
 
 
