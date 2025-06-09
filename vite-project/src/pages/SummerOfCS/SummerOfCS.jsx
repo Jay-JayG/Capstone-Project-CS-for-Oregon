@@ -5,15 +5,15 @@ import ECSLogo from '/src/assets/ECS-Logo-.png';
 import './SummerOfCS.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
+import { useEventPages } from '../AdminPages/MajorEventsAdminPage/EventPageContext';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 // import workshopimage from '../../assets/workshoptable.png';
 import rocket from '../../assets/rocket.png';
 import brain from '../../assets/brain.png';
 import thread from '../../assets/thread.png';
 import people from '../../assets/people.png';
 import idea from '../../assets/idea.png';
-import rehypeRaw from "rehype-raw";
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -153,6 +153,17 @@ export default function SummerOfCS() {
         fetchImage();
     }, []);
 
+    const MarkdownWithClass = ({ text, className }) => (
+        <ReactMarkdown
+            rehypePlugins={[rehypeRaw]}
+            components={{
+                p: ({ node, children }) => <p className={className}>{children}</p>,
+            }}
+        >
+            {text}
+        </ReactMarkdown>
+    );
+
     return (
         <div id="main-content">
             {eventPages.filter(obj => obj.hidden === "0" && obj.page_url === "/summerOfCS").map((obj, index) => (
@@ -160,8 +171,8 @@ export default function SummerOfCS() {
                     <div className="SummerOfCScontainer">
                         <div className="SummerOfCSHeaderContainer">
                             <div className="SummerOfCSHeaderContainerText">
-                                <div className='SummerOfCSHeaderContainerTextHeader'><ReactMarkdown>{obj.header}</ReactMarkdown></div>
-                                <div className='SummerOfCSHeaderContainerTextBody'><ReactMarkdown>{obj.organization}</ReactMarkdown></div>
+                                <div className='SummerOfCSHeaderContainerTextHeader'><ReactMarkdown rehypePlugins={[rehypeRaw]}>{obj.header}</ReactMarkdown></div>
+                                <div className='SummerOfCSHeaderContainerTextBody'><ReactMarkdown rehypePlugins={[rehypeRaw]}>{obj.organization}</ReactMarkdown></div>
                                 <div className='SummerOfCSHeaderContainerTextBody'>{obj.location}</div>
                                 <div className='SummerOfCSHeaderContainerTextBody'>{obj.date_range}</div>
                                 <img className='CSSymposiumLogo' src={CSSymposiumLogo} alt="Summer Equity Symposium Logo" />
@@ -214,7 +225,7 @@ export default function SummerOfCS() {
                         <div className='drop-down-container'>
                             {eventDropdowns.map((event, index) => (
                                 <div key={event.id} id={`event-${index + 1}`} className='event-drop-down'>
-                                    <button onClick={() => toggleDropdown(event.id)} className='event-drop-down-button'>
+                                     <button onClick={() => toggleDropdown(event.id)} className='event-drop-down-button'> 
                                         {event.image_icon ? (
                                             <img
                                                 src={`data:image/jpeg;base64,${event.image_icon}`}
@@ -222,10 +233,11 @@ export default function SummerOfCS() {
                                                 className="eventimage"
                                             />) : (
                                             (<img className='eventimage' src={eventImages[event.id]} alt={event.title} />)
-                                            )}
-                                        <span className='event-title'>{event.title} {openStates[event.id] ? (<i className="arrow up"></i>) : (<i className="arrow down"></i>)}</span>
-
+                                        )}
+                                        <MarkdownWithClass className='event-title'text={event.title}/>
+                                        {openStates[event.id] ? (<i className="arrow up"></i>) : (<i className="arrow down"></i>)}
                                     </button>
+                                        {/* <span className='event-title'><ReactMarkdown rehypePlugins={[rehypeRaw]}>{event.title}</ReactMarkdown></span> */}
                                     {openStates[event.id] && (
                                         <div className='drop-down-button-text'>
                                             <ReactMarkdown

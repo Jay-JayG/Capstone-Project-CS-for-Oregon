@@ -10,7 +10,7 @@ export default function AdminHomePage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-
+    
     const checkAuth = async () => {
         try {
             const response = await axios.get(`${apiBaseUrl}auth_check.php`, { withCredentials: true });
@@ -83,7 +83,12 @@ export default function AdminHomePage() {
         { path: '/PolicyAdminPage', title: 'Policy Page', description: 'Edit text that appears in the "Oregon Policy" section of the Policy page.' },
         { path: '/AboutUsAdminPage', title: 'About Us Page', description: 'Add or remove people from the About Us page and edit their name and title.' },
         { path: '/DropDownEventsAdminPage', title: 'Drop Down Events on Summer Equity Symposium Page', description: 'Edit title and content of drop down events on the Summer Equity Symposium Page' },
-        { path: '/ResourcesAdminPage', title: 'Resources for K-12 Educators', description: 'Add, remove and edit resources and their images/logos on the Resources for K-12 Educators page.' }
+        { path: '/ResourcesAdminPage', title: 'Resources for K-12 Educators', description: 'Add, remove and edit resources and their images/logos on the Resources for K-12 Educators page.' },
+        { path: '/SpotlightAdminPage', title: 'Teacher Spotlight', description: 'Add and edit Teacher Spotlight slides to the carousel on the About page' },
+        { path: '/HomePageAdminPage', title: 'Home Page', description: 'Edit the text displayed on the Home Page.' },
+        { path: '/FooterAdminPage', title: 'Footer', description: 'Edit the legal notice displayed on the Footer.' },
+        { path: '/StatePolicyAdminPage', title: 'State Policiess', description: 'Add edit and delete the State Policies Boxes on the Policy Page.' },
+        { path: '/MarkdownEditor', title: 'Markdown Editor', description: 'Text Editor with helpful Markdown and Inline HTML formatting buttons.' }
     ];
 
     const toggleDropdown = (index) => {

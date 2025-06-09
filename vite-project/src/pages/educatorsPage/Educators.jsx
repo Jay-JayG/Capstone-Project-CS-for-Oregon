@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import EducatorsResources from './EducatorsResources.jsx';
 import './Educators.css';
-import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import { useEventPages } from '../AdminPages/MajorEventsAdminPage/EventPageContext.tsx';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export default function Educators() {
 
@@ -15,27 +19,100 @@ export default function Educators() {
     // Set the header to the header of the first visible eventPage or use a default
     const header = visibleEventPage ? visibleEventPage.header : "Default Header";
 
+    const [proDevAbove, setProDevAboveText] = useState("");
+    const [proDevBelow, setProDevBelowText] = useState("");
+    const [credentialing, setCredentialingText] = useState("");
+    const [mainButton, setMainButton] = useState({
+        text: "",
+        link: ""
+    });
+
+    const getAboutUsText = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}resources_text.php?timestamp=${new Date().getTime()}`);
+            console.log(response.data, "pro dev box");
+            setProDevAboveText(response.data.proDevAbove);
+            setProDevBelowText(response.data.proDevBelow);
+            setCredentialingText(response.data.credentialing)
+        } catch (error) {
+            console.log('Error retrieving about us text', error.response?.data || error.message)
+        }
+    }
+
+    const getMainButton = async () => {
+        try {
+            const response = await axios.get(`${apiBaseUrl}resources_button.php?timestamp=${new Date().getTime()}`);
+            console.log(response.data, "response.data");
+            setMainButton(response.data);
+        } catch (error) {
+            console.log('Error retrieving about us text', error.response?.data || error.message)
+        }
+    }
+    useEffect(() => {
+        getAboutUsText();
+        getMainButton();
+    }, []);
+
     return (
         <div id="main-content">
 
             <div className="EducatorsContainer1">
                 <div className="EducatorsSection1Container">
                     <h2 className="EducatorsHeading">Professional Development</h2>
-                    <p className="Section1Text">Professional development plays a key role in expanding the CS teacher workforce, addressing equity gaps, recruiting and retaining both new and experienced teachers, and recruiting and retaining diverse students. Quality computer science education is only possible with: </p>
-                    <ul className="Section1UnorderedList">
-                        <li>Diverse, qualified CS educators in every school.</li>
-                        <li>Informed school leader and counselor champions.</li>
-                        <li>Research-based, scalable curriculum intentionally designed to broaden participation in computing.</li>
-                    </ul>
+                    <ReactMarkdown
+                        rehypePlugins={[rehypeRaw]}
+                        components={{
+                            a: ({ node, ...props }) => (
+                                <a {...props} target="_blank" rel="noopener noreferrer">
+                                    {props.children}
+                                </a>
+                            ),
+                        }}
+                        className="Section1Text"
+                    >
+                        {proDevAbove}
+                    </ReactMarkdown>
                     <div className="EducatorsSection2Container">
-                        <Link to={`/winterofcs`} className="EducatorsHeading2">{header}</Link>
-                        <p className="Section2Text1">The {header} is a research-based professional development event for K12 educators, school leaders and school counselors to improve access, participation, equity, and engagement in high-quality computer science education for students historically marginalized in computer science education including women, English-learners, low-income, rural, Black, Latinx, and Indigenous students in all regions of Oregon.</p>
-                        <p className="Section2Text2">The {header} is supported by a grant from the National Science Foundation and the Oregon Department of Education</p>
-
+                        <Link to={mainButton.link} className="EducatorsHeading2">{mainButton.text}</Link>
+                        <ReactMarkdown
+                            rehypePlugins={[rehypeRaw]}
+                            components={{
+                                a: ({ node, ...props }) => (
+                                    <a {...props} target="_blank" rel="noopener noreferrer">
+                                        {props.children}
+                                    </a>
+                                ),
+                            }}
+                            className="Section1Text"
+                        >
+                            {proDevBelow}
+                        </ReactMarkdown>
                     </div>
                 </div>
             </div>
+
             <div className="EducatorsContaier3">
+                <div className='EducatorsSection3Container'>
+                    <h2 className="EducatorsHeading3">Credentialing</h2>
+                    <div className='Section3TextContaier'>
+                        <ReactMarkdown
+                            rehypePlugins={[rehypeRaw]}
+                            components={{
+                                a: ({ node, ...props }) => (
+                                    <a {...props} target="_blank" rel="noopener noreferrer">
+                                        {props.children}
+                                    </a>
+                                ),
+                            }}
+                            className="Section1Text"
+                        >
+                            {credentialing}
+                        </ReactMarkdown>
+                    </div>
+                </div>
+            </div>
+
+            {/* <div className="EducatorsContaier3">
                 <div className='EducatorsSection3Container'>
                     <h2 className="EducatorsHeading3">Credentialing</h2>
                     <div className='Section3TextContaier'>
@@ -46,7 +123,7 @@ export default function Educators() {
                         <p className='Section3Text5'>If you interested in learning more about becoming a ICT CTE teacher or learning about ICT programs of study you can email Arts, Information Communication Technologies Education Specialist Jeff Rhoades at <a href='mailto:jeff.rhoades@ode.oregon.gov'>jeff.rhoades@ode.oregon.gov</a></p>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <EducatorsResources />
         </div>
     );
