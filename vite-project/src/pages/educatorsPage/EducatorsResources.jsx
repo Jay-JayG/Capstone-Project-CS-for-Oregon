@@ -7,7 +7,14 @@ import ECSLogo from '/src/assets/ECS-Logo-.png';
 import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transparent-bkgrnd.webp';
 import SOCS from '/src/assets/SOCS for ALL.png';
 import script_program_logo from '/src/assets/script program.png';
-
+import React from 'react';
+import { useState, useEffect } from "react";
+import axios from 'axios';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+console.log("API Base URL:", apiBaseUrl); // Add this line to verify
+import { Link } from 'react-router-dom';
 
 export default function EducatorsResources() {
     return (

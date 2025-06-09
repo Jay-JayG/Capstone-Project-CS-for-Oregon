@@ -38,6 +38,8 @@ import HomePageAdminPage from './pages/AdminPages/HomePageAdminPage/HomePageAdmi
 import FooterAdminPage from './pages/AdminPages/FooterAdminPage/FooterAdminpage';
 import MarkdownEditor from './pages/MarkdownEditor/MarkdownEditor';
 import StatePolicyAdminPage from './pages/AdminPages/PolicyAdminPage/StatePoliciesAdminPage';
+import NavigationBarAdminPage from './pages/AdminPages/NavigationBarAdminPage/NavigationBarAdminPage';
+import TemplateAdminPage from './Docs/TemplateAdminPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -79,6 +81,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/HomePageAdminPage" element={<HomePageAdminPage />} />
           <Route path="/FooterAdminPage" element={<FooterAdminPage />} />
           <Route path="/StatePolicyAdminPage" element={<StatePolicyAdminPage />} />
+          <Route path="/NavigationBarAdminPage" element={<NavigationBarAdminPage />} />
+          <Route path="/TemplateAdminPage" element={<TemplateAdminPage />} />
         </Routes>
         <Footer />
       </AppProviders>

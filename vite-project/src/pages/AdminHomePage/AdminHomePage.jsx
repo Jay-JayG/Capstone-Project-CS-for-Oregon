@@ -88,7 +88,9 @@ export default function AdminHomePage() {
         { path: '/HomePageAdminPage', title: 'Home Page', description: 'Edit the text displayed on the Home Page.' },
         { path: '/FooterAdminPage', title: 'Footer', description: 'Edit the legal notice displayed on the Footer.' },
         { path: '/StatePolicyAdminPage', title: 'State Policiess', description: 'Add edit and delete the State Policies Boxes on the Policy Page.' },
-        { path: '/MarkdownEditor', title: 'Markdown Editor', description: 'Text Editor with helpful Markdown and Inline HTML formatting buttons.' }
+        { path: '/MarkdownEditor', title: 'Markdown Editor', description: 'Text Editor with helpful Markdown and Inline HTML formatting buttons.' },
+        { path: '/NavigationBarAdminPage', title: 'Navigation Bar', description: 'Edit the title of pages on the Navigation Bar.' },
+        { path: '/TemplateAdminPage', title: 'Template Admin Page', description: 'Example Admin Page to model workflow.' }
     ];
 
     const toggleDropdown = (index) => {
