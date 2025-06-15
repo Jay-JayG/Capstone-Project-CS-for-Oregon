@@ -7,6 +7,20 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
 import { Link } from 'react-router-dom';
 
+const Modal = React.memo(({ isOpen, onClose, children }) => {
+    if (!isOpen) return null;
+    return (
+        <div className="modal-overlay">
+            <div className="modal-content">
+                {children}
+                <button className="modal-close-button" onClick={onClose}>
+                    Close
+                </button>
+            </div>
+        </div>
+    );
+});
+
 export default function ResourcesAdminPage() {
 
     // Pro-Dev and Credentialing
@@ -132,13 +146,16 @@ export default function ResourcesAdminPage() {
         }
     };
 
-    
+
 
     // Teaching & Learning Resources
 
-    const [formData, setFormData] = useState({ logo: null, resource_name: '', url_link: '' });
     const [resources, setResources] = useState([]);
+    const [formData, setFormData] = useState({ logo: null, resource_name: '', url_link: '' });
     const [previewImage, setPreviewImage] = useState(null);
+    const [editData, setEditData] = useState({ logo: null, resource_name: '', url_link: '' }); // Data from the edit modal to update entries already in the database
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
 
     const handleNameInputChange = (event) => {
         setFormData(prevState => ({ ...prevState, resource_name: event.target.value }));
@@ -189,6 +206,33 @@ export default function ResourcesAdminPage() {
         }
     };
 
+    const handleEditSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('resource_name', editData.resource_name);
+            formDataToSend.append('url_link', editData.url_link);
+
+            if (editData.logo instanceof File) {
+                formDataToSend.append('logo', editData.logo);
+            }
+
+            formDataToSend.append('id', editData.id);
+
+            const res = await axios.post(`${apiBaseUrl}resources.php`, formDataToSend, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+            console.log('Uploaded:', res.data);
+            setStatusMessage("Updated successfully!");
+            setTimeout(() => setStatusMessage(""), 3000);
+            setEditData({ logo: null, resource_name: '', url_link: '' });
+            setIsModalOpen(false);
+            fetchResources();
+        } catch (error) {
+            console.error('Upload error:', error);
+        }
+    };
+
     const handleDelete = async (id) => {
         console.log("id", id);
         const userConfirmed = window.confirm("Are you sure you want to delete this Resource?");
@@ -207,6 +251,27 @@ export default function ResourcesAdminPage() {
             console.log(`Error deleting object ${id}:`, error);
         }
     }
+
+    const handleEditChange = (e) => {
+        const { name, type, value, files } = e.target;
+
+        const newValue = type === 'file' ? files[0] : value;
+
+        setEditData(prev => ({
+            ...prev,
+            [name]: newValue
+        }));
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setEditData({});
+    };
+
+    const handleEdit = (item) => {
+        setEditData(item);
+        setIsModalOpen(true);
+    };
 
     return (
         <div className='AdminPageContainer'>
@@ -248,7 +313,7 @@ export default function ResourcesAdminPage() {
                         cols={200}
                     />
                     Button Link<br />
-                    Note if the link points to a page on this site remove https://csfororegon.org or csfororegon.org from the front of it, e.g., https://csfororegon.org/summerOfCS {'=>'} /summerOfCS 
+                    Note if the link points to a page on this site remove https://csfororegon.org or csfororegon.org from the front of it, e.g., https://csfororegon.org/summerOfCS {'=>'} /summerOfCS
                     <textarea
                         className='major-events-form-field'
                         name="link" // Be careful of using "link" for anything else, this "link" is passed as name to the handleChange function.
@@ -412,29 +477,86 @@ export default function ResourcesAdminPage() {
             <br />
             <p className='AdminPageTitle'>Preview Resouce</p>
 
-            <div className='Media1_1Container'>
-                <a className='Media1Link1' href={formData.url_link} target="_blank">
-                    <img className='CSEdu'
+            <div className='MediaCard'>
+                <a className='MediaLink' href={formData.url_link} target="_blank">
+                    <img className='MediaImage'
                         src={previewImage || formData.logo}
                         alt='No Resource Logo/Image Provided' />
                 </a>
-                <a className='Media1Link1' href={formData.url_link} target="_blank">{formData.resource_name}</a>
+                <a className='MediaLink' href={formData.url_link} target="_blank">{formData.resource_name}</a>
             </div>
 
             <p className='AdminPageTitle'>Teaching & Learning Resources</p>
             <div className="MediaSubContainer1">
-                <div className="Media1">
+                <div className="MediaGrid">
                     {resources.length > 0 && Array.isArray(resources) ? (
                         resources.map((resource) => (
-                            <div key={resource.id} className='Media1_1Container'>
-                                <a className='Media1Link1' href={resource.url_link} target="_blank">
-                                    <img className='CSEdu' src={`data:image/jpeg;base64,${resource.logo}`} alt='Computer Science Education Statewide Implementation Plan Photo' />
+                            <div className="MediaCard" key={resource.id}>
+                                <a className='MediaLink' href={resource.url_link} target="_blank" rel="noopener noreferrer">
+                                    <img className='MediaImage' src={`data:image/jpeg;base64,${resource.logo}`} alt={resource.resource_name} />
                                 </a>
-                                <a className='Media1Link1' href={resource.url_link} target="_blank">{resource.resource_name}</a>
-                                <button onClick={() => handleDelete(resource.id)}>Delete</button>
+                                <a className='MediaLink' href={resource.url_link} target="_blank">{resource.resource_name}</a>
+                                <div>
+                                    <button onClick={() => handleEdit(resource)}>Edit</button>
+                                    <button onClick={() => handleDelete(resource.id)}>Delete</button>
+                                </div>
                             </div>))) : (<p>No Resources available.</p>)}
                 </div>
             </div>
+
+            {/* Edit Form*/}
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                {resources && (
+                    <div className="MediaGrid">
+                        <div className='MediaCard'>
+                            <a className='MediaLink' href={editData.url_link} target="_blank">
+                                <img className='MediaImage' src={`data:image/jpeg;base64,${editData.logo}`} alt='Computer Science Education Statewide Implementation Plan Photo' />
+                            </a>
+                            <a className='MediaLink' href={editData.url_link} target="_blank">{editData.resource_name}</a>
+                        </div>
+                    </div>
+                )}
+                <form onSubmit={handleEditSubmit} className="major-events-form">
+                    <span className='policy-admin'>Markdown is supported here. See <a href='https://www.markdownguide.org/basic-syntax/' target='_blank'>Mark Down Tutorial</a> for how to use Markdown.</span>
+                    Image Upload:
+                    <label>
+                        <input
+                            type="file"
+                            name="logo"
+                            accept="image/*"
+                            onChange={handleEditChange}
+                            className="major-events-form-field"
+                        />
+                    </label>
+                    Link Text:
+                    <label>
+                        <textarea
+                            className='major-events-form-field'
+                            name="resource_name"
+                            value={editData.resource_name}
+                            onChange={handleEditChange}
+                            required
+                            rows={2}
+                            cols={200}
+                        />
+                    </label>
+                    Link URL:
+                    <label>
+                        <textarea
+                            className='major-events-form-field'
+                            name="url_link"
+                            value={editData.url_link}
+                            onChange={handleEditChange}
+                            required
+                            rows={1}
+                            cols={200}
+                        />
+                    </label>
+                    <button type="submit">Submit</button>
+                    {statusMessage && <div className='AdminPageTitle'>{statusMessage}</div>}
+                </form>
+            </Modal >
+
         </div>
     )
 }

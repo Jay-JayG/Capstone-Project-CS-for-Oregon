@@ -112,7 +112,7 @@ export default function NewsAdminPage() {
 
     const getObjects = async () => {
         try {
-            const res = await axios.get(`${apiBaseUrl}news.php`);
+            const res = await axios.get(`${apiBaseUrl}news.php?timestamp=${new Date().getTime()}`);
             setObjects(res.data);
         } catch (error) {
             console.log('Error retrieving objects', error);

@@ -107,6 +107,17 @@ export default function TemplateAdminPage() {
         console.log(formData);
     };
 
+    // const handleEditChange = (e) => { // Extra code handles files
+    //     const { name, type, value, files } = e.target;
+
+    //     const newValue = type === 'file' ? files[0] : value;
+
+    //     setEditData(prev => ({
+    //         ...prev,
+    //         [name]: newValue
+    //     }));
+    // };
+
     const handleEditChange = (e) => { // Handles edit form text changes
         const { name, value } = e.target;
         setEditData(prev => ({
