@@ -4,7 +4,7 @@ import './Policy.css';
 
 function PolicySection({ headerText, footerText, imageSrc, imageAlt }) {
   return (
-    <div className="container">
+    <div className="policy-container">
       <div className="text-content">
         <div className="header-textbox">{headerText}</div>
         <div className="footer-textbox">{footerText}</div>

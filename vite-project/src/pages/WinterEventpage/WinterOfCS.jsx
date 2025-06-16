@@ -3,7 +3,7 @@ import StitchingTheLoopLogo from '../../assets/stitching-the-loop-logo-transpare
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
-import { useEventPages } from '../AdminPage/MajorEventsAdminPage/EventPageContext';
+import { useEventPages } from '../AdminPages/MajorEventsAdminPage/EventPageContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify

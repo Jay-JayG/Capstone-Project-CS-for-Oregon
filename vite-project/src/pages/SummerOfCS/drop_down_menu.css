@@ -47,15 +47,15 @@
     border: none;
     background: none;
     display: flex;
-    align-items: center; /* Vertically centers the image and text */
+    align-items: center;
+    /* Vertically centers the image and text */
     justify-content: left;
-    padding: 10px;
 }
 
 .drop-down-button-text {
     font-family: Montserrat;
     font-size: 2.25vh;
-    margin: 1%; 
+    margin: 1%;
     text-align: left;
 }
 
@@ -64,7 +64,8 @@
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 8px;
-  }
+    margin-left: 1vw;
+}
 
 .up {
     transform: rotate(-135deg);
@@ -84,4 +85,9 @@
 .eventimage {
     width: 8%;
     padding: 1%;
+}
+
+.event-title {
+    text-align: left;
+    flex: 1 1 auto;
 }

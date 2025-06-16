@@ -1,0 +1,40 @@
+.tableau-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center the embed horizontally */
+  padding: 1rem; /* Optional: space around the dashboard */
+  box-sizing: border-box;
+}
+
+/* NEW: Target the dynamically injected placeholder */
+.tableauPlaceholder {
+  width: 100%;
+  max-width: 1366px; /* Same as .tableauViz for consistent sizing */
+  display: block;
+}
+
+/* Optional: If needed to fix some browsers */
+.tableau-container .tableauPlaceholder {
+  margin: 0 auto; /* Center the div itself */
+}
+
+.tableauViz {
+  width: 100%;
+  max-width: 1366px; /* Limit maximum width */
+  height: 795px;
+  display: block;
+}
+
+/* Medium screens: adjust height */
+@media (max-width: 800px) {
+  .tableauViz {
+    height: 900px;
+  }
+}
+
+/* Small screens: adjust height even more */
+@media (max-width: 500px) {
+  .tableauViz {
+    height: 1677px;
+  }
+}

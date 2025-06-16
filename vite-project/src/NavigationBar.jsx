@@ -6,7 +6,7 @@ import hamburger from '../src/assets/hamburger.webp';
 import axios from 'axios';
 import x from '../src/assets/x_icon.webp';
 import './NavigationBar.css'
-import { useEventPages } from './pages/AdminPage/MajorEventsAdminPage/EventPageContext';
+import { useEventPages } from './pages/AdminPages/MajorEventsAdminPage/EventPageContext';
 
 const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 console.log("API Base URL:", apiBaseUrl); // Add this line to verify
@@ -177,13 +177,21 @@ export default function NavigationBar() {
                     </div>
                     <div className="item4">
                         <a
-                            href="https://public.tableau.com/app/profile/joel.gochez/viz/shared/TBHHMNNQ9"
-                            className="inactive"
+                            href="https://public.tableau.com/views/OregonComputerScienceEdDataDashboard/Access?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
                             target="_blank"
-                            rel="noopener noreferrer" // Aparently indended to prevent the new tab from being able to access the window.opener property, which could be used to run malicious code.
+                            rel="noopener noreferrer"
+                            className="inactive"
                         >
                             DATA DASHBOARD
                         </a>
+                        {/* <NavLink
+                            to='https://public.tableau.com/app/profile/joel.gochez/viz/CMP_OR_8_26_24/Access'
+                            className={({ isActive }) =>
+                                isActive ? "active" : "inactive"
+                            }
+                        >
+                            DATA DASHBOARD
+                        </NavLink> */}
                     </div>
                     {/* Conditionally render based on isMobile */}
                     {isMobile ? (

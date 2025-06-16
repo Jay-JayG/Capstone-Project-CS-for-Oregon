@@ -1,3 +1,5 @@
+// Currently not in use, replaced by data retrieved form the database.
+
 export default function Section1RightSubsection1() {
     return (
         <div className='Section1RightSubsection1'>

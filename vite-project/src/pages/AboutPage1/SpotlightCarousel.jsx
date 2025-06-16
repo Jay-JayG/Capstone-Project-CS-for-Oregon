@@ -15,48 +15,48 @@ const Carousel = ({ slides }) => {
     ];
 
     const nextSlide = () => {
-    console.log(`nextSlide called, currentIndex: ${currentIndex}`); // Log current index
-    
-    if (currentIndex === clonedSlides.length - 1 || currentIndex === 0) {
-        console.log("At cloned slide, skipping to next real slide.");
-        
-        setIsTransitioning(false); // Temporarily disable transition
-        setCurrentIndex(1); // Skip to the real first slide (after the cloned last slide)
-        
-        setTimeout(() => {
-            setIsTransitioning(true); // Re-enable transition after resetting
-            console.log(`Jumped to real first slide, currentIndex: ${currentIndex}`);
-        }, 50);
-    } else {
-        setIsTransitioning(true); // Allow normal transition for other slides
-        setCurrentIndex(prevIndex => {
-            console.log(`Moving to next slide, currentIndex: ${prevIndex + 1}`);
-            return prevIndex + 1;
-        });
-    }
-};
+        console.log(`nextSlide called, currentIndex: ${currentIndex}`); // Log current index
 
-const prevSlide = () => {
-    console.log(`prevSlide called, currentIndex: ${currentIndex}`); // Log current index
+        if (currentIndex === clonedSlides.length - 1 || currentIndex === 0) {
+            console.log("At cloned slide, skipping to next real slide.");
 
-    if (currentIndex === 0) {
-        console.log("At cloned slide, skipping to previous real slide.");
-        
-        setIsTransitioning(false); // Temporarily disable transition
-        setCurrentIndex(clonedSlides.length - 2); // Jump to the real last slide (before the cloned first slide)
-        
-        setTimeout(() => {
-            setIsTransitioning(true); // Re-enable transition after resetting
-            console.log(`Jumped to real last slide, currentIndex: ${currentIndex}`);
-        }, 50);
-    } else {
-        setIsTransitioning(true); // Allow normal transition for other slides
-        setCurrentIndex(prevIndex => {
-            console.log(`Moving to previous slide, currentIndex: ${prevIndex - 1}`);
-            return prevIndex - 1;
-        });
-    }
-};
+            setIsTransitioning(false); // Temporarily disable transition
+            setCurrentIndex(1); // Skip to the real first slide (after the cloned last slide)
+
+            setTimeout(() => {
+                setIsTransitioning(true); // Re-enable transition after resetting
+                console.log(`Jumped to real first slide, currentIndex: ${currentIndex}`);
+            }, 50);
+        } else {
+            setIsTransitioning(true); // Allow normal transition for other slides
+            setCurrentIndex(prevIndex => {
+                console.log(`Moving to next slide, currentIndex: ${prevIndex + 1}`);
+                return prevIndex + 1;
+            });
+        }
+    };
+
+    const prevSlide = () => {
+        console.log(`prevSlide called, currentIndex: ${currentIndex}`); // Log current index
+
+        if (currentIndex === 0) {
+            console.log("At cloned slide, skipping to previous real slide.");
+
+            setIsTransitioning(false); // Temporarily disable transition
+            setCurrentIndex(clonedSlides.length - 2); // Jump to the real last slide (before the cloned first slide)
+
+            setTimeout(() => {
+                setIsTransitioning(true); // Re-enable transition after resetting
+                console.log(`Jumped to real last slide, currentIndex: ${currentIndex}`);
+            }, 50);
+        } else {
+            setIsTransitioning(true); // Allow normal transition for other slides
+            setCurrentIndex(prevIndex => {
+                console.log(`Moving to previous slide, currentIndex: ${prevIndex - 1}`);
+                return prevIndex - 1;
+            });
+        }
+    };
 
     const togglePlay = () => {
         setIsPlaying(!isPlaying);
