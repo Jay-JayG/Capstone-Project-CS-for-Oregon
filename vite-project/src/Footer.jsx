@@ -32,7 +32,18 @@ function Footer() {
 
     return (
         <footer className='footer'>
+            <div className="footer-disclaimer">
+                <p>
+                    Computer Science for Oregon is supported in part by the National Science Foundation 
+                    under Award No. 2122673 and by funds provided through the Oregon Department of Education's 
+                    Well-Rounded Access Program, funded through a portion of a 5-year, $9.8 million Federal 
+                    Course Access grant. Any opinions, findings and conclusions or recommendations expressed in 
+                    this material are those of the author(s) and do not necessarily reflect the views of the 
+                    National Science Foundation or US Department of Education.
+                </p>
+            </div>
             <div className='container'>
+                
                 <div className='logo-and-links'>
                     <Link to={`/`} className="LogoContainer">
                         <img src={logo} className="logo-image" alt="logo" />
