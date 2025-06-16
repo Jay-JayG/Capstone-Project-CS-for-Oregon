@@ -29,12 +29,13 @@ export default function NavigationBarAdminPage() {
     const [formData, setFormData] = useState({
         title: '',
         link: '',
+        parent: ''
     });
     const [statusMessage, setStatusMessage] = useState('');
     const [editData, setEditData] = useState({
         title: '',
-        text: '',
-        implementation: 1
+        link: '',
+        parent: ''
     });
     const [showNavLinks, setShowNavLinks] = useState(false);
     const toggleNavLinks = () => {
@@ -44,12 +45,14 @@ export default function NavigationBarAdminPage() {
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const { eventPages } = useEventPages();
+    const [loading, setLoading] = useState(true);
 
     const getNavBarElements = async () => {
         try {
             const res = await axios.get(`${apiBaseUrl}navigation_bar.php?timestamp=${new Date().getTime()}`);
             console.log(res.data);
             setNavBarElements(res.data);
+            setLoading(false);
         } catch (error) {
             console.log('Error retrieving Navigation bar elements', error.res?.data || error.message)
         }
@@ -68,6 +71,7 @@ export default function NavigationBarAdminPage() {
             setFormData({
                 title: '',
                 link: '',
+                parent: ''
             });
             getNavBarElements();  // Refresh profiles after upload
         } catch (error) {
@@ -85,6 +89,7 @@ export default function NavigationBarAdminPage() {
             setEditData({
                 title: '',
                 link: '',
+                parent: ''
             });
             setIsModalOpen(false);
             getNavBarElements();
@@ -140,11 +145,14 @@ export default function NavigationBarAdminPage() {
         setIsModalOpen(true);
     };
 
-
-    // const targetId = "1";
-    // const result = navBarElements.find(obj => obj.id === "1").title;
-
-    // console.log(result, "resulfsdjldf");
+    const groupedNavItems = Array.isArray(navBarElements) && navBarElements.length > 0
+  ? navBarElements.reduce((acc, item) => {
+      const parentId = item.parent != null && item.parent !== '' ? String(item.parent) : 'root';
+      if (!acc[parentId]) acc[parentId] = [];
+      acc[parentId].push(item);
+      return acc;
+    }, {})
+  : {};
 
     return (
         <div className='AdminPageContainer-no-pad'>
@@ -182,17 +190,17 @@ export default function NavigationBarAdminPage() {
                             cols={200}
                         />
                     </label>
-                    {/* <label>
+                    Parent:
+                    <label>
                         <textarea
                             className='major-events-form-field'
-                            name="title"
-                            value={formData.title}
+                            name="parent"
+                            value={formData.parent}
                             onChange={handleChange}
-                            required
                             rows={1}
                             cols={200}
                         />
-                    </label> */}
+                    </label>
                     <button type="submit">Submit</button>
                     {statusMessage && <div className='AdminPageTitle'>{statusMessage}</div>}
                 </form>
@@ -203,6 +211,40 @@ export default function NavigationBarAdminPage() {
             <div>Preview:</div>
             <nav className='NavigationBar'>
                 <div className={`OuterContainer ${showNavLinks ? 'OuterContainerExpanded' : 'OuterContainer'}`}>
+                    <nav className="NavLinksContainer">
+                        {loading ? (
+                            <p className="nav-status">Loading navigation items...</p>
+                        ) : (
+                            groupedNavItems["root"]?.map((item) => {
+                                const children = groupedNavItems[item.id] || [];
+
+                                return (
+                                    <div key={item.id} className="nav-item">
+                                        {children.length > 0 ? (
+                                            <div className="dropdown">
+                                                <NavLink to={item.link} className="nav-link">
+                                                    {item.title}
+                                                </NavLink>
+                                                <div className="dropdown-menu">
+                                                    {children.map((child) => (
+                                                        <NavLink key={child.id} to={child.link} className="dropdown-item">
+                                                            {child.title}
+                                                        </NavLink>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <NavLink to={item.link} className="nav-link">
+                                                {item.title}
+                                            </NavLink>
+                                        )}
+                                    </div>
+
+                                );
+                            })
+                        )}
+                    </nav>
+
                     <div className={`NavLinksContainer ${showNavLinks ? 'show' : ''}`} onClick={toggleNavLinks}>
                         {navBarElements.length > 0 && Array.isArray(navBarElements) ? (
                             navBarElements.map((item) => (<div key={item.id}>
@@ -219,98 +261,9 @@ export default function NavigationBarAdminPage() {
                                 <button onClick={() => handleEdit(item)}>Edit</button>
                             </div>
                             ))) : (<p>No Resources available.</p>)}
-                        <div className="item2">
-                            <NavLink
-                                to="/"
-                                className={({ isActive }) =>
-                                    isActive ? "active" : "inactive"
-                                }
-                            >
-                                HOME
-                            </NavLink>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                        </div>
-                        <div className="item3">
-                            <NavLink
-                                to="/about"
-                                className={({ isActive }) =>
-                                    isActive ? "active" : "inactive"
-                                }
-                            >
-                                ABOUT US
-                            </NavLink>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                        </div>
-                        <div className="item4">
-                            <NavLink
-                                to="/educators"
-                                className={({ isActive }) =>
-                                    isActive ? "active" : "inactive"
-                                }
-                            >
-                                RESOURCES FOR K-12 EDUCATORS
-                            </NavLink>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                        </div>
-                        <div className="item4">
-                            <a
-                                href="https://public.tableau.com/views/OregonComputerScienceEdDataDashboard/Access?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inactive"
-                            >
-                                DATA DASHBOARD
-                            </a>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                            {/* <NavLink
-                                        to='https://public.tableau.com/app/profile/joel.gochez/viz/CMP_OR_8_26_24/Access'
-                                        className={({ isActive }) =>
-                                            isActive ? "active" : "inactive"
-                                        }
-                                    >
-                                        DATA DASHBOARD
-                                    </NavLink> */}
-                        </div>
-                        {/* Conditionally render based on isMobile */}
-                        <div className="item-dropdown">
-                            <span className="dropdown">
-                                RESEARCH & POLICY
-                                <div className="dropdown-content">
-                                    <NavLink to="/research" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>RESEARCH</NavLink>
-                                    <NavLink to="/researchAndPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>POLICY</NavLink>
-                                </div>
-                            </span>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                        </div>
-                        <div className="item-dropdown">
-                            <span className="dropdown">
-                                EVENTS
-                                <div className="dropdown-content">
-                                    {eventPages.filter(obj => obj.hidden === "0")
-                                        .map((obj) => (
-                                            <NavLink key={obj.id} to={obj.page_url ? (obj.page_url) : ("/")} style={{ textTransform: 'uppercase' }}>{obj.header}</NavLink>))}
-                                </div>
-                                <br />
-                                <button onClick={() => handleEdit(policy)}>Edit</button>
-                            </span>
-                        </div>
-                        <div className="item3">
-                            <NavLink
-                                to="/news"
-                                className={({ isActive }) =>
-                                    isActive ? "active" : "inactive"
-                                }
-                            >
-                                NEWS
-                            </NavLink>
-                            <br />
-                            <button onClick={() => handleEdit(policy)}>Edit</button>
-                        </div>
+
+
+
                     </div>
                 </div>
             </nav>
@@ -355,17 +308,17 @@ export default function NavigationBarAdminPage() {
                             cols={200}
                         />
                     </label>
-                    {/* <label>
+                    Parent:
+                    <label>
                         <textarea
                             className='major-events-form-field'
-                            name="title"
-                            value={editData.title}
-                            onChange={handleEditChange}
-                            required
+                            name="parent"
+                            value={formData.parent}
+                            onChange={handleChange}
                             rows={1}
                             cols={200}
                         />
-                    </label> */}
+                    </label>
                     <button type="submit">Submit</button>
                     {statusMessage && <div className='AdminPageTitle'>{statusMessage}</div>}
                 </form>
